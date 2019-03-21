@@ -1,0 +1,17 @@
+@import '~sass/mixins';
+:host {
+    display: block;
+    .title {
+        @include etl-font-bold(18px);
+        color: $header-text-color;
+    }
+}
+
+.internal-scroll {
+    overflow-y: visible;
+}
+
+@include customScrl($ele:'.internalScroll');
+.content {
+    @include margin-content;
+}

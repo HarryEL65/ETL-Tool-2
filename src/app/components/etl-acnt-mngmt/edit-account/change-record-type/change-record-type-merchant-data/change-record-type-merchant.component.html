@@ -1,0 +1,55 @@
+<div class="internalScroll" style="max-width: 100%;" [ngStyle]="{'height':isMinimized ? '93vh': '78vh' }">
+
+  <div class="content"  [ngClass]="{'XS': mdqSrv.XS}">
+
+    <!-- ==================== -->
+    <!-- !CHOOSE POPULATION   -->
+    <!-- ==================== -->
+    <wp-etl-choose-population 
+              [maxSlctnRcrdAllowed]='maxSlctnRcrdAllowed'
+              [isMultiSelect]="'true'"
+              [action]="'change-record-type'"
+              [isMultiSelect]="isSuper"
+    			    (affiliateChng)="affiliateChange($event)"
+    			    (selectedAccounts)="activeAccountsSelected($event)"
+              [selected]="dataBody.accounts"
+              [isMultiSelection]="hasMultiSelectPermission">
+    </wp-etl-choose-population>
+    
+    <!-- ===================== -->
+    <!-- !CHOOSE RECORD TYPE   -->
+    <!-- ===================== -->
+    <wp-etl-choose-record-type 
+            [isLoading]="isLoading"
+            (recordTypeEmitter)="dataBody.setRecordType($event)"
+            (startDateEmitter)="setFromDate($event)"
+            (ApplyClickEvent)="modalChangeRcrdType.openModal()"
+            [isBtnEnabled] = "dataBody.accounts.length > 0 && dataBody.accounts.length < maxSlctnRcrdAllowed + 1 ? true : false"
+            [name]="btnText">
+    </wp-etl-choose-record-type>
+
+    <!-- ================ -->
+    <!-- ! MODAL STATUS   -->
+    <!-- ================ -->
+    <wp-etl-modal-status
+            [action]="ACTION.CHANGE_RECORD_TYPE"
+            [status]="status"
+            [data]="resultSet"
+            [mdqSrv]="mdqSrv"
+            [rprtId]="rprtId"
+            [ngClass]="{value: true}"
+            #modalChngRcrdStatus>
+    </wp-etl-modal-status> 
+
+    <!-- ============================ -->
+    <!-- ! MODAL CHANGE RECORD TYPE   -->
+    <!-- ============================ -->
+    <wp-etl-modal-change-record-type id="chng-rcrd-type"
+            (changeRecordsTypeEvent)="changeRecordType($event)" 
+            [(selectedAccounts)]="dataBody.accounts" 
+            #modalChangeRcrdType>
+    </wp-etl-modal-change-record-type>
+
+  </div>
+  
+</div>

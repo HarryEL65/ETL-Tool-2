@@ -1,0 +1,128 @@
+<div #tableWrapperLastRemovedAcc>
+    <ngx-datatable id="last-removed"
+                   class="material"
+                   [rows]="rows"
+                   [loadingIndicator]="lstRmvAcntsAddLoadIndic"
+                   [columnMode]="'force'" 
+                   [headerHeight]="71" 
+                   [rowHeight]= "getRowHeight" 
+                   [scrollbarV]="true"
+                   (activate)="click($event)"
+                   #lastRemovedTable>
+
+                <!-- Row Detail Template -->
+                <ngx-datatable-row-detail class="" [rowHeight]="calculateRowHeight()" #myDetailRow >
+                        <ng-template let-row="row" let-expanded="expanded" ngx-datatable-row-detail-template>
+                                <div class="top-details">
+                
+                                        <div class="details-item-md" [ngClass]="{'XS':mdqSrv.XS, 'SM': mdqSrv.SM}" [ngClass]="{'XS':mdqSrv.XS, 'SM': mdqSrv.SM}">
+                                                <span class="sub-title">Affiliate Program</span>
+                                                <span class="item-text" title="" placement="left" container="body" [ngbTooltip]="row.affiliateProgramName.length > 20? value: ''">{{row.affiliateProgramName | truncate: 20}}</span>
+                                        </div>
+                
+                                        <ng-container *ngIf="mdqSrv.XS || mdqSrv.SM || mdqSrv.MD">
+                                                <div class="details-item-md">
+                                                        <span class="sub-title">Config</span>
+                                                        <!-- <span class="item-text" title="">{{row.affiliateProgramName | truncate: 40}}</span> -->
+                                                        <!-- </div> -->
+                                                        <div class="config" (click)="modalConfig.openModal()">
+                                                                <svg-icon src="/assets/svg/show-config.svg" class="show-config" placement="left" container="body" [ngbTooltip]="'Show Configuration'"></svg-icon>
+                                                        </div>
+                                                        <wp-etl-modal-config id="modal-config"
+                                                                             [mdqSrv]="mdqSrv"
+                                                                             [data]="row['config']"
+                                                                             [title]="row.accName" 
+                                                                             [recordType]="row.recordType" 
+                                                                             [accountId]="row.accID"
+                                                                #modalConfig>
+                                                        </wp-etl-modal-config>
+                                                </div>
+                                        </ng-container>
+                
+                                        <ng-container *ngIf="mdqSrv.XS || mdqSrv.SM || mdqSrv.MD" >
+                                                <div class="details-item-md" [ngClass]="{'XS':mdqSrv.XS, 'SM': mdqSrv.SM}">
+                                                        <span class="sub-title">Made By</span>
+                                                        <span class="item-text" title="" placement="left" container="body" [ngbTooltip]="row.madeByName.length > 21? row.madeByName: ''">{{row.madeByName | truncate: 21}}</span>
+                                                </div>
+                                        </ng-container>
+                
+                                </div>
+                        </ng-template>
+                </ngx-datatable-row-detail>
+                <!-- </ng-container> -->
+                
+                <!-- Column Templates -->
+                <ng-container *ngIf="mdqSrv.XS || mdqSrv.SM || mdqSrv.MD ||  mdqSrv.LG">
+                        <ngx-datatable-column [maxWidth]="50" [resizeable]="false" [draggable]="false" [canAutoResize]="true">
+                                <ng-template let-row="row" let-expanded="expanded" ngx-datatable-cell-template>
+                                        <a href="closeavascript:void(0)" [class.up]="!expanded" [class.down]="expanded" title="Expand/Collapse Row" (click)="toggleExpandRow(row)">
+                                        </a>
+                                </ng-template>
+                        </ngx-datatable-column>
+                </ng-container>
+
+                <ngx-datatable-column name="Date" prop="timeStamp" [minWidth]="150" [maxWidth]="200">
+                    <ng-template ngx-datatable-cell-template let-row="row" let-value="value" let-i="index">
+                            <span class="date-col">{{value}}</span>
+                    </ng-template>
+                </ngx-datatable-column>
+                        
+                <ng-container *ngIf="mdqSrv.XL">
+                        <ngx-datatable-column name="Affiliate Program" prop="affiliateProgramName" [minWidth]="350" [maxWidth]="400">
+                
+                                <ng-template let-column="column" let-sort="sortFn" ngx-datatable-header-template>
+                                        <span>{{column.name}}</span>
+                                </ng-template>
+                                <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+                                        <span class="item-text" title="" placement="left" container="body" [ngbTooltip]="value.length > 40? value: ''">{{value | truncate: 40}}</span>
+                                </ng-template>
+                
+                        </ngx-datatable-column>
+                </ng-container>
+        
+<!--  -->
+
+                <ngx-datatable-column name="Account Name" prop="accName" [minWidth]="600" [maxWidth]="650"  [comparator]="sortAlphaNum"> 
+                        <ng-template ngx-datatable-cell-template let-row="row" let-value="value" let-i="index"> 
+                                <span class="item-text" title="" placement="left" container="body" *ngIf="!mdqSrv.XS" [ngbTooltip]="value.length > 40? value: ''">{{value | truncate: 45}}</span> 
+                                <span class="item-text" title="" placement="left" container="body" *ngIf="mdqSrv.XS" [ngbTooltip]="value.length > 15? value: ''">{{value | truncate: 15}}</span> 
+                        </ng-template> 
+                </ngx-datatable-column> 
+
+<!--  -->
+        
+                <!-- <ngx-datatable-column name="Account Name" prop="accName" [minWidth]="300" [maxWidth]="450" [comparator]="sortAlphaNum">
+                        <ng-template ngx-datatable-cell-template let-row="row" let-value="value" let-i="index">
+                                <span  title="" placement="bottom" container="body" [ngbTooltip]="value.length > 45? value: ''">{{value | truncate: 45}}</span>
+                        </ng-template>
+                </ngx-datatable-column> -->
+        
+                <!-- under md breakboint  we are hiding the column header and cells -->
+                <ng-container *ngIf="mdqSrv.LG ||mdqSrv.XL">
+                        <ngx-datatable-column name="Made By" prop="madeByName" [flexGrow]="1">
+                                <ng-template ngx-datatable-cell-template let-row="row" let-value="value" let-i="index">
+                                        <span class="item-text" title="" placement="left" container="body" [ngbTooltip]="value.length > 21? value: ''">{{value | truncate: 21}}</span>
+                                </ng-template>
+                        </ngx-datatable-column>
+                </ng-container>
+
+                <ng-container *ngIf="mdqSrv.LG ||mdqSrv.XL">
+                        <ngx-datatable-column name="" prop="config" [width]="75" [sortable]="true">
+                                <ng-template ngx-datatable-cell-template let-row="row" let-value="value" let-i="index">
+                                        <div class="config" (click)="modalConfig.openModal()">
+                                                <svg-icon src="/assets/svg/show-config.svg" class="show-config" placement="left" container="body" [ngbTooltip]="'Show Configuration'"></svg-icon>
+                                        </div>
+                                        <wp-etl-modal-config 
+                                                [mdqSrv]="mdqSrv"
+                                                [data]="row['config']" 
+                                                [title]="row.accName" 
+                                                [recordType]="row.recordType" 
+                                                [accountId]="row.accID" 
+                                                #modalConfig>
+                                        </wp-etl-modal-config>
+                                </ng-template>
+                        </ngx-datatable-column>
+                </ng-container>
+
+    </ngx-datatable>
+</div>

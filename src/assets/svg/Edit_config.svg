@@ -1,0 +1,10 @@
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+    <defs>
+        <style>.cls-edit-config{fill:#CED7E0}</style>
+    </defs>
+    <title>Edit Configuration</title>
+    <g id="Group_2" data-name="Group 2">
+        <path  class="cls-edit-config" id="Path_1231" data-name="Path 1231" d="M8.66,8A.67.67,0,0,1,8,7.34V5.43A.67.67,0,0,1,8.2,5L13,.19a.68.68,0,0,1,.94,0h0L15.81,2.1a.67.67,0,0,1,0,.93h0L11,7.8a.67.67,0,0,1-.47.2ZM10.3,6.68l4.1-4.11-1-1L9.33,5.7v1Z"/>
+        <path  class="cls-edit-config" id="Path_1240" data-name="Path 1240" d="M15,8a1,1,0,0,0-1,.89V14H3a1,1,0,0,1-1-.89V2H7a1,1,0,0,0,1-.89V1a1,1,0,0,0-.89-1H1A1,1,0,0,0,0,.89V15a1,1,0,0,0,.89,1H15a1,1,0,0,0,1-.89V9a1,1,0,0,0-.89-1Z"/>
+    </g>
+</svg>

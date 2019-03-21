@@ -1,0 +1,10 @@
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+    <defs>
+        <style>.cls-1{fill:none;}.cls-2{fill:#3E445C}</style>
+    </defs>
+    <title>HP REG</title>
+    <rect class="cls-1" width="16" height="16"/>
+    <g id="icon_home" data-name="icon home">
+        <path id="Path_357" data-name="Path 357" class="cls-2" d="M15.58,5.19l-7-5a1,1,0,0,0-1.16,0l-7,5A1,1,0,0,0,.19,6.58a1,1,0,0,0,1.39.23h0L2,6.52V15a1,1,0,0,0,1,1H13a1,1,0,0,0,1-1V6.52A1.78,1.78,0,0,0,15,7a1,1,0,0,0,.58-1.81ZM12,14H10V11a2,2,0,0,0-4,0v3H4V5.09L8,2.23l4,2.86Z"/>
+    </g>
+</svg>

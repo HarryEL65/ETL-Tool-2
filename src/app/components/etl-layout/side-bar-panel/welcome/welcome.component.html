@@ -1,0 +1,16 @@
+<div class="avatar" [ngClass]="{'only-avatar': state}">
+	<div class="img-wrap" [ngClass]="{'XS': mdqSrv.XS}">
+  		<div class="img-rnd-frame" [ngClass]="{'big-frame':!state, 'small-frame': state}">
+  			<img class="thumbnail-img" src="{{loggedinUser.thumbnail}}" *ngIf="loggedinUser" alt="" [ngClass]="{'small-add-user-img' : state}">
+  		</div>
+	</div>
+</div>
+<div class="welcome-user"  [ngClass]="{'do-show': !state, 'do-hide': state }">  
+  <span class="welcome-txt">WELCOME</span>
+  <span class="user-name" *ngIf="loggedinUser">
+    {{loggedinUser.name}} {{loggedinUser.surname}}
+  </span>
+</div>
+
+<div class="welcome-overlay" [class.show]="showOverlay"></div>
+

@@ -1,0 +1,783 @@
+{
+    "users": [
+        {
+            "name": "amin.m",
+            "email": "amin.m@webpals.com",
+            "channel": ["AddAccount"],
+            "roles": [
+                "admin","merchant"
+            ]
+        },
+        {
+            "name": "dor.p",
+            "email": "dor.p@webpals.com",
+            "channel": [
+                "ImportAccount"
+            ],
+            "roles": [
+                "admin"
+            ]
+        },
+        {
+            "name": "harry.e",
+            "email": "harry.e@webpals.com",
+            "channel": [
+                "AddAccount"
+                ],
+            "roles": [
+                "admin"
+            ]
+        },
+        {
+            "name": "naor.s",
+            "email": "naor.s@webpals.com",
+            "channel": [ "RemoveAccount"],
+            "roles": [
+                "admin"
+            ]
+        },
+        {
+            "name": "shany.s",
+            "email": "shany.s@webpals.com",
+            "channel": ["EditAccount"],
+            "roles": [
+                "admin"
+            ]
+        },
+        {
+            "name": "tal.yagil",
+            "email": "tal.yagil@webpals.com",
+            "channel": ["AddAccount"],
+            "roles": [
+                "admin"
+            ]
+        },
+        {
+            "name": "tomer.ba",
+            "email": "tomer.ba@webpals.com",
+            "channel": [               
+                    "AddAccount", "EditAccount"
+            ],
+            "roles": [
+                "admin"
+            ]
+        },
+        {
+            "name": "yuval.h",
+            "email": "yuval.h@webpals.com",
+            "channel": [
+               "AddAccount", "RemoveAccount", "ChangeMapping"
+               
+            ],
+            "roles": [
+                "admin"
+            ]
+        },
+        {
+            "name": "lev.m",
+            "email": "lev.m@webpals.com",
+            "channel": [
+               "AddAccount"
+            ],
+            "roles": [
+                "admin"
+            ]
+        },
+        {
+            "name": "roni.b",
+            "email": "roni.b@webpals.com",
+            "channel": [],
+            "roles": [
+                "merchant"
+            ]
+        },
+        {
+            "name": "ravit",
+            "email": "ravit@webpals.com",
+            "channel": [],
+            "roles": [
+                "merchant"
+            ]
+        },
+        {
+            "name": "danielle.h",
+            "email": "danielle.h@webpals.com",
+            "channel": [ "AddAccount", "ChangeMapping"],
+            "roles": [
+                "merchant"
+            ]
+        },
+        {
+            "name": "moran.s",
+            "email": "moran.s@webpals.com",
+            "channel": ["RemoveAccount", "ChangeMapping"],
+            "roles": [
+                "merchant"
+            ]
+        },
+        {
+            "name": "sivan.l",
+            "email": "sivan.l@webpals.com",
+            "channel": [],
+            "roles": [
+                "merchant"
+            ]
+        },
+        {
+            "name": "inna.gp",
+            "email": "inna.gp@webpals.com",
+            "channel": [],
+            "roles": [
+                "merchant"
+            ]
+        },
+        {
+            "name": "nurit.o",
+            "email": "nurit.o@webpals.com",
+            "channel": [],
+            "roles": [
+                "super"
+            ]
+        },
+        {
+            "name": "tal",
+            "email": "tal@webpals.com",
+            "channel": [],
+            "roles": [
+                "super"
+            ]
+        },
+        {
+            "name": "temp_roni",
+            "email": "temp_roni@webpals.com",
+            "channel": [
+                {
+                    "name": "AddAccount"
+                }
+            ],
+            "roles": [
+                "merchant"
+            ]
+        },
+        {
+            "name": "merchant1",
+            "email": "merchant1@webpals.com",
+            "channel": [
+                {
+                    "name": "AddAccount"
+                }
+            ],
+            "roles": [
+                "merchant"
+            ]
+        }
+    ],
+    "roles": [
+        {
+            "name": "admin",
+            "permissions": [
+                "*"
+            ],
+            "leftNavMenu": [
+                {
+                    "path": "/home",
+                    "title": "Home Page",
+                    "iconName": "home",
+                    "hasChildren": false,
+                    "level": 1
+                },
+                {
+                    "path": "/acnt-mngmt",
+                    "title": "Account Management",
+                    "iconName": "acnt-mngmt",
+                    "hasChildren": true,
+                    "childrens": [
+                        {
+                            "path": "/acnt-mngmt/add-account",
+                            "title": "Add Account",
+                            "iconName": "add-account",
+                            "hasChildren": false,
+                            "level": 2
+                        },
+                        {
+                            "path": "/acnt-mngmt/remove-account",
+                            "title": "Remove Account",
+                            "iconName": "remove-account",
+                            "hasChildren": false,
+                            "level": 2
+                        },
+                        {
+                            "path": "/acnt-mngmt/edit-account",
+                            "title": "Edit Account",
+                            "iconName": "edit-account",
+                            "hasChildren": true,
+                            "level": 2,
+                            "childrens": [
+                                {
+                                    "path": "/acnt-mngmt/edit-account/change-record-type",
+                                    "title": "Change Record Type",
+                                    "iconName": "change-record-type",
+                                    "hasChildren": false,
+                                    "level": 3
+                                },
+                                {
+                                    "path": "/acnt-mngmt/edit-account/change-mapping",
+                                    "title": "Change Mapping",
+                                    "iconName": "change-mapping",
+                                    "hasChildren": false,
+                                    "level": 3
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "path": "/import",
+                    "title": "Import",
+                    "iconName": "import",
+                    "hasChildren": false
+                },
+                {
+                    "path": "/reruns",
+                    "title": "Reruns",
+                    "iconName": "reruns",
+                    "hasChildren": false
+                },
+                {
+                    "path": "/user-management",
+                    "title": "User Management",
+                    "iconName": "user-management",
+                    "hasChildren": false
+                }
+            ],
+            "reportIdsMenu": {
+                "home": {
+                    "tabs": [
+                        {
+                            "label": "MERCHANT DATA",
+                            "link": "/home/rptId: :merchant-data"
+                        },
+                        {
+                            "label": "WEBPALS MOBILE",
+                            "link": "/home/rptId: :webpals-mobile"
+                        }
+                    ]
+                },
+                "acnt-mngmt": {
+                    "children": {
+                        "add-account": {
+                            "tabs": [
+                                {
+                                    "label": "MERCHANT DATA",
+                                    "link": "/acnt-mngmt/add-account/rptId: :merchant-data"
+                                }
+                            ]
+                        },
+                        "remove-account": {
+                            "tabs": [
+                                {
+                                    "label": "MERCHANT DATA",
+                                    "link": "/acnt-mngmt/remove-account/rptId: :merchant-data"
+                                }
+                            ]
+                        },
+                        "edit-account": {
+                            "children": {
+                                "change-mapping": {
+                                    "tabs": [
+                                        {
+                                            "label": "MERCHANT DATA",
+                                            "link": "/acnt-mngmt/edit-account/change-mapping/rptId: :merchant-data"
+                                        }
+                                    ]
+                                },
+                                "change-record-type": {
+                                    "tabs": [
+                                        {
+                                            "label": "MERCHANT DATA",
+                                            "link": "/acnt-mngmt/edit-account/change-record-type/rptId: :merchant-data"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "reruns": {
+                    "tabs": [
+                        {
+                            "label": "MERCHANT DATA",
+                            "link": "/reruns/rptId::merchant-data"
+                        },
+                        {
+                            "label": "WEBPALS MOBILE",
+                            "link": "/reruns/rptId::webpals-mobile"
+                        }
+                    ]
+                },
+                "import": {
+                    "tabs": [
+                        {
+                            "label": "MERCHANT DATA",
+                            "link": "/import/rptId::merchant-data"
+                        }
+                    ]
+                },
+                "user-management": {
+                    "tabs": [
+                        {
+                            "label": "ALL REPORTS ID",
+                            "link": "/user-management/rptId::all"
+                        }
+                    ]
+                }
+            },
+            "rprtId":"*"
+
+        },
+        {
+            "name": "merchant-dev",
+            "permissions": [
+                "edit_account",
+                "show_merchant_data"
+            ],
+            "leftNavMenu": [
+                {
+                    "path": "/home",
+                    "title": "Home Page",
+                    "iconName": "home",
+                    "hasChildren": false
+                },
+                {
+                    "path": "/acnt-mngmt",
+                    "title": "Account Management",
+                    "iconName": "acnt-mngmt",
+                    "hasChildren": true,
+                    "childrens": [
+                        {
+                            "path": "/acnt-mngmt/add-account",
+                            "title": "Add Account",
+                            "iconName": "add-account",
+                            "hasChildren": false
+                        },
+                        {
+                            "path": "/acnt-mngmt/remove-account",
+                            "title": "Remove Account",
+                            "iconName": "remove-account",
+                            "hasChildren": false
+                        },
+                        {
+                            "path": "/acnt-mngmt/edit-account",
+                            "title": "Edit Account",
+                            "iconName": "edit-account",
+                            "hasChildren": true,
+                            "childrens": [
+                                {
+                                    "path": "/acnt-mngmt/edit-account/change-mapping",
+                                    "title": "Change Mapping",
+                                    "iconName": "change-mapping",
+                                    "hasChildren": false
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "path": "/reruns",
+                    "title": "Reruns",
+                    "iconName": "reruns",
+                    "hasChildren": false
+                }
+            ],
+            "reportIdsMenu": {
+                "home": {
+                    "tabs": [
+                        {
+                            "label": "MERCHANT DATA",
+                            "link": "/home/rptId::merchant-data"
+                        }
+                    ]
+                },
+                "acnt-mngmt": {
+                    "children": {
+                        "add-account": {
+                            "tabs": [
+                                {
+                                    "label": "MERCHANT DATA",
+                                    "link": "/acnt-mngmt/add-account/rptId::merchant-data"
+                                }
+                            ]
+                        },
+                        "remove-account": {
+                            "tabs": [
+                                {
+                                    "label": "MERCHANT DATA",
+                                    "link": "/acnt-mngmt/remove-account/rptId::merchant-data"
+                                }
+                            ]
+                        },
+                        "edit-account": {
+                            "children": {
+                                "change-mapping": {
+                                    "tabs": [
+                                        {
+                                            "label": "MERCHANT DATA",
+                                            "link": "/acnt-mngmt/edit-account/change-mapping/rptId::merchant-data"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "reruns": {
+                    "tabs": [
+                        {
+                            "label": "MERCHANT DATA",
+                            "link": "/reruns/rptId::merchant-data"
+                        }
+                    ]
+                },
+                "import": {
+                    "tabs": [
+                        {
+                            "label": "MERCHANT DATA",
+                            "link": "/import/rptId::merchant-data"
+                        }
+                    ]
+                }
+            },
+            "rprtId":"merchant"
+        },
+        {
+            "name": "super-subId",
+            "permissions": [
+                "show_merchant_data",
+                "add_account",
+                "remove_account",
+                "rerun_account",
+                "cancel_account",
+                "global_go_live",
+                "go_live",
+                "change_record_type"
+            ],
+            "leftNavMenu": [
+                {
+                    "path": "/home",
+                    "title": "Home Page",
+                    "iconName": "home",
+                    "hasChildren": false,
+                    "level": 1
+                },
+                {
+                    "path": "/acnt-mngmt",
+                    "title": "Account Management",
+                    "iconName": "acnt-mngmt",
+                    "hasChildren": true,
+                    "childrens": [
+                        {
+                            "path": "/acnt-mngmt/add-account",
+                            "title": "Add Account",
+                            "iconName": "add-account",
+                            "hasChildren": false
+                        },
+                        {
+                            "path": "/acnt-mngmt/remove-account",
+                            "title": "Remove Account",
+                            "iconName": "remove-account",
+                            "hasChildren": false
+                        },
+                        {
+                            "path": "/acnt-mngmt/edit-account",
+                            "title": "Edit Account",
+                            "iconName": "edit-account",
+                            "hasChildren": true,
+                            "childrens": [
+                                {
+                                    "path": "/acnt-mngmt/edit-account/change-record-type",
+                                    "title": "Change Record Type",
+                                    "iconName": "change-record-type",
+                                    "hasChildren": false
+                                },
+                                {
+                                    "path": "/acnt-mngmt/edit-account/change-mapping",
+                                    "title": "Change Mapping",
+                                    "iconName": "change-mapping",
+                                    "hasChildren": false
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "path": "/import",
+                    "title": "Import",
+                    "iconName": "import",
+                    "hasChildren": false
+                },
+                {
+                    "path": "/reruns",
+                    "title": "Rerun",
+                    "iconName": "reruns",
+                    "hasChildren": false
+                }
+            ],
+            "reportIdsMenu": {
+                "home": {
+                    "tabs": [
+                        {
+                            "label": "MERCHANT DATA",
+                            "link": "/home/rptId::merchant-data"
+                        },
+                        {
+                            "label": "WEBPALS MOBILE",
+                            "link": "/home/rptId::webpals-mobile"
+                        }
+                    ]
+                },
+                "acnt-mngmt": {
+                    "children": {
+                        "add-account": {
+                            "tabs": [
+                                {
+                                    "label": "MERCHANT DATA",
+                                    "link": "/acnt-mngmt/add-account/rptId::merchant-data"
+                                }
+                            ]
+                        },
+                        "remove-account": {
+                            "tabs": [
+                                {
+                                    "label": "MERCHANT DATA",
+                                    "link": "/acnt-mngmt/remove-account/rptId::merchant-data"
+                                }
+                            ]
+                        },
+                        "edit-account": {
+                            "children": {
+                                "change-mapping": {
+                                    "tabs": [
+                                        {
+                                            "label": "MERCHANT DATA",
+                                            "link": "/acnt-mngmt/edit-account/change-mapping/rptId::merchant-data"
+                                        }
+                                    ]
+                                },
+                                "change-record-type": {
+                                    "tabs": [
+                                        {
+                                            "label": "MERCHANT DATA",
+                                            "link": "/acnt-mngmt/edit-account/change-record-type/rptId::merchant-data"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "reruns": {
+                    "tabs": [
+                        {
+                            "label": "MERCHANT DATA",
+                            "link": "/reruns/rptId::merchant-data"
+                        },
+                        {
+                            "label": "WEBPALS MOBILE",
+                            "link": "/reruns/rptId::webpals-mobile"
+                        }
+                    ]
+                },
+                "import": {
+                    "tabs": [
+                        {
+                            "label": "MERCHANT DATA",
+                            "link": "/import/rptId::merchant-data"
+                        }
+                    ]
+                }
+            },
+             "rprtId":"SubId"
+        },
+        {
+            "name": "super-merchant",
+            "permissions": [
+                "show_merchant_data",
+                "add_account",
+                "remove_account",
+                "rerun_account",
+                "cancel_account",
+                "go_live",
+                "change_record_type"
+            ],
+            "leftNavMenu": [
+                {
+                    "path": "/home",
+                    "title": "Home Page",
+                    "iconName": "home",
+                    "hasChildren": false
+                },
+                {
+                    "path": "/acnt-mngmt",
+                    "title": "ACCOUNT MANAGEMENT",
+                    "iconName": "acnt-mngmt",
+                    "hasChildren": true,
+                    "childrens": [
+                        {
+                            "path": "/acnt-mngmt/add-account",
+                            "title": "Add Account",
+                            "iconName": "add-account",
+                            "hasChildren": false
+                        },
+                        {
+                            "path": "/acnt-mngmt/remove-account",
+                            "title": "Remove Account",
+                            "iconName": "remove-account",
+                            "hasChildren": false
+                        },
+                        {
+                            "path": "/acnt-mngmt/edit-account",
+                            "title": "Edit Account",
+                            "iconName": "edit-account",
+                            "hasChildren": true,
+                            "childrens": [
+                                {
+                                    "path": "/acnt-mngmt/edit-account/change-record-type",
+                                    "title": "Change Record Type",
+                                    "iconName": "change-record-type",
+                                    "hasChildren": false
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "path": "/import",
+                    "title": "Import",
+                    "iconName": "import",
+                    "hasChildren": false
+                },
+                {
+                    "path": "/reruns",
+                    "title": "Reruns",
+                    "iconName": "reruns",
+                    "hasChildren": false
+                }
+            ],
+            "reportIdsMenu": {
+                "home": {
+                    "tabs": [
+                        {
+                            "label": "MERCHANT DATA",
+                            "link": "/home/rptId::merchant-data"
+                        }
+                    ]
+                },
+                "acnt-mngmt": {
+                    "children": {
+                        "add-account": {
+                            "tabs": [
+                                {
+                                    "label": "MERCHANT DATA",
+                                    "link": "/acnt-mngmt/add-account/rptId::merchant-data"
+                                }
+                            ]
+                        },
+                        "remove-account": {
+                            "tabs": [
+                                {
+                                    "label": "MERCHANT DATA",
+                                    "link": "/acnt-mngmt/remove-account/rptId::merchant-data"
+                                }
+                            ]
+                        },
+                        "edit-account": {
+                            "children": {
+                                "change-record-type": {
+                                    "tabs": [
+                                        {
+                                            "label": "MERCHANT DATA",
+                                            "link": "/acnt-mngmt/edit-account/change-record-type/rptId::merchant-data"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "reruns": {
+                    "tabs": [
+                        {
+                            "label": "MERCHANT DATA",
+                            "link": "/reruns/rptId::merchant-data"
+                        }
+                    ]
+                }
+            },
+             "rprtId":"merchant"
+        },
+        {
+            "name": "super-webpals-mobile",
+            "permissions": [],
+            "leftNavMenu": [
+                {
+                    "path": "/home",
+                    "title": "Home Page",
+                    "iconName": "home",
+                    "hasChildren": false
+                },
+                {
+                    "path": "/reruns",
+                    "title": "Reruns",
+                    "iconName": "reruns",
+                    "hasChildren": false
+                }
+            ],
+            "reportIdsMenu": {
+                "home": {
+                    "tabs": [
+                        {
+                            "label": "WEBPALS MOBILE",
+                            "link": "/home/rptId::webpals-mobile"
+                        }
+                    ]
+                },
+                "reruns": {
+                    "tabs": [
+                        {
+                            "label": "WEBPALS MOBILE",
+                            "link": "/reruns/rptId::webpals-mobile"
+                        }
+                    ]
+                }
+            },
+             "rprtId":"webpals-mobile"
+        }
+    ],
+    "availableRoles": [
+        {"name":"admin", "rprtId": "*"},
+        {"name":"super-merchant", "rprtId": "merchant"},
+        {"name":"admin-merchant", "rprtId": "merchant"},
+        {"name":"regular-merchant", "rprtId": "merchant"},
+        {"name":"super-playerId", "rprtId": "playerId"},
+        {"name":"admin-playerId", "rprtId": "playerId"},
+        {"name":"super-subId", "rprtId": "subId"},
+        {"name":"admin-subId", "rprtId": "subId"},
+        {"name":"super-webpals-mobile", "rprtId": "webpals-mobile"},
+        {"name":"regular-webpals-mobile", "rprtId": "webpals-mobile"}
+    ],
+    "channels": [
+        "AddAccount",
+        "RerunAccount",
+        "RemoveAccount"
+        ],
+    "permissions": [ 
+        "show_merchant_data",
+        "add_account", 
+        "remove_account", 
+        "rerun_account", 
+        "cancel_account", 
+        "global_go_live", 
+        "go_live", 
+        "change_record_type"
+    ]
+}

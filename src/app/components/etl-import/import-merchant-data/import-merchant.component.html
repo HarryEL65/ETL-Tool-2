@@ -1,0 +1,20 @@
+<div class="internalScroll" style="max-width: 100%;" [ngStyle]="{'height':isMinimized ? '93vh': '78vh' }">
+
+    <div class="content" [ngClass]="{'XS': mdqSrv.XS}">
+
+        <wp-etl-import-files accept=".txt, .csv"
+                             defaultPath="N:\Affiliates\Stats Directory"
+                             (handleFilesEvent)="validateFiles($event)"
+                             (clearFilesEvent)="clearFiles()"
+                             [isValidationReturned] = "isValidationReturned">
+        </wp-etl-import-files>
+        
+        <wp-etl-validation-table *ngIf="validatedFiles.length>0" [loadIndicator]="isValidatedLoading" [rows]="validatedFiles" [status]="ImportStatus.VALIDATED"></wp-etl-validation-table>
+
+        <wp-etl-validation-table *ngIf="warningFiles.length>0" [loadIndicator]="isWarningLoading" [rows]="warningFiles" [status]="ImportStatus.WARNING"></wp-etl-validation-table>
+
+        <wp-etl-validation-table *ngIf="failedFiles.length>0" [loadIndicator]="isFailedLoading" [rows]="failedFiles" [status]="ImportStatus.FAILED"></wp-etl-validation-table>
+
+    </div>
+
+</div>

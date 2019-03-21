@@ -1,0 +1,58 @@
+<ng-template #content let-c="close" let-d="dismiss">
+  <div class="modal-header custom-modal-header">
+    <h4 class="modal-title">{{title}}</h4>
+    <!-- <button type="button" class="close close-btn" aria-label="Close" (click)="d('Cross click'); resetStep()">
+      <span aria-hidden="true">&times;</span>
+    </button> -->
+  </div>
+  
+ 
+  <div *ngIf="step === 1">
+		<!-- <pre>reporId : {{ reporId | json}} </pre> -->
+  	<div class="modal-body custom-modal-body step2" >
+	  	<img class="modal-img" src="/assets/modals/runingAccount.svg" alt="modal_icon" />
+	  	<div class="body-title">
+				<span *ngIf="reporId  === 'MerchantData'" class="body-sub-text-light">Are you sure you want to Rerun</span>
+				<span *ngIf="reporId  === 'DUCM'" class="body-sub-text-light">Are you sure you want to run?</span>
+				<span *ngIf="reporId  === 'DUCM'" class="sub-title">Webpals Mobile data?</span>
+				<div class="aff-name" placement="bottom" [ngbTooltip]="retrieveTooltip().length > 20 ? retrieveTooltip() : ''">
+						{{retrieveTooltip() | truncate: 20}}
+				</div>
+	  		<!-- <span class="aff-name">{{aff_name}}</span> -->
+	  	</div>
+	  	<div class="body-sub-text">
+	  		Since {{data.fromDate}}
+	  	</div>
+	  </div>
+	  <div class="modal-footer custom-modal-footer">
+	    <button type="button" class="btn custom-btn custom-secondary-btn" (click)="c('Close click'); resetStep()">No</button>
+	    <button type="button" class="btn custom-btn custom-primary-btn" (click)="rerun()">Yes</button>
+	  </div>
+  </div>
+  
+  <div *ngIf="step === 2">
+  	<div class="modal-body custom-modal-body step2" >
+	  	<img class="modal-img" src="/assets/modals/rerun_account.svg" alt="modal_icon" />
+	  	<div class="body-title">
+				<span *ngIf="reporId  === 'MerchantData'" class="body-sub-text-light">Running</span>
+				<span *ngIf="reporId  === 'DUCM'" class="body-sub-text-light">Running</span>
+				<span *ngIf="reporId  === 'DUCM'" class="sub-title">Webpals Mobile Data</span>
+				<!-- <span class="aff-name">{{aff_name}}</span> -->
+				<div class="aff-name" placement="bottom" [ngbTooltip]="retrieveTooltip().length > 20 ? retrieveTooltip() : ''">
+						{{retrieveTooltip() | truncate: 20}}
+				</div>
+	  	</div>
+	  	<!-- <div class="body-sub-text">
+	  		Please follow the Rerun status on your home page
+	  	</div> -->
+	  </div>
+	  <div class="modal-footer custom-modal-footer">
+			<!-- <button type="button" class="btn custom-btn custom-secondary-btn" (click)="c('Close click'); resetStep()">Go to Rerun page</button> -->
+			<button *ngIf="reporId  === 'MerchantData'" type="button" class="btn custom-btn custom-primary-btn" (click)="c('Close click')" [routerLink]="['/home/rptId::merchant-data']">Go to Home page</button>
+	    <button *ngIf="reporId  === 'DUCM'" type="button" class="btn custom-btn custom-primary-btn" (click)="c('Close click')" [routerLink]="['/home/rptId::webpals-mobile']">Go to Home page</button>
+	  </div>
+	</div>
+	
+
+    
+</ng-template>

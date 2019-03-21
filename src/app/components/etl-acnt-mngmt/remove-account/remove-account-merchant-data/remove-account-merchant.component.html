@@ -1,0 +1,33 @@
+<div class="internalScroll" style="max-width: 100%;" [ngStyle]="{'height':isMinimized ? '93vh': '78vh'}">
+
+  <div class="content" [ngClass]="{'XS': mdqSrv.XS}">
+
+    <wp-etl-choose-population 
+                  [isMultiSelect]="'true'"
+                  [action]="'remove-account'" 
+    						  (selectedAccounts)="manualAccountsSelected($event)"
+    						  [selected]="dataBody.accounts"
+                  (affiliateChng)="affiliateChange($event)">
+    </wp-etl-choose-population>
+
+    <!-- <button (click)="modalRemove.openModal()"></button> -->
+    <div class="btn-area">
+      <button class="custom-primary-btn" (click)="removeActiveAcount()" [ngClass]="{'disable': dataBody.accounts.length < 1}">Remove Accounts</button>
+      <!-- <button class="custom-primary-btn" (click)="modalRemove.openModal()" [ngClass]="{'disable': !isRmvBtnDisabled}">Remove Accounts</button> -->
+    </div>
+
+    
+
+
+    <!-- <pre>dataBody.accounts: {{ dataBody.accounts | json}} </pre> -->
+    <!-- <wp-etl-modal-remove  [removeAccounts]="dataBody.accounts" (removeAccountEvent)="removeAccounts()" #modalRemove> -->
+    <wp-etl-modal-remove  [(selectedAccounts)]="dataBody.accounts"
+                           (removeAccountEvent)="removeAccounts()"
+                           [routerRef]="router"
+                           #modalRemove>
+    </wp-etl-modal-remove>
+
+  </div>
+
+</div>
+

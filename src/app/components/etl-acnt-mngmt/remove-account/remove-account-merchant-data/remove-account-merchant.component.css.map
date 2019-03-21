@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "remove-account.component.scss"
+    ],
+    "names": [],
+    "file": "remove-account.component.css"
+}

@@ -1,0 +1,103 @@
+@import '~sass/mixins';
+
+::ng-deep wp-etl-checkbox {
+  position: relative;
+}
+
+.mat-progress-bar {
+  position: relative;
+  top: -30px;
+}
+
+.cntr {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  padding: 0!important;
+  border: none!important;
+  // height: 60px!important;
+  margin-bottom: 30px;
+
+
+  input[type="file"] {
+    display: none;
+  }
+// Then all you need to do is style the custom label element. (example).
+.form-group {
+  // margin-bottom: 1rem;
+  display: flex;
+  width: 400px;
+
+  .round-button {
+    position: relative;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    font-size: 36px;
+    line-height: 40px;
+    border-radius: 25px;
+    margin-bottom: 0;
+    background-color: transparent;
+    border: 1px solid;
+    color: $base-light-blue;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    span {
+      display: flex;
+      justify-content: center;
+      font-size: 40px;
+    }
+    &:hover,
+    &:focus {
+      // set default here
+      span {
+
+      }
+    }
+  }
+  .reset-file-selection {
+    @include round-button($base-light-red);
+    span {
+      position: relative;
+      top: -4px;
+    }
+
+  }
+
+  .custom-file-upload {
+    @include round-button($base-light-blue);
+    
+  }
+  .custom-file-upload.upload-disabled,
+  .reset-file-selection.remove-disabled{
+    opacity: 0.3;
+    cursor: none;
+    pointer-events: none;
+  }
+  .add-more-txt {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 20px;
+    margin-right: 20px;
+    
+    .add {
+      @include etl-font-bold(15px);
+    }
+    .num-of-files {
+      @include etl-font-regular(15px);
+    }
+  }
+
+}
+  .file-limitation-msg,
+  .file-type-mismatch-msg {
+    color: $base-light-red;
+    .note {
+        font-weight: 700;
+    }
+}
+
+  
+}

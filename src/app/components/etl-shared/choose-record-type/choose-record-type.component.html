@@ -1,0 +1,35 @@
+<wp-etl-header-area [title]="'CHANGE RECORD TYPE'"></wp-etl-header-area>
+<mat-progress-bar mode="indeterminate" *ngIf="isLoading"></mat-progress-bar>
+<div class="cntr" [ngClass]="{'XL': !mdqSrv.XL, 'LG': !mdqSrv.LG, 'SM': (mdqSrv.SM || mdqSrv.XS)}">
+
+    <div class="choose-dates" [ngClass]="{'SM': (mdqSrv.SM || mdqSrv.XS)}">
+      <div class="date">
+        <label for="record-type">Record Type</label>
+        <ng-select wpEtlInputRef
+                    [ngClass]="{'LG':!mdqSrv.XL, 'XS': mdqSrv.XS}" 
+                    id="record-type"
+                    (change)="getRecordType($event)"
+                    [items]="recordsType" 
+                    [(ngModel)]="recordType"
+                    [disabled]="!isBtnEnabled || isLoading" 
+                    [ngClass]="{'disable': !isBtnEnabled}">
+        </ng-select> 
+      </div>       
+      <div class="date">
+        <label for="rcrd-type-start-date">Start Date</label>
+        <ng-select wpEtlInputRef  
+              [ngClass]="{'LG':!mdqSrv.XL, 'XS': mdqSrv.XS}" 
+              id="rcrd-type-start-date" 
+              (change)="getStartDate($event)" 
+              [items]="dates" 
+              [(ngModel)]="startDate"
+              [disabled]="!isBtnEnabled || isLoading" 
+              [ngClass]="{'disable': !isBtnEnabled}">
+        </ng-select>
+      </div>
+    </div>
+  
+    <div class="btn-area" [ngClass]="{'XS': mdqSrv.XS, 'XL': mdqSrv.XL}" >
+      <button class="custom-primary-btn" (click)="ApplyChangeRecord()" [ngClass]="{'disable': isBtnEnabled==false || isLoading }">{{name}}</button>
+    </div>
+</div>

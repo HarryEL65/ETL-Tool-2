@@ -1,0 +1,174 @@
+@import '~sass/components/tableProgressLinear';
+@import '~sass/mixins';
+
+
+// --------- variable ---------------------
+$table-header-color:  #9EB1C2;
+$failure-color:       $base-light-red;
+$success-color:       $base-light-green;
+
+$table-header-height: 71px;
+$table-row-height:    71px;
+
+$table-header-border: 1px solid $gray-light;
+$table-row-border:    1px solid $base-gray-secondary;
+$table-title:         $base-dark-blue-primary;
+
+// ---------- mixins -----------------------
+@mixin table-header-style {
+    @include etl-font-regular($fontSize: 13px);
+    color:           $gray-light-2;
+    height:          $table-header-height;
+}
+
+@mixin table-row-style {
+    @include etl-font-regular($fontSize: 16px);
+    color:           $base-dark-blue-primary;
+    height:          $table-row-height;
+}
+
+@mixin table-link-style {
+    @include etl-font-semi-bold($fontSize: 16px);
+    color:           $base-dark-blue-primary;
+}
+
+// ----- table scaffold ---------------
+
+::ng-deep .ngx-datatable {
+
+  .datatable-header {
+    border-bottom: 1px solid $base-gray-secondary;
+    @include table-header-style;
+
+    .resize-handle {
+        border-right: solid 2px #eee;
+    }
+
+    .datatable-header-cell {
+
+        .resize-handle:hover {
+            display: inline-block;
+            position: absolute;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            width: 5px!important;
+            padding: 0 4px!important;
+            visibility: hidden;
+        }
+        .resizeable:hover .resize-handle {
+            visibility: visible;
+        }
+
+      vertical-align: center;
+      line-height: $table-header-height;
+
+      .datatable-header-cell-template-wrap {
+        span.header:hover{
+            cursor: pointer;
+        }
+        .datatable-header-cell-label{
+            color: $table-header-color;
+        }
+      }
+    }
+  }
+  
+  .datatable-body {
+    max-height: $table-row-height * 6!important;
+    overflow-x: hidden;
+    min-height: 140px!important;
+    max-height: 497px!important;
+    .empty-row {
+        margin: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: bold;
+        color: yellowgreen;
+        height: 55px;
+    }
+
+   .datatable-body-row:first{
+        border-top: none;
+    }
+    .datatable-body-row {
+
+      border-top: $table-row-border;
+      @include table-row-style;
+      
+      &.datatable-row-even {
+        
+      }
+      &.active {
+        
+      }
+      .datatable-body-cell {
+        .datatable-body-cell-label {
+            line-height: $table-row-height; 
+            display: inline-table;
+            a {
+                &.datatable-icon-right{
+                    @include span-img('/assets/svg/arrow-down.svg');
+                    transform: rotate(-90deg) scale(0.3);
+                    position: relative;
+                    top: 10px;
+                    height: 50px;
+                    width: 50px;
+                    transition: all .5s ease;
+
+                }
+                &.datatable-icon-down {
+                    @include span-img('/assets/svg/arrow-down.svg');
+                    transform: scale(0.3);
+                    position: relative;
+                    top: 10px;
+                    height: 50px;
+                    width: 50px;
+                    transition: all .5s ease;
+                    
+                }
+            }
+        }
+      }
+    }
+    .datatable-row-detail {
+        border: 1px solid rgba(206, 215, 224, 0.5);
+        background-color: lighten($color: #FAFBFC, $amount: 10%);
+        overflow-y: auto!important;
+        ::ng-deep json-editor > div{
+            width: 100%;
+            height: initial;
+        }
+        &::-webkit-scrollbar {
+            width: 8px;
+            background-color: transparent;
+            border-radius: 3px;
+        }
+        &::-webkit-scrollbar-track {
+            /*     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); */
+        }
+        &::-webkit-scrollbar-thumb {
+            background-color: #EBEFF2;
+            outline: 1px solid slategrey;
+        }
+    }
+  }
+
+	.hide {
+	    display: none!important;
+	    width: 0px;
+	}
+	.disabled {
+	    opacity: 0.4;
+	}
+
+	.datatable-body-cell,
+	.datatable-header-cell {
+	    padding-left: 25px!important;
+	    overflow: visible!important;
+	
+	}
+
+
+}

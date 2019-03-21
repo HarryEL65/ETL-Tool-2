@@ -1,0 +1,49 @@
+<wp-etl-header-area [title]="'LOAD FILE'"></wp-etl-header-area>
+
+<mat-progress-bar *ngIf="loadingIndicator" mode="indeterminate"></mat-progress-bar>
+<!-- <pre> isValidationReturned : {{ isValidationReturned }} -->
+<div class="cntr" [ngClass]="{'LG': !mdqSrv.XL, 'SM': (mdqSrv.SM || mdqSrv.XS)}">
+      <form>
+            <div class="form-group">
+                  <label for="file-upload" class="custom-file-upload" [ngClass]="{'upload-disabled': areFilesChoosen}">
+                        <span>+</span>
+                  </label>
+                  <div class="add-more-txt">
+                        <span class="add">Add Files</span>
+                        <span class="num-of-files" *ngIf="areFilesChoosen">{{selectedFiles.length}} files added</span>
+                  </div>
+                  <input id="file-upload"
+                        type="file"
+                        webkitRelativePath="defaultPath"
+                        [accept]="accept"
+                        (change)="handleFilesInput($event.target.files)"
+                        multiple 
+                        #fileInput/>
+                  
+                  <label class="reset-file-selection " (click)="clearFile()" [ngClass]="{'remove-disabled': !areFilesChoosen}">
+                        <span title="" placement="left" container="body" [ngbTooltip]="'Remove All Files'">x</span>
+                  </label>
+                    
+
+            </div>
+            <!--*======================== -->
+            <!--* isRowLimitation message -->
+            <!--*======================== -->
+            <!-- <pre>glabals : {{globals.Action | json}}</pre> -->
+            <div *ngIf="isMaxFilesSelectionExeeded" class="file-limitation-msg">
+                  <span class="note">Note:</span>
+                  <span class="desc"> You can load only {{ maxFilesSelectionAllowed }} files in one session. Please choose files again.</span>
+            </div>
+
+            <!--*=============================== -->
+            <!--* typeMismatchFilesArray message -->
+            <!--*=============================== -->
+            <!-- <pre>glabals : {{globals.Action | json}}</pre> -->
+            <div *ngIf="typeMismatchFilesArray && typeMismatchFilesArray.length >0" class="file-type-mismatch-msg">
+                  <span class="note">Type Mismacth Files</span>
+                  <div *ngFor="let typeMismatchFile of typeMismatchFilesArray">
+                        <span class="desc"> File format isn't correct for "{{typeMismatchFile}}" Please load only TXT files</span>
+                  </div>
+            </div>
+      </form>
+</div>

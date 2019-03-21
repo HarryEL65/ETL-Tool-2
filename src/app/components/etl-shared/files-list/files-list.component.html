@@ -1,0 +1,120 @@
+<div>
+    <!-- <pre>rows: {{rows | json }}</pre> -->
+    <div class="svg-ctnr">
+        <svg-icon src="/assets/svg/file_name.svg" class="file_name"></svg-icon>
+    </div>
+    <!-- <ng-container *ngIf="rows"> -->
+    <!-- [columnMode]="'Standard'"  -->
+    <!-- rows: {{rows | json}} -->
+    <ngx-datatable id="files-list" [rows]="rows" [columnMode]="'flex'" [headerHeight]="64" [rowHeight]="64" [scrollbarV]="true"
+        #filesListTable>
+        <!-- =================== -->
+        <!-- ROW DETAIL Template -->
+        <!-- =================== -->
+        
+        <ngx-datatable-row-detail [rowHeight]="100" #myDetailRow (toggle)="onDetailToggle($event)">
+            <ng-template let-row="row" let-expanded="expanded" ngx-datatable-row-detail-template>
+                <div style="padding-left:35px;">
+                    <div [ngClass]="{'error-title': row.status==='failed', 'warning-title': row.status==='warning'}" >{{getTitle(row)}}</div>
+                    <div [ngClass]="{'error': row.status==='failed', 'warning': row.status==='warning'}">{{row.error}}</div>
+                </div>
+            </ng-template>
+        </ngx-datatable-row-detail>
+
+        <!-- =================== -->
+        <!-- COLUMN Templates -->
+        <!-- =================== -->
+        <ngx-datatable-column [width]="50" [resizeable]="false" [sortable]="false" [draggable]="false" [canAutoResize]="false">
+            <ng-template let-row="row" let-expanded="expanded" ngx-datatable-cell-template>
+                <a *ngIf=" row.status && (row.status==='failed' || row.status==='warning' || row.status.description)" href="javascript:void(0)" [class.up]="!expanded" [class.down]="expanded"
+                    title="Expand/Collapse Row" (click)="toggleExpandRow(row)">
+                </a>
+            </ng-template>
+        </ngx-datatable-column>
+
+
+        <!-- ===================================== -->
+        <!-- File Name  (Action.HOME_PAGE)         -->
+        <!-- ===================================== -->
+            <ngx-datatable-column *ngIf="action===globals.Action.HOME_PAGE" class="header first" name="File Name" prop="name" [flexGrow]="3">
+                <ng-template class="file-name-header" let-column="column" let-sort="sortFn" ngx-datatable-header-template>
+
+                    <span class="header first" (click)="sort()">{{column.name}}</span>
+                </ng-template>
+                <ng-template class="file-name-cell" ngx-datatable-cell-template let-row="row" let-value="value" let-i="index">
+                    <span class="txt-file" *ngIf="mdqSrv.MD || mdqSrv.LG || mdqSrv.XL">{{value}}</span>
+                    <span class="txt-file" *ngIf="mdqSrv.XS || mdqSrv.SM" title="" placement="left" container="body" [ngbTooltip]="value.length > 28? value: ''">{{value | truncate: 28}}</span>
+                </ng-template>
+            </ngx-datatable-column>
+
+        <!-- ============================================= -->
+        <!-- File Name  (Action.HOME_PAGE_IMPORT)          -->
+        <!-- ============================================= -->
+            <ngx-datatable-column *ngIf="action===globals.Action.HOME_PAGE_IMPORT" class="header first" name="Test Name" prop="fileName" [flexGrow]="3">
+                <ng-template class="file-name-header" let-column="column" let-sort="sortFn" ngx-datatable-header-template>
+
+                    <span class="header first" (click)="sort()">{{column.name}}</span>
+                </ng-template>
+                <ng-template class="file-name-cell" ngx-datatable-cell-template let-row="row" let-value="value" let-i="index">
+                    <span class="txt-file" *ngIf="mdqSrv.MD || mdqSrv.LG || mdqSrv.XL">{{value}}</span>
+                    <span class="txt-file" *ngIf="mdqSrv.XS || mdqSrv.SM" title="" placement="left" container="body" [ngbTooltip]="value.length > 28? value: ''">{{value | truncate: 28}}</span>
+                </ng-template>
+            </ngx-datatable-column>
+            
+        <!-- =================== -->
+        <!-- Account Name           -->
+        <!-- =================== -->
+            <ngx-datatable-column *ngIf="action=='change-record-type'" class="header first" name="Account Name" prop="accName" [flexGrow]="3">
+                <ng-template class="file-name-header" let-column="column" let-sort="sortFn" ngx-datatable-header-template>
+
+                    <span class="header first" (click)="sort()">{{column.name}}</span>
+                </ng-template>
+                <ng-template class="file-name-cell" ngx-datatable-cell-template let-row="row" let-value="value" let-i="index">
+                    <span class="txt-file" *ngIf="mdqSrv.MD || mdqSrv.LG || mdqSrv.XL">{{value}}</span>
+                    <span class="txt-file" *ngIf="mdqSrv.XS || mdqSrv.SM" title="" placement="left" container="body" [ngbTooltip]="value.length > 28? value: ''">{{value | truncate: 28}}</span>
+                </ng-template>
+            </ngx-datatable-column>
+
+        <!-- =================== -->
+        <!-- Test Name        -->
+        <!-- =================== -->            
+            <ngx-datatable-column *ngIf="action===globals.Action.IMPORT_FILES" class="header first" name="Test Name" prop="testName" [flexGrow]="3">
+                    <ng-template class="file-name-header" let-column="column" let-sort="sortFn" ngx-datatable-header-template>
+    
+                        <span class="header first" (click)="sort()">{{column.name}}</span>
+                    </ng-template>
+                    <ng-template class="file-name-cell" ngx-datatable-cell-template let-row="row" let-value="value" let-i="rowIndex">
+                        <span class="txt-file" *ngIf="mdqSrv.MD || mdqSrv.LG || mdqSrv.XL">{{i+1}}. {{value}}</span>
+                        <span class="txt-file" *ngIf="mdqSrv.XS || mdqSrv.SM" title="" placement="left" container="body" [ngbTooltip]="value.length > 28? value: ''">{{value | truncate: 28}}</span>
+                    </ng-template>
+            </ngx-datatable-column>            
+
+        <!-- =================== -->
+        <!-- Status Name        -->
+        <!-- =================== -->              
+ 
+            <ngx-datatable-column name="Status" prop="status" [flexGrow]="1">
+                <ng-template let-column="column" let-sort="sortFn" ngx-datatable-header-template>
+                    <span class="header" (click)="sort()">{{column.name}}</span>
+                </ng-template>
+
+                <ng-template let-value="value" let-row="row" ngx-datatable-cell-template>
+                    <ng-container *ngIf="value.description && value.level!==0">
+                       <span class="status failed" style [ngClass]="{'XS': mdqSrv.XS, 'SM': mdqSrv.SM}">failed</span>
+                    </ng-container>
+                    <ng-container *ngIf="!value.description">
+                       <span class="status {{value}}" style [ngClass]="{'XS': mdqSrv.XS, 'SM': mdqSrv.SM}">{{value}}</span>
+                    </ng-container>
+                    <ng-container *ngIf="action!=='change-record-type' && action!=='import-files' && row.status!=='failed'">
+                        <button class="download" (click)="downloadToCSV({ filename: row.name, data: row.report, errMsg: row.errMsg })">
+                            <svg-icon class="svg-download" src="/assets/svg/status/download.svg"></svg-icon>
+                        </button>
+                    </ng-container>
+                </ng-template>
+            </ngx-datatable-column>
+
+
+    </ngx-datatable>
+
+
+</div>

@@ -1,0 +1,11 @@
+@import '~sass/variables';
+@import '~sass/mixins';
+
+.mat-tab-label{
+    @include etl-font-bold($fontSize: 14px);
+    color: $base-dark-blue-secondary !important;
+}
+
+.mat-tab-labels {
+    
+}

@@ -1,0 +1,107 @@
+@import '~sass/variables';
+@import '~sass/mixins';
+
+// --------- variable ---------------------
+$login-header:  $base-dark-blue-primary;
+$login-bckgd-field: $base-beige;
+$login-border-field: $base-dark-blue-black;
+$green-login: $base-light-green;
+$validation-error: $base-light-red;
+
+$login-input-height: 48px;
+$login-input-width: 27vw;
+$login-input-color: $base-dark-blue;
+
+$login-img-width: 42vw;//~0.416
+$login-invalid-input: $base-light-red;
+
+// -----------------------------------------
+
+:host {
+    .isDisabled {color: currentColor; cursor: not-allowed; opacity: 0.5; text-decoration: none;}
+    // circle.mat-progress-spinner , 
+    // circle.mat-spinner {
+    //     stroke: $base-light-green!important
+    // }
+    .login-page{
+        position: relative;
+        .col-sm-5 {margin: 0; padding: 0;
+            img {object-fit: cover; height: 100vh; width: 100%;}
+            .full-logo {
+                position: absolute;
+                left: 100px;
+                top: 80px;
+                height: 40px;
+                width: 106px;
+            }
+        }
+        .col-sm-7 {margin: 0; padding: 0; display: flex; flex-direction: column; justify-content: center; align-items: center;
+            .disabledForm {opacity: 0.5;}
+            .frm-ctnr {height: 40vh; width: 70%; display: flex; flex-direction: column; justify-content: center; align-items: center;
+                h1 {@include etl-font-semi-bold($fontSize: 37px); color: $login-header; line-height: 51px;}
+                p {@include etl-font-regular($fontSize: 18px); line-height: 24px; color: $login-header;}
+                .help-block { color: $login-invalid-input;}
+                form {display: flex; flex-direction: column; @include invalid-field; margin: 30px;
+                    .example-margin { margin: auto;stroke: violet;}
+                    input[type=text],input[type=password] {@include etl-font-regular($fontSize: 15px); line-height: 25px; border: 1px solid $login-border-field; border-radius: 2px;background-color: $login-bckgd-field;height: $login-input-height; width: $login-input-width; padding: 0 25px; color: $login-input-color; -webkit-box-shadow: 0 0 0px 1000px $base-beige inset;}
+                    .settings {display: flex; justify-content: space-between; margin: 40px 0; @include etl-font-regular($fontSize: 15px); color: $base-dark-blue-black;
+                        .form-group:first-of-type {
+                            input[type=checkbox] { top: 2px; position: relative; margin: 0 0.4em 0.4em 0;}
+                        }
+                        a,label {@include etl-font-regular($fontSize: 13px);line-height: 25px;color: $base-dark-blue-black;}
+                        a {text-decoration: underline;
+                            &:hover {color: gray;}
+                        }
+
+                        // custom checkbox
+                        // TODO: create @directive or @component
+                        /* The container */
+                        .container {display: block; position: relative; padding-left: 35px; margin-bottom: 12px; cursor: pointer; font-size: 22px; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; line-height: 16px; @include etl-font-regular($fontSize: 13px);}
+
+                        /* Hide the browser's default checkbox */
+                        .container input {position: absolute; opacity: 0; cursor: pointer;}
+
+                        /* Create a custom checkbox */
+                        .checkmark {position: absolute; top: 0; left: 0; height: 16px; width: 16px; border-radius: 4px; border: 1px solid $base-dark-blue-primary;}
+
+                        /* On mouse-over, add a grey background color */
+                        .container:hover input ~ .checkmark {background-color: #ccc;}
+
+                        /* When the checkbox is checked, add a blue background */
+                        .container input:checked ~ .checkmark {
+                            // background-color: #2196F3;
+                        }
+
+                        /* Create the checkmark/indicator (hidden when not checked) */
+                        .checkmark:after {content: ""; position: absolute; display: none;}
+
+                        /* Show the checkmark when checked */
+                        .container input:checked ~ .checkmark:after {display: block;}
+
+                        /* Style the checkmark/indicator */
+                        .container .checkmark:after {left: 5px; top: 1px; width: 5px; height: 10px; border: solid $base-dark-blue-primary; border-width: 0 3px 3px 0; -webkit-transform: rotate(45deg); -ms-transform: rotate(45deg); transform: rotate(45deg);}
+                        // End custom checkbox
+                    }
+                    .btn-area {display: flex; justify-content: center;
+                        .btn.btn-primary {border-color: transparent;}
+                        .btn-green {height: 48px; width: 192px; text-align: center; text-decoration: none; @include etl-font-regular($fontSize: 16px); color: $base-white; background: $base-light-green; border-radius: 30px; opacity: 1; cursor: pointer;
+                            &:hover{
+                            	background-color: #43AD8A;
+                            }
+                            &:disabled{cursor: auto; opacity: 0.9;
+                            	&:hover{
+                            		background: $base-light-green;
+                            	}
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+circle.mat-progress-spinner, 
+circle.mat-spinner {
+    stroke: $base-light-green!important
+}

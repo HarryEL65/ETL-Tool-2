@@ -1,0 +1,1056 @@
+[
+    {
+        "key": "affiliatecruise  xlmSpela1 06.10.2018",
+        "fileName": "affiliatecruise  xlmSpela1 06.10.2018",
+        "affiliateProgramName": "affiliatecruise",
+        "accName": "affiliatecruise  xlmSpela1",
+        "legalCompany": "XLMedia",
+        "recordType": "daily",
+        "effectiveDate": "06.10.2018",
+        "validationResultMessage": {
+            "resultStatus": "warning",
+            "validationMessageArray": [
+                {
+                    "testName": "Manual Account",
+                    "status": "validated"
+                },
+                {
+                    "testName": "Affiliate Program not found",
+                    "status": "validated"
+                },
+                {
+                    "testName": "Account not found",
+                    "status": "validated"
+                },
+                {
+                    "testName": "Monthly account with Effective Date",
+                    "status": "validated"
+                },
+                {
+                    "testName": "Non-Monthly account without Effective Date",
+                    "status": "validated"
+                },
+                {
+                    "testName": "Unknown Record Type",
+                    "status": "validated"
+                },
+                {
+                    "testName": "Unknown Record Type",
+                    "status": "validated"
+                },
+                {
+                    "testName": "Uniqueness",
+                    "status": "validated"
+                },
+                {
+                    "testName": "Date Format",
+                    "status": "validated"
+                },
+                {
+                    "testName": "Empty Tracker Code",
+                    "status": "validated"
+                },
+                {
+                    "testName": "Long Tracker",
+                    "status": "validated"
+                },
+                {
+                    "testName": "Long Brand",
+                    "status": "validated"
+                },
+                {
+                    "testName": "Date as Brand",
+                    "status": "validated"
+                },
+                {
+                    "testName": "Merchant Revenue > 100K",
+                    "status": "warning"
+                },
+                {
+                    "testName": "Total line exist",
+                    "status": "warning"
+                },
+                {
+                    "testName": "Account already loaded for the effective date",
+                    "status": "warning"
+                }
+            ]
+        }
+    },
+    {
+        "key": "affiliatecruise xlmCJ1 27.10.18",
+        "fileName": "affiliatecruise xlmCJ1 27.10.18",
+        "affiliateProgramName": "affiliatecruise",
+        "accName": "affiliatecruise xlmCJ1",
+        "legalCompany": "XLMedia UK",
+        "recordType": "daily-monthly",
+        "effectiveDate": "27.10.18",
+        "": {
+            "resultStatus": "failed",
+            "validationMessageArray": [
+                {
+                    "testName": "Manual Account",
+                    "status": "failed"
+                },
+                {
+                    "testName": "Affiliate Program not found",
+                    "status": "failed"
+                },
+                {
+                    "testName": "Account not found",
+                    "status": "failed"
+                },
+                {
+                    "testName": "Monthly account with Effective Date",
+                    "status": "failed"
+                },
+                {
+                    "testName": "Non-Monthly account without Effective Date",
+                    "status": "failed"
+                },
+                {
+                    "testName": "Unknown Record Type",
+                    "status": "failed"
+                },
+                {
+                    "testName": "Unknown Record Type",
+                    "status": "failed"
+                },
+                {
+                    "testName": "Uniqueness",
+                    "status": "failed"
+                },
+                {
+                    "testName": "Date Format",
+                    "status": "failed"
+                },
+                {
+                    "testName": "Empty Tracker Code",
+                    "status": "failed"
+                },
+                {
+                    "testName": "Long Tracker",
+                    "status": "failed"
+                },
+                {
+                    "testName": "Long Brand",
+                    "status": "failed"
+                },
+                {
+                    "testName": "Date as Brand",
+                    "status": "failed"
+                },
+                {
+                    "testName": "Merchant Revenue > 100K",
+                    "status": "warning"
+                },
+                {
+                    "testName": "Total line exist",
+                    "status": "warning"
+                },
+                {
+                    "testName": "Account already loaded for the effective date",
+                    "status": "warning"
+                }
+            ]
+        }
+    },
+    {
+        "key": "Affiliates United  aidanward 25.09.18",
+        "fileName": "Affiliates United  aidanward 25.09.18",
+        "affiliateProgramName": "Affiliates United",
+        "accName": "Affiliates United  aidanward",
+        "legalCompany": "XLMedia",
+        "recordType": "daily-monthly",
+        "effectiveDate": "25.09.18",
+        "": {
+            "resultStatus": "failed",
+            "validationMessageArray": [
+                {
+                    "testName": "Manual Account",
+                    "status": "failed"
+                },
+                {
+                    "testName": "Affiliate Program not found",
+                    "status": "failed"
+                },
+                {
+                    "testName": "Account not found",
+                    "status": "failed"
+                },
+                {
+                    "testName": "Monthly account with Effective Date",
+                    "status": "failed"
+                },
+                {
+                    "testName": "Non-Monthly account without Effective Date",
+                    "status": "failed"
+                },
+                {
+                    "testName": "Unknown Record Type",
+                    "status": "failed"
+                },
+                {
+                    "testName": "Unknown Record Type",
+                    "status": "failed"
+                },
+                {
+                    "testName": "Uniqueness",
+                    "status": "failed"
+                },
+                {
+                    "testName": "Date Format",
+                    "status": "failed"
+                },
+                {
+                    "testName": "Empty Tracker Code",
+                    "status": "failed"
+                },
+                {
+                    "testName": "Long Tracker",
+                    "status": "failed"
+                },
+                {
+                    "testName": "Long Brand",
+                    "status": "failed"
+                },
+                {
+                    "testName": "Date as Brand",
+                    "status": "failed"
+                },
+                {
+                    "testName": "Merchant Revenue > 100K",
+                    "status": "warning"
+                },
+                {
+                    "testName": "Total line exist",
+                    "status": "warning"
+                },
+                {
+                    "testName": "Account already loaded for the effective date",
+                    "status": "warning"
+                }
+            ]
+        }
+    },
+    {
+        "key": "Comeon  veikkausvihjeetcom 27.10.18",
+        "fileName": "Comeon  veikkausvihjeetcom 27.10.18",
+        "affiliateProgramName": "Comeon",
+        "accName": "Comeon  veikkausvihjeetcom",
+        "legalCompany": "888",
+        "recordType": "daily-monthly",
+        "effectiveDate": "27.10.18",
+        "": {
+            "resultStatus": "failed",
+            "validationMessageArray": [
+                {
+                    "testName": "Manual Account",
+                    "status": "validated"
+                },
+                {
+                    "testName": "Affiliate Program not found",
+                    "status": "failed"
+                },
+                {
+                    "testName": "Account not found",
+                    "status": "failed"
+                },
+                {
+                    "testName": "Monthly account with Effective Date",
+                    "status": "failed"
+                },
+                {
+                    "testName": "Non-Monthly account without Effective Date",
+                    "status": "failed"
+                },
+                {
+                    "testName": "Unknown Record Type",
+                    "status": "failed"
+                },
+                {
+                    "testName": "Unknown Record Type",
+                    "status": "failed"
+                },
+                {
+                    "testName": "Uniqueness",
+                    "status": "failed"
+                },
+                {
+                    "testName": "Date Format",
+                    "status": "failed"
+                },
+                {
+                    "testName": "Empty Tracker Code",
+                    "status": "failed"
+                },
+                {
+                    "testName": "Long Tracker",
+                    "status": "failed"
+                },
+                {
+                    "testName": "Long Brand",
+                    "status": "failed"
+                },
+                {
+                    "testName": "Date as Brand",
+                    "status": "failed"
+                },
+                {
+                    "testName": "Merchant Revenue > 100K",
+                    "status": "warning"
+                },
+                {
+                    "testName": "Total line exist",
+                    "status": "warning"
+                },
+                {
+                    "testName": "Account already loaded for the effective date",
+                    "status": "warning"
+                }
+            ]
+        }
+    },
+    {
+        "key": "Comeon  veikkausvihjeetcom 27.10.18",
+        "fileName": "Comeon  veikkausvihjeetcom 27.10.18",
+        "affiliateProgramName": "Comeon",
+        "accName": "Comeon  veikkausvihjeetcom",
+        "legalCompany": "myBet",
+        "dealType": "Unknown",
+        "effectiveDate": "27.10.18",
+        "": {
+            "resultStatus": "validated",
+            "validationMessageArray": [
+                {
+                    "testName": "Manual Account",
+                    "status": "validated"
+                },
+                {
+                    "testName": "Affiliate Program not found",
+                    "status": "validated"
+                },
+                {
+                    "testName": "Account not found",
+                    "status": "validated"
+                },
+                {
+                    "testName": "Monthly account with Effective Date",
+                    "status": "validated"
+                },
+                {
+                    "testName": "Non-Monthly account without Effective Date",
+                    "status": "validated"
+                },
+                {
+                    "testName": "Unknown Record Type",
+                    "status": "validated"
+                },
+                {
+                    "testName": "Unknown Record Type",
+                    "status": "validated"
+                },
+                {
+                    "testName": "Uniqueness",
+                    "status": "validated"
+                },
+                {
+                    "testName": "Date Format",
+                    "status": "validated"
+                },
+                {
+                    "testName": "Empty Tracker Code",
+                    "status": "validated"
+                },
+                {
+                    "testName": "Long Tracker",
+                    "status": "validated"
+                },
+                {
+                    "testName": "Long Brand",
+                    "status": "validated"
+                },
+                {
+                    "testName": "Date as Brand",
+                    "status": "validated"
+                }
+            ]
+        }
+    },
+    {
+        "key": "Gala Partners  jafr73 27.10.18",
+        "fileName": "Gala Partners  jafr73 27.10.18",
+        "affiliateProgramName": "Gala Partners",
+        "accName": "Gala Partners  jafr73",
+        "legalCompany": "888",
+        "recordType": "monthly",
+        "effectiveDate": "27.10.18",
+        "": {
+            "resultStatus": "failed",
+            "validationMessageArray": [
+                {
+                    "testName": "Manual Account",
+                    "status": "validated"
+                },
+                {
+                    "testName": "Affiliate Program not found",
+                    "status": "failed"
+                },
+                {
+                    "testName": "Account not found",
+                    "status": "validated"
+                },
+                {
+                    "testName": "Monthly account with Effective Date",
+                    "status": "failed"
+                },
+                {
+                    "testName": "Non-Monthly account without Effective Date",
+                    "status": "validated"
+                },
+                {
+                    "testName": "Unknown Record Type",
+                    "status": "validated"
+                },
+                {
+                    "testName": "Unknown Record Type",
+                    "status": "validated"
+                },
+                {
+                    "testName": "Uniqueness",
+                    "status": "validated"
+                },
+                {
+                    "testName": "Date Format",
+                    "status": "validated"
+                },
+                {
+                    "testName": "Empty Tracker Code",
+                    "status": "failed"
+                },
+                {
+                    "testName": "Long Tracker",
+                    "status": "failed"
+                },
+                {
+                    "testName": "Long Brand",
+                    "status": "failed"
+                },
+                {
+                    "testName": "Date as Brand",
+                    "status": "failed"
+                },
+                {
+                    "testName": "Merchant Revenue > 100K",
+                    "status": "warning"
+                }
+            ]
+        }
+    },
+    {
+        "key": "Impact Radius Canada  kprevost(Wealthsimple) 27.10.18",
+        "fileName": "Impact Radius Canada  kprevost(Wealthsimple) 27.10.18",
+        "affiliateProgramName": "mpact Radius Canada",
+        "accName": "mpact Radius Canada  kprevost(Wealthsimple)",
+        "legalCompany": "myBet",
+        "recordType": "daily-monthly",
+        "effectiveDate": "27.10.18",
+        "": {
+            "resultStatus": "warning",
+            "validationMessageArray": [
+                {
+                    "testName": "Manual Account",
+                    "status": "validated"
+                },
+                {
+                    "testName": "Affiliate Program not found",
+                    "status": "validated"
+                },
+                {
+                    "testName": "Account not found",
+                    "status": "validated"
+                },
+                {
+                    "testName": "Monthly account with Effective Date",
+                    "status": "validated"
+                },
+                {
+                    "testName": "Non-Monthly account without Effective Date",
+                    "status": "validated"
+                },
+                {
+                    "testName": "Unknown Record Type",
+                    "status": "validated"
+                },
+                {
+                    "testName": "Unknown Record Type",
+                    "status": "validated"
+                },
+                {
+                    "testName": "Uniqueness",
+                    "status": "validated"
+                },
+                {
+                    "testName": "Date Format",
+                    "status": "validated"
+                },
+                {
+                    "testName": "Empty Tracker Code",
+                    "status": "validated"
+                },
+                {
+                    "testName": "Long Tracker",
+                    "status": "validated"
+                },
+                {
+                    "testName": "Long Brand",
+                    "status": "validated"
+                },
+                {
+                    "testName": "Date as Brand",
+                    "status": "validated"
+                },
+                {
+                    "testName": "Merchant Revenue > 100K",
+                    "status": "warning"
+                },
+                {
+                    "testName": "Total line exist",
+                    "status": "warning"
+                },
+                {
+                    "testName": "Account already loaded for the effective date",
+                    "status": "warning"
+                }
+            ]
+        }
+    },
+    {
+        "key": "Impactradius  empoweringmedia (Acorns-Invest Spare Change) 27.10.18",
+        "fileName": "Impactradius  empoweringmedia (Acorns-Invest Spare Change) 27.10.18",
+        "affiliateProgramName": "Impactradius",
+        "accName": "Impactradius  empoweringmedia (Acorns-Invest Spare Change)",
+        "legalCompany": "myBet",
+        "recordType": "daily",
+        "effectiveDate": "27.10.18",
+        "": {
+            "resultStatus": "validated",
+            "validationMessageArray": [
+                {
+                    "testName": "Manual Account",
+                    "status": "validated"
+                },
+                {
+                    "testName": "Affiliate Program not found",
+                    "status": "validated"
+                },
+                {
+                    "testName": "Account not found",
+                    "status": "validated"
+                },
+                {
+                    "testName": "Monthly account with Effective Date",
+                    "status": "validated"
+                },
+                {
+                    "testName": "Non-Monthly account without Effective Date",
+                    "status": "validated"
+                },
+                {
+                    "testName": "Unknown Record Type",
+                    "status": "validated"
+                },
+                {
+                    "testName": "Unknown Record Type",
+                    "status": "validated"
+                },
+                {
+                    "testName": "Uniqueness",
+                    "status": "validated"
+                },
+                {
+                    "testName": "Date Format",
+                    "status": "validated"
+                },
+                {
+                    "testName": "Empty Tracker Code",
+                    "status": "validated"
+                },
+                {
+                    "testName": "Long Tracker",
+                    "status": "validated"
+                },
+                {
+                    "testName": "Long Brand",
+                    "status": "validated"
+                },
+                {
+                    "testName": "Date as Brand",
+                    "status": "validated"
+                }
+            ]
+        }
+    },
+    {
+        "key": "Netopartners  TenWinoWB1 27.10.18",
+        "fileName": "Netopartners  TenWinoWB1 27.10.18",
+        "affiliateProgramName": "Netopartners",
+        "accName": "Netopartners  TenWinoWB1",
+        "legalCompany": "Casino",
+        "recordType": "monthly",
+        "effectiveDate": "27.10.18",
+        "": {
+            "resultStatus": "validated",
+            "validationMessageArray": [
+                {
+                    "testName": "Manual Account",
+                    "status": "validated"
+                },
+                {
+                    "testName": "Affiliate Program not found",
+                    "status": "validated"
+                },
+                {
+                    "testName": "Account not found",
+                    "status": "validated"
+                },
+                {
+                    "testName": "Monthly account with Effective Date",
+                    "status": "validated"
+                },
+                {
+                    "testName": "Non-Monthly account without Effective Date",
+                    "status": "validated"
+                },
+                {
+                    "testName": "Unknown Record Type",
+                    "status": "validated"
+                },
+                {
+                    "testName": "Unknown Record Type",
+                    "status": "validated"
+                },
+                {
+                    "testName": "Uniqueness",
+                    "status": "validated"
+                },
+                {
+                    "testName": "Date Format",
+                    "status": "validated"
+                },
+                {
+                    "testName": "Empty Tracker Code",
+                    "status": "validated"
+                },
+                {
+                    "testName": "Long Tracker",
+                    "status": "validated"
+                },
+                {
+                    "testName": "Long Brand",
+                    "status": "validated"
+                },
+                {
+                    "testName": "Date as Brand",
+                    "status": "validated"
+                }
+            ]
+        }
+    },
+    {
+        "key": "OVO Affiliate  DEsocial not active 09.2018",
+        "fileName": "OVO Affiliate  DEsocial not active 09.2018",
+        "affiliateProgramName": "OVO Affiliate",
+        "accName": "OVO Affiliate  DEsocial not active",
+        "legalCompany": "Casino OVO",
+        "recordType": "daily-monthly",
+        "effectiveDate": "09.2018",
+        "": {
+            "resultStatus": "validated",
+            "validationMessageArray": [
+                {
+                    "testName": "Manual Account",
+                    "status": "validated"
+                },
+                {
+                    "testName": "Affiliate Program not found",
+                    "status": "validated"
+                },
+                {
+                    "testName": "Account not found",
+                    "status": "validated"
+                },
+                {
+                    "testName": "Monthly account with Effective Date",
+                    "status": "validated"
+                },
+                {
+                    "testName": "Non-Monthly account without Effective Date",
+                    "status": "validated"
+                },
+                {
+                    "testName": "Unknown Record Type",
+                    "status": "validated"
+                },
+                {
+                    "testName": "Unknown Record Type",
+                    "status": "validated"
+                },
+                {
+                    "testName": "Uniqueness",
+                    "status": "validated"
+                },
+                {
+                    "testName": "Date Format",
+                    "status": "validated"
+                },
+                {
+                    "testName": "Empty Tracker Code",
+                    "status": "validated"
+                },
+                {
+                    "testName": "Long Tracker",
+                    "status": "validated"
+                },
+                {
+                    "testName": "Long Brand",
+                    "status": "validated"
+                },
+                {
+                    "testName": "Date as Brand",
+                    "status": "validated"
+                }
+            ]
+        }
+    },
+    {
+        "key": "OVO Affiliates  mentine 09.2018",
+        "fileName": "OVO Affiliates  mentine 09.2018",
+        "affiliateProgramName": "OVO Affiliates",
+        "accName": "OVO Affiliates  mentine",
+        "legalCompany": "Casino OVO",
+        "recordType": "monthly",
+        "effectiveDate": "09.2018",
+        "": {
+            "resultStatus": "failed",
+            "validationMessageArray": [
+                {
+                    "testName": "Manual Account",
+                    "status": "failed"
+                },
+                {
+                    "testName": "Affiliate Program not found",
+                    "status": "failed"
+                },
+                {
+                    "testName": "Account not found",
+                    "status": "validated"
+                },
+                {
+                    "testName": "Monthly account with Effective Date",
+                    "status": "validated"
+                },
+                {
+                    "testName": "Non-Monthly account without Effective Date",
+                    "status": "validated"
+                },
+                {
+                    "testName": "Unknown Record Type",
+                    "status": "validated"
+                },
+                {
+                    "testName": "Unknown Record Type",
+                    "status": "validated"
+                },
+                {
+                    "testName": "Uniqueness",
+                    "status": "validated"
+                },
+                {
+                    "testName": "Date Format",
+                    "status": "validated"
+                },
+                {
+                    "testName": "Empty Tracker Code",
+                    "status": "failed"
+                },
+                {
+                    "testName": "Long Tracker",
+                    "status": "validated"
+                },
+                {
+                    "testName": "Long Brand",
+                    "status": "validated"
+                },
+                {
+                    "testName": "Date as Brand",
+                    "status": "validated"
+                }
+            ]
+        }
+    },
+    {
+        "key": "OVO Affiliates  mentine 09.2018",
+        "fileName": "OVO Affiliates  mentine 09.2018",
+        "affiliateProgramName": "OVO Affiliates",
+        "accName": "OVO Affiliates  mentine",
+        "legalCompany": "Casino OVO",
+        "recordType": ",montthly",
+        "effectiveDate": "09.2018",
+        "": {
+            "resultStatus": "validated",
+            "validationMessageArray": [
+                {
+                    "testName": "Manual Account",
+                    "status": "validated"
+                },
+                {
+                    "testName": "Affiliate Program not found",
+                    "status": "validated"
+                },
+                {
+                    "testName": "Account not found",
+                    "status": "validated"
+                },
+                {
+                    "testName": "Monthly account with Effective Date",
+                    "status": "validated"
+                },
+                {
+                    "testName": "Non-Monthly account without Effective Date",
+                    "status": "validated"
+                },
+                {
+                    "testName": "Unknown Record Type",
+                    "status": "validated"
+                },
+                {
+                    "testName": "Unknown Record Type",
+                    "status": "validated"
+                },
+                {
+                    "testName": "Uniqueness",
+                    "status": "validated"
+                },
+                {
+                    "testName": "Date Format",
+                    "status": "validated"
+                },
+                {
+                    "testName": "Empty Tracker Code",
+                    "status": "validated"
+                },
+                {
+                    "testName": "Long Tracker",
+                    "status": "validated"
+                },
+                {
+                    "testName": "Long Brand",
+                    "status": "validated"
+                },
+                {
+                    "testName": "Date as Brand",
+                    "status": "validated"
+                }
+            ]
+        }
+    },
+    {
+        "key": "OVO Affiliates  DEsocia not active 09.2018",
+        "fileName": "OVO Affiliates  DEsocia not active 09.2018",
+        "affiliateProgramName": "OVO Affiliates",
+        "accName": "OVO Affiliates  DEsocia not active 09.2018",
+        "legalCompany": "",
+        "recordType": "montthly",
+        "effectiveDate": "09.2018",
+        "": {
+            "resultStatus": "validated",
+            "validationMessageArray": [
+                {
+                    "testName": "Manual Account",
+                    "status": "validated"
+                },
+                {
+                    "testName": "Affiliate Program not found",
+                    "status": "validated"
+                },
+                {
+                    "testName": "Account not found",
+                    "status": "validated"
+                },
+                {
+                    "testName": "Monthly account with Effective Date",
+                    "status": "validated"
+                },
+                {
+                    "testName": "Non-Monthly account without Effective Date",
+                    "status": "validated"
+                },
+                {
+                    "testName": "Unknown Record Type",
+                    "status": "validated"
+                },
+                {
+                    "testName": "Unknown Record Type",
+                    "status": "validated"
+                },
+                {
+                    "testName": "Uniqueness",
+                    "status": "validated"
+                },
+                {
+                    "testName": "Date Format",
+                    "status": "validated"
+                },
+                {
+                    "testName": "Empty Tracker Code",
+                    "status": "validated"
+                },
+                {
+                    "testName": "Long Tracker",
+                    "status": "validated"
+                },
+                {
+                    "testName": "Long Brand",
+                    "status": "validated"
+                },
+                {
+                    "testName": "Date as Brand",
+                    "status": "validated"
+                }
+            ]
+        }
+    },
+    {
+        "key": "OVO Affiliates  DEsocial not active 27.10.18",
+        "fileName": "OVO Affiliates  DEsocial not active 27.10.18",
+        "affiliateProgramName": "OVO Affiliates ",
+        "accName": "OVO Affiliates  DEsocial not active",
+        "legalCompany": "Casino OVO UK",
+        "recordType": "daily",
+        "effectiveDate": "27.10.18",
+        "": {
+            "resultStatus": "validated",
+            "validationMessageArray": [
+                {
+                    "testName": "Manual Account",
+                    "status": "validated"
+                },
+                {
+                    "testName": "Affiliate Program not found",
+                    "status": "validated"
+                },
+                {
+                    "testName": "Account not found",
+                    "status": "validated"
+                },
+                {
+                    "testName": "Monthly account with Effective Date",
+                    "status": "validated"
+                },
+                {
+                    "testName": "Non-Monthly account without Effective Date",
+                    "status": "validated"
+                },
+                {
+                    "testName": "Unknown Record Type",
+                    "status": "validated"
+                },
+                {
+                    "testName": "Unknown Record Type",
+                    "status": "validated"
+                },
+                {
+                    "testName": "Uniqueness",
+                    "status": "validated"
+                },
+                {
+                    "testName": "Date Format",
+                    "status": "validated"
+                },
+                {
+                    "testName": "Empty Tracker Code",
+                    "status": "validated"
+                },
+                {
+                    "testName": "Long Tracker",
+                    "status": "validated"
+                },
+                {
+                    "testName": "Long Brand",
+                    "status": "validated"
+                },
+                {
+                    "testName": "Date as Brand",
+                    "status": "validated"
+                }
+            ]
+        }
+    },
+    {
+        "key": "Premier Gaming  xlmhysport1 27.10.18",
+        "fileName": "Premier Gaming  xlmhysport1 27.10.18",
+        "affiliateProgramName": "Premier Gaming",
+        "accName": "Premier Gaming  xlmhysport1",
+        "legalCompany": "PR DE",
+        "recordType": "daily",
+        "effectiveDate": "27.10.18",
+        "": {
+            "resultStatus": "failed",
+            "validationMessageArray": [
+                {
+                    "testName": "Manual Account",
+                    "status": "validated"
+                },
+                {
+                    "testName": "Affiliate Program not found",
+                    "status": "failed"
+                },
+                {
+                    "testName": "Account not found",
+                    "status": "validated"
+                },
+                {
+                    "testName": "Monthly account with Effective Date",
+                    "status": "validated"
+                },
+                {
+                    "testName": "Non-Monthly account without Effective Date",
+                    "status": "validated"
+                },
+                {
+                    "testName": "Unknown Record Type",
+                    "status": "validated"
+                },
+                {
+                    "testName": "Unknown Record Type",
+                    "status": "validated"
+                },
+                {
+                    "testName": "Uniqueness",
+                    "status": "validated"
+                },
+                {
+                    "testName": "Date Format",
+                    "status": "validated"
+                },
+                {
+                    "testName": "Empty Tracker Code",
+                    "status": "validated"
+                },
+                {
+                    "testName": "Long Tracker",
+                    "status": "validated"
+                },
+                {
+                    "testName": "Long Brand",
+                    "status": "validated"
+                },
+                {
+                    "testName": "Date as Brand",
+                    "status": "validated"
+                }
+            ]
+        }
+    }
+]

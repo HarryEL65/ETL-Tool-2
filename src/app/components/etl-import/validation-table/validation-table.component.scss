@@ -1,0 +1,104 @@
+
+@import '~sass/components/tables';
+@import '~sass/components/buttons';
+@import '~sass/mixins';
+
+.ngx-datatable {
+    height: $table-row-height * 4;
+}
+wp-etl-checkbox {
+    top: 0!important;
+    position: absolute;
+}
+
+.custom-info-circle {
+    position: relative;
+    // top: 22px;
+    width: 20px;
+    height: 20px;
+    font-size: 14px;
+    line-height: 20px;
+    border-radius: 10px;
+    margin-bottom: 0;
+    background-color: $base-dark-blue;
+    border-color:$base-dark-blue;
+    border: 1px solid;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    cursor: pointer;
+    .info {
+      display: flex;
+      justify-content: center;
+      font-size: 40px;
+      font-size: 14px;
+    font-family: monospace;
+    }
+    &:hover,
+    &:focus {
+
+      background: #3E445C;
+      border-color:#3E445C;
+      .info {
+        color:#37B6E5;
+
+      }
+    }
+  }
+
+.btn-area {
+    display: flex;
+    height: 100px;
+    align-items: center;
+    justify-content: center;
+    margin-right: 20px;
+
+    button {
+        width: 150px;
+        height: 50px;
+        border-radius: 25px;
+        border-style: hidden;
+        // border: 1px;
+        @include etl-font-regular(13px);
+
+        &.disable {
+            opacity: 0.65; 
+            cursor: not-allowed;
+            background-color: $base-gray-secondary;
+            pointer-events: none;
+        }
+    }
+  
+    &.validated .custom-primary-btn {
+        background-color: $base-light-green;
+        border-color: $base-light-green;
+    }
+    &.warning .custom-primary-btn {
+        background-color: $base-orange;
+        border-color: $base-orange;
+    }
+    &.failed .custom-primary-btn {
+        background-color: $base-light-red;
+        border-color: $base-light-red;
+    }
+}
+
+::ng-deep ngx-datatable .datatable-icon-up { 
+    @extend .fa;
+    @extend .fa-arrow-up;
+}
+::ng-deep ngx-datatable .datatable-icon-down {
+    @extend .fa;
+    @extend .fa-arrow-down;
+}
+
+@include customScrl();
+
+.date-col {
+    @include etl-font-regular($fontSize: 14px);
+}
+::ng-deep ngx-datatable .datatable-body-row .datatable-body-cell{    // display:contents!important;
+    line-height: 71px;
+    height: 71px;
+}

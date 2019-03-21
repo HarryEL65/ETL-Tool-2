@@ -1,0 +1,53 @@
+<div class="internalScroll" style="max-width: 100%;" [ngStyle]="{'height':isMinimized ? '93vh': '78vh' }">
+
+  <div class="content" [ngClass]="{'XS': mdqSrv.XS}">
+
+    <!-- ====================================== -->
+    <!-- !COMPONENT: CHOOSE POPULATION          -->
+    <!-- ====================================== -->
+    <wp-etl-choose-population 
+                    [isMultiSelect]="'true'"
+                    [action]="'add-account'" 
+    				        (selectedAccounts)="manualAccountsSelected($event)"
+                    (affiliateChng)="affiliateChange($event)"
+                    (isLoadingAfterNewAffiliate)="isLoading($event)"
+                    [selected]="dataBody.accounts"
+                    (jsonLikeList)="updateJsonLikeList($event)">
+    </wp-etl-choose-population>
+
+
+    <!-- ====================================== -->
+    <!-- !COMPONENT: CHOOSE CONFIGURATION       -->
+    <!-- ====================================== -->
+    <wp-etl-choose-configuration 
+                    [ngClass]="{'XS': mdqSrv.XS}"
+                    [isLoading]="isNewAffiliatesDataLoading" 
+                    (jsonLikeSelected)="jsonLikeSelected($event)"
+                    [selected]="dataBody.accounts">
+    </wp-etl-choose-configuration>
+
+
+    <!-- ====================================== -->
+    <!-- !COMPONENT: CHOOSE DATES          -->
+    <!-- ====================================== -->
+    <wp-etl-choose-dates 
+                    (dateFrom)="dataBody.setFromDate($event)" 
+                    (dateTo)="dataBody.setToDate($event)" 
+                    (btnClickEvent)="addAccount()"
+                    (testEvent)="testAccounts()"
+                    [isBtnEnabled] = "isManualSlctd==true && isJsonLikeSlctd==true && isJsonValid==true && (dataBody.accounts.length > 0 && dataBody.accounts.length < 21 ? true : false)"
+                    [name]="btnTxt">
+    </wp-etl-choose-dates>
+
+    <!-- ====================================== -->
+    <!-- !COMPONENT: MODAL TESTING              -->
+    <!-- ====================================== -->
+    <wp-etl-modal-testing 
+                    id="add-acc-modal" (testAccountEvent)="testAccounts()"
+                    [(selectedAccounts)]="dataBody.accounts" 
+                    [routerRef]="router"
+                    #modalTesting>
+    </wp-etl-modal-testing>
+
+  </div>
+</div>

@@ -1,0 +1,12 @@
+@import '~sass/variables';
+
+@each $placement in 'left' 'right' 'top' 'bottom' {
+    ::ng-deep  ngb-tooltip-window.bs-tooltip-#{$placement}  {
+        div.arrow::before {
+            border-#{$placement}-color: $base-dark-blue-primary!important;
+        }
+        .tooltip-inner {
+            background-color: $base-dark-blue-primary;
+        }
+    }  
+}

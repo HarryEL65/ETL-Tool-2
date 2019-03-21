@@ -1,0 +1,15 @@
+<!-- define the whole stucture of the ETL application -->
+<mat-sidenav-container [@routerTransition]>
+  <mat-sidenav #sidenav mode="side" opened [ngClass]="{'collapsed': isCollapsed, 'normal': !isCollapsed, 'XS': mdqSrv.XS}">
+    <wp-etl-side-bar-panel [state]="isCollapsed" (expand)="doExpand($event)" [ngClass]="{'collapsed': isCollapsed, 'normal': !isCollapsed}">
+    </wp-etl-side-bar-panel>
+  </mat-sidenav>
+  <mat-sidenav-content #sidenavContent [ngClass]="{'expanded': isCollapsed , 'normal': !isCollapsed, 'XS': mdqSrv.XS}">
+    <wp-etl-message-area *ngIf="systemMessage && systemMessage.length>0" [messages]="systemMessage"></wp-etl-message-area>
+    <wp-etl-header></wp-etl-header>
+    <wp-etl-content-area [ngClass]="{'expanded': isCollapsed , 'normal': !isCollapsed}">
+        <wp-etl-hamburger [sideNavRef]="sidenav" [sideNavContent]="sidenavContent"></wp-etl-hamburger>
+    </wp-etl-content-area>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+<wp-etl-downtime-overlay [messages]="systemMessage"></wp-etl-downtime-overlay>

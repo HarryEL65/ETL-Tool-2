@@ -1,0 +1,176 @@
+<div *ngIf="step===0" class="stage0" >
+ 
+  <div class="stage-img">
+    <img src="assets/modals/addAccntCancelation.svg" alt="">
+  </div>
+ 
+  <div class="question-title">
+    <div class="small">Are you sure you want to cancel adding</div>
+    <!-- //todo: replace with account name -->
+    <div class="big" placement="bottom" [ngbTooltip]="accName">{{ accName | truncate: 25}}?</div>
+  </div>
+ 
+  <div class="desc">
+    <div class="details">Your selection will not go live</div>
+    <div class="details">& will not be saved </div>
+  </div>
+ 
+  <div class="btns-area">
+   
+    <button class="go-live custom-primary-btn" (click)="revertAccount()">Revert Action</button>
+  </div>
+
+ 
+</div>
+
+<div *ngIf="step===1" class="stage1">
+  
+    <!-- <mat-progress-bar mode="indeterminate"></mat-progress-bar> -->
+ 
+  <div class="stage-img">
+    <img src="assets/modals/testEndedSuccessfuly.svg" alt="">
+  </div>
+ 
+  <div class="question-title">
+    <div class="small">Go Live with</div>
+    <!-- //todo: replace with account name -->
+    <div class="big" placement="bottom" [ngbTooltip]="accName">{{ accName | truncate: 25}}?</div>
+  </div>
+ 
+  <div class="date-area">
+    <div class="date-title">The account will go live on:</div>
+    <div class="date">{{currentDate.todayShort}}</div>
+  </div>
+ 
+  <div class="btns-area">
+    <button class="revert custom-secondary-btn" (click)="goToAreYouSure()">Revert Account</button>
+    <button class="go-live custom-primary-btn" (click)="goLive()">Go Live</button>
+  </div>
+
+  <div class="run-now">Run now?</div>
+ 
+</div>
+ 
+<div *ngIf="isError" class="error">
+  <div class="error-msg">
+    <span class="msg">Oh Snap!</span>
+    <span class="desc">Something went wrong while processing your</span>
+    <i class="fa fa-times" (click)="closeErrorMsg()"></i>
+  </div>
+</div>
+ 
+<div *ngIf="step===2" class="stage2">
+    <!-- <mat-progress-bar mode="indeterminate"></mat-progress-bar> -->
+ 
+  <div class="stage-img">
+    <img src="assets/modals/addAccountLIVE.svg" alt="">
+  </div>
+ 
+  <div class="question-title">
+    <div class="small">Great!!</div>
+    <div class="big">The account is Live now</div>
+  </div>
+ 
+  <div class="date-area">
+    <div class="date-title">The account will go live on:</div>
+    <div class="date">{{currentDate.todayShort}}</div>
+  </div>
+ 
+  <div class="btns-area">
+    <button class="revert custom-disabled-btn">Revert Account</button>
+    <button class="go-live custom-disabled-btn">Go Live</button>
+    </div>
+ 
+  <button class="run-now" (click)="runNow()">Run now?</button>
+ 
+</div>
+ 
+<div *ngIf="step===3" class="stage3" >
+    <!-- <mat-progress-bar mode="indeterminate"></mat-progress-bar> -->
+ 
+  <div class="stage-img">
+    <img src="assets/modals/runingAccount.svg" alt="">
+  </div>
+ 
+  <div class="question-title">
+    <div class="small">Run now</div>
+ 
+    <div class="big" placement="bottom" [ngbTooltip]="accName">{{ accName | truncate: 25}}</div>
+  </div>
+ 
+    <div class="date-area">
+      <div class="date-title">Please choose a range of date to run the account</div>
+ 
+    <div class="month-picker">
+      <ng-template #rt let-r="result" let-t="term">
+          {{ r.val}}
+      </ng-template>
+      <div class="form-group run-from">
+        
+        <div class="row">
+          <div class="col-xs-3">
+            <div class="form-group">
+
+                <label for="run-from">Run From:</label>
+                <ng-select wpEtlInputRef 
+                  id="run-from"
+                  (change)="getFromDateSelection($event)" 
+                  class="" 
+                  [items]="dates"
+                  [(ngModel)]="selectedRunFrom">
+                </ng-select>
+                
+              </div>
+            </div>
+          </div>
+
+      </div> 
+      <!-- model: {{dates | json}} -->
+      <div class="form-group run-to">
+        
+        <div class="row">
+          <div class="col-xs-3">
+            <div class="form-group">
+
+              <!-- selectedRunTo -{{selectedRunTo | json}} -->
+                <label for="run-to">Run To:</label>
+                <ng-select  wpEtlInputRef
+                            id="run-to" 
+                            (change)="getToDateSelection($event)" 
+                            class=""
+                            [items]="toDates" 
+                            [(ngModel)]="selectedRunTo">
+                </ng-select>
+              </div>
+            </div>
+          </div>
+      </div> 
+    </div>
+  </div>
+  <div class="btns-area">
+    <button class="go-live custom-primary-btn" (click)="runNowFinal()">Run now</button>
+  </div>
+</div>
+ 
+ 
+ 
+<div *ngIf="step===4" class="stage4" [@routerTransition]>
+  
+  <div class="stage-img">
+    <img src="assets/svg/illustrations/rerun_account.svg" alt="">
+  </div>
+   <div class="question-title">
+    <div class="big">The account is running now</div>
+  </div>
+ 
+  <div class="msg-area">
+    <div class="title">Please check the QV in order to see the files</div>
+     
+  </div>
+ 
+  <div class="btns-area">
+    <button class="ok custom-primary-btn" (click)="finalClose()">OK</button>
+  </div>
+ 
+    
+</div>

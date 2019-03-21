@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,KAAK,CAAA;EACH,OAAO,EAAE,KAAK;EAEd,KAAK,EAAE,IAAI;CACZ",
+    "sources": [
+        "content-area.component.scss"
+    ],
+    "names": [],
+    "file": "content-area.component.css"
+}

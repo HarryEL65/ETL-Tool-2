@@ -1,0 +1,75 @@
+@import '~sass/mixins';
+//@import '~sass/variables';
+
+:host{
+  display: block;
+  height: $data-type-area !important;
+  background: $header-bckgd;
+  
+}
+::ng-deep .mat-tab-list {
+
+}
+::ng-deep .mat-tab-nav-bar {
+  background: white;
+}
+
+::ng-deep .mat-tab-group.mat-primary .mat-ink-bar, 
+::ng-deep .mat-tab-nav-bar.mat-primary .mat-ink-bar{
+  background-color: #37B6E5!important;
+  height: 4px;
+  // left: 54px!important;
+  // width: 125px!important;
+}
+::ng-deep .mat-tab-label:nth-of-type(1) {
+  left: 30px;
+}
+
+
+::ng-deep .mat-tab-group {
+  position: relative;
+  // left: 30px;
+}
+
+::ng-deep .mat-tab-label-content {
+  color: $base-dark-blue-secondary;
+  @include etl-font-bold(14px);
+}
+
+::ng-deep .mat-tab-links {
+  margin-top: 24px;
+}
+
+::ng-deep a.mat-tab-link {
+	 color: #3E445C!important;
+	 @include etl-font-bold(14px);
+	 text-decoration: inherit; /* no underline */
+   opacity: 1;
+  //  height: 50px;
+	 &.hide-tab{display: none;}
+}
+
+
+::ng-deep .mat-tab-labels {
+  // user-select: none;
+  position: relative;
+  &:after {
+    width: 100%;
+    height: 100%;
+    content: "";
+    top: 0;
+    left: 0;
+    position: absolute;
+  }
+}
+
+::ng-deep .mat-tab-label:nth-of-type(1){
+  opacity: 1;
+  color: $base-dark-blue-primary;
+}
+
+::ng-deep .mat-tab-label:nth-of-type(n+2) {
+  // opacity: 0.1;
+}
+
+

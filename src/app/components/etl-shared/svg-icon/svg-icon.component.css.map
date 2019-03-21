@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,KAAK,CAAC;EACJ,OAAO,EAAE,YAAY;CAMtB;;AAPD,AAGE,KAHG,CAGH,GAAG,CAAC;EACF,OAAO,EAAE,YAAY;EACrB,GAAG,EAAE,OAAO;CACb",
+    "sources": [
+        "svg-icon.component.scss"
+    ],
+    "names": [],
+    "file": "svg-icon.component.css"
+}

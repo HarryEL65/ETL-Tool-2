@@ -1,0 +1,7 @@
+<div id="app-overlay" [ngClass]="{'close': !isError,'open': isError}">
+  <!-- <a href="#" class="closeBtn" (click)="closeOverlay($event)">&times;</a> -->
+  <div class="overlay-content">
+      <span> ERROR: {{messagesAsString}}</span>
+      <span> We appologize for the inconvenience!</span>
+  </div>
+</div>

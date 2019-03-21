@@ -1,0 +1,65 @@
+<ng-template #content let-c="close" let-d="dismiss">
+    <div class="modal-header custom-modal-header">
+      <h4 class="modal-title">{{title}}</h4>
+      <button type="button" class="close close-btn" aria-label="Close" (click)="d('Cross click'); resetStep()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <mat-progress-bar *ngIf="loadingIndicator" mode="indeterminate"></mat-progress-bar>
+   <!-- =====================  -->
+   <!-- STEP 1 (Are you sure)  -->
+   <!-- =====================  -->
+    <div *ngIf="step === 1">
+      <div class="modal-body custom-modal-body step2" >
+        <img class="modal-img" src="/assets/modals/loadfiles.svg" alt="modal_icon" />
+        <div class="body-title">
+          <span *ngIf="reportId  === 'MerchantData'" class="body-sub-text-light">Are you sure you want to load {{numberOfFiles}} files to the DWH?</span>
+        </div>
+
+        <div class="body-title">
+          <span *ngIf="status  === 'warning'" class="body-sub-text-light warning">Please note: some of the files you are trying to load have "Validation" Warnings!</span>
+        </div>
+
+      </div>
+      <div class="modal-footer custom-modal-footer">
+        <button type="button" class="btn custom-btn custom-secondary-btn" (click)="c('Close click'); resetStep()">No</button>
+        <button type="button" class="btn custom-btn custom-primary-btn" [ngClass]="{'disabled': isOkBtnDisabled}"  (click)="uploadFiles()">Yes</button>
+      </div>
+    </div>
+
+   <!-- ================  -->
+   <!-- STEP 2 (Success)  -->
+   <!-- ================  -->
+    <div *ngIf="step === 2">
+      <div class="modal-body custom-modal-body step2" >
+        <img class="modal-img" src="/assets/modals/testEndedSuccessfuly.svg" alt="modal_icon" />
+        <div class="body-title">
+          <span *ngIf="reportId  === 'MerchantData'" class="body-sub-text-light">All {{numberOfFiles}} files were loaded and waiting for the DWH to collect</span>
+        </div>
+        
+      </div>
+      <div class="modal-footer custom-modal-footer">
+        <button *ngIf="reportId  === 'MerchantData'" type="button" class="btn custom-btn custom-primary-btn" (click)="c('Close click')" [routerLink]="['/home/rptId::merchant-data']">Go to Home page</button>
+      </div>
+    </div>
+
+   <!-- ================  -->
+   <!-- STEP 3 (Failure)  -->
+   <!-- ================  -->
+    <div *ngIf="step === 3">
+      <div class="modal-body custom-modal-body step3" >
+        <img class="modal-img" src="/assets/modals/testFailed.svg" alt="modal_icon" />
+        <div class="body-title">
+          <span *ngIf="reportId  === 'MerchantData'" class="body-sub-text-light">Something went wrong.</span>
+          <span *ngIf="reportId  === 'MerchantData'" class="body-sub-text-light">Please try again</span>
+          
+        </div>
+      </div>
+      <div class="modal-footer custom-modal-footer">
+        <button *ngIf="reportId  === 'MerchantData'" type="button" class="btn custom-btn custom-primary-btn" (click)="c('Close click')">OK</button>
+      </div>
+    </div>
+    
+  
+      
+</ng-template>

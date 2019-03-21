@@ -1,0 +1,308 @@
+<!-- ===================== -->
+<!--! HEADER AREA Component-->
+<!-- ===================== -->
+<wp-etl-header-area [title]="'CHOOSE POPULATION'" ></wp-etl-header-area>
+
+<!-- ============================= -->
+<!--! SECOND LEVEL FILTER Component-->
+<!-- ============================= -->
+<wp-etl-second-level-filter 
+            [ngClass]="{'XS': mdqSrv.XS, 'SM': mdqSrv.SM, 'MD': mdqSrv.MD}"
+            [accountsName]="manulaAccntsName"
+            (affiliatesChanged)="changeLoadingIndicator()"
+            (filterData)="filterManualAccntsTable($event)">
+</wp-etl-second-level-filter>
+
+<!-- ==================== -->
+<!-- THE POPULATION TABLE -->
+<!-- ==================== -->
+
+<div #tableWrapper class="population-tbl">
+  <!--*===============  -->
+  <!-- TABLE DEFINITION -->
+  <!--*===============  -->
+  <ngx-datatable
+              id="populationTable"
+              [ngClass]="{'isEmpty': rows.length === 0}"
+              class="material"
+              [rows]="rows"
+              [loadingIndicator]="loadingIndicator"
+              [columnMode]="'force'"
+              [headerHeight]="71"
+              [rowHeight]="71"
+              [scrollbarV]=true
+              [scrollbarH]=false
+              [selected]="selected"
+              [selectionType]="'checkbox'"
+              (activate)="click($event)"
+              (select)="onSelect($event)"
+              #table>
+    <!--*==================== -->
+    <!--* ROW DETAIL TEMPLATE -->
+    <!--*==================== -->    
+    <ngx-datatable-row-detail [rowHeight]="calculateRowHeight()" #myDetailRow >
+
+        <ng-template let-row="row" let-expanded="expanded" ngx-datatable-row-detail-template>
+
+          <ng-container *ngIf="!mdqSrv.XL">
+
+              <div class="top-details">
+
+                <!--! Account Sap ID -->
+                <div class="details-item-md" [ngClass]="{'XS': mdqSrv.XS, 'SM': mdqSrv.SM}">
+                    <span class="sub-title">Account Sap ID</span>
+                    <span class="item-text" title="">{{ row.accSapID }}</span>
+                </div>            
+
+                <!--! Site Link -->
+                <div class="details-item-md" *ngIf="action!==this.globals.Action.REMOVE_ACCOUNT" [ngClass]="{'XS': mdqSrv.XS, 'SM': mdqSrv.SM}">
+                    <span class="sub-title">Site Link</span>
+                    <a [href]="value" class="item-text" style="color: #0070E0;" target="blank">
+                        <span title="" placement="left" container="body" [ngbTooltip]="row.visitSite.length > 20? row.visitSite: ''">{{ row.visitSite | truncate: 20}}</span>
+                    </a>
+                    <div class="link-cntr" style="top: 0; display: inline-block;">
+                      <i class="fa fa-link"  placement="left" container="body" [ngbTooltip]="'Copy Link'" (click)='copyLinkToClipBoard($event, row.visitSite)' style="cursor: pointer;color:lightgrey;position: relative;top: 8px;font-size: 40px;"></i>
+                  </div>
+                </div>
+
+                <!--! Config  -->
+                <div class="details-item-md" *ngIf="globals.Action.REMOVE_ACCOUNT" [ngClass]="{'XS': mdqSrv.XS, 'SM': mdqSrv.SM}">
+                    <span class="sub-title">Config</span>
+                    <div class="config" (click)="modalConfig.openModal()">
+                        <svg-icon src="/assets/svg/show-config.svg" class="show-config" placement="left" container="body" [ngbTooltip]="'Show Configuration'"></svg-icon>
+                    </div>
+                    <!-- ======================== -->
+                    <!--! MODAL CONFIG Component  -->
+                    <!-- ======================== -->                    
+                    <wp-etl-modal-config 
+                                id="modal-config" 
+                                [mdqSrv]="mdqSrv"
+                                [data]="row['config']" 
+                                [title]="row.accName" 
+                                [recordType]="row.recordType" 
+                                [accountId]="row.accID"
+                                #modalConfig>
+                    </wp-etl-modal-config>
+                </div>
+
+                <!--! recordType  -->
+                <div class="details-item-md" *ngIf="action!==globals.Action.ADD_ACCOUNT && (mdqSrv.XS || mdqSrv.SM)" [ngClass]="{'XS': mdqSrv.XS, 'SM': mdqSrv.SM}">
+
+                  <span class="sub-title">Record Type</span>
+                  <span title="" class="item-text" placement="bottom" container="body" [ngbTooltip]="row.recordType.length > 25? row.recordType: ''">{{ row.recordType | truncate: 25}}</span>
+                </div>
+
+                <!--! dealType -->
+                <div class="details-item-md" *ngIf="action==globals.Action.ADD_ACCOUNT || action===globals.Action.CHANGE_RECORD_TYPE && (mdqSrv.XS || mdqSrv.SM)" [ngClass]="{'XS': mdqSrv.XS}">
+                    <span class="sub-title">Deal Type</span>
+                    <span title="" class="item-text" placement="bottom" container="body" [ngbTooltip]="row.dealType.length > 25? row.dealType: ''">{{ row.dealType | truncate: 25}}</span>
+                    <!-- <span title="" class="item-text" placement="bottom" container="body" [ngbTooltip]="row.dealType.length > 25? row.dealType: ''">{{ row.dealType | truncate: 25}}</span> -->
+                </div>
+
+                <!--! Last Run -->
+                <div class="details-item-md" *ngIf="action==globals.Action.RERUN_ACCOUNT && (mdqSrv.XS || mdqSrv.SM || mdqSrv.MD)" [ngClass]="{'XS': mdqSrv.XS, 'SM': mdqSrv.SM}">
+                    <span class="sub-title">Last Run</span>
+                    <span title="" class="item-text" placement="bottom" container="body" [ngbTooltip]="row.timeStamp.length > 25? row.timeStamp: ''">{{ (row.timeStamp | customDateTimeFormat) | truncate: 25}}</span>
+                </div>
+
+              </div>
+                
+          </ng-container>
+          
+          <!--! JSON-EDITOR Component  -->
+          <ng-container *ngIf="action===globals.Action.CHANGE_MAPPING ">
+            <div>
+              <div class="json-editor-header">{{row.accName}}</div>
+              <json-editor id="{{row.accID}}"[options]="editorOptions" [data]="row.config" #jsoneditor></json-editor>
+            </div>
+          </ng-container>
+
+        </ng-template>
+    </ngx-datatable-row-detail>
+    
+    <!--*======================= -->
+    <!--* COLUMN EXPAND/COLLAPSE -->
+    <!--*======================= -->
+    <ng-container *ngIf="!mdqSrv.XL || action===globals.Action.CHANGE_MAPPING ">
+        <ngx-datatable-column 
+          [minWidth]="25"
+          [maxWidth]="50"
+          [resizeable]="false"
+          [sortable]="false"
+          [draggable]="false"
+          [canAutoResize]="true">
+          <ng-template let-row="row" let-expanded="expanded" ngx-datatable-cell-template>
+              <a
+                href="javascript:void(0)"
+                [class.up]="!expanded"
+                [class.down]="expanded"
+                title="Expand/Collapse Row"
+                (click)="toggleExpandRow(row)">
+              </a>
+          </ng-template>
+        </ngx-datatable-column>
+    </ng-container>
+
+    <!--*================= -->
+    <!--* COLUMN TEMPLATES -->
+    <!--*================= -->
+
+    <!--* selection row/header -->
+    <ngx-datatable-column [minWidth]="25" [maxWidth]="50" [sortable]="true" [canAutoResize]="true" [draggable]="false" [resizeable]="false">
+      <!--! all row selection checkbox header -->
+      <ng-template ngx-datatable-header-template let-value="value" let-allRowsSelected="allRowsSelected" let-selectFn="selectFn">
+        <!-- =================== -->
+        <!--! CHECKBOX Component -->
+        <!-- =================== -->
+        <wp-etl-checkbox *ngIf="action==this.globals.Action.REMOVE_ACCOUNT" [name]="'all'" [isChecked]="allRowsSelected" (inputChange)="selectFn(!allRowsSelected)"></wp-etl-checkbox>
+      </ng-template>
+      <!--! row selection checkbox -->
+      <ng-template #selectTemplate ngx-datatable-cell-template let-row="row" let-value="value" let-isSelected="isSelected" let-onCheckboxChangeFn="onCheckboxChangeFn">
+        <!-- =================== -->
+        <!--! CHECKBOX Component -->
+        <!-- =================== -->
+        <wp-etl-checkbox [data]="row.accID" [name]="row.accName" placement="right" [ngbTooltip]="row.accName.length > 42? row.accName: ''"
+          [isChecked]="isSelected" (inputChange)="onCheckboxChangeFn($event)"></wp-etl-checkbox>
+      </ng-template>
+    </ngx-datatable-column>
+
+    <!--! Account Name : accName - (action===this.globals.Action.REMOVE_ACCOUNT)-->
+    <ngx-datatable-column *ngIf="(action===this.globals.Action.REMOVE_ACCOUNT)" name="Account Name" prop="accName" [minWidth]="500" [maxWidth]="600"
+      [canAutoResize]="true" [sortable]="true">
+      <ng-template ngx-datatable-cell-template let-row="row" let-value="value" let-i="index">
+        <span title="" placement="right" [ngbTooltip]="value.length > 48? value: ''">{{ value | truncate: 48}}</span>
+        <!-- the toolip is comming from the checkbox  -->
+      </ng-template>
+    </ngx-datatable-column>
+
+    <!--! Account Name : accName - (action===globals.Action.CHANGE_MAPPING )-->
+    <ngx-datatable-column *ngIf="(action===globals.Action.CHANGE_MAPPING )" name="Account Name" prop="accName" [minWidth]="500" [maxWidth]="600" [canAutoResize]="true" [sortable]="true">
+      <ng-template ngx-datatable-cell-template let-row="row" let-value="value" let-i="index">
+        <span title="" placement="right" [ngbTooltip]="value.length > 48? value: ''">{{ value | truncate: 48}}</span>
+       <!-- the toolip is comming from the checkbox  --> 
+      </ng-template>
+    </ngx-datatable-column>
+
+    <!--! Account Name : accName - (action===globals.Action.CHANGE_RECORD_TYPE-->
+    <ngx-datatable-column *ngIf="action===globals.Action.CHANGE_RECORD_TYPE" name="Account Name" prop="accName" [minWidth]="350" [maxWidth]="450" [canAutoResize]="true" [sortable]="true">
+        <ng-template ngx-datatable-cell-template let-row="row" let-value="value" let-i="index">
+          <span title="" placement="bottom" container="body" [ngbTooltip]="value.length > 42? value: ''">{{ value | truncate: 42}}</span>
+           <!-- the toolip is comming from the checkbox  --> 
+        </ng-template>
+    </ngx-datatable-column>
+
+    <!--! Account Name : accName - (action==globals.Action.ADD_ACCOUNT)-->
+    <ngx-datatable-column *ngIf="action==globals.Action.ADD_ACCOUNT" name="Account Name" prop="accName" [minWidth]="450" [maxWidth]="550"
+      [canAutoResize]="true" [sortable]="true">
+      <ng-template ngx-datatable-cell-template let-row="row" let-value="value" let-i="index">
+        <span title="" placement="bottom" container="body" [ngbTooltip]="value.length > 42? value: ''">{{ value | truncate: 42}}</span>
+        <!-- the toolip is comming from the checkbox  -->
+      </ng-template>
+    </ngx-datatable-column>
+
+    <!--! Account Name : accName-->      
+    <ngx-datatable-column *ngIf="action===globals.Action.RERUN_ACCOUNT" name="Account Name" prop="accName" [minWidth]="350" [maxWidth]="450"
+      [canAutoResize]="true" [sortable]="true">
+      <ng-template ngx-datatable-cell-template let-row="row" let-value="value" let-i="index">
+        <span title="" placement="right" container="body" [ngbTooltip]="value.length > 45? value: ''">{{ value | truncate: 45}}</span>
+        <!-- the toolip is comming from the checkbox  -->
+      </ng-template>
+    </ngx-datatable-column>
+
+    <!--! Account Sap ID : accSapID -->
+    <ng-container *ngIf="mdqSrv.XL">
+      <ngx-datatable-column name="Account Sap ID" prop="accSapID" [minWidth]="150" [maxWidth]="200" [canAutoResize]="true"></ngx-datatable-column>
+    </ng-container>
+
+
+    <!--! Deal type : dealType -->
+    <ngx-datatable-column *ngIf="(action===globals.Action.ADD_ACCOUNT || action===globals.Action.CHANGE_RECORD_TYPE) && !(mdqSrv.XS || mdqSrv.SM)" name="Deal Type"
+      prop="dealType" [minWidth]="200" [maxWidth]="350" [canAutoResize]="true" [sortable]="true">
+      <ng-template ngx-datatable-cell-template let-row="row" let-value="value" let-i="index">
+        <span title="" *ngIf="mdqSrv.MD" placement="bottom" container="body" [ngbTooltip]="value.length > 40? value: ''">{{ value | truncate: 30}}</span>
+        <span title="" *ngIf="mdqSrv.LG" placement="bottom" container="body" [ngbTooltip]="value.length > 40? value: ''">{{ value | truncate: 40}}</span>
+        <span title="" *ngIf="mdqSrv.XL" placement="bottom" container="body" [ngbTooltip]="value.length > 25? value: ''">{{ value | truncate: 25}}</span>
+      </ng-template>
+    </ngx-datatable-column>
+
+    <!--! Record Type : recordType -->
+    <ng-container *ngIf="action!==globals.Action.ADD_ACCOUNT && action!==globals.Action.RERUN_ACCOUNT">
+      <ngx-datatable-column *ngIf="!(mdqSrv.XS || mdqSrv.SM)" name="Record Type" prop="recordType" [width]="150" [sortable]="true">
+        <ng-template ngx-datatable-cell-template let-row="row" let-value="value" let-i="index">
+          <span title="" placement="bottom" container="body" [ngbTooltip]="value.length > 25? value: ''">{{ value | truncate: 25}}</span>
+        </ng-template>
+      </ngx-datatable-column>
+    </ng-container>
+
+    <!--! Record Type : recordType - (action==globals.Action.RERUN_ACCOUNT)-->
+    <ng-container *ngIf="action==globals.Action.RERUN_ACCOUNT">
+      <ngx-datatable-column *ngIf="!(mdqSrv.XS || mdqSrv.SM)" name="Record Type" prop="recordType" [minWidth]="150" [maxWidth]="200"
+        [sortable]="true">
+        <ng-template ngx-datatable-cell-template let-row="row" let-value="value" let-i="index">
+          <span title="" placement="bottom" container="body" [ngbTooltip]="value.length > 25? value: ''">{{ value | truncate: 25}}</span>
+        </ng-template>
+      </ngx-datatable-column>
+    </ng-container>
+
+    <!--! Last Run : timeStamp -->
+    <ngx-datatable-column *ngIf="action==globals.Action.RERUN_ACCOUNT && (mdqSrv.LG || mdqSrv.XL)" name="Last Run" prop="timeStamp" [minWidth]="150"
+      [maxWidth]="200" [sortable]="true">
+    
+      <ng-template ngx-datatable-cell-template let-row="row" let-value="value" let-i="index">
+        <span title="">{{ value | customDateTimeFormat }}</span>
+      </ng-template>
+    </ngx-datatable-column>
+
+    <ng-container *ngIf="mdqSrv.XL">
+    
+      <!--! Site Link : visitSite -->
+      <ngx-datatable-column *ngIf="action!==this.globals.Action.REMOVE_ACCOUNT" name="Site Link" prop="visitSite" [minWidth]="400" [maxWidth]="500"
+        [sortable]="true">
+        <ng-template let-value="value" ngx-datatable-cell-template let-row="row" let-isSelected="isSelected">
+          <a [href]="value" style="display:block!important; color: #0070E0;" target="blank">
+            <span title="" placement="left" container="body" [ngbTooltip]="value.length > 35? value: ''">{{ value | truncate: 35}}</span>
+          </a>
+          <div class="link-cntr">
+            <i class="fa fa-link" placement="left" container="body" [ngbTooltip]="'Copy Link'" (click)='copyLinkToClipBoard($event, row.visitSite)'
+              style="cursor: pointer;color:lightgrey;position: relative;top: 8px;font-size: 40px;"></i>
+          </div>
+        </ng-template>
+      </ngx-datatable-column>
+    
+    </ng-container>
+
+    <!--! config -->
+    <ng-container *ngIf="action==this.globals.Action.REMOVE_ACCOUNT && mdqSrv.XL">
+
+      <ngx-datatable-column name="Config" prop="config" [width]="35" [sortable]="true">
+        <ng-template ngx-datatable-cell-template let-row="row" let-value="value" let-i="index">
+            <div class="config" (click)="modalConfigRmv.openModal()">
+                <svg-icon src="/assets/svg/show-config.svg" class="show-config" placement="left" container="body" [ngbTooltip]="'Show Configuration'"></svg-icon>
+            </div>
+
+            <!--! MODAL CONFIG Component -->
+            <wp-etl-modal-config 
+                        id="modal-config" 
+                        [data]="row['config']" 
+                        [title]="row.accName"
+                        [mdqSrv]="mdqSrv"
+                        [recordType]="row.recordType"
+                        [accountId]="row.accID" 
+                        #modalConfigRmv>
+            </wp-etl-modal-config>
+
+        </ng-template>
+      </ngx-datatable-column>
+
+    </ng-container>
+    
+  </ngx-datatable>
+  
+  <!--*======================== -->
+  <!--* isRowLimitation message -->
+  <!--*======================== -->
+  <!-- <pre>glabals : {{globals.Action | json}}</pre> -->
+  <div *ngIf="isRowLimitation && selected.length > maxSlctnRcrdAllowed" class="row-limitation-msg">
+    <span class="note">Note:</span><span class="desc"> you can choose up to {{ maxSlctnRcrdAllowed}} accounts to {{action === globals.CHANGE_RECORD_TYPE || action === globals.CHANGE_MAPPING ? 'add' : 'rerun'}}. Are currently selected </span><span class="note">{{selected.length}}</span>
+  </div>
+</div>

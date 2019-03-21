@@ -1,0 +1,32 @@
+<wp-etl-header-area [title]="'CHOOSE CONFIGURATION'"></wp-etl-header-area>
+
+<div class="choose-configuration" [ngClass]="{'LG': !mdqSrv.XL, 'XS': mdqSrv.XS}">
+
+    <!-- ====================================== -->
+    <!-- !COMPONENT: wp-etl-json-like-list      -->
+    <!-- ====================================== -->
+    <wp-etl-json-like-list 
+                    [ngClass]="{'disable': manualAccsSelected.length===0}"
+                    [loadingIndicator]="isLoading" 
+                    [isLocked]="isLocked"
+                    [manAccSelection]="manualAccsSelected"
+                    (JsonLikeSelect)="showJsonLike($event)"
+                    (newJsonTemplate)="newJsonTemplateTriggered($event)">
+    </wp-etl-json-like-list>
+
+    <!-- ====================================== -->
+    <!-- !COMPONENT: wp-etl-json-like-view      -->
+    <!-- ====================================== -->
+    <wp-etl-json-like-view 
+                    class="config" 
+                    [ngClass]="{'disable': manualAccsSelected.length===0}"
+                    [loadingIndicator]="isLoading"
+                    [globalAccntData]="globalData" 
+                    [jsonLike]="selectedJsonLike" 
+                    [manAccSelection]="manualAccsSelected[0]"
+                    [isNewJson]="isNewJsonTemplate"
+                    (isJsonListLock)="getJsonLockStatus($event)"
+                    (JsonLikeSelect)="showJsonLike($event)">
+    </wp-etl-json-like-view>
+
+</div>

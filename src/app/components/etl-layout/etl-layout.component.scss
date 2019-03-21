@@ -1,0 +1,95 @@
+@import '~sass/mixins';
+@import '~sass/variables';
+:host {
+ 
+  wp-etl-content-area{
+    &.expanded {
+      height: 95vh;
+    }
+    &.normal {
+      height: 80vh;
+    }
+
+  }
+  // .toggler-btn{
+  //   background-color: $base-dark-blue;
+  //   min-height: 26px;
+  //   max-height: 28px;
+  //   border: none;
+  //   &:focus {
+  //     outline: none;
+  //  }
+  // }
+
+  // .tongue-area {
+  //   height: 60px;
+  //   width: 10px;
+  //   position: absolute;
+  //   right: -10px;
+  //   top: 42%;
+  //   opacity: 1;
+  //   border-top-right-radius: 5px;
+  //   border-bottom-right-radius: 5px;
+  //   // &:hover{
+  //   //   //background:#2F3545;
+  //   //   opacity: 1;
+  //   //   @include trans-all();
+  //     background: repeating-linear-gradient(
+  //       to right,
+  //       $base-dark-blue,
+  //       lightgray 1px,
+  //       $base-dark-blue 1px,
+  //       $base-dark-blue 2px
+  //      );
+  //   // }
+  // }
+  .mat-drawer-container {
+    height: 100vh;
+    .mat-sidenav{
+      z-index: 0;
+    }
+  }
+  mat-sidenav-content {
+    background-color: white;
+    &.normal{
+      width: 100vw - get-vw($side-panel-expanded)vw;
+      overflow: hidden;
+      -webkit-transition: all 1s ease;
+      -moz-transition: all 1s ease;
+      -o-transition: all 1s ease;
+      transition: all 1s ease;
+    }
+    &.expanded {
+      width: 100vw - get-vw($side-panel-collapsed)vw;
+      margin-left: $side-panel-collapsed!important; 
+      &.XS {
+        margin-left: 0!important; // content area
+      }
+       overflow: hidden;
+      -webkit-transition: all 1s ease;
+      -moz-transition: all 1s ease;
+      -o-transition: all 1s ease;
+      transition: all 1s ease;
+    }
+    &.collapsed-xs {
+      margin-left: 68px!important; // content area
+    }
+  } 
+
+  mat-sidenav.normal {
+    width: $side-panel-expanded;
+    overflow: initial;
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    transition: all 1s ease;
+  }
+  mat-sidenav.collapsed {
+    width: $side-panel-collapsed;
+    overflow: initial;
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    transition: all 1s ease;
+  }
+}

@@ -1,0 +1,16 @@
+<div class="chkBox">
+  <div class="form-group">
+    <label class="container" for="{{name}}">
+      <input type="checkbox" 
+             id="{{name}}" 
+             class="{{data}}"
+             name="check" 
+             [disabled]="isSubmitted" 
+             [checked]="isChecked" 
+             (click)="onCheckboxChange($event)"/>
+  
+      <span class="checkmark"></span>
+    </label>
+  </div>
+</div>
+

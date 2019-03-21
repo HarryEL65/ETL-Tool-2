@@ -1,0 +1,83 @@
+@import '~sass/mixins';
+
+.cntr-rb {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 0;
+    cursor: pointer;
+    
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    font-size: 16px;
+    font-weight: 400;
+    color: $base-dark-blue-primary;
+}
+.cntr-rb:after {
+
+
+}
+
+/* Hide the browser's default radio button */
+.cntr-rb input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+/* Create a custom radio button */
+.checkmark {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    height: 12px;
+    width: 12px;
+    background-color: white;
+    border-radius: 50%;
+}
+.circle-ctnr-rb {
+   
+    position: absolute;
+    top: 35%;
+    left: 0;
+    width: 16px;
+    height: 16px;
+    background-color: $base-dark-blue-primary;
+    border-radius: 50%;
+}
+
+
+/* On mouse-over, add a grey background color */
+.cntr-rb:hover input ~ .circle-ctnr-rb {
+    background-color: #ccc;
+}
+
+/* When the radio button is checked, add a blue background */
+.cntr-rb input:checked ~ .circle-ctnr-rb {
+    background-color: $base-dark-blue-primary;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.circle-ctnr-rb:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.cntr-rb input:checked ~ .circle-ctnr-rb:after {
+    display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.cntr-rb .circle-ctnr-rb:after {
+    top: 4px;
+    left: 4px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: $base-dark-blue-primary;
+}

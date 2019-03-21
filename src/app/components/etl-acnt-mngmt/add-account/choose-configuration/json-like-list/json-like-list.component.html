@@ -1,0 +1,146 @@
+<div #tableWrapper class="host-ctnr" [ngClass]="{'XS': mdqSrv.XS}">
+
+  <ng-container *ngIf="accntsLikeJsonName && accntsLikeJsonName.length > 0">  
+
+    <div class="filter" [ngClass]="{'disable-table-selection':lock}">
+
+      <label for="searchJsonLikeAcc">Search For Account</label>
+
+      <!-- ======================================= -->
+      <!-- !SEARCH FOR ACCOUNT autocomplete filter -->
+      <!-- ======================================= -->
+      <div class="input-search-json-like-accnt-ctnr">
+
+          <wp-etl-input icon="search" iconPos="right">
+            
+              <ng-select wpEtlInputRef 
+                        id="searchJsonLikeAcc"
+                        class="search-input-sec-lvl"
+                        placeholder="Account name"
+                        [items]="accntsLikeJsonName"
+                        bindLabel="accName"
+                        [loading]="false"
+                        (change)='updateFilter($event)'
+                        (keyup)='updateFilter($event)'>
+              </ng-select>
+              
+          </wp-etl-input>
+          
+        </div>
+        
+    </div>
+
+  </ng-container>
+
+  <!-- ------------------------------------------------------------------------- -->
+  <!-- the following Container is displayed if there no JSONS LIKEs retrieved    -->
+  <!-- ------------------------------------------------------------------------  -->
+
+  <ng-container *ngIf="rows.length === 0 && accntsLikeJsonName && accntsLikeJsonName.length === 0 && hasPermission"> 
+
+      <!-- ============================  -->
+      <!-- !ADD NEW JSON TEMPLATE BUTTON -->
+      <!-- ============================  -->
+      <button class="custom-primary-btn" (click)="addNewJsonTemplate()" [ngClass]="{'disabled': manAccSelection.length === 0}">
+          <span>Add new Json Template</span>
+      </button>
+
+  </ng-container>
+  
+  <!-- ==============================================================-->
+  <!-- !TABLE DEFINITION  -->
+  <!-- ------------------------------------------------------------- -->
+  <!-- the following table displays the list of Jsons Like           -->
+  <!-- ------------------------------------------------------------- -->
+  <!-- ============================================================= -->
+  <ngx-datatable #table 
+                 id="jsonListTable"
+                 class="material"
+                 [ngClass]="{'disable-table-selection':lock}" 
+                 [rows]="rows" 
+                 [loadingIndicator]="loadingIndicator"
+                 [columnMode]="'flex'" 
+                 [headerHeight]="71" 
+                 [rowHeight]="71" 
+                 [scrollbarV]=true 
+                 [scrollbarH]=false 
+                 [selected]="selected" 
+                 [selectionType]="'single'"
+                 (select)='onSelect($event)'>
+
+    <!-- ====================== -->
+    <!-- !ROW DETAIL TEMPLATE   -->
+    <!-- ====================== -->
+    <ngx-datatable-row-detail [rowHeight]="calculateRowHeight()" #myDetailRow (toggle)="onDetailToggle($event)">
+
+        <ng-template let-row="row" let-expanded="expanded" ngx-datatable-row-detail-template>
+
+              <div class="top-details">
+                <!-- RECORD TYPE (recordType) -->
+                <div class="details-item-md" [ngClass]="{'XS': mdqSrv.XS, 'SM': mdqSrv.SM}"
+                                              *ngIf="!mdqSrv.XL">
+                    <span class="sub-title">Record Type</span>
+                    <span class="item-text" title="">{{ row.recordType }}</span>
+                </div>            
+                <!-- DEAL TYPE (dealType) -->
+                <div class="details-item-md" [ngClass]="{'XS': mdqSrv.XS, 'SM': mdqSrv.SM}" 
+                                            *ngIf="mdqSrv.XS || mdqSrv.SM || mdqSrv.MD">
+                  <span class="sub-title">Deal Type</span>
+                  <span class="item-text" title="">{{ row.dealType }}</span>
+                </div>
+              
+              </div>
+                
+        </ng-template>
+
+    </ngx-datatable-row-detail>
+
+    <!-- ========================== -->
+    <!-- !COLUMN EXPAND/COLLAPSE    -->
+    <!-- ========================== -->
+    <ng-container *ngIf="!(mdqSrv.LG || mdqSrv.XL )">
+        <ngx-datatable-column
+          [maxWidth]="50"
+          [resizeable]="false"
+          [draggable]="false"
+          [canAutoResize]="true">
+          <ng-template let-row="row" let-expanded="expanded" ngx-datatable-cell-template>
+              <a
+                href="javascript:void(0)"
+                [class.up]="!expanded"
+                [class.down]="expanded"
+                title="Expand/Collapse Row"
+                (click)="toggleExpandRow(row)">
+              </a>
+          </ng-template>
+        </ngx-datatable-column>
+    </ng-container>
+
+    <!-- *ACCOUNT NAME : accName -->
+    <ngx-datatable-column name="Account Name" prop="accName" [flexGrow]="1.5">
+      <ng-template #selectTemplate ngx-datatable-cell-template let-row="row" let-value="value" let-isSelected="isSelected" let-onCheckboxChangeFn="onCheckboxChangeFn">
+        <wp-etl-radiobutton [mdqSrv]="mdqSrv" [text]="value" [name]="'accLikeJsons'" [value]="row.accID" (change)="displaySelectedJsonLike($event)"
+          [(selection)]="defautJsonLike">
+        </wp-etl-radiobutton>
+      </ng-template>
+    </ngx-datatable-column> 
+
+    <!-- *RECORD TYPE : recordType -->
+    <ng-container *ngIf="mdqSrv.XL">"
+      <ngx-datatable-column name="Record Type" prop="recordType" [flexGrow]="1">
+      </ngx-datatable-column>
+    </ng-container>
+
+    <!-- *Deal Type : dealType -->
+    <ng-container *ngIf="mdqSrv.LG || mdqSrv.XL">"
+      <ngx-datatable-column name="Deal Type" prop="dealType"  [flexGrow]="1">
+        <ng-template ngx-datatable-cell-template let-row="row" let-value="value" let-i="index">
+          <span class="item-text" title="" *ngIf="mdqSrv.LG" placement="left" container="body" [ngbTooltip]="value.length > 50? value: ''">{{value | truncate: 50}}</span>
+          <span class="item-text" title="" *ngIf="mdqSrv.XL" placement="left" container="body" [ngbTooltip]="value.length > 14? value: ''">{{value | truncate: 14}}</span>
+        </ng-template>
+      </ngx-datatable-column>
+    </ng-container>
+
+  </ngx-datatable>
+
+</div>

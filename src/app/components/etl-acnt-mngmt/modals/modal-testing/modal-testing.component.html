@@ -1,0 +1,110 @@
+<ng-template #modalTesting let-c="close" let-d="dismiss">
+
+  <ng-container *ngIf="step ==='approval-step'">
+    <div class="modal-header custom-modal-header bckgd-testing">
+  
+      <h4 class="modal-title">Add Account - Approval</h4>
+      <button type="button" class="close close-btn" aria-label="Close" (click)="d('Cross click')">
+          <span aria-hidden="true">&times;</span>
+      </button>
+     
+    </div>
+  
+    <div class="modal-body custom-modal-body bckgd-testing">
+      <!-- The modal content area -->
+      <div class="content">
+  
+        <!-- <mat-progress-bar mode="indeterminate"></mat-progress-bar> -->
+  
+        <div class="testing-img">
+          <img src="assets/modals/addAccountApproval.svg" alt="">
+        </div>
+  
+        <div class="msg-header">
+            <!-- <div *ngIf="selectedAccountsName.length === 1" class="small">
+                Are you sure you want to add the selected account
+            </div>
+            <div *ngIf="selectedAccountsName.length > 1" class="small">
+              Are you sure you want to add the selected accounts
+            </div> -->
+            <div class="small">
+                Are you sure you want to test
+            </div>
+
+            <div class="big" placement="bottom" [ngbTooltip]="retrieveTooltip().length > 20 ? retrieveTooltip() : ''">
+            {{retrieveTooltip() | truncate: 20}}
+            </div>
+        </div>
+  
+        <!-- <div class="msg">
+          <div class="msg-detail">
+              Your selections will not go live <br>
+              & will not be saved
+          </div>
+        </div> -->
+  
+        
+      </div>
+      
+      
+    </div>
+    <!-- <div class="btns-area"> -->
+    <div class="modal-footer custom-modal-footer">
+      <!-- <button class="no custom-secondary-btn" (click)="d('Cross click')"> No </button> -->
+      <button type="button" class="btn custom-btn custom-secondary-btn" (click)="d('Cross click')"> No </button>
+      
+      <!-- <button class="yes custom-primary-btn" (click)="testAccounts()">Yes Test account</button> -->
+      <button class="btn custom-btn custom-primary-btn" (click)="testAccounts()">Yes Test account</button>
+    </div>
+  </ng-container>
+  <ng-container *ngIf="step ==='finish-step'">
+      <div class="modal-header custom-modal-header bckgd-testing">
+    
+        <h4 class="modal-title">Add Account - Testing</h4>
+        <!-- <button type="button" class="close close-btn" aria-label="Close" (click)="d('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button> -->
+       
+      </div>
+    
+      <div class="modal-body custom-modal-body bckgd-testing finish">
+        <!-- The modal content area -->
+        <div class="content">
+    
+          <!-- <mat-progress-bar mode="indeterminate"></mat-progress-bar> -->
+    
+          <div class="testing-img">
+            <img src="assets/modals/testingAccnt.svg" alt="">
+          </div>
+    
+          <div class="msg-header">
+              <div *ngIf="selectedAccountsName.length === 1" class="small">
+                 Testing account
+              </div>
+              <div *ngIf="selectedAccountsName.length > 1" class="small">
+                  Testing accounts
+              </div>
+              <div class="big" placement="bottom" [ngbTooltip]="retrieveTooltip().length > 20 ? retrieveTooltip() : ''">
+              {{retrieveTooltip() | truncate: 20}}
+              </div>
+          </div>
+    
+          <div class="msg">
+            <div class="msg-detail">
+                Please follow the test status on your home page<br>
+                Dont forget to approve the deployment when test done.
+            </div>
+          </div>
+    
+          
+        </div>
+        
+        
+      </div>
+      <!-- <div class="btns-area"> -->
+      <div class="modal-footer custom-modal-footer">
+        <button type="button" class="btn custom-btn custom-primary-btn" (click)="toogleBackNavLayer(c)">Go to Home page</button>
+      </div>
+  </ng-container>
+
+</ng-template>

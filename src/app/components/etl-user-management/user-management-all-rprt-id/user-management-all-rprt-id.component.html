@@ -1,0 +1,35 @@
+<div class="internalScroll" style="max-width: 100%;" [ngStyle]="{'height':isMinimized ? '93vh': '78vh' }">
+  <div class="content" [ngClass]="{'XS': mdqSrv.XS}">
+
+    <!--  USER MANAGEMENT - Expansion Panel -->
+    <wp-etl-expansion-panel 
+              [id]="'user-mgmnt'" 
+              [title]="'USER MANAGEMENT'" 
+              [searchPlaceHolder]="'Search for User Name'"
+              [searchEntityName]=usersName
+              (filterData)="filterUsersTable($event)">
+
+        <wp-etl-users-mgmnt 
+              [usersLoadIndicator]="usersLoadIndic" 
+              [data]="users"
+              (userSelect)="showUserCardDetails($event)">
+        </wp-etl-users-mgmnt>
+
+    </wp-etl-expansion-panel>
+    
+    <!--  ROLES MANAGEMENT - Expansion Panel -->
+    <wp-etl-expansion-panel 
+              [id]="'role-mgmnt'" 
+              [title]="'ROLES MANAGEMENT'" 
+              [searchPlaceHolder]="'Search for Role Name'"
+              [searchEntityName]=rolesName 
+              (filterData)="filterRolesTable($event)">
+
+      <wp-etl-roles-mgmnt [rolesLoadIndicator]="rolesLoadIndic" 
+              [data]="roles">
+      </wp-etl-roles-mgmnt>
+
+    </wp-etl-expansion-panel>
+
+  </div>
+</div>

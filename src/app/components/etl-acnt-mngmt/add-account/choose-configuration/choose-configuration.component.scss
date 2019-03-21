@@ -1,0 +1,19 @@
+@import '~sass/components/tables';
+@import '~sass/mixins';
+:host {
+    display: block;
+}
+
+.choose-configuration {
+    display: flex; // border: 1px solid $base-gray-secondary;
+    height: 832px;
+    wp-etl-json-like-list,
+    wp-etl-json-like-view {
+        width: 50%;
+        ::ng-deep .ngx-datatable .datatable-body {
+            height: 550px;
+            max-height: none !important;
+            overflow-x: hidden;
+        }
+    }
+}

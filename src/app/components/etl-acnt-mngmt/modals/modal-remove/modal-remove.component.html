@@ -1,0 +1,92 @@
+<!-- ! REMOVE MODAL -->
+<ng-template #modalRemove let-c="close" let-d="dismiss">
+
+  <!-- ============== -->
+  <!-- !MODAL HEADER  -->
+  <!-- ============== -->
+  <div class="modal-header custom-modal-header bckgd-testing">
+
+    <h4 class="modal-title">Remove Account</h4>
+
+  </div>
+
+  <!-- =================== -->
+  <!-- !MODAL CONTENT AREA -->
+  <!-- =================== -->
+  <div class="modal-body custom-modal-body bckgd-testing">
+    
+    <div *ngIf="step==='areYouSure'" class="content">
+
+      <div class="testing-img">
+        <img src="assets/modals/removeAccount.svg" alt="">
+      </div>
+
+      <div class="msg-header">
+        <div *ngIf="selectedAccountsName.length === 1" class="small">
+          Are you sure you want to remove the selected active account
+        </div>
+        <div *ngIf="selectedAccountsName.length > 1" class="small">
+          Are you sure you want to remove the selected accounts
+        </div>
+        <div class="big" placement="bottom" [ngbTooltip]="retrieveTooltip().length > 20 ? retrieveTooltip() : ''">
+          {{retrieveTooltip() | truncate: 20}}
+        </div>
+      </div>
+
+      <div class="btns-area">
+        <button class="no custom-secondary-btn" (click)="d('Cross click')"> No, Go back</button>
+        <button class="yes custom-primary-btn" (click)="removeSelectedAccounts()">yes</button>
+      </div>
+
+    </div>
+
+    <div *ngIf="step==='success'" class="content success">
+
+      <div class="testing-img">
+        <img src="assets/modals/removeSuccseed.svg" alt="">
+      </div>
+      <div class="msg-header">
+        <div class="big">
+          Account Removal succeeded
+        </div>
+      </div>
+
+      <div class="btns-area">
+
+        <button type="button" class="btn custom-btn custom-primary-btn" (click)="toogleBackNavLayer(c)">Go to Home page</button>
+
+      </div>
+
+    </div>
+
+    <div *ngIf="step==='failed'" class="content failed">
+
+      <div class="testing-img">
+        <img src="assets/modals/removeFailed.svg" alt="">
+      </div>
+      selectedAccountsName: {{selectedAccountsName | json}}
+
+      <div class="msg-header">
+        <div class="big">
+          Account Removal Failed
+        </div>
+      </div>
+      <div class="msg">
+        <div class="msg-detail">
+          Please try again
+        </div>
+      </div>
+
+
+      <div class="btns-area">
+        <button class="back-to custom-primary-btn" (click)="d('Cross click')">
+          <a class="nav-link" [routerLink]="['/home']">Go to Home Page</a>
+        </button>
+      </div>
+
+    </div>
+
+
+  </div>
+
+</ng-template>

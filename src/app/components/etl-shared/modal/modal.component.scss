@@ -1,0 +1,20 @@
+// @import './../../../../sass/_variables';
+@import '~sass/variables';
+@import '~sass/components/modals';
+
+.custom-modal-header{ background: $dark-gray; height: 64px; border-top-left-radius: 12px; border-top-right-radius: 12px; border-bottom: 0px; padding-left: 24px; align-items: center;
+	.modal-title{ font-size: 15px; color: $base-white; font-weight: 700; }
+	.close-btn{ height: 64px; width: 54px; background-color: $light-gray; border-top-right-radius: 12px; opacity: 1; color: $base-white; }
+}
+
+.custom-modal-body{ text-align: center; padding-top: 32px;
+	.modal-img{ width:88px; height:88px; }
+	.body-title{ padding-top: 24px; font-size: 22px; font-weight: 700; color:$base-dark-blue-secondary; line-height: 30px; }
+	.body-sub-text{ font-size: 14px; line-height: 20px; color: #6F7880; }
+}
+
+.custom-modal-footer{
+	justify-content: center;
+	.custom-btn{min-width: 136px;}
+}
+	

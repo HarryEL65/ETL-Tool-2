@@ -1,0 +1,299 @@
+@import '~sass/mixins';
+:host {
+    display: block;
+    height: 384px;
+    width: 352px;
+    border: 1px solid $base-gray-secondary;
+    background-color: $base-white;
+    .selectpicker {
+        display: block;
+    }
+    .error {
+        height: 0;
+        -webkit-transition: -webkit-transform 1.8s ease, height 0 ease-out;
+        -webkit-transition-delay: 1s, 1.3s;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+        background: $base-dark-blue-primary;
+        opacity: 0.87;
+        justify-content: flex-start;
+        height: 384px;
+        width: 352px;
+        top: 17px;
+        position: absolute;
+        .error-msg {
+            opacity: 1;
+            position: relative;
+            top: 0;
+            background: $base-light-red;
+            color: $base-white;
+            height: 64px;
+            width: 352px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+            .msg {
+                @include etl-font-bold(14px);
+            }
+            .desc {
+                @include etl-font-regular(12px)
+            }
+            i {
+                position: absolute;
+                top: 8px;
+                right: 8px;
+                height: 12px;
+                width: 12px;
+                @include etl-font-regular(12px);
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+    .stage0,
+    .stage1,
+    .stage2,
+    .stage3,
+    .stage4 {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+        .stage-img {
+            margin-top: 10px;
+            img {
+                width: 52px;
+                height: 79px;
+            }
+        }
+        .question-title {
+            margin-top: 14px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 240px;
+            height: 47px;
+            color: $base-dark-blue-primary;
+            .small {
+                @include etl-font-semi-bold(15px);
+            }
+            .big {
+                @include etl-font-bold(20px);
+                white-space: nowrap;
+            }
+        }
+        .desc {
+            margin-top: 33px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            .details {
+                color: $dark-gray;
+                @include etl-font-regular(14px);
+            }
+        }
+        .date-area,
+        .msg-area {
+            margin-top: 33px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            .date-title,
+            .tilte {
+                color: $base-gray;
+                @include etl-font-semi-bold(16px);
+                width: 210px;
+                height: 22;
+            }
+            .date {
+                margin-top: 13px;
+                color: $base-dark-blue-primary;
+                @include etl-font-semi-bold(18px);
+                width: 68px;
+                height: 24px;
+            }
+        }
+        .btns-area {
+            margin-top: 38px;
+            display: flex;
+            justify-content: space-between;
+            width: 272px;
+            height: 40px;
+            .revert {
+                width: 128px;
+                height: 40px;
+                border: 1px solid $base-gray !important;
+                border-radius: 20px;
+                color: $base-gray;
+                @include etl-font-semi-bold(13px);
+            }
+            .revert.custom-disabled-btn {
+                width: 128px;
+                height: 40px;
+                border: 1px solid $base-light-gray;
+                border-radius: 20px;
+                color: $base-light-gray;
+                background: white;
+                @include etl-font-semi-bold(13px);
+            }
+            .ok {
+                margin: auto;
+            }
+            .go-live,
+            .ok {
+                width: 128px;
+                height: 40px;
+                border-radius: 20px; // border: 1px;
+                @include etl-font-semi-bold(13px);
+            }
+        }
+        .run-now {
+            color: $base-gray-secondary;
+            @include etl-font-semi-bold(13px);
+            margin: 0 auto;
+            margin-top: 20px;
+            width: 100px;
+            height: 18px;
+            text-align: center;
+        }
+    }
+    .stage0 {
+        .question-title {
+            width: 300px;
+        }
+        .stage-img {
+            margin-top: 24px;
+            margin-bottom: 15px;
+            img {
+                width: 77px !important;
+                height: 96px !important;
+            }
+        }
+        .btns-area {
+            margin-top: 50px;
+            display: flex;
+            justify-content: center;
+        }
+    }
+    .stage2 {
+        .run-now {
+            background: none;
+            border: none;
+            color: $base-dark-blue-primary;
+            @include etl-font-bold(13px);
+            cursor: pointer;
+            &:hover {
+                text-decoration: underline
+            }
+        }
+        .stage-img {
+            margin-top: 15px;
+            img {
+                width: 74px !important;
+                height: 64px !important;
+            }
+        }
+    }
+    .stage3 {
+        .form-group #run-from,
+        .form-group #run-to {
+            width: 104px !important;
+            height: 32px;
+            .form-control {
+                border-radius: 2px !important;
+            }
+        }
+        .stage-img {
+            margin-top: 6px;
+            img {
+                width: 81px !important;
+                height: 66px !important;
+                top: 5px;
+                position: relative;
+            }
+        }
+        .question-title {
+            margin-top: 23px;
+        }
+        .date-area {
+            margin-top: 11px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 150px;
+            .date-title {
+                width: 158px;
+                height: 35px;
+                @include etl-font-semi-bold(13px);
+                color: $base-gray;
+            }
+            .month-picker {
+                margin-top: 26px;
+                width: 250px;
+                display: flex;
+                justify-content: space-around;
+                .form-group {
+                    label {
+                        @include etl-font-semi-bold(10px);
+                        color: $base-gray;
+                    }
+                    @include customScrl-ngSelect( 204px, 40px);
+                    ::ng-deep .ng-select .ng-select-container {
+                        border-color: $base-gray;
+                        .ng-clear-wrapper {
+                            display: none;
+                        }
+                    }
+                    @include ngSelectOpen (-2px, 4px, 12px);//$top, $mbtm, $mtop
+                    @include ngSelectClose (-6px, none);//$top, $showClear
+                }
+            }
+            .choose-dates {
+                margin-top: 26px;
+                width: 228px;
+                display: flex;
+                justify-content: space-between;
+                .date {
+                    margin-right: 50px;
+                    display: flex;
+                    flex-direction: column;
+                    height: 100px;
+                    label {
+                        @include etl-font-semi-bold(10px);
+                        color: $base-gray;
+                    }
+                }
+            }
+        }
+        .btns-area {
+            justify-content: center;
+            margin-top: 20px;
+        }
+    }
+    .stage4 {
+        .msg-area {
+            color: $base-gray;
+            width: 300px;
+            color: #9EB1C2;
+            width: 216px;
+            margin-bottom: 40px;
+        }
+        .stage-img {
+            margin-top: 26px;
+            margin-bottom: 15px;
+            img {
+                width: 65px !important;
+                height: 64px !important;
+            }
+        }
+        .btns-area .ok,
+        .question-title .big,
+        .msg-area .title {
+            text-align: center;
+        }
+    }
+}

@@ -1,0 +1,243 @@
+<div #tableWrapperLastRerunAcc class="last-reruns">
+        <ngx-datatable id="last-reruns"
+                               class="material expandable"
+                               [rows]="rows"
+                               [loadingIndicator]="rerunAcntsAddLoadIndic"
+                               [columnMode]="'flex'"
+                               [headerHeight]="71"
+                               [rowHeight]="71" 
+                               [scrollbarV]="true"
+                               [scrollbarH]=false
+                               [selected]="selected"
+                               [selectionType]="'cell'"
+                               (activate)="click($event)"
+                                #lastRerunsTable>
+            
+                    <!-- Row Detail Template -->
+                    <ngx-datatable-row-detail class="" [rowHeight]="calculateRowHeight()" #myDetailRow>
+                            <ng-template let-row="row" let-expanded="expanded" ngx-datatable-row-detail-template>
+                                    <div class="top-details">
+            
+                                            <div class="details-item-md" *ngIf="rprtId!=='DUCM'" [ngClass]="{'XS':mdqSrv.XS, 'SM': mdqSrv.SM}">
+                                                    <span class="sub-title">Affiliate Program</span>
+                                                    <span class="item-text" title="" placement="left" container="body" [ngbTooltip]="row.affiliateProgramName.length > 20? value: ''">{{row.affiliateProgramName | truncate: 20}}</span>
+                                            </div>
+            
+                                            <ng-container *ngIf="mdqSrv.XS || mdqSrv.SM || mdqSrv.MD ">
+                                                    <div class="details-item-md" [ngClass]="{'XS':mdqSrv.XS, 'SM': mdqSrv.SM}">
+                                                            <span class="sub-title">Made By</span>
+                                                            <span class="item-text" title="" placement="left" container="body" [ngbTooltip]="row.madeByName.length > 21? row.madeByName: ''">{{row.madeByName | truncate: 21}}</span>
+                                                    </div>
+                                            </ng-container>
+
+                                            <ng-container *ngIf="(mdqSrv.XS ||  mdqSrv.SM) && rprtId!=='DUCM'">
+                                                <div class="details-item-md" [ngClass]="{'XS':mdqSrv.XS, 'SM': mdqSrv.SM}">
+                                                        <span class="sub-title">Date</span>
+                                                        <span class="date-col">{{row.timeStamp}}</span>
+                                                </div>
+                                        </ng-container>
+        
+                                        <ng-container *ngIf="((mdqSrv.XS || mdqSrv.SM) && rprtId!=='DUCM')">
+                                                <div class="details-item-md" [ngClass]="{'XS':mdqSrv.XS}">
+                                                        <span class="sub-title in-line">Rerun from</span>
+                                                        <i class="fa fa-arrow-right f-arrow-header"></i>
+                                                        <span class="sub-title in-line">to</span>
+                                                        <span class="date-col b-lock">{{row.runPeriodStart}}</span>
+                                                        <i class="fa fa-arrow-right in-line"></i>
+                                                        <span class="date-col in-line">{{row.runPeriodEnd}}</span>
+                                                </div>
+                                        </ng-container>
+                                        <ng-container *ngIf="((mdqSrv.XS || mdqSrv.SM) && rprtId=='DUCM')">
+                                                    <div class="details-item-md" [ngClass]="{'XS':mdqSrv.XS}">
+                                                            <span class="sub-title in-line">Rerun From Date</span>
+                                                            <span class="date-col b-lock">{{row.runPeriodStart}}</span>
+                                                    </div>
+                                                    <div class="details-item-md" [ngClass]="{'XS':mdqSrv.XS}">
+                                                            <span class="sub-title in-line">Rerun To Date</span>
+                                                            <span class="date-col b-lock">{{row.runPeriodEnd}}</span>
+                                                    </div>
+                                       </ng-container> 
+        
+                                </div>
+                        </ng-template>
+                </ngx-datatable-row-detail>
+                <!-- </ng-container> -->
+        
+                <!-- Column Templates -->
+                <ng-container *ngIf="((mdqSrv.XS || mdqSrv.SM || mdqSrv.MD ||  mdqSrv.LG) && rprtId!=='DUCM') ||
+                                     ((mdqSrv.XS || mdqSrv.SM) && rprtId=='DUCM')">
+                        <ngx-datatable-column [maxWidth]="50" [resizeable]="false" [draggable]="false" [canAutoResize]="true">
+                                <ng-template let-row="row" let-expanded="expanded" ngx-datatable-cell-template>
+                                        <a href="javascript:void(0)" [class.up]="!expanded" [class.down]="expanded" title="Expand/Collapse Row" (click)="toggleExpandRow(row)">
+                                        </a>
+                                </ng-template>
+                        </ngx-datatable-column>
+                </ng-container>
+               
+                <ng-container *ngIf="((mdqSrv.MD ||  mdqSrv.LG || mdqSrv.XL)&&rprtId!=='DUCM')">
+                        <ngx-datatable-column name="Date" prop="timeStamp" [minWidth]="80" [maxWidth]="200"  [resizeable]="true" [canAutoResize]="true">
+                                <ng-template ngx-datatable-cell-template let-row="row" let-value="value" let-i="index">
+                                        <!-- <span class="date-col">{{value}}</span> -->
+                                        <span class="date-col" *ngIf="rprtId!=='DUCM'">{{value}}</span>
+                                        <span title="" *ngIf="rprtId==='DUCM'">{{ value | customDateTimeFormat }}</span>
+                                </ng-template>
+                        </ngx-datatable-column>
+                </ng-container>
+                <ng-container *ngIf="rprtId=='DUCM'">
+                        <ngx-datatable-column name="Date" prop="timeStamp" [minWidth]="300" [maxWidth]="350"  [resizeable]="true" [canAutoResize]="true">
+                                <ng-template ngx-datatable-cell-template let-row="row" let-value="value" let-i="index">
+                                        <!-- <span class="date-col">{{value}}</span> -->
+                                        <span class="date-col" *ngIf="rprtId!=='DUCM'">{{value}}</span>
+                                        <span title="" *ngIf="rprtId==='DUCM'">{{ value | customDateTimeFormat }}</span>
+                                </ng-template>
+                        </ngx-datatable-column>
+                </ng-container>
+        
+                <ng-container *ngIf="mdqSrv.XL">
+                        <ngx-datatable-column *ngIf="rprtId!=='DUCM'" name="Affiliate Program" prop="affiliateProgramName" [minWidth]="150" [maxWidth]="250"  [resizeable]="true" [canAutoResize]="true">
+                
+                                <ng-template let-column="column" let-sort="sortFn" ngx-datatable-header-template>
+                                        <span>{{column.name}}</span>
+                                </ng-template>
+                                <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+                                        <span class="item-text" title="" placement="left" container="body" [ngbTooltip]="value.length > 20? value: ''">{{value | truncate: 20}}</span>
+                                </ng-template>
+                
+                        </ngx-datatable-column>
+                </ng-container>
+                            
+                    <!--  -->
+                    <ngx-datatable-column *ngIf="rprtId!=='DUCM'" name="Account Name" prop="accName" [minWidth]="250" [maxWidth]="400"  [comparator]="sortAlphaNum"  [resizeable]="true" [canAutoResize]="true" #acntName> 
+                        <ng-template ngx-datatable-cell-template let-row="row" let-value="value" let-i="index"> 
+                                <span class="item-text" title="" placement="left" container="body" *ngIf="!(mdqSrv.XS || mdqSrv.SM)" [ngbTooltip]="value.length > 30? value: ''">{{value | truncate: 30}}</span> 
+                                <span class="item-text" title="" placement="left" container="body" *ngIf="mdqSrv.SM" [ngbTooltip]="value.length > 20? value: ''">{{value | truncate: 30}}</span> 
+                                <span class="item-text" title="" placement="left" container="body" *ngIf="mdqSrv.XS" [ngbTooltip]="value.length > 15? value: ''">{{value | truncate: 15}}</span> 
+                        </ng-template> 
+                </ngx-datatable-column> 
+        
+                <!--  -->
+        <!-- 
+                <ngx-datatable-column name="Account Name" prop="accName" [minWidth]="250" [maxWidth]="400" [comparator]="sortAlphaNum">
+                        <ng-template ngx-datatable-cell-template let-row="row" let-value="value" let-i="index">
+                                <span  title="" placement="left" container="body" [ngbTooltip]="value.length > 30? value: ''">{{value | truncate: 30}}</span>
+                        </ng-template>
+                </ngx-datatable-column> -->
+        
+                <!-- under md breakboint  we are hiding the column header and cells -->
+                <ng-container *ngIf="((mdqSrv.LG || mdqSrv.XL) && rprtId!=='DUCM')">
+                        <ngx-datatable-column name="Made By" prop="madeByName" [minWidth]="150" [maxWidth]="200"  [resizeable]="true" [canAutoResize]="true">
+                                <ng-template ngx-datatable-cell-template let-row="row" let-value="value" let-i="index">
+                                        <span class="item-text" title="" placement="left" container="body" [ngbTooltip]="value.length > 21? value: ''">{{value | truncate: 21}}</span>
+                                </ng-template>
+                        </ngx-datatable-column>
+                </ng-container>
+
+                <ng-container *ngIf="((mdqSrv.MD || mdqSrv.LG || mdqSrv.XL ) && rprtId=='DUCM')">
+                        <ngx-datatable-column name="Made By" prop="madeByName" [minWidth]="200" [maxWidth]="300" [resizeable]="true" [canAutoResize]="true">
+                                <ng-template ngx-datatable-cell-template let-row="row" let-value="value" let-i="index">
+                                        <span class="item-text" title="" placement="left" container="body" [ngbTooltip]="value.length > 21? value: ''">{{value | truncate: 21}}</span>
+                                </ng-template>
+                        </ngx-datatable-column>
+                </ng-container>
+        
+                <ngx-datatable-column name="Status" prop="status" [minWidth]="100" [maxWidth]="150"  [resizeable]="true" [canAutoResize]="true">
+                    <ng-template ngx-datatable-cell-template let-row="row" let-value="value" let-i="index">
+                    
+                        <!-- <div class="status-ctnr {{value}}" (click)="openStatusModal(value)"> -->
+                        <ng-container *ngIf="rprtId=='DUCM'">
+                                <div class="status-ctnr {{value}}" (click)="value=='passed'?modalRerunSuccess.openModal():value=='failed'? modalFailedRerun.openModal():''">
+                                <svg-icon src="/assets/svg/status/{{value}}.svg" class="{{value}}"></svg-icon>
+                                <span *ngIf="value === 'pending';else regular" class="{{value}} one status">P.Acceptance</span>
+                                <ng-template #regular>
+                                        <span class="{{value}} one status uprcse-frst-ltr">{{value}}</span>
+                                </ng-template>
+                                <wp-etl-modal-status
+                                        [action]="globals.Action.HOME_PAGE"
+                                        [mdqSrv]="mdqSrv"
+                                        [rprtId]="rprtId"
+                                        [ngClass]="{value: true}"
+                                        [status]="row.status"
+                                        [affillatePrgmName]="row.affiliateProgramName" 
+                                        [data]="row['outputFiles']"
+                                        [actName]="row.accName" 
+                                        #modalFailedRerun>
+                                </wp-etl-modal-status> 
+                                <wp-etl-rerun-dcum-modal-success #modalRerunSuccess>
+                                </wp-etl-rerun-dcum-modal-success>
+                                </div>
+                        </ng-container>
+                        <ng-container *ngIf="rprtId!=='DUCM'">
+                                        <div class="status-ctnr {{value}}" (click)="value!=='running'?modalRerun.openModal():''">
+                                        <svg-icon src="/assets/svg/status/{{value}}.svg" class="{{value}}"></svg-icon>
+                                        <span *ngIf="value === 'pending';else regular" class="{{value}} one status">P.Acceptance</span>
+                                        <ng-template #regular>
+                                                <span class="{{value}} one status uprcse-frst-ltr">{{value}}</span>
+                                        </ng-template>
+                                        <wp-etl-modal-status
+                                                [action]="globals.Action.HOME_PAGE"
+                                                [mdqSrv]="mdqSrv"
+                                                [rprtId]="rprtId"
+                                                [ngClass]="{value: true}"
+                                                [status]="row.status"
+                                                [affillatePrgmName]="row.affiliateProgramName" 
+                                                [data]="row['outputFiles']"
+                                                [actName]="row.accName" 
+                                                #modalRerun>
+                                        </wp-etl-modal-status> 
+                                        </div>
+                                </ng-container>
+
+                </ng-template>
+            </ngx-datatable-column>
+    
+            <ng-container *ngIf="(mdqSrv.XL && rprtId!=='DUCM')">
+                    <ngx-datatable-column name="Rerun From Date" prop="runPeriodStart" [minWidth]="80" [maxWidth]="200" [sortable]="true"  [resizeable]="true" [canAutoResize]="true">
+                            <ng-template ngx-datatable-cell-template let-row="row" let-value="value" let-i="index">
+                                    <span class="date-col" title="">{{value}}</span>
+                            </ng-template>
+                    </ngx-datatable-column>
+            
+            
+                    <ngx-datatable-column name="Rerun To Date" prop="runPeriodEnd" [minWidth]="80" [maxWidth]="200" >
+                            <ng-template ngx-datatable-cell-template let-row="row" let-value="value" let-i="index">
+                                    <span class="date-col" title="">{{value}}</span>
+                            </ng-template>
+                    </ngx-datatable-column>
+            </ng-container>
+
+            <ng-container *ngIf="(mdqSrv.MD  || mdqSrv.LG || mdqSrv.XL)   && rprtId=='DUCM'">
+                <ngx-datatable-column name="Rerun From Date" prop="runPeriodStart" [minWidth]="200" [maxWidth]="300" [sortable]="true"  [resizeable]="true" [canAutoResize]="true">
+                        <ng-template ngx-datatable-cell-template let-row="row" let-value="value" let-i="index">
+                                <span class="date-col" title="">{{value}}</span>
+                        </ng-template>
+                </ngx-datatable-column>
+        
+        
+                <ngx-datatable-column name="Rerun To Date" prop="runPeriodEnd" [minWidth]="200" [maxWidth]="300" >
+                        <ng-template ngx-datatable-cell-template let-row="row" let-value="value" let-i="index">
+                                <span class="date-col" title="">{{value}}</span>
+                        </ng-template>
+                </ngx-datatable-column>
+        </ng-container>
+
+            
+    
+            <ng-container  *ngIf="(mdqSrv.MD || mdqSrv.LG) && rprtId!=='DUCM'">
+                    <ngx-datatable-column [minWidth]="150" [maxWidth]="250"  [resizeable]="true" [canAutoResize]="true">
+                            <ng-template let-column="column" ngx-datatable-header-template>
+                                    <span class="date-col" title="">Rerun from</span>
+                                    <i class="fa fa-arrow-right"></i>
+                                    <span class="date-col">to</span>
+                            </ng-template>
+                            <ng-template let-row="row" ngx-datatable-cell-template>
+                                <span class="date-col-merge" title="">{{row.runPeriodStart}}</span>
+                                <i class="fa fa-arrow-right date-col-merge" [ngStyle]="{'font-size':'small'}"></i>
+                                <br>
+                                <span class="date-col-merge">{{row.runPeriodEnd}}</span>
+                        </ng-template>
+                </ngx-datatable-column>
+        </ng-container>
+
+    </ngx-datatable>
+
+</div>

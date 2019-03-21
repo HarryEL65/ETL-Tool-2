@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,KAAK,CAAA;EACH,MAAM,EAAE,cAAc;EACtB,MAAM,EAAE,IAAI;CACb",
+    "sources": [
+        "current-location-title.component.scss"
+    ],
+    "names": [],
+    "file": "current-location-title.component.css"
+}

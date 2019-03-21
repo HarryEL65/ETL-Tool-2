@@ -1,0 +1,54 @@
+@import '~sass/mixins';
+
+:host{
+    display: block;
+
+    &.is-minimized {
+        height:64px!important;
+        @include trans-all();
+    }
+    &.is-maximized {
+       height:224px!important;
+       @include trans-all();
+    }
+    
+
+    wp-etl-top-navigation {
+        // height:
+        &.is-minimized {
+            background: white!important; 
+            border-bottom: 1px solid rgba(0,0,0,.12);
+        }
+        &.is-maximized {
+
+        }
+    }
+    wp-etl-current-location-title {
+        &.is-minimized {
+            opacity: 0;
+            height: 0!important;
+            @include trans-all();
+        }
+        &.is-maximized {
+            opacity: 1;
+            height: 41px!important;
+            @include trans-all();
+            width:100%;
+        }
+    }
+    wp-etl-data-type-navigation {
+        &.is-minimized {
+            opacity: 0;
+            height: 0!important;
+            @include trans-all();
+             display: none;
+        }
+        
+        &.is-maximized {
+            opacity: 1;
+            height: 71px!important;
+            background: $header-bckgd;
+            @include trans-all();
+        }
+    }
+}

@@ -1,0 +1,227 @@
+<wp-etl-header-area [title]="validationTitle" [styleComp]="status"></wp-etl-header-area>
+
+<!-- ==================== -->
+<!--! THE VALIDATION TABLE -->
+<!-- ==================== -->
+<div #tableWrapperValidation class="table-wrapper-validation">
+   <!--*===============  -->
+  <!-- TABLE DEFINITION -->
+  <!--*===============  -->
+  <ngx-datatable id="{{status}}-id" 
+                 class="material expandable"
+                 [rows]="rows"
+                 [loadingIndicator]="loadIndicator"
+                 [columnMode]="'force'"
+                 [headerHeight]="71"
+                 [rowHeight]= "getRowHeight"
+                 [scrollbarV]="true" 
+                 [scrollbarH]=false 
+                 [selected]="selected"
+                 [selectionType]="'checkbox'"
+                 (select)="onSelect($event)"
+                 (activate)="click($event)"
+                 #table>
+
+        <!--! ROW DETAIL TEMPLATE -->
+        <ngx-datatable-row-detail class="" [rowHeight]="calculateRowHeight()" #myDetailRow>
+            <ng-template let-row="row" let-expanded="expanded" ngx-datatable-row-detail-template>
+                <div class="top-details">
+
+                <!--! Account Name -->
+                <div class="details-item-md" *ngIf="mdqSrv.XS || mdqSrv.SM || mdqSrv.MD" [ngClass]="{'XS': mdqSrv.XS, 'SM': mdqSrv.SM, 'MD': mdqSrv.MD}">
+                        <span class="sub-title">Account Name</span>
+                        <span title="" class="item-text" placement="bottom" container="body" [ngbTooltip]="row.accName.length > 25? row.accName: ''">{{ row.accName | truncate: 25}}</span>
+                </div>
+
+                <!--! Affiliate Program Name -->
+                <div class="details-item-md" *ngIf="mdqSrv.XS || mdqSrv.SM || mdqSrv.MD" [ngClass]="{'XS': mdqSrv.XS, 'SM': mdqSrv.SM, 'MD': mdqSrv.MD, 'LG': mdqSrv.LG}">
+                        <span class="sub-title">Affiliate Program Name</span>
+                        <span title="" class="item-text" placement="bottom" container="body" [ngbTooltip]="row.affiliateProgramName.length > 25? row.affiliateProgramName: ''">{{ row.affiliateProgramName | truncate: 25}}</span>
+                </div>
+
+                <!--! Record Type  -->
+                <div class="details-item-md" *ngIf="mdqSrv.XS || mdqSrv.SM || mdqSrv.MD  || mdqSrv.LG" [ngClass]="{'XS': mdqSrv.XS, 'SM': mdqSrv.SM, 'MD': mdqSrv.MD, 'LG': mdqSrv.LG}">
+                        <span class="sub-title">Record Type</span>
+                        <span title="" class="item-text" placement="bottom" container="body" [ngbTooltip]="row.recordType.length > 25? row.recordType: ''">{{ row.recordType | truncate: 25}}</span>
+                </div>
+
+                <!--! Account Name  -->
+                <div class="details-item-md" *ngIf="mdqSrv.XS || mdqSrv.SM || mdqSrv.MD  || mdqSrv.LG" [ngClass]="{'XS': mdqSrv.XS, 'SM': mdqSrv.SM, 'MD': mdqSrv.MD, 'LG': mdqSrv.LG}">
+                        <span class="sub-title">Legal Company</span>
+                        <span title="" class="item-text" placement="bottom" container="body" [ngbTooltip]="row.legalCompany.length > 25? row.legalCompany: ''">{{ row.legalCompany | truncate: 25}}</span>
+                </div>
+
+                <!--! Effective Date  -->
+                <div class="details-item-md" *ngIf="mdqSrv.XS || mdqSrv.SM || mdqSrv.MD  || mdqSrv.LG" [ngClass]="{'XS': mdqSrv.XS, 'SM': mdqSrv.SM, 'MD': mdqSrv.MD, 'LG': mdqSrv.LG}">
+                        <span class="sub-title">Effective Date</span>
+                        <span title="" class="item-text" placement="bottom" container="body" [ngbTooltip]="row.effectiveDate.length > 25? row.effectiveDate: ''">{{ row.effectiveDate | truncate: 25}}</span>
+                </div>
+
+                </div>
+            </ng-template>
+        </ngx-datatable-row-detail>
+
+        <!--! COLUMN EXPAND/COLLAPSE -->
+        <ng-container *ngIf="mdqSrv.XS || mdqSrv.SM || mdqSrv.MD ||  mdqSrv.LG">
+            <ngx-datatable-column
+              [maxWidth]="50"
+              [resizeable]="false"
+              [draggable]="false"
+              [canAutoResize]="true">
+              <ng-template let-row="row" let-expanded="expanded" ngx-datatable-cell-template>
+                  <a
+                    href="javascript:void(0)"
+                    [class.up]="!expanded"
+                    [class.down]="expanded"
+                    title="Expand/Collapse Row"
+                    (click)="toggleExpandRow(row)">
+                  </a>
+              </ng-template>
+            </ngx-datatable-column>
+        </ng-container>
+
+        <!-- COLUMN TEMPLATES -->
+        <!--! Col: 'File Name' -->
+        <ngx-datatable-column [resizeable]="false"  [draggable]="false" name="File Name" prop="fileName" [minWidth]="200" [maxWidth]="400" [comparator]="sortAlphaNum">
+                <ng-template ngx-datatable-cell-template let-row="row" let-value="value" let-i="index">
+                        <span class="item-text" placement="left" container="body" [ngbTooltip]="value.length > 25? value: ''" *ngIf="mdqSrv.XL">{{value | truncate: 25}}</span>
+                        <span class="item-text" placement="left" container="body" [ngbTooltip]="value.length > 30? value: ''" *ngIf="mdqSrv.LG">{{value | truncate: 30}}</span>
+                        <span class="item-text" placement="left" container="body" [ngbTooltip]="value.length > 25? value: ''" *ngIf="mdqSrv.MD">{{value | truncate: 25}}</span>
+                        <span class="item-text" placement="left" container="body" [ngbTooltip]="value.length > 20? value: ''" *ngIf="mdqSrv.SM">{{value | truncate: 20}}</span>
+                        <span class="item-text" placement="left" container="body" [ngbTooltip]="value.length > 15? value: ''" *ngIf="mdqSrv.XS">{{value | truncate: 15}}</span>
+                        
+                </ng-template>
+        </ngx-datatable-column>
+
+        <!--! Col: 'Affiliate Program' -->
+        <ng-container *ngIf="mdqSrv.XL">        
+            <ngx-datatable-column [resizeable]="false"  [draggable]="false" name="Affiliate Program" prop="affiliateProgramName" [minWidth]="100" [maxWidth]="220" [comparator]="sortAlphaNum">
+                    <!-- <ng-template let-column="column" let-sort="sortFn" ngx-datatable-header-template>
+                        <span >{{column.name}}</span>
+                    </ng-template> -->
+                    <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+                        <span class="item-text" title="" placement="left" container="body" [ngbTooltip]="value.length > 10? value: ''">{{value | truncate: 10}}</span>
+                    </ng-template>
+                    
+            </ngx-datatable-column> 
+        </ng-container>
+
+        <!--! Col: 'Account Name' --> 
+        <ng-container *ngIf="mdqSrv.XL || mdqSrv.LG"> 
+            <ngx-datatable-column [resizeable]="false"  [draggable]="false" name="Account Name" prop="accName" [minWidth]="100" [maxWidth]="300"  [comparator]="sortAlphaNum">
+                    <ng-template ngx-datatable-cell-template let-row="row" let-value="value" let-i="index">
+                        <span class="item-text" title="" placement="left" container="body" [ngbTooltip]="value.length > 25? value: ''">{{value | truncate: 25}}</span>
+                    </ng-template>
+            </ngx-datatable-column>
+        </ng-container>
+
+        <!--! Col: 'Legal Company' --> 
+        <ng-container *ngIf="mdqSrv.XL"> 
+            <ngx-datatable-column [resizeable]="false"  [draggable]="false" name="Legal Company" prop="legalCompany" [minWidth]="100" [maxWidth]="150"  [comparator]="sortAlphaNum">
+                <ng-template ngx-datatable-cell-template let-row="row" let-value="value" let-i="index">
+                        <span class="item-text" title="" placement="left" container="body" [ngbTooltip]="value.length > 15? value: ''">{{value | truncate: 15}}</span>
+                </ng-template>
+            </ngx-datatable-column>
+        </ng-container>
+
+        <!--! Col: 'Record Type' --> 
+        <ng-container *ngIf="mdqSrv.XL"> 
+            <ngx-datatable-column [resizeable]="false"  [draggable]="false" name="Record Type" prop="recordType" [minWidth]="50" [maxWidth]="150"  [comparator]="sortAlphaNum">
+                <ng-template ngx-datatable-cell-template let-row="row" let-value="value" let-i="index">
+                        <span class="item-text" title="" placement="left" container="body" [ngbTooltip]="value.length > 15? value: ''">{{value | truncate: 15}}</span>
+                </ng-template>
+            </ngx-datatable-column>
+        </ng-container>
+
+        <!--! Col: 'Effective Date' -->
+        <ng-container *ngIf="mdqSrv.XL"> 
+            <ngx-datatable-column [resizeable]="false"  [draggable]="false" name="Effective Date" prop="effectiveDate" [minWidth]="100" [maxWidth]="200"  [comparator]="sortAlphaNum">
+                <ng-template ngx-datatable-cell-template let-row="row" let-value="value" let-i="index">
+                        <span class="date-col">{{value}}</span>
+                </ng-template>
+            </ngx-datatable-column>
+        </ng-container>
+
+        <!--! Col: 'Delete Data' -->
+
+        <!-- <ngx-datatable-column [resizeable]="false"  [draggable]="false" name="Delete Data" prop="deleteData" [minWidth]="100" [maxWidth]="150" >
+            <ng-template let-column="column" let-sort="sortFn" ngx-datatable-header-template>
+                <span >{{column.name}}</span>
+            </ng-template>
+            <ng-template ngx-datatable-cell-template let-row="row" let-value="value" let-index="index">
+                <wp-etl-checkbox  [data]="row.accID" [name]="row.fileName" [isChecked]="row.isSelected || false" (inputChange)="onDeletedataChange($event, row)"></wp-etl-checkbox>
+            </ng-template>
+        </ngx-datatable-column> -->
+
+
+    <!--! selection row/header -->
+    <ng-container *ngIf="status !== ImportStatus.FAILED">
+        <ngx-datatable-column [minWidth]="100" [maxWidth]="150" [sortable]="true" [canAutoResize]="true" [draggable]="false" name="Delete Data"
+            [resizeable]="false">
+            <ng-template let-column="column" let-sort="sortFn" ngx-datatable-header-template>
+                <span>{{column.name}}</span>
+            </ng-template>->
+            <!--! row selection checkbox -->
+            <ng-template #selectTemplate ngx-datatable-cell-template let-row="row" let-value="value" let-isSelected="isSelected" let-onCheckboxChangeFn="onCheckboxChangeFn">
+                <!-- =================== -->
+                <!--! CHECKBOX Component -->
+                <!-- =================== -->
+                <wp-etl-checkbox [data]="row.accID" [name]="row.fileName" placement="right" [ngbTooltip]="row.accName.length > 42? row.accName: ''"
+                    [isChecked]="isSelected" (inputChange)="onCheckboxChangeFn($event)"></wp-etl-checkbox>
+            </ng-template>
+        </ngx-datatable-column>
+    </ng-container>
+
+
+        <!--! Col: 'Info' -->
+        <!-- <ng-container *ngIf="mdqSrv.XL"> -->
+    
+            <ngx-datatable-column [resizeable]="false"  [draggable]="false" name="" prop="info" [minWidth]="75" [maxWidth]="100">
+                <ng-template ngx-datatable-cell-template let-row="row" let-value="value" let-i="index">
+                    <div (click)="modalValidation.openModal()">
+                        <div class="custom-info-circle">
+                                <div class="info" placement="left" container="body" [ngbTooltip]="'Show Validations'">i</div>
+                        </div>
+                    </div>
+                    <!-- ============================================= -->
+                    <!--! DISPLAY VALIDATED MODAL FILES: MODAL STATUS  -->
+                    <!-- ============================================= -->
+                    <wp-etl-modal-status id="modal-validation" 
+                        [data]="row['validationResultMessage']['validationMessageArray']" 
+                        [status]="status"
+                        [action]="globals.Action.IMPORT_FILES"
+                        [mdqSrv]="mdqSrv"
+                        [title]="row.fileName"
+                        [ngClass]="{value: true}"
+                        [rprtId]="rprtId"
+                        #modalValidation>
+                    </wp-etl-modal-status>
+                </ng-template>
+            </ngx-datatable-column>
+
+        <!-- </ng-container> -->
+  
+  </ngx-datatable>
+</div>
+
+<!-- ==================== -->
+<!--! UPLOAD BUTTON        -->
+<!-- ==================== -->
+<div class="btn-area" [ngClass]="{'XS': mdqSrv.XS, 'XL': mdqSrv.XL, 'validated': status === ImportStatus.VALIDATED, 'warning': status === ImportStatus.WARNING, 'failed': status === ImportStatus.FAILED}"  >
+    <button class="custom-primary-btn" 
+            (click)="validateAction(status)">{{actionBtnTitle}}
+    </button>
+            <!-- [ngClass]="{'disable': isBtnEnabled==false}"  -->
+</div>
+
+<!-- ============================================== -->
+<!--! LOAD VALIDATED FILES: UPLOAD MODAL Component  -->
+<!-- ============================================== -->
+<wp-etl-load-validated-files-modal #uploadModal
+        [data]="dataBody"
+        [step]="modalStep"
+        [status]="status"
+        [reportId]="globals.reportIds.MERCHANT_DATA"
+        (uploadAccountsEvent)="uploadValidatedFiles()"
+        [isUploadeFilesCompleted]="isUploadeFilesCompleted"> 
+</wp-etl-load-validated-files-modal>

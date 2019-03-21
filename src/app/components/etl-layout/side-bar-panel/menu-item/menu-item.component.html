@@ -1,0 +1,44 @@
+<ul [ngClass]="{'main-menu':isRoot, 'sub-menu': !isRoot}">
+<!-- <pre> child: {{items | json}} </pre> -->
+	<li *ngFor="let child of items" class="menu-item" routerLinkActive="active" (click)="toggle(child, $event)" [ngClass]="{'active': selectedItem === child}"> 
+		<!-- Handle branch node menu items -->
+		<div *ngIf="child.childrens && child.childrens.length > 0">
+			<div class="wrapBtn parent" (click)="calculateHeight($event);">
+				<span class="menu-icon">
+					<wp-etl-svg-icon icon="{{child.iconName}}" class="icon"></wp-etl-svg-icon>
+				</span>
+				<span class="menu-title">{{child.title}}</span>
+				<span class="arrow"></span>
+				<wp-etl-menu-item #menu [items]="child.childrens"></wp-etl-menu-item>
+			</div>
+		</div>
+		<!-- Handle leaf node menu items -->
+		<div class="wrapBtn child" *ngIf="!child.childrens || child.childrens.length === 0">
+			<span class="menu-icon">
+				<wp-etl-svg-icon icon="{{child.iconName}}" class="icon"></wp-etl-svg-icon>
+			</span>
+			<a class="menu-title" [routerLink]="child.path">{{child.title}}</a>
+		</div>
+	</li>
+</ul>
+
+<!-- ==================================================================================== -->
+<!-- <pre> items: {{ items | json}} </pre> -->
+<!-- <ul class="sub-menu" *ngIf="items">
+	<ng-container *ngFor="let subMenuItem of items; let i=index;">
+		<li routerLinkActive="active" class="sub-menu-item">
+			<input type="radio" id="{{getId('toggle-sub-menuItem_', subMenuItem.path)}}" name="toggle-sub-items" #checkSub/>
+			<label for="{{getId( 'toggle-sub-menuItem_', subMenuItem.path)}}" class="sub-menu-label" (click)="toogleSubmenu(checkSub,'submenu')">
+				<a [routerLink]="buildRouterLink(items.path , subMenuItem.path)" class="nav-link">
+					<div class="sub-menu-content">
+						<span class="menu-icon">
+							<wp-etl-svg-icon icon="{{subMenuItem.iconName}}" class="icon"></wp-etl-svg-icon>
+						</span>
+						<div *ngIf="!state">{{subMenuItem.title}}</div>
+					</div>
+				</a>
+			</label>
+			
+			</li>
+	</ng-container>
+</ul> -->

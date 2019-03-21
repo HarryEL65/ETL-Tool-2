@@ -1,0 +1,164 @@
+<!-- <pre>jsonLike: {{ jsonLike | json }}</pre>
+<pre>isNewJson: {{ isNewJson }} </pre> -->
+<!-- <pre> globalAccntData: {{ globalAccntData | json}} </pre> -->
+<div class="json-like-view"  *ngIf="jsonLike && !isNewJson">
+        
+    <div class="top-details">
+        <div class="details-item-lg first-line fake"  *ngIf="globalAccntData.accName; else lockedJsonAccName">
+             <span class="sub-title">Json Name</span>
+             <!-- <span *ngIf="parentComp==='modal-config'" class="title">{{jsonLike.accName}}</span> -->
+             <span *ngIf="parentComp==='modal-config'" class="title">{{globalAccntData.accName}}</span>
+             <span *ngIf="!parentComp" class="title" placement="bottom" [ngbTooltip]="globalAccntData.accName.length > 35? globalAccntData.accName: ''">{{globalAccntData.accName | truncate: 35}}</span>
+        </div>
+       
+        <ng-template #lockedJsonAccName>
+            <div class="details-item-lg first-line">
+                <span class="sub-title">Json Name</span>
+                <!-- <span class="title" placement="bottom" [ngbTooltip]="jsonLike.accName.length > 40? jsonLike.accName: ''">{{jsonLike.accName | truncate: 40}}</span> -->
+                <span *ngIf="lockedJson && lockedJson.accName" class="title" placement="bottom" [ngbTooltip]="lockedJson.accName.length > 35? lockedJson.accName: ''">{{lockedJson.accName | truncate: 35}}</span>
+            </div>
+        </ng-template>
+
+        <div class="action-area" *ngIf="!mode; else emptyCtntr">
+            <ng-container *ngIf="!isJasonSelected"> 
+                <button class="testing" (click)="lockJson()">
+                    <span>Choose this JSON</span>
+                </button>
+            </ng-container>
+
+            <ng-container *ngIf="isJasonSelected"> 
+                <div class="json-selected" [ngClass]="{'XS': mdqSrv.XS}">
+                    <!-- TODO: remove the style and set in css -->
+                    <span class="sub-title success">Choose test dates before you can add account</span>
+                    <span class="item-text">
+                        <span (click)="releaseJson()">
+                            <i class="fa fa-times-circle" style="cursor: pointer;color:lightgrey;position: relative;top: 8px;font-size: 40px;"></i>
+                        </span>
+
+                        <button class="custom-primary-btn donothover">
+                            <span class="checkmark"></span>
+                            <span>&nbsp;</span>
+                            <span>JSON Added</span>
+                        </button>
+                    </span>
+                </div>
+            </ng-container>
+        </div>
+        <ng-template #emptyCtntr>
+            <div class="fake-empty" [ngStyle]="{'width':'35%'}"></div>
+        </ng-template>
+
+
+        <div class="details-item-md"  *ngIf="globalAccntData.accID; else lockedJsonAccID" [ngClass]="{'XS': mdqSrv.XS}">
+            <span class="sub-title">Account ID</span>
+            <!-- globalAccntData -->
+            <span class="item-text">{{globalAccntData.accID}}</span>
+            <!-- <span class="item-text">{{jsonLike.accID}}</span> -->
+        </div>
+        <ng-template #lockedJsonAccID>
+            <div class="details-item-md" [ngClass]="{'XS': mdqSrv.XS}">
+                <span class="sub-title">Account ID</span>
+                <span *ngIf="lockedJson" class="item-text">{{lockedJson.accID}}</span>
+            </div>
+        </ng-template>
+        <div class="details-item-md" *ngIf="globalAccntData.recordType;else lockedRecordType" [ngClass]="{'XS': mdqSrv.XS}">
+            <span class="sub-title">Record Type</span>
+            <span class="item-text">{{globalAccntData.recordType}}</span>
+            <!-- <span class="item-text">{{jsonLike.recordType}}</span> -->
+        </div>
+        <ng-template #lockedRecordType>
+            <div class="details-item-md" [ngClass]="{'XS': mdqSrv.XS}">
+                <span class="sub-title">Record Type</span>
+                <span *ngIf="lockedJson" class="item-text">{{lockedJson.recordType}}</span>
+            </div>
+        </ng-template>
+
+
+
+        <div class="details-item-md" *ngIf="jsonLike || lockedJson" [ngClass]="{'XS': mdqSrv.XS }">
+            <span class="sub-title">navigateReport</span>
+            <span class="item-text" *ngIf="navigationReportUrl" placement="bottom" [ngbTooltip]="navigationReportUrl.length > 30? navigationReportUrl : ''">
+                <a href="{{navigationReportUrl}}" target="_blank"> {{ navigationReportUrl | truncate: 30}}</a>
+            </span>
+        </div>
+    </div>
+
+    <hr class="top-details">
+
+    <div class="config-selection-header">
+        <div class="config-selection-title" [ngClass]="{'XS': mdqSrv.XS, 'SM': mdqSrv.SM}">
+            <label *ngIf="!isAdvancedMode" class="details-section" style="margin-right: 20px">Mapping</label>
+            <label *ngIf="isAdvancedMode" class="details-section" style="margin-right: 20px">Entire Config</label>
+        </div>
+        <div class="config-selection" [ngClass]="{'XS': mdqSrv.XS, 'SM': mdqSrv.SM}">
+            <span  class="sub-title" style="display:inline;" [ngStyle]="{'color':!isAdvancedMode?'#37B6E5':white}">Mapping</span>
+            <ui-switch style="position:relative;top:5px" checked color="white" 
+                        switchColor="#37B6E5"
+                        [disabled]="false"
+                        (change)="changeJsonMode()" 
+                        [checked]="isAdvancedMode"
+                        size="small">
+            </ui-switch>
+            <span  class="sub-title" style="display:inline;" [ngStyle]="{'color':isAdvancedMode?'#37B6E5':white}">Entire config</span>
+        </div>    
+    </div>
+
+    <div class="json-selection-view">
+        <!-- <pre>mappingsKeyValue: {{ mappingsKeyValue }}</pre> -->
+        <div class="test scrollable-area" [ngClass]="{'short':isJasonSelected, 'XS': mdqSrv.XS}">
+            <div *ngIf="isAdvancedMode; else regularMode">
+                <json-editor id="json-editor-{{jsonLike.accID}}" [options]="editorOptions" [data]="configData"></json-editor>
+            </div>
+            <ng-template #regularMode>
+                    <div class="top-details">
+                        <div class="details-item" *ngFor="let cnfgItem of mappingsKeyValue" [ngClass]="{'XS': mdqSrv.XS, 'SM': mdqSrv.SM}">
+                            <span class="sub-title">{{ cnfgItem.key }}</span>
+                            <span *ngIf="cnfgItem.value" class="item-text" placement="bottom" [ngbTooltip]="cnfgItem.value.length > 12? cnfgItem.value: ''">{{ cnfgItem.value | truncate: 12}}</span>
+                        </div>
+                    </div>
+            </ng-template>
+        </div>
+    </div>
+
+</div>
+
+<!-- New Json Template -->
+<div class="json-like-view empty-json-view" *ngIf="isNewJson">
+    <div class="top-content">
+        <div *ngIf="!isError" class="top-details">
+
+            <div class="details-item-md fake" *ngIf="jsonLike.accName">
+                <span class="sub-title">New Json Template Name</span>
+                <span class="title" placement="bottom"> [ New Json Template ] </span>
+            </div>
+            <div class="details-item-md">
+            </div>
+            <!-- <pre>recordType: {{ recordType }}</pre> -->
+            <div class="details-item-md">
+                <label class="sub-title" for="record-type">Record Type</label>
+                <ng-select wpEtlInputRef
+                            id="record-type"
+                            [items]="recordsType" 
+                            [(ngModel)]="recordType"
+                            (change)="updateDataToSend($event)">
+                </ng-select>        
+            </div>
+
+        </div>
+        <div *ngIf="isError" class="error" >
+            <div class="error-title">Json Validation Error</div>
+            <div class="details-item-vlg">
+                {{errorMessage}}
+            </div>
+        </div>
+    </div>
+<pre> configData: {{ configData | json}} </pre>
+    <div>
+        <json-editor id="json-editor-{{jsonLike.accID}}" [options]="editorOptions" [data]="configData"></json-editor>
+    </div>
+</div>
+
+<ng-container  *ngIf="!isNewJson && !jsonLike">
+    <div class="empty-row">No data to display</div>
+    <mat-progress-bar *ngIf="loadingIndicator" mode="indeterminate"></mat-progress-bar>
+</ng-container>

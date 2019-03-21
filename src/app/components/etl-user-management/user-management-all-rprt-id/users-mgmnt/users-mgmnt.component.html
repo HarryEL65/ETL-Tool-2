@@ -1,0 +1,66 @@
+<div #tableWrapper  class="host-ctnr">
+
+<!-- <pre>selectedUser: {{selectedUser|json}}</pre> -->
+  
+  <!-- ==============================================================-->
+  <!-- !TABLE DEFINITION  -->
+  <!-- ------------------------------------------------------------- -->
+  <!-- the following table displays the list of Users for Diggy           -->
+  <!-- ------------------------------------------------------------- -->
+  <!-- ============================================================= -->
+  <ngx-datatable #table 
+                 id="userListTable"
+                 class="material"
+                 [rows]="data" 
+                 [loadingIndicator]="loadingIndicator"
+                 [columnMode]="'flex'" 
+                 [headerHeight]="71" 
+                 [rowHeight]="71" 
+                 [scrollbarV]=true 
+                 [scrollbarH]=false 
+                 [selected]="selected" 
+                 [selectionType]="'single'"
+                 (select)='onSelect($event)'>
+
+
+    <!-- *ACCOUNT NAME : name -->
+    <ngx-datatable-column name="User Name" prop="name" [flexGrow]="1.5">
+      <ng-template #selectTemplate ngx-datatable-cell-template let-row="row" let-value="value" let-isSelected="isSelected" let-onCheckboxChangeFn="onCheckboxChangeFn">
+        <wp-etl-radiobutton [mdqSrv]="mdqSrv" [text]="value" [name]="'users'" [value]="row.name" (change)="displaySelectedUser($event)"
+          [(selection)]="selectedUserName">
+        </wp-etl-radiobutton>
+      </ng-template>
+    </ngx-datatable-column> 
+
+    <!-- *ROLE NAME: role -->
+    <ngx-datatable-column name="Roles" prop="roles"  [flexGrow]="1">
+      <ng-template ngx-datatable-cell-template let-row="row" let-value="value" let-i="index">
+        <span class="item-text" title="" placement="left" container="body" [ngbTooltip]="value.join(',')">{{value.join(',')}}</span>
+      </ng-template>
+    </ngx-datatable-column>
+
+    <!-- *REMOVE USER ICON: remove icon-->
+    <ngx-datatable-column name="" prop="name"  [flexGrow]="1">
+      <ng-template ngx-datatable-cell-template let-row="row" let-value="value" let-i="index">
+        <i class="fa fa-user-times remove-user" [ngClass]="{'enable': selection === value}" (click)="removeUser($event, row)"></i>
+      </ng-template>
+    </ngx-datatable-column>
+   
+       <!-- *EDIT USER ICON : edit icon -->
+    <ngx-datatable-column name="" prop="name"  [flexGrow]="1">
+      <ng-template ngx-datatable-cell-template let-row="row" let-value="value" let-i="index">
+        <i class="fa fa-edit edit-user"  [ngClass]="{'enable': selection === value}" (click)="editUser($event, row)"></i>
+      </ng-template>
+    </ngx-datatable-column>
+
+  </ngx-datatable>
+
+  <wp-etl-user-card-details
+        class="user-details" 
+        [ngClass]="{'disable': false}"
+        [loadingIndicator]="isLoading"
+        [selectedUser]="selectedUser">
+  </wp-etl-user-card-details>
+
+</div>
+

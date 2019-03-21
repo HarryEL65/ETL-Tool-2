@@ -1,0 +1,91 @@
+@import '~sass/components/tables';
+@import '~sass/components/buttons';
+@import '~sass/mixins';
+:host {
+    @include disable-area($opacity: 0.3, $background: transparent);
+    display: block;
+}
+
+.host-ctnr {
+    display: flex;
+    flex-direction: column;
+    padding: 40px 50px;
+    border: 1px solid $base-gray-secondary;
+    height: 832px;
+    width: 100%;
+}
+
+::ng-deep .ng-select {
+    &.ng-select-single .ng-select-container .ng-value-container,
+    .ng-select span,
+    .ng-dropdown-panel .ng-dropdown-panel-items .ng-option {
+        font-size: 16px;
+    }
+}
+
+::ng-deep wp-etl-radiobutton .circle-ctnr {
+    top: 26px !important;
+}
+
+::ng-deep .ngx-datatable.material.checkbox-selection .datatable-body-row.active {
+    background: $selectedRowColor;
+    border-left: 2px solid $base-light-blue;
+}
+
+::ng-deep .ngx-datatable.material .datatable-body-row.active {
+    background: $selectedRowColor;
+    border-left: 2px solid $base-light-blue;
+}
+
+div.filter {
+    display: flex;
+    flex-direction: column;
+    label {
+        @include etl-font-regular(13px);
+        color: $dark-gray;
+    }
+    margin-bottom: 30px;
+}
+
+.ngx-datatable {
+    max-width: 100%;
+    height: 750px !important;
+}
+
+.ngx-datatable.material.checkbox-selection .datatable-body-row.active {
+    background: $selectedRowColor;
+    border-left: 2px solid $base-light-blue;
+}
+
+.is-selected,
+.selected,
+.active,
+.datatable-body-row.selected,
+.datatable-body-row.is-selected,
+.datatable-body-row:active,
+.datatable-body-row.selected {
+    background: $selectedRowColor;
+}
+
+@include customScrl();
+@include customScrl-ngSelect(344px, 48px);
+.disable-table-selection {
+    pointer-events: none;
+    opacity: 0.2;
+    cursor: none;
+}
+
+.disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+    background-color: #CED7E0;
+    pointer-events: none;
+}
+
+button {
+    width: 220px;
+    height: 40px;
+    border-radius: 20px;
+    border-style: hidden;
+    color: white;
+}

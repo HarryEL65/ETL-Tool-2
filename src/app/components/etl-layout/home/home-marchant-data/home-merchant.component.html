@@ -1,0 +1,52 @@
+  <div class="internalScroll" style="max-width: 100%;" [ngStyle]="{'height':isMinimized ? '93vh': '78vh' }">
+    <!-- <div class="grid-widget"> -->
+    <div class="content" [ngClass]="{'XS': mdqSrv.XS}">
+  
+      <!--  LAST ACCOUNTS ADDED - Expansion Panel -->
+      <wp-etl-expansion-panel [id]="'lastAcctAdded'" 
+                              [title]="'LAST ACCOUNTS ADDED'"
+                              [searchPlaceHolder]="'Search for Account Name'"
+                              [searchEntityName]=lastAddedAccountsName
+                              (filterData)="filterLastAddedTable($event)">
+          <wp-etl-last-acts-added-grid [lstAcntsAddLoadIndic]="lastAddedAccountsLoadIndic" 
+                                       [rows]=lastAddedAccounts>
+          </wp-etl-last-acts-added-grid>
+      </wp-etl-expansion-panel>
+  
+      <!--  LAST RERUNS MADE - Expansion Panel -->
+      <wp-etl-expansion-panel [id]="'lastRerunsMade'"
+                              [title]="'LAST RERUNS MADE'" 
+                              [searchPlaceHolder]="'Search for Account Name'"
+                              [searchEntityName]=rerunActiveAccountsName
+                              (filterData)="filterRerunsTable($event)">
+          <wp-etl-last-reruns-grid [rerunAcntsAddLoadIndic]="rerunAccountsLoadIndic" 
+                                   [rows]=rerunActiveAccounts>
+          </wp-etl-last-reruns-grid>
+      </wp-etl-expansion-panel>
+  
+      <!--  LAST ACCOUNTS REMOVED - Expansion Panel -->
+      <wp-etl-expansion-panel [id]="'lastAcntsRmv'"
+                              [title]="'LAST ACCOUNTS REMOVED'"
+                              [searchPlaceHolder]="'Search for Account Name'"
+                              [searchEntityName]=lastRemovedAccountsName
+                              (filterData)="filterLastRemovedTable($event)">
+            <wp-etl-last-removed-grid [lstRmvAcntsAddLoadIndic]="lastRemovedAccountsLoadIndic" 
+                                      [rows]=lastRemovedAccounts>
+            </wp-etl-last-removed-grid>
+      </wp-etl-expansion-panel>
+
+<!-- <pre> lastLoadedAccounts: {{ lastLoadedAccounts | json }} </pre> -->
+      <!--  LAST ACCOUNTS LOADED - Expansion Panel -->
+      <wp-etl-expansion-panel *ngIf="hasInportPermission"
+                              [id]="'lastAcntsLoaded'"
+                              [title]="'LAST ACCOUNTS LOADED'"
+                              [searchPlaceHolder]="'Search for Account Name'"
+                              [searchEntityName]=lastLoadedAccountsName 
+                              (filterData)="filterLastLoadedTable($event)">
+          <wp-etl-last-acnts-loaded-grid [lstAcntsLoadedLoadIndic]="lastLoadedAccountsLoadIndic" 
+                                       [rows]=lastLoadedAccounts>
+          </wp-etl-last-acnts-loaded-grid>
+      </wp-etl-expansion-panel>
+    </div>
+
+  </div>

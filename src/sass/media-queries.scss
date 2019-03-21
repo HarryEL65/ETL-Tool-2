@@ -1,0 +1,107 @@
+@import '../app/components/etl-shared/second-level-filter/second-level-filter.component';
+@import '../app/components/etl-shared/choose-dates/choose-dates.component';
+@import '../app/components/etl-acnt-mngmt/add-account/choose-configuration/choose-configuration.component';
+// @import '../app/components/etl-acnt-mngmt/add-account/add-account.component';
+// @import '../app/components/etl-shared/json-like-view/json-like-view.component';
+// @import '../app/components/etl-layout/etl-layout.component';
+// @import '../app/components/etl-layout/side-bar-panel/logo/logo.component';
+// @import '../app/components/etl-layout/side-bar-panel/welcome/welcome.component';
+// @import '~sass/mixins';
+    
+// /*----------------------------------------
+// |  medium screen (XL) (min-width: 1200px)|
+// ----------------------------------------*/
+
+// @media (min-width: 1200px) {
+//     @include table--xl();
+// }
+
+
+/*----------------------------------------
+|  medium screen (XL) (min-width: 1281px)|
+----------------------------------------*/
+
+// @media (min-width: 1200px) {
+@media (min-width: 1281px) {
+    @include table();
+    @include table--xl();
+    @include modal-status--xl();
+    @include file-list-comp--xl();
+    @include expansion-panel--xl();
+    @include modal-config--xl();
+    @include choose-dates--xl();
+    @include choose-record-type--xl();
+}
+
+/*------------------------------------------------------------
+|  medium screen (LG) (min-width: 992px - max-width: 1199px) |
+------------------------------------------------------------*/
+
+// @media (max-width: 1199px) {
+@media (max-width: 1280px) {
+    @include table(); 
+    @include add-account--lg();
+    @include expansion-panel--xl();
+    @include file-list-comp--lg();
+    @include modal-config--xl();
+    @include choose-record-type--lg();
+}
+
+/*--------------------------------------------------------------
+|  small screen  (MD)   (min-width: 768px - max-width: 991px)  |
+--------------------------------------------------------------*/
+// @media (max-width: 991px) {
+// @media (min-width: 768px) and (max-width: 1024px) {    
+@media (max-width: 1024px) {    
+    @include table(); 
+    // @include add-account--lg();
+    @include add-account--md();
+    @include modal-status--md();
+    @include expansion-panel--xl();
+    @include second-level-filter--md();
+    @include file-list-comp--md();
+    @include modal-config--sm();
+}
+
+/*--------------------------------------------------------------
+|  small screen  (SM)   (min-width: 544px - max-width: 767px)  |
+--------------------------------------------------------------*/
+// @media (max-width: 767px) {
+// @media (min-width: 481px) and (max-width: 767px) {
+@media (max-width: 767px) {
+    @include table(); 
+    @include expansion-panel--sm();
+    @include modal-status--sm();
+    @include modal-config--sm();
+    @include table--sm();
+    @include file-list-comp--sm();
+    @include modal-status--sm();
+    @include pending-acceptance--sm();
+    @include second-level-filter--sm();
+    @include json-like-view--sm();
+    @include choose-dates--sm();
+    @include choose-record-type--sm();
+}
+
+/*--------------------------------------------------------------
+|  small screen  (XS)   (max-width: 543px)  |
+--------------------------------------------------------------*/
+// @media (max-width: 543px) {
+// @media (min-width: 320px) and (max-width: 480px) {
+@media (max-width: 480px) {
+    @include table(); 
+    @include navigation--xs();
+    @include margin-content--xs();
+    // / @include choose-dates--sm();
+    @include expansion-panel--xs();
+    @include modal-status--xs();
+    @include modal-config--xs();
+    @include table--xs();
+    @include json-like-view--xs();
+    @include json-like-list--xs();
+    @include file-list-comp--xs();
+    @include choose-configuration--xs();
+    @include second-level-filter--xs();
+    @include choose-dates--xs();
+    @include choose-record-type--xs();
+}

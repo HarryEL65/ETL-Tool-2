@@ -1,0 +1,48 @@
+@import '~sass/components/tables';
+@import '~sass/mixins';
+
+
+:host {
+    display: block;
+    .title{
+        @include etl-font-bold(18px);
+        color: $header-text-color;
+    }
+}
+
+.btn-area {
+    display: flex;
+    height: 100px;
+    align-items: center;
+    justify-content: center;
+
+    button {
+        width: 176px;
+        height: 56px;
+        border-radius: 30px;
+        border-style: hidden;
+        font-weight: 400;
+        // border: 1px;
+        @include etl-font-regular(16px);
+
+        &.disable {
+            opacity: 0.65; 
+            // cursor: not-allowed;
+            pointer-events: none;
+            background-color: $base-gray-secondary;
+        }
+    }
+}
+
+.internal-scroll {
+    overflow-y: visible;
+}
+// internal page scroll
+@include customScrl($ele:'.internalScroll');
+
+// table scroll
+@include customScrl();
+
+.content {
+    @include margin-content;
+}

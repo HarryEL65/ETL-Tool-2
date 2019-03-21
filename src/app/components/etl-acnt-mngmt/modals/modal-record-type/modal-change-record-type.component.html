@@ -1,0 +1,45 @@
+<!-- !CHANG RECORD TYPE MODAL -->
+
+<ng-template #modalChangeRcrdType let-c="close" let-d="dismiss">
+
+  <!-- ============== -->
+  <!-- !MODAL HEADER  -->
+  <!-- =============  -->
+
+  <div class="modal-header custom-modal-header bckgd-chg-rcrd-type">
+    <h4 class="modal-title">Edit Account - Change Records Type</h4>
+    <button type="button" class="close close-btn" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+
+  <!-- ============  -->
+  <!-- !MODAL AREA   -->
+  <!-- ============  -->
+
+  <div class="modal-body custom-modal-body bckgd-chg-rcrd-type">
+    <div class="content">
+      <div class="testing-img">
+        <img src="assets/modals/addAccountApproval.svg" alt="">
+      </div>
+      <div class="msg-header">
+        <div class="small">
+          Are you sure you want to change the record type for the selected account/(s)?
+        </div>
+        <div class="big" placement="bottom" [ngbTooltip]="retrieveTooltip().length > 20 ? retrieveTooltip() : ''">
+          {{retrieveTooltip() | truncate: 20}}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ -->
+  <!-- !FOOTER AREA -->
+  <!-- ============ -->
+
+  <div class="modal-footer custom-modal-footer">
+    <button type="button" class="btn custom-btn custom-secondary-btn" (click)="d('Cross click')"> No </button>
+    <button class="btn custom-btn custom-primary-btn" (click)="changeRecordsType(d)">Yes</button>
+  </div>
+
+</ng-template>

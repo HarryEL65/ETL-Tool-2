@@ -1,0 +1,22 @@
+<div class="internalScroll" style="max-width: 100%;" [ngStyle]="{'height':isMinimized ? '93vh': '78vh' }">
+
+  <div class="content" [ngClass]="{'XS': mdqSrv.XS}">
+
+    <!-- ================================= -->
+    <!-- ! Component:  CHOOSE POPULATION   -->
+    <!-- ================================= -->
+    <wp-etl-choose-population 
+                [isMultiSelect]="'true'" 
+                [action]="'change-mapping'" 
+                (selectedAccounts)="activeAccountsSelected($event)"
+                [selected]="dataBody.accounts" 
+                (affiliateChng)="affiliateChange($event)">
+    </wp-etl-choose-population>
+
+    <div class="btn-area">
+      <button class="custom-primary-btn" (click)="updateActiveAcount()" [ngClass]="{'disable': !isUpdateBtnEnabled}">Update Accounts</button>
+    </div>
+
+  </div>
+
+</div>

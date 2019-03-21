@@ -1,0 +1,72 @@
+<ng-container *ngIf="mdqSrv.XL">
+  <label class="cntr-rb" placement="right" ngbTooltipBackgroundColor="red" [ngbTooltip]="text.length > 15? text: ''">
+    {{text | truncate:15}}
+
+    <input type="radio" [value]="value" [name]="name" [(ngModel)]="selection" (click)="onRadioBtnChange($event,value)">
+
+    <span class="circle-ctnr-rb">
+
+      <span class="checkmark"></span>
+
+    </span>
+
+  </label>
+</ng-container>
+<ng-container *ngIf="mdqSrv.MD || mdqSrv.LG">
+    <label class="cntr-rb" >
+      {{text}}
+  
+      <input type="radio" [value]="value" [name]="name" [(ngModel)]="selection" (click)="onRadioBtnChange($event,value)">
+  
+      <span class="circle-ctnr-rb">
+  
+        <span class="checkmark"></span>
+  
+      </span>
+  
+    </label>
+  </ng-container>
+
+  <ng-container *ngIf="mdqSrv.SM">
+      <label class="cntr-rb" placement="right" ngbTooltipBackgroundColor="red" [ngbTooltip]="text.length > 25? text: ''">
+          {{text | truncate:25}}
+    
+        <input type="radio" [value]="value" [name]="name" [(ngModel)]="selection" (click)="onRadioBtnChange($event,value)">
+    
+        <span class="circle-ctnr-rb">
+    
+          <span class="checkmark"></span>
+    
+        </span>
+    
+      </label>
+  </ng-container>
+  <ng-container *ngIf="mdqSrv.XS">
+      <label class="cntr-rb" placement="bottom" ngbTooltipBackgroundColor="red" [ngbTooltip]="text.length > 35? text: ''">
+          {{text | truncate:35}}
+    
+        <input type="radio" [value]="value" [name]="name" [(ngModel)]="selection" (click)="onRadioBtnChange($event,value)">
+    
+        <span class="circle-ctnr-rb">
+    
+          <span class="checkmark"></span>
+    
+        </span>
+    
+      </label>
+  </ng-container>
+
+    <!-- <ng-container *ngIf="mdqSrv.XL || mdqSrv.MD">
+      <label class="cntr-rb" placement="right" ngbTooltipBackgroundColor="red" [ngbTooltip]="text.length > 15? text: ''">
+          {{text | truncate:15}}
+    
+        <input type="radio" [value]="value" [name]="name" [(ngModel)]="selection" (click)="onRadioBtnChange($event,value)">
+    
+        <span class="circle-ctnr-rb">
+    
+          <span class="checkmark"></span>
+    
+        </span>
+    
+      </label>
+  </ng-container> -->

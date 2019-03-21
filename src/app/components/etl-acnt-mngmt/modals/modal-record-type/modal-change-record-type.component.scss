@@ -1,0 +1,115 @@
+@import '~sass/mixins';
+@import '~sass/components/modals';
+@import '~app/components/etl-shared/modal/modal.component.scss';
+:host {
+    border-radius: 2px;
+    display: block;
+    width: 384px;
+    height: 426px;
+    background-color: $base-white;
+}
+
+::ng-deep .modal-content {
+    width: 364px !important;
+    height: 426px;
+}
+
+.custom-modal-body.bckgd-chg-rcrd-type .content .msg-header {
+    height: 100px !important;
+}
+
+.custom-modal-body.bckgd-chg-rcrd-type {
+    background-color: #FAFBFC;
+}
+
+.custom-modal-header {
+    border: 1px solid $base-white;
+}
+
+.custom-modal-header.bckgd-chg-rcrd-type {
+    background-color: $dark-gray;
+    display: flex;
+    justify-content: normal;
+    -webkit-box-shadow: 0px 0px 8px 0px rgba(107, 120, 161, 1);
+    -moz-box-shadow: 0px 0px 8px 0px rgba(107, 120, 161, 1);
+    box-shadow: 0px 0px 8px 0px rgba(107, 120, 161, 1);
+}
+
+.custom-modal-header {
+    height: 64px;
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+    border-bottom: 0px;
+    padding-left: 24px;
+    .modal-title {
+        @include etl-font-regular($fontSize: 15px);
+        color: $base-white;
+    }
+    .close-btn {
+        height: 64px;
+        width: 54px;
+        border-top-right-radius: 12px;
+        opacity: 1;
+        color: $base-white;
+    }
+}
+
+.custom-modal-body {
+    display: flex;
+    padding-left: 16px;
+    padding-right: 16px;
+    display: flex;
+    justify-content: center;
+    &.bckgd-chg-rcrd-type {
+        .content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-evenly;
+            .testing-img {
+                margin-top: 10px;
+                img {
+                    width: 96px;
+                    height: 96px;
+                }
+            }
+            .msg-header {
+                margin-top: 14px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                width: 240px;
+                height: 47px;
+                color: $base-dark-blue-primary;
+                .small {
+                    @include etl-font-semi-bold(15px);
+                    text-align: center;
+                }
+                .big {
+                    @include etl-font-bold(22px);
+                    white-space: nowrap;
+                }
+            }
+            .msg {
+                margin-top: 33px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                .msg-detail {
+                    color: $dark-gray;
+                    @include etl-font-regular(13px);
+                    text-align: center;
+                }
+            }
+            button .nav-link {
+                text-decoration: none;
+                color: white;
+            }
+        }
+        &.finish {
+            .btns-area {
+                width: 160px !important;
+            }
+        }
+    }
+}

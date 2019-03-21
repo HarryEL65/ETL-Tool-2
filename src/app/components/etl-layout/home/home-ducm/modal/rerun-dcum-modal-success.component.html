@@ -1,0 +1,31 @@
+<ng-template #content let-c="close" let-d="dismiss">
+  <div class="modal-header custom-modal-header">
+    <h4 class="modal-title">Rerun Account</h4>
+    <button type="button" class="close close-btn" aria-label="Close" (click)="d('Cross click');">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body custom-modal-body ducm">
+    <div class="modal-img">
+      <img src="assets/modals/testEndedSuccessfuly.svg" alt="">
+    </div>
+    <div class="body-title  ">
+      <div class="sub-title">
+        Webpals mobile Data was pulled successfully!
+      </div>
+    </div>
+    <div class="body-sub-text">
+      Please note that data should be loaded into Qlikview in order to view it
+    </div>
+    <div class="modal-footer custom-modal-footer">
+      <button class="btn custom-btn custom-primary-btn">
+        <a class="btn-link" target="new" href="http://qlikview/qlikview/index.htm">Go to Qlikview</a>
+      </button>
+    </div>
+  </div>
+
+
+  
+
+
+</ng-template>

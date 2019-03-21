@@ -1,0 +1,16 @@
+@import '~sass/mixins';
+// @import '~sass/variables';
+
+:host {
+    display: block;
+    
+}
+.internal-scroll {
+    overflow-y: visible;
+}
+
+@include customScrl($ele:'.internalScroll');
+
+.content {
+    @include margin-content;
+}

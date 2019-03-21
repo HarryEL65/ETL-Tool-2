@@ -1,0 +1,242 @@
+[
+    {
+        "date": "06.10.2018 | 06:57",
+        "affiliateProgramName": "affiliatecruise",
+        "accName": "affiliatecruise  xlmSpela1",
+        "effectiveDate": "06.10.2018",
+        "madeByName": "etl-user",
+        "status": "loaded",
+        "acctId": "112233",
+        "sapAcctId": "12358965",
+        "recordType": "daily",
+        "dealType": "Revshare",
+        "originalFileName": "affiliatecruise  xlmSpela1 06.10.2018",
+        "generatedFileName":"21555_31-027-2018_01-08-2018",
+        "legalCompany": "XLMedia"
+        
+    },
+    {
+        "date": "27.10.18 | 15:57",
+        "affiliateProgramName": "affiliatecruise",
+        "accName": "affiliatecruise xlmCJ1",
+        "effectiveDate": "27.10.18",
+        "madeByName": "etl-user",
+        "status": "loaded",
+        "acctId": "221544",
+        "sapAcctId": "98653214",
+        "recordType": "daily-monthly",
+        "dealType": "Revshare",
+        "originalFileName": "affiliatecruise xlmCJ1 27.10.18",
+        "generatedFileName":"21555_31-027-2018_01-08-2018",
+        "legalCompany": "XLMedia UK"
+      
+    },
+    {
+        "date": "25.09.18 | 12:57",
+        "affiliateProgramName": "Affiliates United",
+        "accName": "Affiliates United  aidanward",
+        "effectiveDate": "25.09.18",
+        "madeByName": "etl-user",
+        "status": "failed",
+        "acctId": "45879",
+        "sapAcctId": "78936521",
+        "recordType": "daily-monthly",
+        "dealType": "Revshare",
+        "originalFileName": "Affiliates United  aidanward 25.09.18",
+        "generatedFileName":"21555_31-027-2018_01-08-2018",
+        "legalCompany": "XLMedia"
+        
+    },
+    {
+        "date": "27.10.18 | 05:12",
+        "affiliateProgramName": "Comeon",
+        "accName": "Comeon  veikkausvihjeetcom",
+        "effectiveDate": "27.10.18",
+        "madeByName": "etl-user",
+        "status": "loaded",
+        "acctId": "65897",
+        "sapAcctId": "3256987",
+        "recordType": "daily-monthly",
+        "dealType": "Revshare",
+        "originalFileName": "Comeon  veikkausvihjeetcom 27.10.18",
+        "generatedFileName":"21555_31-027-2018_01-08-2018",
+        "legalCompany": "888"
+        
+    },
+    {
+        "date": "27.10.18 | 05:05",
+        "affiliateProgramName": "Comeon",
+        "accName": "Comeon  veikkausvihjeetcom",
+        "effectiveDate": "27.10.18",
+        "madeByName": "etl-user",
+        "status": "failed",
+        "acctId": "12036",
+        "sapAcctId": "78965525",
+        "dealType": "Unknown",
+        "dealType": "Revshare",
+        "originalFileName": "Comeon  veikkausvihjeetcom 27.10.18",
+        "generatedFileName":"21555_31-027-2018_01-08-2018",
+        "legalCompany": "myBet"
+        
+    },
+    {
+        "date": "27.10.18 | 01:00",
+        "affiliateProgramName": "Gala Partners",
+        "accName": "Gala Partners  jafr73",
+        "effectiveDate": "27.10.18",
+        "madeByName": "etl-user",
+        "status": "failed",
+        "acctId": "14896",
+        "sapAcctId": "23554789",
+        "recordType": "monthly",
+        "dealType": "Revshare",
+        "originalFileName": "Gala Partners  jafr73 27.10.18",
+        "generatedFileName":"21555_31-027-2018_01-08-2018",
+        "legalCompany": "888"
+        
+    },
+    {
+        "date": "27.10.18 | 04:44",
+        "affiliateProgramName": "mpact Radius Canada",
+        "accName": "mpact Radius Canada  kprevost(Wealthsimple)",
+        "effectiveDate": "27.10.18",
+        "madeByName": "etl-user",
+        "status": "loaded",
+        "acctId": "74853",
+        "sapAcctId": "45786521",
+        "recordType": "daily-monthly",
+        "dealType": "Revshare",
+        "originalFileName": "Impact Radius Canada  kprevost(Wealthsimple) 27.10.18",
+        "generatedFileName":"21555_31-027-2018_01-08-2018",
+        "legalCompany": "myBet"
+        
+    },
+    {
+        "date": "27.10.18 | 13:57",
+        "affiliateProgramName": "Impactradius",
+        "accName": "Impactradius  empoweringmedia (Acorns-Invest Spare Change)",
+        "effectiveDate": "27.10.18",
+        "madeByName": "etl-user",
+        "status": "failed",
+        "acctId": "45988",
+        "sapAcctId": "45321147",
+        "recordType": "daily",
+        "dealType": "Revshare",
+        "originalFileName": "Impactradius  empoweringmedia (Acorns-Invest Spare Change) 27.10.18",
+        "generatedFileName":"21555_31-027-2018_01-08-2018",
+        "legalCompany": "myBet"
+        
+    },
+    {
+        "date": "27.10.18 | 18:07",
+        "affiliateProgramName": "Netopartners",
+        "accName": "Netopartners  TenWinoWB1",
+        "effectiveDate": "27.10.18",
+        "madeByName": "etl-user",
+        "status": "loaded",
+        "acctId": "45622",
+        "sapAcctId": "85632589",
+        "recordType": "monthly",
+        "dealType": "Revshare",
+        "originalFileName": "Netopartners  TenWinoWB1 27.10.18",
+        "generatedFileName":"21555_31-027-2018_01-08-2018",
+        "legalCompany": "Casino"
+        
+    },
+    {
+        "date": "09.2018 | 09:57",
+        "affiliateProgramName": "OVO Affiliate",
+        "accName": "OVO Affiliate  DEsocial not active",
+        "effectiveDate": "09.2018",
+        "madeByName": "etl-user",
+        "status": "failed",
+        "acctId": "78554",
+        "sapAcctId": "12456985",
+        "recordType": "daily-monthly",
+        "dealType": "Revshare",
+        "originalFileName": "OVO Affiliate  DEsocial not active 09.2018",
+        "generatedFileName":"21555_31-027-2018_01-08-2018",
+        "legalCompany": "Casino OVO"
+        
+    },
+    {
+        "date": "09.2018 | 05:51",
+        "affiliateProgramName": "OVO Affiliates",
+        "accName": "OVO Affiliates  mentine",
+        "effectiveDate": "09.2018",
+        "madeByName": "etl-user",
+        "status": "loaded",
+        "acctId": "47895",
+        "sapAcctId": "19865423",
+        "recordType": "monthly",
+        "dealType": "Revshare",
+        "originalFileName": "OVO Affiliates  mentine 09.2018",
+        "generatedFileName":"21555_31-027-2018_01-08-2018",
+        "legalCompany": "Casino OVO"
+        
+    },
+    {
+        "date": "09.2018 | 11:22",
+        "affiliateProgramName": "OVO Affiliates",
+        "accName": "OVO Affiliates  mentine",
+        "effectiveDate": "09.2018",
+        "madeByName": "etl-user",
+        "status": "loaded",
+        "acctId": "45893",
+        "sapAcctId": "48963251",
+        "recordType": ",monthly",
+        "dealType": "Revshare",
+        "originalFileName": "OVO Affiliates  mentine 09.2018",
+        "generatedFileName":"21555_31-027-2018_01-08-2018",
+        "legalCompany": "Casino OVO"
+        
+    },
+    {
+        "date": "09.2018 | 07:14",
+        "affiliateProgramName": "OVO Affiliates",
+        "accName": "OVO Affiliates  DEsocia not active 09.2018",
+        "effectiveDate": "09.2018",
+        "madeByName": "etl-user",
+        "status": "loaded",
+        "acctId": "11458",
+        "sapAcctId": "42589632",
+        "recordType": "monthly",
+        "dealType": "Revshare",
+        "originalFileName": "OVO Affiliates  DEsocia not active 09.2018",
+        "generatedFileName":"21555_31-027-2018_01-08-2018",
+        "legalCompany": ""
+        
+    },
+    {
+        "date": "27.10.18 | 08:08",
+        "affiliateProgramName": "OVO Affiliates ",
+        "accName": "OVO Affiliates  DEsocial not active",
+        "effectiveDate": "27.10.18",
+        "madeByName": "etl-user",
+        "status": "loaded",
+        "acctId": "78966",
+        "sapAcctId": "14785412",
+        "recordType": "daily",
+        "dealType": "Revshare",
+        "originalFileName": "OVO Affiliates  DEsocial not active 27.10.18",
+        "generatedFileName":"21555_31-027-2018_01-08-2018",
+        "legalCompany": "Casino OVO UK"
+        
+    },
+    {
+        "date": "27.10.18 | 05:11",
+        "affiliateProgramName": "Premier Gaming",
+        "accName": "Premier Gaming  xlmhysport1",
+        "effectiveDate": "27.10.18",
+        "madeByName": "etl-user",
+        "status": "failed",
+        "acctId": "78965",
+        "sapAcctId": "36528741",
+        "recordType": "daily",
+        "dealType": "Revshare",
+        "originalFileName": "Premier Gaming  xlmhysport1 27.10.18",
+        "generatedFileName":"21555_31-027-2018_01-08-2018",
+        "legalCompany": "PR DE"
+        
+    }
+]

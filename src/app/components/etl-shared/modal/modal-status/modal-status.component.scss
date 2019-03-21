@@ -1,0 +1,219 @@
+@import '~sass/mixins';
+@import '~sass/components/modals';
+
+:host {
+	display: block;
+	background-color: #FAFBFC;
+	border-radius: 2px;
+	overflow: hidden;
+}
+   .btn-link {
+	   text-decoration: none!important;
+	   color: white!important;
+	   height: 48px;
+	   min-width: 123px;
+   }
+   ::ng-deep .modal-content{
+		 border-radius: 2px;
+	 }
+	.modal-body {
+		border-bottom-left-radius: 12px;
+		border-bottom-right-radius: 12px;
+	}
+	.custom-modal-header.bckgd-pending,
+	.custom-modal-body.bckgd-pending-fix {
+		// width:1136px!important;
+		-webkit-box-shadow: 0px 0px 8px 0px rgba(107,120,161,1);
+		-moz-box-shadow: 0px 0px 8px 0px rgba(107,120,161,1);
+		box-shadow: 0px 0px 8px 0px rgba(107,120,161,1);
+	}
+	.custom-modal-header.bckgd-pending.not-pendingWizard,
+	.custom-modal-body.bckgd-pending-fix.not-pendingWizard {
+		// width: 772px!important;
+		
+	}
+	
+
+	.custom-modal-body.bckgd-pending-fix,
+	.custom-modal-body.bckgd-accepted-fix,
+	.custom-modal-body.bckgd-validated-fix,
+	.custom-modal-body.bckgd-loaded-fix,
+	.custom-modal-body.bckgd-warning-fix
+	.custom-modal-body.bckgd-passed-fix,
+	.custom-modal-body.bckgd-failed-fix ,
+	.custom-modal-body.bckgd-canceled-fix,
+	.custom-modal-body.bckgd-testing-fix ,
+	.custom-modal-body.bckgd-running-fix 
+	 {
+		 	background-color: #FAFBFC;
+	 }
+
+	 .custom-modal-header
+	 {
+		 border: 1px solid $base-white;
+	 }
+
+	.custom-modal-header.bckgd-accepted,
+	.custom-modal-body.bckgd-accepted-fix,
+	.custom-modal-header.bckgd-validated,
+	.custom-modal-header.bckgd-validated-fix,
+	.custom-modal-header.bckgd-loaded,
+	.custom-modal-header.bckgd-loaded-fix,
+	.custom-modal-header.bckgd-warning,
+	.custom-modal-header.bckgd-warning-fix,
+	.custom-modal-header.bckgd-passed,
+	.custom-modal-body.bckgd-passed-fix,
+	.custom-modal-header.bckgd-failed,
+	.custom-modal-body.bckgd-failed-fix 
+	.custom-modal-header.bckgd-canceled,
+	.custom-modal-body.bckgd-canceled-fix 
+	.custom-modal-header.bckgd-testing,
+	.custom-modal-body.bckgd-testing-fix,
+	.custom-modal-header.bckgd-running,
+	.custom-modal-body.bckgd-running-fix 
+	 {
+			// width:766px!important;
+			-webkit-box-shadow: 0px 0px 8px 0px rgba(107,120,161,1);
+			-moz-box-shadow: 0px 0px 8px 0px rgba(107,120,161,1);
+			box-shadow: 0px 0px 8px 0px rgba(107,120,161,1);
+	}
+
+	::ng-deep .custom-modal-header.bckgd-validated,
+	::ng-deep .custom-modal-header.bckgd-accepted,
+	::ng-deep .custom-modal-header.bckgd-loaded,
+	::ng-deep .custom-modal-header.bckgd-passed {
+		svg-icon {
+			svg{
+				fill: $accepted!important;
+			}
+			position: relative;
+			.cls-accepted,
+			.cls-passed
+			.cls-validated,
+			.cls-loaded
+			{
+				fill: $base-white!important;
+			}
+			margin-right: 40px;
+			margin-left: 15px;
+			height: 16px;
+			width: 16px;
+		}
+	}
+	::ng-deep .custom-modal-header.bckgd-pending,
+	::ng-deep .custom-modal-header.bckgd-warning,
+	::ng-deep .custom-modal-header.bckgd-failed,
+	::ng-deep .custom-modal-header.bckgd-canceled,
+	::ng-deep .custom-modal-header.bckgd-testing,
+	::ng-deep .custom-modal-header.bckgd-running {
+		 svg-icon {
+			position: relative;
+			.cls-canceled,
+			.cls-warning,
+			.cls-failed,
+			.cls-testing,
+			.cls-pending,
+			.cls-running {
+				fill: $base_white!important;
+			}
+			//top: 31px;
+			//left: 54px;
+			margin-left: 15px;
+			margin-right: 40px;
+			height: 16px;
+			width: 16px;
+		}
+
+	}
+
+	.custom-modal-header{ height: 79px; border-top-left-radius: 2px;
+		border-top-right-radius: 2px; border-bottom: 0px; padding-left: 24px; align-items: center;
+		.modal-title{
+			@include etl-font-regular($fontSize: 20px);
+			color: $base-white;
+			
+			}
+		.close-btn{ height: 79px; width: 54px;  border-top-right-radius: 2px; opacity: 1; color: $base-white; }
+	}
+	
+	.custom-modal-body{ 
+		display: flex;
+		padding-left: 16px; 
+		padding-right: 16px;
+		
+		
+		wp-etl-files-list{
+			margin-right: 0;
+			overflow: hidden;
+		}
+
+		
+		&.bckgd-pending-fix {
+			wp-etl-files-list{
+				margin-right: 8px!important;
+			}
+			wp-etl-pending-acceptance-wizard {
+				margin-left: 8px;
+			}
+		}
+
+		&.bckgd-passed-fix {
+		   
+			.content.ducm{
+				display: flex;
+				flex-direction: row;
+				align-items: center;
+				justify-content: center;
+				width: 100%;
+				.testing-img {
+					margin-top: 10px;
+					img {
+						display: block;
+						width: 96px;
+						height: 96px;
+					}
+				}
+				.msg-header {
+					margin-top: 14px;
+					display: flex;
+					flex-direction: column;
+					align-items: center;
+					// width: 240px;
+					// height: 47px;
+					color: $base-dark-blue-primary;
+					.small {
+						@include etl-font-semi-bold(15px);
+						text-align: center;
+					}
+					.big {
+						@include etl-font-bold(22px);
+						white-space: nowrap;
+					}
+				}
+				.msg {
+					margin-top: 33px;
+					display: flex;
+					flex-direction: column;
+					align-items: center;
+					.msg-detail {
+						color: $dark-gray;
+						@include etl-font-regular(13px);
+						text-align: center;
+					}
+				}
+				
+				button .nav-link {
+					text-decoration: none;
+					color: white;
+				}
+			}
+		}
+
+		
+	}
+
+	.modal-footer.custom-modal-footer{
+		justify-content: center!important;
+	}
+
+

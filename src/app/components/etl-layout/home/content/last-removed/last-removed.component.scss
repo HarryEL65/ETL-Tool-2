@@ -1,0 +1,19 @@
+@import '~sass/components/tables';
+@import '~sass/mixins';
+
+:host {
+    display: block;
+}
+
+@include customScrl();
+
+.date-col {
+    @include etl-font-regular($fontSize: 14px);
+}
+.config {
+    // cursor: pointer;
+}
+.config .status {
+    height: 20px;
+    width: 20px;
+}

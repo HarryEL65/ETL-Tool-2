@@ -1,0 +1,171 @@
+@import '~sass/components/tables';
+@import '~sass/styles';
+:host {
+    display: block;
+    height: 384px; //  width: 736px;
+    border: 1px solid $base-gray-secondary;
+    button {
+        border: none;
+        background: none;
+    }
+    background-color: $base-white;
+}
+
+::ng-deep .ngx-datatable .datatable-body .datatable-row-detail {
+    background: #FAFBFC;
+}
+
+file-cell {
+    background: yellowgreen;
+    width: 500
+}
+
+status-cell {
+    background: cadetblue;
+    width: 200;
+}
+
+.status {
+    color: $base-dark-blue-primary;
+    @include etl-font-semi-bold ($fontSize: 13px);
+}
+
+.txt-file {
+    color: $base-dark-blue-primary;
+    @include etl-font-regular ($fontSize: 13px);
+}
+
+.header {
+    color: $base-gray !important;
+}
+
+.header:nth-of-type {
+    @include etl-font-semi-bold(13px);
+}
+
+.header.first {
+    margin-left: 95px;
+}
+
+.status {
+    width: 55px;
+    display: inline-block;
+}
+
+.status.failed {
+    color: $base-light-red;
+}
+
+.status.passed,
+.status.success,
+.status.validated {
+    color: $base-light-green;
+}
+
+.status.warning {
+    color: $base-orange;
+}
+
+.fa.fa-download,
+.svg-download ::ng-deep {
+    font-size: 14px;
+    color: #3E445C;
+    border: none;
+    background: none;
+    width: 10px;
+    height: 10px;
+    &:hover {
+        cursor: pointer;
+        color: $base-light-blue;
+        .cls-3 {
+            fill: $base-light-blue;
+        }
+    }
+}
+
+.svg-ctnr {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid white;
+    height: 65px;
+    width: 120px;
+    position: fixed;
+    z-index: 9999;
+}
+
+::ng-deep .file_name {
+    width: 20px;
+    height: 16px;
+    margin-right: 50px;
+}
+
+::ng-deep .download-cell {
+    color: $base-dark-blue-primary;
+    &.already-downloaded {
+        color: $base-light-blue;
+    }
+}
+
+::ng-deep .ngx-datatable#files-list .datatable-body {
+    height: 318px !important;
+}
+
+.error-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: $base-light-red;
+}
+
+.error {
+    font-size: 13px;
+    font-weight: 100;
+    color: $base-light-red;
+    white-space: normal;
+}
+
+
+.warning-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: $base-orange;
+}
+
+.warning {
+    font-size: 13px;
+    font-weight: 100;
+    color: $base-orange;
+}
+
+a {
+    &.down:before {
+        border-left: 2px solid $base-dark-blue-primary;
+        border-bottom: 2px solid $base-dark-blue-primary;
+        width: 8px;
+        height: 8px;
+        display: inline-block;
+        text-align: center;
+        content: '';
+        transition: all .5s ease;
+        position: absolute;
+        top: 25px;
+        margin-top: 1px;
+        transform: rotate(-45deg);
+    }
+    &.up:before {
+        border-left: 2px solid $base-dark-blue-primary;
+        border-bottom: 2px solid $base-dark-blue-primary;
+        width: 8px;
+        height: 8px;
+        display: inline-block;
+        text-align: center;
+        content: '';
+        transition: all .5s ease;
+        position: absolute;
+        top: 25px;
+        margin-top: 1px;
+        transform: rotate(135deg);
+    }
+}

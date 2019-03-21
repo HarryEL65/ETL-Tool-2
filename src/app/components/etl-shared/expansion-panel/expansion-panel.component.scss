@@ -1,0 +1,141 @@
+@import '~sass/mixins';
+@import '~sass/components/tables';
+:host {
+    display: block;
+    margin-bottom: 30px;
+    .title-search-area {
+        display: flex;
+        border: 1px solid $base-gray-secondary;
+        background-color: $gray-lighter-2;
+        height: 64px;
+        div.label-area {
+        //     width: calc(100% - 260px);
+            input[type=checkbox] {
+                display: none;
+                position: absolute;
+            }
+            label {
+                &:hover {
+                    cursor: pointer;
+                }
+                width: 100%;
+                line-height: 62px;
+                padding-left: 25px;
+                position: relative;
+                &.down:before {
+                    border-left: 2px solid $base-dark-blue-primary;
+                    border-bottom: 2px solid $base-dark-blue-primary;
+                    width: 10px;
+                    height: 10px;
+                    display: inline-block;
+                    text-align: center;
+                    content: '';
+                    transition: all .5s ease;
+                    position: absolute;
+                    top: 25px;
+                    margin-top: 1px;
+                    transform: rotate(-45deg);
+                }
+                &.up:before {
+                    border-left: 2px solid $base-dark-blue-primary;
+                    border-bottom: 2px solid $base-dark-blue-primary;
+                    width: 10px;
+                    height: 10px;
+                    display: inline-block;
+                    text-align: center;
+                    content: '';
+                    transition: all .5s ease;
+                    position: absolute;
+                    top: 25px;
+                    margin-top: 1px;
+                    transform: rotate(135deg);
+                }
+                .title {
+                    @include etl-font-bold(16px);
+                    color: $header-text-color;
+                    height: 62px;
+                    line-height: 62px;
+                    position: relative;
+                    //left: 55px;
+
+                    min-width: 100px;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    span {
+                        position: relative;
+                        left: 30px;
+                    }
+                }
+            }
+        }
+
+    }
+     ::ng-deep.collapsable-area {
+        //background: yellow;
+        .ngx-datatable {
+            height: $table-row-height * 7;
+
+        }
+        &.do-hide {
+            height: 0;
+
+            animation: collapsePanel 1000ms ease;
+            animation-fill-mode: forwards;
+
+        }
+        &.do-show {
+
+            animation: expandPanel 1000ms ease;
+            animation-fill-mode: forwards;
+           
+        }
+    }
+
+   ::ng-deep .ng-select.search-input-ex-pnl { 
+        width: 330px; 
+   
+        .ng-clear-wrapper { 
+            position: relative; 
+            right: 0!important; 
+        } 
+    } 
+    ::ng-deep .ng-select {
+         &.ng-select-single .ng-select-container .ng-value-container,
+         .ng-select span, .ng-dropdown-panel .ng-dropdown-panel-items .ng-option {
+            font-size: 16px;
+        }
+    }
+
+}
+
+@keyframes expandPanel {
+    0% {
+        opacity: 0;
+        height: 0;
+    }
+    // 50% {
+    //     opacity: 0;
+    //     height: 0;
+    // }
+    100% {
+        opacity: 1;
+        height: $table-row-height * 7;
+    }
+}
+
+@keyframes collapsePanel {
+    0% {
+        opacity: 1;
+       
+        height: $table-row-height * 7;
+    }
+    // 50% {
+    //     opacity: 0;
+    //     height: 0;
+    // }
+    100% {
+        opacity: 0;
+        height: 0;
+    }
+}

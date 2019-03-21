@@ -1,0 +1,25 @@
+<div class="internalScroll" style="max-width: 100%;" [ngStyle]="{'height':isMinimized ? '93vh': '78vh' }">
+
+  <div class="content" [ngClass]="{'XS': mdqSrv.XS}">
+
+      <wp-etl-choose-dates 
+              [action]="'rerun-account-mobile'"
+              (dateFrom)="dataBody.setFromDate($event)" 
+              (dateTo)="dataBody.setToDate($event)" 
+              (btnClickEvent)="openRerunModal()"
+              [isBtnEnabled]="hasPermission" 
+              [name]="btnText" 
+              [hasDatesPermission]="hasDatesPermission"
+              [reporId]="globalService.reportIds.DUCM">
+      </wp-etl-choose-dates>
+      
+      	<wp-etl-rerun-modal #modalRerun
+            [data]="dataBody"
+            [reporId]="globalService.reportIds.DUCM"
+            (resetEvent)="resetSelectedAccounts()"
+			      (rerunAccountsEvent)="rerunAccounts()">
+        </wp-etl-rerun-modal> 
+        
+  </div>
+
+</div>

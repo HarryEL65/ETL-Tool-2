@@ -1,0 +1,199 @@
+@import '~sass/components/tables';
+@import '~sass/mixins';
+// @import "~sass/components/tableProgressLinear";
+
+
+.disabled {
+    opacity: 0.65;
+    pointer-events: none;
+}
+
+// #modal-config {
+//     width: 700px;
+// }
+
+.datatable-icon-up { 
+    @extend .fa;
+    @extend .fa-arrow-up;
+}
+.datatable-icon-down {
+    @extend .fa;
+    @extend .fa-arrow-down;
+}
+
+@include customScrl();
+
+
+button.btn-outline-secondary:hover,
+button.btn-outline-secondary:focus,
+button.btn-outline-secondary:active{
+
+    background: none!important;
+    border: none!important;
+    // border: none;
+    box-shadow: transparent;
+}
+button {
+    // border: none!important;
+    border: none;
+}
+:host {
+    >>> .popover {
+      background-color: #009688;
+      color: #fff;
+    }
+ }
+
+
+     
+.date-col {
+    @include etl-font-regular($fontSize: 14px);
+}
+.config {
+    position: relative;
+    // top: 4px;
+    // cursor: pointer;
+}
+.config .show-config,
+.show-config {
+    height: 20px;
+    width: 20px;
+    &:hover {
+        cursor: pointer;
+        .cls-show-config{
+            fill:$base-light-blue
+        }
+    }
+}
+.svg-edit-config {
+    height: 16px;
+    width: 16px;
+
+}
+.datatable-body-cell {
+    display: flex!important;
+    flex-direction: column;
+    justify-content: center;
+    .status-ctnr //overwrite the defautl hover
+     {
+        display: flex;
+        height:41px;
+        width: 100px; 
+        line-height: 41px;
+        padding: 0 20px;
+        border-radius: 20px;
+        position: relative;
+        left: -20px;
+        // top: 15px;
+        .passed {
+            fill: $white;//$accepted;
+            height: 18px;
+            width: 18px;
+            color: $passed;
+        }
+        .accepted {
+            fill: $white;//$accepted;
+            height: 18px;
+            width: 18px;
+        }
+        .failed {
+            fill: $failed;
+            height: 18px;
+            width: 18px;
+        }
+        .canceled {
+            fill: $canceled;
+            height: 18px;
+            width: 18px;
+        }
+        .pending {
+            fill: $acceptance;
+            height: 18px;
+            width: 18px;
+        }
+        .running {
+            fill: $running;
+            height: 18px;
+            width: 18px;
+            color: $running;
+        }
+        .testing {
+            fill: $testing;
+            height: 18px;
+            width: 18px;
+        }
+        svg-icon {
+            position: relative;
+            top: 2px;
+        }
+        .status {
+            margin-left: 15px;
+        }
+
+    }
+    
+    .status-ctnr:hover {
+        // &:hover {
+            cursor: pointer;
+        // }
+        .status {
+            color: $white;
+        }
+        .status.testing,
+        .status.running {
+            color: $testing;
+        }
+
+        .passed {
+            fill: $accepted;
+        }
+        .accepted {
+            fill: $accepted;
+        }
+        .cls-canceled,
+        .cls-failed,
+        .cls-accepted,
+        .cls-passed,
+        // .cls-testing,
+        // .cls-running,
+        .cls-pending {
+            fill: $white!important;
+        }
+        &.passed{
+            background: $passed;
+            width: 152px;
+        }
+        &.accepted {
+            background: $accepted;
+            width: 152px;
+        }
+        &.failed {
+            background: $failed;
+            width: 128px;
+        }
+        &.canceled {
+            background: $canceled;
+            width: 152px;
+        }
+
+        &.pending {
+            background: $acceptance;
+            width: 176px;
+        }
+    }
+}
+.datatable-body-cell .status-ctnr.testing,
+.datatable-body-cell .status-ctnr.running {
+    &:hover {
+        cursor: default!important;
+    }
+}
+
+.ngx-datatable#last-added .datatable-body .datatable-body-row .datatable-body-cell .datatable-body-cell-label {
+    // display:contents!important;
+    .config {
+        // line-height: 30px;
+        line-height: 71px;
+        height: 71px;
+    }
+}

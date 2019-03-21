@@ -1,0 +1,87 @@
+:host mat-sidenav-content.normal {
+  width: 80vw;
+}
+
+:host mat-sidenav-content.expanded {
+  width: 95vw;
+  margin-left: 5vw !important;
+}
+
+:host mat-sidenav.normal {
+  width: 20vw;
+}
+
+:host mat-sidenav.collapsed {
+  width: 5vw;
+}
+/*# sourceMappingURL=etl-layout.component.css.map */
+wp-etl-message-area{
+  -webkit-transition:-webkit-transform 0.2s ease;
+  transition:transform 0.2s ease;
+  box-shadow:0 -2px 35.3px 21.7px rgba(0,0,0,0.15)
+}
+
+/* .cookie_notice{
+  background:#fff;background-color:lightblue;
+  padding:15px;font-size:16px;line-height:1.375;
+  position:fixed;bottom:0;left:0;width:100%;
+  z-index:100;box-sizing:border-box;
+  display:-webkit-box;
+  display:-webkit-flex;display:-ms-flexbox;
+  display:flex;-webkit-box-pack:justify;
+  -webkit-justify-content:space-between;
+  -ms-flex-pack:justify;justify-content:space-between;
+  -webkit-box-align:center;-webkit-align-items:center;
+  -ms-flex-align:center;align-items:center;
+  -webkit-transition:-webkit-transform 0.2s ease;
+  transition:transform 0.2s ease;
+  box-shadow:0 -2px 35.3px 21.7px rgba(0,0,0,0.15)
+}
+.cookie_notice.closed{
+  -webkit-transform:translateY(100%);
+  -ms-transform:translateY(100%);
+  transform:translateY(100%);
+  -webkit-transition:-webkit-transform 0.2s ease;
+  transition:transform 0.2s ease
+}
+.cookie_notice .cookie_disclaimer{
+  width:990px;-webkit-box-flex:0;
+  -webkit-flex:0 1 auto;
+  -ms-flex:0 1 auto;flex:0 1 auto
+}
+.cookie_notice .cookie_disclaimer a{
+  text-decoration:none;border:none;outline:none
+}
+.cookie_notice .cookie_disclaimer a:hover{
+  text-decoration:underline
+}
+.cookie_notice .gotit{
+  width:auto;height:auto;font-size:18px;
+  line-height:41px;text-align:center;
+  cursor:pointer;margin-left:15px;
+  -webkit-box-flex:0;padding:0 1em;-webkit-flex:0 0 auto;
+  -ms-flex:0 0 auto;
+  -webkit-box-flex:0;
+  flex:0 0 auto;-webkit-transition:all 0.2s ease;
+  transition:all 0.2s ease;box-sizing:content-box
+}
+.cookie_notice .gotit:not(.btn){
+  background-color: #002443;width: 68px;height: 29px;
+  line-height: 30px;color: white;
+  text-transform: uppercase;
+  float: right;border-radius: 4px;font-weight: inherit;
+  font-size: 14px;
+}
+.cookie_notice .gotit:not(.btn):hover{
+  background-color:#43454a
+}
+.cookie_notice .gotit:hover{
+  -webkit-transition:all 0.2s ease;transition:all 0.2s ease
+}
+@media (max-width: 767px)
+{
+  .cookie_notice{font-size:11px}
+  .cookie_notice .gotit{
+    line-height:32px;font-size:14px;font-weight:600
+  }
+} */

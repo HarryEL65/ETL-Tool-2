@@ -1,0 +1,34 @@
+@import '~sass/mixins';
+
+:host{
+    display: block;
+    height: 20px;
+
+    .msg-error{
+        background: $base-light-red;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        i{
+            font-size: x-large;
+            color: bisque;
+            margin-right: 30px;
+        }
+        .msg-desc {
+            color: white;
+        }
+        .tapis-routlant {
+            animation: scroll-right-left 20s linear infinite;
+        }
+    }
+}
+
+@keyframes scroll-right-left {
+    from {
+        transform: translateX(1200px);
+    }
+    to {
+        transform: translateX(-100px);
+    }
+}

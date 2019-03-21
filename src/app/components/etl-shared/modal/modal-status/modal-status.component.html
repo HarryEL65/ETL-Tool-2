@@ -1,0 +1,159 @@
+<ng-template #modalStatus let-c="close" let-d="dismiss">
+
+    <!-- ============-->
+    <!-- MODAL-HEADER-->
+    <!-- ============-->
+    <div class="modal-header custom-modal-header bckgd-{{originalStatus}}" [ngClass]="{'not-pendingWizard': !isPendingWizardAllowed(), 'XS': mdqSrv.XS, 'SM': mdqSrv.SM}">
+
+       <!-- Dynamic status Icon  -->
+       <svg-icon src="/assets/svg/status/{{originalStatus}}.svg"></svg-icon>
+
+       <!-- reprtId: MERCHANT_DATA && action: ACTION.HOME_PAGE-->
+       
+       <ng-container *ngIf="rprtId === 'MERCHANT_DATA' && action === ACTION.HOME_PAGE">
+           <h4 class="modal-title" *ngIf="mdqSrv.XS">
+              <span title="" placement="bottom" container="body" [ngbTooltip]="title.length > 20? title: ''">{{ title | truncate: 20}}</span>
+           </h4>
+           <h4 class="modal-title" *ngIf="mdqSrv.SM">
+              <span title="" placement="bottom" container="body" [ngbTooltip]="title.length > 30? title: ''">{{ title | truncate: 30}}</span>
+           </h4>
+           <h4 class="modal-title" *ngIf="!(mdqSrv.XS || mdqSrv.SM)">
+              <span title="" placement="bottom" container="body" [ngbTooltip]="title.length > 60? title: ''">{{ title | truncate: 60}}</span>
+           </h4>
+       </ng-container>
+
+       <!-- reprtId: MERCHANT_DATA && action: 'import-files'-->
+       <ng-container *ngIf="rprtId === 'MERCHANT_DATA' && action === ACTION.IMPORT_FILES || action === ACTION.HOME_PAGE_IMPORT">
+            <h4 class="modal-title" *ngIf="mdqSrv.XS">
+               <span title="" placement="bottom" container="body" [ngbTooltip]="title.length > 20? title: ''">{{ title | truncate: 20}}</span>
+            </h4>
+            <h4 class="modal-title" *ngIf="mdqSrv.SM">
+               <span title="" placement="bottom" container="body" [ngbTooltip]="title.length > 30? title: ''">{{ title | truncate: 30}}</span>
+            </h4>
+            <h4 class="modal-title" *ngIf="!(mdqSrv.XS || mdqSrv.SM)">
+               <span title="" placement="bottom" container="body" [ngbTooltip]="title.length > 60? title: ''">{{ title | truncate: 60}}</span>
+            </h4>
+        </ng-container>
+
+       <!-- rprtId: DUCM && originalStatus === 'failed' && action === ACTION.HOME_PAGE" -->
+       
+       <ng-container *ngIf="rprtId === 'DUCM' && originalStatus === 'failed' && action === ACTION.HOME_PAGE">
+            <h4 class="modal-title">
+                    <span title="" placement="bottom" container="body">Webpals Mobile Data extraction - failed</span>
+            </h4>
+       </ng-container>
+
+       <!-- rprtId: 'MERCHANT_DATA' && action === 'change-record-type'" -->
+        <ng-container *ngIf="rprtId === 'MERCHANT_DATA' && action === ACTION.CHANGE_RECORD_TYPE">
+            <h4 class="modal-title">
+                <span title="" placement="bottom" container="body">Change Record Type - Results</span>
+            </h4>
+        </ng-container>
+    
+        <!-- Close button -->
+        <button type="button" class="close close-btn" aria-label="Close" (click)="d('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+
+    </div>
+
+    <!-- ============-->
+    <!-- MODAL-BODY  -->
+    <!-- ============-->
+    <div class="modal-body custom-modal-body bckgd-{{originalStatus}}-fix" [ngClass]="{'not-pendingWizard': !isPendingWizardAllowed(), 'XS': mdqSrv.XS, 'SM': mdqSrv.SM}">
+
+        <ng-container *ngIf="(rprtId === 'MERCHANT_DATA' || ( rprtId === 'DUCM' && originalStatus !== 'passed')) && action === ACTION.HOME_PAGE">
+            
+        <wp-etl-files-list [rows]="data" 
+                            [action]="ACTION.HOME_PAGE"
+                            [ngClass]="{'XS': mdqSrv.XS,
+                                        'SM': mdqSrv.SM, 
+                                        'MD': mdqSrv.MD, 
+                                        'LG': mdqSrv.LG, 
+                                        'XL': mdqSrv.XL}">
+            </wp-etl-files-list>
+
+            <hr>
+
+            <wp-etl-pending-acceptance-wizard [ngClass]="{'SM': mdqSrv.SM}"
+                                                [accId]="accId" 
+                                                [accName]="title"
+                                                [account]="account"
+                                                *ngIf="isPendingWizardAllowed()"
+                                                (close)="d('Cross click')"
+                                                (retrievedStatus)="setNewStatus($event);">
+            </wp-etl-pending-acceptance-wizard>
+
+        </ng-container>
+
+        <!-- rprtId === 'DUCM' && originalStatus === 'passed' && action === ACTION.HOME_PAGE" -->
+        <ng-container *ngIf="rprtId === 'DUCM' && originalStatus === 'passed' && action === ACTION.HOME_PAGE">
+            
+        <!-- <div class="modal-body custom-modal-body bckgd-{{originalStatus}}-fix" [ngClass]="{'not-pendingWizard': !isPendingWizardAllowed(), 'XS': mdqSrv.XS, 'SM': mdqSrv.SM} "> -->
+            <wp-etl-files-list [rows]="data" 
+                               [action]="ACTION.HOME_PAGE"
+                               [ngClass]="{'XS': mdqSrv.XS,
+                                           'SM': mdqSrv.SM, 
+                                           'MD': mdqSrv.MD, 
+                                           'LG': mdqSrv.LG, 
+                                           'XL': mdqSrv.XL}">
+            </wp-etl-files-list>
+
+            <hr>
+
+            <wp-etl-pending-acceptance-wizard [ngClass]="{'SM': mdqSrv.SM}"
+                                                [accId]="accId" 
+                                                [accName]="title"
+                                                [account]="account"
+                                                *ngIf="isPendingWizardAllowed()"
+                                                (close)="d('Cross click')"
+                                                (retrievedStatus)="setNewStatus($event);">
+            </wp-etl-pending-acceptance-wizard>
+
+        </ng-container>
+
+        <ng-container *ngIf="rprtId === 'MERCHANT_DATA' &&  action === 'change-record-type'">
+            <!-- <div class="modal-body custom-modal-body bckgd-{{originalStatus}}-fix" [ngClass]="{'not-pendingWizard': !isPendingWizardAllowed(), 'XS': mdqSrv.XS, 'SM': mdqSrv.SM} "> -->
+            <wp-etl-files-list   [rows]="data" 
+                                 [status]="status"
+                                 [action]="'change-record-type'"
+                                 [ngClass]="{'XS': mdqSrv.XS,
+                                            'SM': mdqSrv.SM, 
+                                            'MD': mdqSrv.MD, 
+                                            'LG': mdqSrv.LG, 
+                                            'XL': mdqSrv.XL}">
+            </wp-etl-files-list>
+    
+        </ng-container>
+
+        <ng-container *ngIf="rprtId === 'MERCHANT_DATA' &&  action === 'import-files' || action ==='home-page-import'">
+            <wp-etl-files-list   [rows]="data" 
+                                 [status]="status"
+                                 [action]="'import-files'"
+                                 [ngClass]="{'XS': mdqSrv.XS,
+                                            'SM': mdqSrv.SM, 
+                                            'MD': mdqSrv.MD, 
+                                            'LG': mdqSrv.LG, 
+                                            'XL': mdqSrv.XL}">
+            </wp-etl-files-list>
+        </ng-container>
+    </div>
+
+    <!-- ============ -->
+    <!-- MODAL FOOTER -->
+    <!-- ============ -->
+
+    <!-- only when rprtId: DUCM && originalStatus: failed -->
+    <ng-container *ngIf="rprtId === 'DUCM' && originalStatus === 'failed'"> 
+
+        <div class="modal-footer custom-modal-footer">
+
+           <button class="btn custom-btn custom-primary-btn">
+                <a class="btn-link"  [routerLink]="['/reruns','rptId::webpals-mobile']" (click)="d('Cross click')">Try Again</a>
+           </button>
+
+        </div>
+
+    </ng-container>
+    
+ </ng-template>

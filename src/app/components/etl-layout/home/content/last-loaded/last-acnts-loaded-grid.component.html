@@ -1,0 +1,197 @@
+<div #tableWrapperLastLoadedAcc>
+  <!-- ================ -->
+  <!-- TABLE DEFINITION -->
+  <!-- ================ -->
+  <ngx-datatable id="last-added" 
+                 class="material expandable"
+                 [rows]="rows"
+                 [loadingIndicator]="lstAcntsLoadedLoadIndic"
+                 [columnMode]="'force'"
+                 [headerHeight]="71"
+                 [rowHeight]= "getRowHeight"
+                 [scrollbarV]="true" 
+                 [scrollbarH]=false 
+                 [selected]="selected"
+                 [selectionType]="'cell'" 
+                 (activate)="click($event)"
+                 #tableAccounts>
+
+  <!-- =================== -->
+  <!-- ROW DETAIL TEMPLATE -->
+  <!-- =================== -->
+  <ngx-datatable-row-detail class="" [rowHeight]="calculateRowHeight()" #myDetailRow>
+      <ng-template let-row="row" let-expanded="expanded" ngx-datatable-row-detail-template>
+          <div class="top-details last-loaded">
+  
+              <!-- AFFILIATE PROGRAM (affiliateProgramName) -->
+              <div class="details-item-md" [ngClass]="{'XS':mdqSrv.XS, 'SM': mdqSrv.SM}">
+                  <span class="sub-title">Affiliate Program</span>
+                  <span class="item-text" title="" placement="left" container="body" [ngbTooltip]="row.affiliateProgramName.length > 20? value: ''">{{row.affiliateProgramName | truncate: 20}}</span>
+              </div>
+  
+              
+              <!-- EFFECTIVE DATE (effectiveDate) -->
+              <ng-container *ngIf="mdqSrv.XS || mdqSrv.SM || mdqSrv.MD">
+                  <div class="details-item-md"  [ngClass]="{'XS':mdqSrv.XS, 'SM': mdqSrv.SM}">
+                      <span class="sub-title">Effective Date</span>
+                      <span class="item-text" title="" placement="left" container="body" [ngbTooltip]="row.effectiveDate.length > 21? row.effectiveDate: ''">{{row.effectiveDate | truncate: 21}}</span>
+                  </div>
+              </ng-container>
+              <!-- ------------------------------------------------------------- -->
+              <!-- the following metadata should always be displayed to the user -->
+              <!-- ------------------------------------------------------------- -->
+              <!-- ACCOUNT ID (accID) -->
+              <div class="details-item-sm">
+                  <span class="sub-title">Account Id</span>
+                  <span class="item-text" title="" placement="left" container="body" [ngbTooltip]="row.accID.length > 20? row.accID: ''">{{row.accID | truncate: 20}}</span>
+              </div>
+
+              <!-- SAP ACCOUNT ID (accSapID) -->
+              <div class="details-item-sm">
+                  <span class="sub-title">Sap Account Id</span>
+                  <span class="item-text" title="" placement="left" container="body" [ngbTooltip]="row.accSapID.length > 20? row.accSapID: ''">{{row.accSapID | truncate: 20}}</span>
+              </div>
+
+              <!-- RECORD TYPE (recordType) -->
+              <div class="details-item-sm">
+                  <span class="sub-title">Record Id</span>
+                  <span class="item-text" title="" placement="left" container="body" [ngbTooltip]="row.recordType.length > 20? ow.recordType: ''">{{row.recordType | truncate: 20}}</span>
+              </div>
+
+              <!-- DEAL TYPE (dealType) -->
+              <!-- <div class="details-item-sm">
+                  <span class="sub-title">Deal Type</span>
+                  <span class="item-text" title="" placement="left" container="body" [ngbTooltip]="row.dealType.length > 20? row.dealType: ''">{{row.dealType | truncate: 20}}</span>
+              </div> -->
+
+              <!-- ORIGINAL FILE NAME (fileName) -->
+              <div class="details-item-sm">
+                  <span class="sub-title">Original File Name</span>
+                  <span class="item-text" title="" placement="left" container="body" [ngbTooltip]="row.merchantImportReport.fileName.length > 20? row.merchantImportReport.fileName: ''">{{row.merchantImportReport.fileName | truncate: 20}}</span>
+              </div>
+
+              <!-- GENERATED FILE NAME (merchantImportReport.key) -->
+              <div class="details-item-sm">
+                  <span class="sub-title">Generated File Name</span>
+                  <span class="item-text" title="" placement="left" container="body" [ngbTooltip]="row.merchantImportReport.key.length > 20? row.merchantImportReport.key: ''">{{row.merchantImportReport.key | truncate: 20}}</span>
+              </div>
+
+          </div>
+      </ng-template>
+  </ngx-datatable-row-detail>
+
+  <!-- ====================== -->
+  <!-- COLUMN EXPAND/COLLAPSE -->
+  <!-- ====================== -->
+
+  <ngx-datatable-column
+    [maxWidth]="50"
+    [resizeable]="false"
+    [draggable]="false"
+    [canAutoResize]="true">
+
+    <ng-template let-row="row" let-expanded="expanded" ngx-datatable-cell-template>
+        <a
+          href="javascript:void(0)"
+          [class.up]="!expanded"
+          [class.down]="expanded"
+          title="Expand/Collapse Row"
+          (click)="toggleExpandRow(row)">
+        </a>
+    </ng-template>
+
+  </ngx-datatable-column>
+
+  <!-- ================ -->
+  <!-- COLUMN TEMPLATES -->
+  <!-- ================ -->
+
+   <!-- DATE
+  <!-- TODO: cellClass: 'date-col' -->
+  <!-- <ngx-datatable-column name="Date" prop="timeStamp" [minWidth]="80" [maxWidth]="200" > -->
+  <!-- <ngx-datatable-column name="Date" prop="date" [minWidth]="80" [maxWidth]="200" > 
+          <ng-template ngx-datatable-cell-template let-row="row" let-value="value" let-i="index">
+                  <span class="date-col">{{value}}</span>
+          </ng-template>
+  </ngx-datatable-column> -->
+
+  <!-- AFFILIATE PROGRAM NAME (affiliateProgramName) - XL -->
+  <ng-container *ngIf="mdqSrv.XL">        
+      <ngx-datatable-column name="Affiliate Program" prop="affiliateProgramName" [minWidth]="150" [maxWidth]="250">
+          
+              <ng-template let-column="column" let-sort="sortFn" ngx-datatable-header-template>
+                  <span >{{column.name}}</span>
+              </ng-template>
+              <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+                  <span class="item-text" title="" placement="left" container="body" [ngbTooltip]="value.length > 20? value: ''">{{value | truncate: 20}}</span>
+              </ng-template>
+              
+      </ngx-datatable-column> 
+  </ng-container>
+
+  <!-- ACCOUNT NAME: (accName )-->
+  <ngx-datatable-column name="Account Name" prop="accName" [minWidth]="170" [maxWidth]="400"  [comparator]="sortAlphaNum">
+          <ng-template ngx-datatable-cell-template let-row="row" let-value="value" let-i="index">
+                  <span class="item-text" title="" placement="left" container="body" *ngIf="!(mdqSrv.XS || mdqSrv.SM)" [ngbTooltip]="value.length > 30? value: ''">{{value | truncate: 30}}</span>
+                  <span class="item-text" title="" placement="left" container="body" *ngIf="mdqSrv.SM" [ngbTooltip]="value.length > 20? value: ''">{{value | truncate: 20}}</span>
+                  <span class="item-text" title="" placement="left" container="body" *ngIf="mdqSrv.XS" [ngbTooltip]="value.length > 15? value: ''">{{value | truncate: 15}}</span>
+          </ng-template>
+  </ngx-datatable-column>
+
+        
+
+  <!-- EFFECTIVE DATE - (effectiveDate) -->
+  <ng-container *ngIf="mdqSrv.XL">
+
+      <ngx-datatable-column name="Effective Date" prop="merchantImportReport.effectiveDate" [width]="50">
+          <ng-template ngx-datatable-cell-template let-row="row" let-value="value" let-i="index">
+              <span class="date-col" title=""  placement="left" container="body" [ngbTooltip]="value.length > 21? value: ''">{{value | truncate: 21}}</span>
+          </ng-template>
+      </ngx-datatable-column>
+
+  </ng-container>
+
+  <!-- MADE BY: (madeByName) -->
+  <ng-container *ngIf="mdqSrv.LG ||mdqSrv.XL">
+      <ngx-datatable-column name="Made By" prop="madeByName" [flexGrow]="1">
+          <ng-template ngx-datatable-cell-template let-row="row" let-value="value" let-i="index">
+              <span class="item-text" title=""  placement="left" container="body" [ngbTooltip]="value.length > 21? value: ''">{{value | truncate: 21}}</span>
+          </ng-template>
+      </ngx-datatable-column>
+  </ng-container>
+
+  <!-- STATUS: (status) -->
+  <ngx-datatable-column name="Status" prop="status" [minWidth]="100" [maxWidth]="250" >
+      <ng-template ngx-datatable-cell-template let-row="row" let-value="value" let-i="index">
+          
+          <div class="status-ctnr {{value}}" 
+                (click)="!((!hasPermission && value==='pending') || (value==='testing'))?modalStatus.openModal():''" 
+                [ngStyle]="calculateClasses(value)">
+                
+              <svg-icon src="/assets/svg/status/{{value}}.svg" class="{{value}}"></svg-icon>
+              <span *ngIf="value === 'pending';else regular" class="{{value}} one status">P.Acceptance</span>
+              <ng-template #regular>
+                  <span class="{{value}} one status uprcse-frst-ltr">{{value}}</span>
+              </ng-template>
+
+              <wp-etl-modal-status [ngClass]="{value: true}"
+                                  [action]="globals.Action.HOME_PAGE_IMPORT"
+                                  [status]="row.merchantImportReport.validationResultMessage.resultStatus"
+                                  [data]="row.merchantImportReport.validationResultMessage.validationMessageArray"
+                                  [mdqSrv]="mdqSrv"
+                                  [rprtId]="rprtId"
+                                  [affillatePrgmName]="row.affiliateProgramName" 
+                                  [actName]="row.accName"
+                                  [accId]="row.accID"
+                                  [account]="row"
+                                  [madeBy]="row.madeByName"
+                                  [loggedInUser]="loggedInUser"
+                                  [isMerchant]="isMerchant"
+                                  #modalStatus>
+              </wp-etl-modal-status>
+          </div>
+      </ng-template>
+  </ngx-datatable-column>
+      
+  </ngx-datatable>
+</div>

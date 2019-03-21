@@ -1,0 +1,173 @@
+@import '~sass/mixins';
+@import '~sass/components/modals';
+@import '~app/components/etl-shared/modal/modal.component.scss';
+:host {
+    border-radius: 2px;
+    display: block;
+    width: 384px;
+    max-height: 390px;
+    background-color: $base-white;
+}
+
+::ng-deep .modal-content {
+    border-radius: 2px;
+    width: 384px;
+    max-height: 390px;
+}
+
+.nav-link {
+    color: white;
+    text-decoration: none;
+}
+
+.custom-modal-body {
+    background-color: #FAFBFC;
+}
+
+.custom-modal-header {
+    border: 1px solid $base-white;
+}
+
+.custom-modal-header {
+    background-color: $dark-gray;
+    display: flex;
+    justify-content: normal;
+    -webkit-box-shadow: 0px 0px 8px 0px rgba(107, 120, 161, 1);
+    -moz-box-shadow: 0px 0px 8px 0px rgba(107, 120, 161, 1);
+    box-shadow: 0px 0px 8px 0px rgba(107, 120, 161, 1);
+}
+
+.custom-modal-header {
+    height: 64px;
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+    border-bottom: 0px;
+    padding-left: 24px;
+    .modal-title {
+        @include etl-font-regular($fontSize: 15px);
+        color: $base-white;
+    }
+    .close-btn {
+        height: 64px;
+        width: 54px;
+        border-top-right-radius: 12px;
+        opacity: 1;
+        color: $base-white;
+    }
+}
+
+.custom-modal-body {
+    display: flex;
+    padding-left: 16px;
+    padding-right: 16px;
+    display: flex;
+    justify-content: center;
+    border-bottom-right-radius: 12px;
+    border-bottom-left-radius: 12px;
+    .content {
+        width: 100%;
+        height: 290px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+        .testing-img {
+            position: relative;
+            top: -14px;
+            img {
+                width: 146px;
+                height: 80px;
+            }
+        }
+        .msg-header {
+            margin-top: 14px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 240px;
+            height: 47px;
+            color: $base-dark-blue-primary;
+            width: 80%;
+            .small {
+                @include etl-font-semi-bold(15px);
+                text-align: center;
+            }
+            .big {
+                @include etl-font-bold(22px);
+                white-space: nowrap;
+                width: 80%;
+            }
+        }
+        .msg {
+            margin-top: 33px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            .msg-detail {
+                color: $dark-gray;
+                @include etl-font-regular(13px);
+                text-align: center;
+            }
+        }
+        .btns-area {
+            margin-top: 18px;
+            display: flex;
+            justify-content: space-between;
+            width: 272px;
+            height: 40px;
+            position: relative;
+            bottom: -20px;
+            .no {
+                width: 128px;
+                height: 40px;
+                border: 1px solid $dark-gray !important;
+                background: White;
+                a {
+                    color: $dark-gray;
+                }
+                border-radius: 20px;
+                color: $dark-gray;
+                @include etl-font-semi-bold(13px);
+                &:hover {
+                    background-color: $sub-menu-opt-bckgrd-hover !important;
+                }
+            }
+            .back-to,
+            .yes {
+                width: 160px;
+                height: 40px;
+                border-radius: 20px;
+                @include etl-font-semi-bold(13px);
+            }
+            .yes {
+                width: 128px;
+            }
+            .back-to {
+                width: 208px;
+            }
+        }
+    }
+    .content.success,
+    .content.failed {
+        .testing-img {
+            top: 0;
+        }
+        .msg-header {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            margin-top: 0;
+        }
+        .big {
+            width: 100%;
+        }
+        .msg {
+            margin-top: -20px;
+        }
+        .btns-area {
+            margin-top: -20px;
+            display: flex;
+            justify-content: center;
+        }
+    }
+}

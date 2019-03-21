@@ -1,0 +1,20 @@
+@import '~sass/variables';
+
+$base-light-green-hover: darken($base-light-green, 10%);
+
+.custom-btn{ min-width: 128px; height: 40px; border-radius: 30px; font-size: 13px;
+	&:focus{ box-shadow: none; }
+ }
+
+.custom-primary-btn{ background-color: $base-light-green; border-color: $base-light-green; color: $base-white;
+	&:hover,  &:active{ background-color: $base-light-green-hover; border: $base-light-green-hover; cursor: pointer;}
+}
+
+.custom-secondary-btn{ color: $light-gray; border-color: $light-gray; background-color: $base-white;
+	&:hover, &:active{background-color: $light-gray; border-color: $light-gray; color: $base-white; cursor: pointer;}
+}
+
+.custom-disabled-btn{ color: $base-white; border-color: $base-light-gray; background-color: $base-light-gray;
+	// &:hover, &:active{background-color: $light-gray; border-color: $light-gray; color: $base-white; }
+}
+

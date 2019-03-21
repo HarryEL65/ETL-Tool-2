@@ -1,0 +1,80 @@
+@import '~sass/mixins';
+@import '~sass/components/modals';
+@import '~app/components/etl-shared/modal/modal.component.scss';
+
+:host {
+//     &.modal-content {
+//         border-radius: 12px!important;
+//     }
+}
+
+:host-context(.modal-content){
+    border-radius: 12px!important;
+}
+
+.custom-modal-body{max-width: 384px;
+	&.step1{padding-left: 64px; padding-right: 60px;}
+	&.step2{padding-left: 70px; padding-right: 70px;}
+	.body-title{
+		.sub-title{
+            // font-size: 15px; font-weight: 600; display: block;
+            @include etl-font-bold(22px);
+        }
+        .warning {
+            line-height: 16px;
+        }
+	}
+    .body-sub-text{margin-top: 14px; font-weight: 600!important}
+    .body-sub-text-light {
+        margin-top: 14px; 
+        display: block;
+        @include etl-font-semi-bold(16px);
+        color: $base-dark-blue-primary;
+        &.warning {
+            color: $base-orange;
+            @include etl-font-bold(16px);
+        }
+    }
+
+}
+.custom-modal-body{
+    background-color: #FAFBFC;
+}
+// .modal-content{ border-bottom-right-radius:2px!important; border-bottom-left-radius:2px!important;}
+
+.custom-modal-header {
+    border: 1px solid $base-white;
+}
+
+.custom-modal-header {
+    background-color: $dark-gray;
+    display: flex;
+    justify-content: normal;
+    // width: 766px !important;
+    -webkit-box-shadow: 0px 0px 8px 0px rgba(107, 120, 161, 1);
+    -moz-box-shadow: 0px 0px 8px 0px rgba(107, 120, 161, 1);
+    box-shadow: 0px 0px 8px 0px rgba(107, 120, 161, 1);
+}
+
+// .custom-modal-header{
+//     border-top-left-radius: 12px!important;
+//     border-top-right-radius: 12px!important; 
+// }
+// .modal-content { 
+//     border-radius: 12px!important;
+// }
+
+
+.custom-modal-header {
+    height: 64px;
+    border-top-left-radius: 12px!important;
+    border-top-right-radius: 12px!important; 
+    border-bottom: 0px;
+    padding-left: 24px;
+    .modal-title {
+        @include etl-font-regular($fontSize: 15px);
+        color: $base-white;
+    }
+    .close-btn{ height: 64px; width: 54px; border-top-right-radius: 12px; opacity: 1; color: $base-white; background-color: $base-gray; }
+}
+

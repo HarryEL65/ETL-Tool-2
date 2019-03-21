@@ -1,0 +1,24 @@
+
+@import '~sass/mixins';
+
+:host {
+    display: block;
+    .title{
+        @include etl-font-bold(18px);
+        color: $header-text-color;
+    }
+}
+
+.internal-scroll {
+    overflow-y: visible;
+}
+// internal page scroll
+@include customScrl($ele:'.internalScroll');
+
+// table scroll
+@include customScrl();
+@include customScrl-ngSelect(368px, 48px);
+
+.content {
+    @include margin-content;
+}

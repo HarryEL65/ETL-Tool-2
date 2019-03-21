@@ -1,0 +1,882 @@
+@import "./variables";
+@import "~sass/components/tooltip";
+@import "~sass/components/ngselect";
+
+
+@mixin margin-content {
+    margin: $margin-top-bottom $margin-left-right;
+}
+
+
+
+@mixin etl-font-bold($fontSize: 12px) {
+    font: {
+        size: $fontSize;
+        weight: 700;
+    }
+}
+
+@mixin etl-font-regular($fontSize: 14px) {
+    font: {
+        size: $fontSize;
+        weight: 400;
+    }
+}
+
+@mixin etl-font-semi-bold($fontSize: 20px) {
+    font: {
+	    size: $fontSize;
+        weight: 600;
+    }
+}
+@mixin span-img($url, $width:16px, $height:16px){
+    display: inline-block;
+    width: $width;
+    height:  $height;
+    background: url($url) no-repeat;
+}
+
+// ---------mixins for validation-------------
+
+@mixin invalid-field{
+    // display a border on empyt input required field
+    // that a least has been clicked
+    .ng-invalid.ng-touched {
+        border: 1px solid $login-invalid-input !important;   
+    }
+}
+ 
+
+@mixin disable-link {
+    .isDisabled {
+        color: currentColor;
+        cursor: not-allowed;
+        opacity: 0.5;
+        text-decoration: none;
+      }
+}
+
+
+@-webkit-keyframes shine {
+    from {
+      -webkit-mask-position: 150%;
+    }
+    
+    to {
+      -webkit-mask-position: -50%;
+    }
+}
+
+@mixin disable-area ($opacity: 0.65, $background: $base-gray-secondary) {
+    &.disable {
+        opacity: $opacity; 
+        cursor: not-allowed;
+        background-color: $background;
+        pointer-events: none;
+     }
+}
+// convert px to vw
+@function get-vw($target) { 
+    $vw-context: (1000*.01) * 1px;
+    @return ($target/$vw-context) * 1vw;
+}
+
+@mixin trans-all($sec:1s) {
+    
+    -webkit-transition: all $sec ease;
+    -moz-transition: all $sec ease;
+    -o-transition: all $sec ease;
+    transition: all $sec ease;
+}
+
+
+@mixin customScrl($ele:'::ng-deep .datatable-body', $dir: ltr){
+    ::ng-deep #{$ele} {
+        direction: $dir;
+        overflow-y: auto;
+        overflow-x: hidden; 
+    }
+
+    ::ng-deep #{$ele}::-webkit-scrollbar {
+        width: 8px;
+        background-color: transparent;
+        border-radius: 3px;
+    }
+    // ::ng-deep  #{$ele}::-webkit-scrollbar-track {
+    //     /*     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); */
+    // }
+    ::ng-deep #{$ele}::-webkit-scrollbar-thumb {
+        background-color: #EBEFF2;
+        outline: 1px solid slategrey;
+    }
+}
+
+// Enable if using the ng-select Library
+@mixin customScrl-ngSelect ($width, $height){
+
+    .input-search-account-ctnr,
+    .input-search-json-like-accnt-ctnr {
+        ::ng-deep .ng-select .ng-select-container {
+            border:none!important;
+            height: 46px!important;
+        }
+        ::ng-deep  .ng-select .ng-select-container .ng-value-container .ng-input > input {
+            height: 36px;
+        }
+      
+    }
+    div.filter {
+        ::ng-deep .ng-dropdown-panel .ng-dropdown-panel-items .ng-option {
+            height: 48px;
+            line-height: 36px;
+        }
+    }
+
+    ::ng-deep .ng-select {
+        width: $width;
+        height: $height;
+        @include etl-font-regular(12px);
+        color: $base-dark-blue-primary;
+        border-radius: 2px;
+        border-color: #9EB1C2;
+
+        .ng-select-container {
+          @include etl-font-regular(12px);
+          color: $base-dark-blue-primary;
+          height: $height!important;
+        }
+    }
+
+    // Look $ feel of the option
+    ::ng-deep .ng-option.ng-option-marked{
+        text-decoration: none;
+        margin: 3px 4px;
+        background-color: #F4F4F6!important;
+        color: $base-light-blue !important;
+    }
+    // Look & feel of the scrool bar  
+    @include customScrl($ele: '::ng-deep .ng-dropdown-panel-items.scroll-host');
+
+    :host-context(.input-search-account-ctnr) {
+        ::ng-deep .ng-select-container {
+            border:none!important;
+            height: 46px!important;
+        }
+    }
+    :host-context(.date) {
+        ::ng-deep .ng-select {
+            position: relative!important;
+            left: 0!important;
+            height: 46px;
+            width: 295px;
+            left: 23px;
+            &::placeholder {
+                @include etl-font-regular(14px);
+                color: $base-dark-blue-primary;
+            }
+    
+            .ng-dropdown-panel {
+                width: 342px;
+                margin-top: 4px!important;
+                margin-bottom: 4px!important;
+            }
+
+        }
+    }
+}
+
+@mixin  round-button ($color) {
+    position: relative;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    font-size: 36px;
+    line-height: 40px;
+    border-radius: 25px;
+    margin-bottom: 0;
+    background-color: transparent;
+    border: 1px solid;
+    border-color: $color;
+    color: $color;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    span {
+      display: flex;
+      justify-content: center;
+      font-size: 40px;
+    }
+    &:hover,
+    &:focus {
+      background: $color;
+      span {
+        color: white;
+      }
+    }
+  }
+
+
+/* ------------------------------------------------------
+|               @media queries mixins                    |
+------------------------------------------------------- */
+
+@mixin table {
+    .one {
+         display: none;
+     }
+
+     .ngx-datatable .datatable-body .datatable-body-row .datatable-body-cell:nth-of-type(6) .datatable-body-cell-label,
+     .ngx-datatable .datatable-body .datatable-body-row .datatable-body-cell:nth-of-type(5) .datatable-body-cell-label {
+         line-height: 20px;
+     }
+     .status-ctnr {
+         &.passed,
+         &.accepted,
+         &.validated,
+         &.warning,
+         &.failed,
+         &.loaded,
+         &.canceled,
+         &.pending {
+             width: 64px!important;
+         }
+     }
+     .details-item-md .link-cntr {
+         position: relative;
+         top: 17px;
+         left: 15px;
+
+     }
+     a {
+         &.up:before {
+             border-left: 2px solid $base-dark-blue-primary;
+             border-bottom: 2px solid $base-dark-blue-primary;
+             width: 8px;
+             height: 8px;
+             display: inline-block;
+             text-align: center;
+             content: '';
+             transition: all .5s ease;
+             position: absolute;
+             top: 25px;
+             margin-top: 1px;
+             transform: rotate(-45deg);
+         }
+         &.down:before {
+             border-left: 2px solid $base-dark-blue-primary;
+             border-bottom: 2px solid $base-dark-blue-primary;
+             width: 8px;
+             height: 8px;
+             display: inline-block;
+             text-align: center;
+             content: '';
+             transition: all .5s ease;
+             position: absolute;
+             top: 25px;
+             margin-top: 1px;
+             transform: rotate(135deg);
+         }
+       } 
+       .ngx-datatable .top-details{ 
+         display:flex;
+         flex-wrap: wrap;
+         height: 200px;
+         background: darken($color: #FCFCFD, $amount: 1%)();
+         padding: 20px 40px; 
+         .sub-title{font-size: 13px; line-height: 20px; color:#9EB1C2; font-weight: 400; display:block; }
+         .item-text{font-size: 13px; line-height: 17px; color: $base-dark-blue-primary; font-weight: 600; }
+     
+         .details-item{ 
+             width: 25%;
+             line-height: 14px;
+             padding-top: 16px;
+         }
+         .details-item-lg, .details-item-vlg, .details-item-sm{
+             .title {
+                 color: $base-dark-blue-primary; 
+                 @include etl-font-semi-bold(22px);
+             }
+             margin-top: 10px;
+             line-height: 14px;
+         }
+         .details-item-lg,
+         .details-item-md.XS {
+             padding-top: 0;
+             width: 50%;
+         }
+         .details-item-lg.full-line {
+             width: 100%;
+         }
+         .details-item-lg.first-line {
+             width: 65%;
+         }
+         .details-item-sm {
+             padding-top: 16px;
+             width: 25%;
+         }
+         .details-item-md {
+             padding-top: 16px;
+             width: 33%;
+             .ng-select {
+                 width: 100%!important;
+             }
+             
+         }
+         .details-item-vlg {
+             width: 100%;
+             margin-top: 0;
+             padding-top: 8px;
+         }
+        } 
+ }
+@mixin table--xl {
+     .top-details {
+         display: none;
+     }
+     .top-details.last-loaded {
+        display: flex;
+     }
+    .one {
+        display: block;
+    }
+
+    .status-ctnr {
+        &.passed,
+        &.accepted,
+        &.validated,
+        &.warning,
+        &.failed,
+        &.loaded,
+        &.canceled,
+        &.pending {
+            width: 144px!important;
+        }
+    }
+
+}
+@mixin table--xs {
+    .ngx-datatable {
+           .top-details {
+               .details-item-md.XS {
+                   width: 50%;
+               }
+           }
+   }
+}
+@mixin table--sm {
+    .ngx-datatable {
+            .top-details {
+                .details-item-md.SM,
+                 {
+                    width: 50%;
+                }
+            }
+    }
+}
+
+@mixin add-account--lg {
+    wp-etl-choose-configuration .choose-configuration.LG {
+        flex-direction: column;
+
+        wp-etl-json-like-list,
+        wp-etl-json-like-view {
+            width: 100%!important;
+        }
+    }
+    wp-etl-choose-configuration .choose-configuration.LG {
+        height: 1664px;
+    }
+    wp-etl-choose-dates .cntr.LG {
+        .choose-dates {
+            ng-select {
+                width: 150px!important;
+            }
+        }
+    }
+}
+
+@mixin second-level-filter--xs {
+    wp-etl-second-level-filter.XS {
+        flex-direction: column;
+        .ng-select,
+        wp-etl-input {
+            width: 340px!important;
+        }
+        .ng-select {
+            .ng-dropdown-panel {
+                width: 340px!important; 
+            }
+        }
+    }
+}
+@mixin second-level-filter--sm {
+    wp-etl-second-level-filter.SM {
+        flex-direction: column;
+        .ng-select,
+        wp-etl-input {
+            width: 340px!important;
+        }
+        .ng-select {
+            .ng-dropdown-panel {
+                width: 340px!important; 
+            }
+        }
+    }
+}
+
+@mixin second-level-filter--md {
+    wp-etl-second-level-filter.MD {
+        .ng-select,
+        wp-etl-input {
+            width: 240px!important;
+        }
+        .ng-select {
+            .ng-dropdown-panel {
+                width: 240px!important; 
+            }
+        }
+        
+
+    }
+}
+
+@mixin add-account--md {
+    wp-etl-choose-dates .cntr.LG{
+        .choose-dates {
+            ng-select {
+                width: 150px!important;
+            }
+        }
+    }
+}
+
+@mixin choose-configuration--xs {
+    wp-etl-choose-configuration.XS {
+        .datatable-body-cell:nth-of-type(1) {
+            width:0!important;
+            padding-left: 15px!important;
+        }
+    }
+}
+@mixin expansion-panel--xl
+{
+    wp-etl-expansion-panel {
+        div.label-area.XL {
+            width: calc(100% - 260px)!important;
+        }
+    }
+}
+
+@mixin expansion-panel--sm {
+    wp-etl-expansion-panel {
+        .label-area.SM {
+             label:before {
+                 left: 8px!important;
+             }
+             .title {
+                 span {
+                font-size: 13px!important;
+                left: 0!important;
+                 }
+             }
+             width: calc(100% - 240px)!important;
+        }
+        wp-etl-input {
+            width: 240px!important;
+            .ng-select {
+                width: 204px!important;
+                .ng-select-container {
+                    width: 204px!important;
+                    .ng-placeholder {
+                        @include etl-font-regular(12px!important);
+                    }
+                }
+            }
+        }
+    }
+}
+
+@mixin expansion-panel--xs {
+    wp-etl-expansion-panel {
+        .label-area.XS {
+             label:before {
+                 left: 8px!important;
+             }
+             .title {
+                 span {
+                font-size: 13px!important;
+                left: 0!important;
+                 }
+             }
+             width: calc(100% - 160px)!important;
+        }
+        wp-etl-input {
+            width: 160px!important;
+            .ng-select {
+                width: 160px!important;
+                .ng-select-container {
+                    width: 104px!important;
+                    .ng-placeholder {
+                        @include etl-font-regular(12px!important);
+                    }
+                    .ng-arrow-wrapper:after{
+                        right: -10px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@mixin navigation--xs {
+    mat-sidenav.collapsed { // left panel navigation  area
+        &.XS {
+            width: 0!important;
+            .mp-level.collapsed {
+                width: 0!important;
+            }
+        }
+    }
+    mat-sidenav-content.expanded {
+        &.XS {
+            margin-left: 0!important; // content area
+        }
+    }
+    wp-etl-logo {
+        img.XS {
+            width: 0!important;
+        }
+    }
+    wp-etl-welcome {
+        .img-wrap.XS .img-rnd-frame{
+            width: 0!important;
+            height: 0!important;
+            transition: transform 1s; /* Animation */
+            img {
+                width: 0!important;
+                height: 0!important;
+            }
+            &:hover {
+                transform: scale(1.5);
+            }
+        }
+        .logut-wrap.XS {
+            opacity: 0!important;
+        }
+    }
+    wp-etl-navigation {
+        nav.navigation.XS {
+            .sub-menu>li, 
+            .active {
+                input[type=radio]:checked+label:after {
+                    width: 0!important;
+                }
+            }
+        }
+    }
+}
+
+@mixin margin-content--xs {
+    .content.XS {
+        margin: $margin-top-bottom 15px!important;
+    }
+}
+
+
+
+@mixin choose-dates--xl {
+    wp-etl-choose-dates {
+        ng-select.XL {
+            width: 366px!important;
+        }
+    }
+}
+
+@mixin choose-dates--sm {
+    wp-etl-choose-dates {
+     .cntr.SM {
+         padding: 40px 13px !important;
+         .choose-dates.SM {
+             .date {
+                 margin-right: 20px !important;
+             }
+             ng-select {
+                 width: 105px !important;
+             }
+         }
+         .btn-area {
+            button {
+                width: 90px !important;
+            }
+        }
+     }
+
+ }
+}
+
+
+@mixin choose-dates--xs {
+    wp-etl-choose-dates {
+        ng-select.XS {
+            width: 105px!important;
+        }
+        .btn-area.XS button {
+            width: 56px!important;
+        }
+    }
+}
+
+@mixin choose-record-type--xl {
+    wp-etl-choose-record-type {
+        ng-select.XL {
+            width: 366px!important;
+        }
+    }
+   
+}
+
+@mixin choose-record-type--lg {
+    wp-etl-choose-record-type .cntr.LG {
+        .choose-dates {
+            ng-select {
+                width: 150px !important;
+            }
+        }
+    }
+}
+
+@mixin choose-record-type--sm {
+    wp-etl-choose-record-type {
+        .cntr.SM {
+            padding: 40px 13px !important;
+            .choose-dates.SM {
+                .date {
+                    margin-right: 20px !important;
+                }
+                ng-select {
+                    width: 105px !important;
+                }
+            }
+            .btn-area {
+               button {
+                   width: 90px !important;
+               }
+           }
+        }
+   
+    }
+}
+
+@mixin choose-record-type--xs {
+    wp-etl-choose-record-type {
+        ng-select.XS {
+            width: 105px!important;
+        }
+        .btn-area.XS button {
+            width: 56px!important;
+        }
+    }
+}
+
+@mixin modal-status--xl {
+    .custom-modal-header.bckgd-pending,
+    .custom-modal-body.bckgd-pending-fix {
+        width:1136px!important;
+    }
+}
+
+@mixin modal-status--md {
+    .custom-modal-header.bckgd-pending,
+    .custom-modal-body.bckgd-pending-fix {
+        width:800px!important;
+    }
+}
+@mixin modal-status--sm {
+        .custom-modal-body.bckgd-pending-fix {
+            flex-direction: column;
+        }
+        .custom-modal-body.bckgd-accepted-fix,
+        .custom-modal-body.bckgd-loaded-fix,
+        .custom-modal-body.bckgd-validated-fix,
+        .custom-modal-body.bckgd-warning-fix,
+        .custom-modal-body.bckgd-passed-fix,
+        .custom-modal-body.bckgd-failed-fix ,
+        .custom-modal-body.bckgd-canceled-fix,
+        .custom-modal-body.bckgd-testing-fix ,
+        .custom-modal-body.bckgd-running-fix,
+        .custom-modal-header.not-pendingWizard,
+        .custom-modal-header.pendingWizard
+        {
+            &.SM {
+                width: 500px !important;
+            }
+        }
+}
+
+@mixin modal-status--xs {
+        .custom-modal-body.bckgd-pending-fix {
+            flex-direction: column;
+        }
+        .custom-modal-body.bckgd-accepted-fix,
+        .custom-modal-body.bckgd-loaded-fix,
+        .custom-modal-body.bckgd-validated-fix,
+        .custom-modal-body.bckgd-warning-fix,
+        .custom-modal-body.bckgd-passed-fix,
+        .custom-modal-body.bckgd-failed-fix ,
+        .custom-modal-body.bckgd-canceled-fix,
+        .custom-modal-body.bckgd-testing-fix ,
+        .custom-modal-body.bckgd-running-fix,
+        .custom-modal-header.not-pendingWizard,
+        .custom-modal-header.pendingWizard
+        {
+            &.XS {
+                width: 400px !important;
+            }
+        }
+}
+
+@mixin json-like-list--xs {
+    wp-etl-json-like-list {
+        .host-ctnr.XS {
+            padding: 45px 15px!important;
+        }
+        wp-etl-input {
+            width: 300px!important;
+        }
+    }
+}
+@mixin json-like-view--sm {
+    wp-etl-json-like-view {
+        .config-selection-title.SM {
+            width: 33%!important;
+            line-height: 30px!important;
+        }
+        .config-selection.SM {
+            width: 100%!important;
+        }
+        .scrollable-area {
+            .top-details {
+                .details-item.SM {
+                    width: 33%!important;
+                }
+            }
+        }
+    }
+}
+
+@mixin json-like-view--xs {
+    .top-details {
+        padding: 40px 15px!important;
+    }
+    hr.top-details {
+        padding: 0!important;
+        margin: 0!important;
+    }
+    wp-etl-json-like-view {
+       
+        .json-selected.XS {
+            width: 130px;
+            span.item-text {
+                display: flex;
+                button {
+                    top: 10px;
+                    position: relative;
+                }
+            }
+        }
+        .config-selection-title.XS {
+            width: 33%!important;
+            line-height: 30px!important;
+        }
+        .config-selection.XS {
+            width: 100%!important;
+        }
+        .scrollable-area {
+            .top-details {
+                .details-item.XS {
+                    width: 50%!important;
+                }
+            }
+        }
+
+        .details-item-md.XS {
+            width: 50% !important;
+        }
+    }
+}
+@mixin modal-config--sm {
+    .custom-modal-body,
+    .custom-modal-header {
+        &.SM {
+            width: 500px !important;
+            @include json-like-view--sm();
+        }
+    }
+}
+
+@mixin modal-config--xl {
+    .custom-modal-body,
+    .custom-modal-header {
+        &.XL{
+            width: 700px!important;
+            @include json-like-view--sm();
+        }
+    }
+}
+
+@mixin pending-acceptance--sm {
+    wp-etl-pending-acceptance-wizard.SM {
+        width: 450px;
+    }
+}
+
+
+
+@mixin modal-config--xs {
+    .custom-modal-body,
+    .custom-modal-header {
+        &.XS {
+            width: 400px !important;
+            @include json-like-view--xs();
+        }
+    }
+
+}
+
+@mixin file-list-comp--xl {
+    wp-etl-files-list.XL {
+        width: 736px;
+    }
+}
+
+@mixin file-list-comp--lg {
+    wp-etl-files-list.LG {
+        width: 736px;
+    }
+}
+
+@mixin file-list-comp--md {
+    wp-etl-files-list.MD {
+        width: 736px;
+    }
+}
+
+@mixin file-list-comp--sm {
+    wp-etl-files-list.SM {
+        width: 470px;
+        .status.SM {
+            width: 50px;
+        }
+    }
+}
+
+
+@mixin file-list-comp--xs {
+    wp-etl-files-list.XS {
+        width: 370px;
+    
+        .status.XS {
+           width: 35px;
+        }
+    }
+}

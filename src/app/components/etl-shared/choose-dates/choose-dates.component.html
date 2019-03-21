@@ -1,0 +1,43 @@
+<wp-etl-header-area [title]="'CHOOSE DATES'"></wp-etl-header-area>
+
+<div class="cntr" [ngClass]="{'LG': !mdqSrv.XL, 'SM': (mdqSrv.SM || mdqSrv.XS)}">
+
+  <div class="choose-dates" [ngClass]="{'SM': (mdqSrv.SM || mdqSrv.XS)}">
+    <div class="date">
+      <label *ngIf="name === 'Rerun'" for="test-month-from">Run month from</label>
+      <label *ngIf="name !== 'Rerun'" for="test-month-from">Test month from</label>
+
+      <ng-select wpEtlInputRef  
+                 [ngClass]="{'LG':!mdqSrv.XL, 'XS': mdqSrv.XS}" 
+                 id="test-month-from" 
+                 (change)="getFromDateSelection($event)" 
+                 class="" [items]="dates" 
+                 [(ngModel)]="testMonthFrom"
+                 [disabled]="!isBtnEnabled" 
+                 [ngClass]="{'disable': !isBtnEnabled}">
+      </ng-select>
+
+    </div>
+    <div class="date">
+      <label *ngIf="name === 'Rerun'" for="test-month-to">Run month to</label>
+      <label *ngIf="name !== 'Rerun'" for="test-month-to">Test month to</label>
+
+      <ng-select wpEtlInputRef 
+                 [ngClass]="{'LG':!mdqSrv.XL, 'XS': mdqSrv.XS}" 
+                 id="test-month-to" 
+                 (change)="getToDateSelection($event)" 
+                 class="" 
+                 [items]="toDates" 
+                 [(ngModel)]="testMonthTo"
+                 [disabled]="!isBtnEnabled" 
+                 [ngClass]="{'disable': !isBtnEnabled}">
+      </ng-select>
+
+    </div>
+  </div>
+
+  <div class="btn-area" [ngClass]="{'XS': mdqSrv.XS, 'XL': mdqSrv.XL}" >
+    <button class="custom-primary-btn" (click)="addAccount()" [ngClass]="{'disable': isBtnEnabled==false }">{{name}}</button>
+  </div>
+
+</div>

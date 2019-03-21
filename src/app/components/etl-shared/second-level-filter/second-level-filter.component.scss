@@ -1,0 +1,48 @@
+@import '~sass/mixins';
+
+$dark-gray: #7E91A1;
+
+:host {
+  display: flex;
+}
+
+::ng-deep .ng-select {
+  &.ng-select-single .ng-select-container .ng-value-container,
+  .ng-select span, .ng-dropdown-panel .ng-dropdown-panel-items .ng-option {
+      font-size: 16px;
+  }
+}
+
+::ng-deep .ng-select .ng-clear-wrapper {
+  position: relative;
+  right: 35px!important;
+}
+@include customScrl-ngSelect(368px, 48px);
+
+.ng-select#searchAccountSelect {
+  width: 330px;
+  
+  .ng-clear-wrapper {
+      // position: relative;
+      right: 0!important;
+  }
+}
+
+div.filter{
+  display: flex;
+  flex-direction: column;
+  margin-right: 50px;
+  label {
+    @include etl-font-regular(13px);
+    color: $dark-gray;
+  }
+
+  .affiliates {
+      @include ngSelectOpen (-2px);//$top, $mbtm, $mtop
+      @include ngSelectClose (-6px, none);//$top, $showClear
+      
+  }
+
+ 
+}
+

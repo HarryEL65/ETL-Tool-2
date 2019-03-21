@@ -1,0 +1,56 @@
+:host {
+    display: block;
+}
+#app-overlay {
+    position: fixed;
+    z-index: 9999;
+    overflow-x: hidden;
+    background-color: rgba(0,0,0,.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    transition: all 2s;
+  
+    .overlay-content{
+  
+      border: 2px solid red;
+      border-radius: 2px;
+      width: 600px;
+      height: 200px;
+      padding: 20px;
+  
+      span {
+        display: inline-block;
+        color: red;
+        font-size: 30px;
+      }
+  
+    }
+    .closeBtn {
+      position: absolute;
+      top: 30px;
+      right: 50px;
+      font-size: 50px;
+      color: white;
+      text-decoration: none;
+    }
+  
+  }
+  
+  #app-overlay.open {
+    // position: absolute;
+    left: 0%;
+    top: 0%;
+  
+    width: 100%;
+    height: 100%;  
+  }
+  #app-overlay.close {
+    // position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 0px;
+    height: 0px;
+  }
+  

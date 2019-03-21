@@ -1,0 +1,59 @@
+:host {
+  display: block;
+}
+
+#app-overlay {
+  position: fixed;
+  z-index: 9999;
+  overflow-x: hidden;
+  background-color: rgba(0, 0, 0, 0.9);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-transition: all 2s;
+  transition: all 2s;
+}
+
+#app-overlay .overlay-content {
+  border: 2px solid red;
+  border-radius: 2px;
+  width: 600px;
+  height: 200px;
+  padding: 20px;
+}
+
+#app-overlay .overlay-content span {
+  display: inline-block;
+  color: red;
+  font-size: 30px;
+}
+
+#app-overlay .closeBtn {
+  position: absolute;
+  top: 30px;
+  right: 50px;
+  font-size: 50px;
+  color: white;
+  text-decoration: none;
+}
+
+#app-overlay.open {
+  left: 0%;
+  top: 0%;
+  width: 100%;
+  height: 100%;
+}
+
+#app-overlay.close {
+  left: 50%;
+  top: 50%;
+  width: 0px;
+  height: 0px;
+}
+/*# sourceMappingURL=downtime-overlay.component.css.map */

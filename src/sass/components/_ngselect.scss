@@ -1,0 +1,91 @@
+@import '~sass/variables';
+
+::ng-deep .ng-select {
+    .ng-select-container {
+        .ng-clear-wrapper {
+            display:initial;
+        }
+        .ng-arrow-wrapper {
+            .ng-arrow {
+                display:none;
+            }
+            &:after {
+                border-left: 2px solid $base-dark-blue-primary;
+                border-bottom: 2px solid $base-dark-blue-primary;
+                width: 8px;
+                height: 8px;
+                display: inline-block;
+                text-align: center;
+                content: '';
+                transition: all .5s ease;
+                position: absolute;
+                top: 0;
+                right: 10px;
+                margin-top: 1px;
+                transform: rotate(-45deg);
+            }
+        }
+    }
+}
+::ng-deep .ng-select-opened {
+    .ng-select-container {
+        border-color: #37B6E5!important;
+        .ng-arrow-wrapper {
+            .ng-arrow {
+                display: none;
+            }
+            &:after {
+                border-left: 2px solid $base-dark-blue-primary;
+                border-bottom: 2px solid $base-dark-blue-primary;
+                width: 8px;
+                height: 8px;
+                display: inline-block;
+                text-align: center;
+                content: '';
+                transition: all .5s ease;
+                position: absolute;
+                top: 2px;
+                right: 10px;
+                margin-top: 1px;
+                transform: rotate(135deg);
+            }
+        }
+    }
+    .ng-dropdown-panel{
+        margin-bottom: 4px;
+        margin-top: 12px;
+    }
+}
+
+@mixin ngSelectOpen ($top:2px, $mbtm:4px, $mtop:12px) {
+    ::ng-deep .ng-select-opened {
+        .ng-select-container {
+                
+            
+            .ng-arrow-wrapper {
+                &:after {
+                    top: $top!important;
+                }
+            }
+        }
+        .ng-dropdown-panel{
+            margin-bottom: $mbtm;
+            margin-top: $mtop;
+        }
+    }
+}
+
+@mixin ngSelectClose ($top:0, $showClear:initial) {
+    ::ng-deep .ng-select {
+        .ng-select-container {
+            .ng-clear-wrapper {
+                display:$showClear;
+            }
+            .ng-arrow-wrapper {
+                &:after {
+                    top: $top;
+                }
+            }
+        }
+    }
+}

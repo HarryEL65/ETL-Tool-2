@@ -1,0 +1,165 @@
+@import '~sass/components/tables';
+@import '~sass/mixins';
+// @import "~sass/components/tableProgressLinear";
+
+:host {
+    display: block;
+}
+@include customScrl();
+
+.date-col {
+  @include etl-font-regular($fontSize: 14px);
+}
+.date-col-merge {
+    @include etl-font-regular($fontSize: 14px);
+    display: inline-block;
+    height: 20px;
+    line-height: 20px!important;
+}
+
+.config .status {
+    height: 20px;
+    width: 20px;
+}
+.uprcse-frst-ltr::first-letter{
+    text-transform: uppercase;
+}
+
+.datatable-body-cell {
+    display: flex!important;
+    flex-direction: column;
+    justify-content: center;
+    .status-ctnr, //overwrite the defautl hover
+     {
+        display: flex;
+        height: 40px;
+        width: 100px; 
+        line-height: 40px;
+        padding: 0 20px;
+        border-radius: 20px;
+        position: relative;
+        left: -20px;
+        .passed {
+            fill: $white;//$accepted;
+            height: 18px;
+            width: 18px;
+            color: $passed;
+        }
+        .accepted {
+            fill: $white;//$accepted;
+            height: 18px;
+            width: 18px;
+        }
+        .failed {
+            fill: $failed;
+            height: 18px;
+            width: 18px;
+        }
+        .canceled {
+            fill: $canceled;
+            height: 18px;
+            width: 18px;
+        }
+        .pending {
+            fill: $acceptance;
+            height: 18px;
+            width: 18px;
+        }
+        .running {
+            fill: $running;
+            height: 18px;
+            width: 18px;
+            color: $running;
+        }
+        .testing {
+            fill: $testing;
+            height: 18px;
+            width: 18px;
+        }
+        svg-icon {
+            position: relative;
+            top: 2px;
+        }
+        .status {
+            margin-left: 15px;
+        }
+
+    }
+   
+    
+    .status-ctnr:hover {
+        // &:hover {
+            cursor: pointer;
+        // }
+        .status {
+            color: $white;
+        }
+        .status.testing,
+        .status.running {
+            color: $testing;
+        }
+
+        .passed {
+            fill: $accepted;
+        }
+        .accepted {
+            fill: $accepted;
+        }
+        .cls-canceled,
+        .cls-failed,
+        .cls-accepted,
+        .cls-passed,
+        // .cls-testing,
+        // .cls-running,
+        .cls-pending {
+            fill: $white!important;
+        }
+        &.passed{
+            background: $passed;
+            width: 152px;
+        }
+        &.accepted {
+            background: $accepted;
+            width: 152px;
+        }
+        &.failed {
+            background: $failed;
+            width: 128px;
+        }
+        &.canceled {
+            background: $canceled;
+            width: 152px;
+        }
+
+        &.pending {
+            background: $acceptance;
+            width: 176px;
+        }
+    }
+}
+
+.datatable-body-cell .status-ctnr.testing,
+.datatable-body-cell .status-ctnr.running {
+    &:hover {
+        cursor: default!important;
+    }
+}
+.in-line {
+    display: inline!important;
+}
+.b-lock {
+    display: block!important;
+}
+i.fa.fa-arrow-right {
+    margin-right: 5px;
+    margin-left: 5px;
+}
+.f-arrow-header {
+    display: inline!important;
+    color: #9EB1C2;
+    font-size:small
+}
+
+.f-arrow-cell {
+
+}

@@ -1,0 +1,12 @@
+:host {
+  display: inline-block;
+
+  svg {
+    display: inline-block;
+    all: inherit;
+  }
+}
+
+// :host-context(.navigation){
+// 	svg{width: 16px; height: 16px;}
+// }

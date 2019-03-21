@@ -1,0 +1,19 @@
+
+{{selectedUser | json}}
+
+<!-- <div id="edit" contenteditable="true"> Here is the element's original content </div> -->
+<!-- <ng-container *ngIf="selectedUser && selectedUser.length>0"> -->
+
+  <wp-etl-inline-edit *ngIf="selectedUser && selectedUser.length>0 " [(ngModel)]="selectedUser[0].name" label="User Name" [required]="true" type="text">
+  </wp-etl-inline-edit>
+
+  <wp-etl-inline-edit [(ngModel)]="selectedUser[0].email" label="eMail" [required]="true" type="text">
+  </wp-etl-inline-edit>
+
+  <wp-etl-inline-edit [(ngModel)]="selectedUser[0].channel" label="Channels" [required]="true" type="text">
+  </wp-etl-inline-edit>
+
+    <wp-etl-inline-edit [(ngModel)]="selectedUser[0].roles" label="Role" [required]="true" type="text">
+  </wp-etl-inline-edit> 
+<!-- </ng-container> -->
+  

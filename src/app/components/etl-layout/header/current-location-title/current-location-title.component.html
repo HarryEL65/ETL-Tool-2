@@ -1,0 +1,19 @@
+<!-- isOpen: {{isOpen}} -->
+<div class="curr-route-item" >
+    <!-- <svg-icon class="route-icon-header" src="/assets/svg/{{currRouteIcon}}.svg">
+    </svg-icon> -->
+    <wp-etl-svg-icon icon="{{currRouteIcon}}" class="max icon"></wp-etl-svg-icon>
+    <wp-etl-svg-icon icon="{{currSubIcon}}" class="min icon"></wp-etl-svg-icon>
+    <!-- <div class="icon-frame" *ngIf="currSubIcon && currSubIcon.length > 0">
+        <i class="{{currSubIcon}}"></i>
+    </div> -->
+
+    <span *ngIf="!isOpen">
+        {{currRouteItem}}
+    </span>
+
+    <button *ngIf="!isOpen" type="button" class="btn btn-outline-secondary"(click)="logout()">Logout</button>
+
+    
+</div>
+

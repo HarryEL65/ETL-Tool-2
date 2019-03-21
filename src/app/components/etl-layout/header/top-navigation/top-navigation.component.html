@@ -1,0 +1,9 @@
+<div class="row" [ngClass]="{'grayed-bckd': isOpen}">
+    
+    <div [ngClass]="{'maximized': !isOpen, 'hide grayed-bckd': isOpen}">
+        <wp-etl-current-location-title [ngClass]="{'maximized': !isOpen, 'minimized': isOpen}"></wp-etl-current-location-title>
+    </div>
+    <wp-etl-current-location-title [ngClass]="{'minimized': !isOpen, 'maximized': isOpen, 'SM': mdqSrv.SM, 'XS': mdqSrv.XS}"></wp-etl-current-location-title>
+    <wp-etl-data-type-navigation [ngClass]="{'minimized': !isOpen, 'maximized': isOpen}"></wp-etl-data-type-navigation>
+</div>
+<!-- {'XS': mdqSrv.XS} -->

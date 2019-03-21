@@ -1,0 +1,18 @@
+<div class="internalScroll" style="max-width: 100%;" [ngStyle]="{'height':isMinimized ? '93vh': '78vh' }">
+  <div class="content"  [ngClass]="{'XS': mdqSrv.XS}">
+
+    <!--  LAST RERUNS MADE - Expansion Panel -->
+    <wp-etl-expansion-panel [id]="'lastRerunsMade'"
+                            [title]="'LAST RERUNS MADE'" 
+                            [searchPlaceHolder]="'Search for Account Name'"
+                            [searchEntityName]=rerunActiveAccountsName
+                            (filterData)="filterRerunsTable($event)"
+                            [reportId]="this.globals.reportIds.DUCM">
+        <wp-etl-last-reruns-grid [rerunAcntsAddLoadIndic]="rerunAccountsLoadIndic" 
+                                 [rows]=rerunActiveAccounts>
+        </wp-etl-last-reruns-grid>
+    </wp-etl-expansion-panel>
+
+
+
+</div>

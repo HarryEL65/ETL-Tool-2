@@ -1,0 +1,80 @@
+@import '~sass/variables';
+
+// Modal colors
+$dark-gray: #7E91A1;
+$light-gray: #9EB1C2;
+
+.modal-backdrop{ background-color: $base-dark-blue;
+	&.show{opacity: 0.87;}
+}
+.modal-header {
+	border-top-right-radius: 12px!important;
+    border-top-left-radius: 12px!important;
+	.close {
+		font-size: 26px;
+		font-weight: lighter;
+	}
+}
+
+.modal-footer{ 
+	border-bottom-right-radius: 12px!important;
+	border-bottom-left-radius: 12px!important;
+	border-top: 0; 
+	& > :not(:last-child){
+		margin-right: 8px;
+	}
+	& > :not(:first-child){
+		margin-left: 8px;	
+	}
+	background-color: #FAFBFC;
+}
+ .modal-dialog {
+	position: relative;
+	opacity:0;
+	top: 25%;
+	left: 0;
+	right:0;
+	bottom: 0;
+	margin:auto;
+	display: table;
+	transition: transform 0.3s, opacity 0.3s;
+}
+.modal.show .modal-dialog {
+	animation: openModalKfrms 0.6s ease;
+	animation-fill-mode: forwards;
+}
+.modal.hide .modal-dialog {
+	animation: closeModalKfrms 0.6s ease;
+	animation-fill-mode: forwards;
+}
+
+
+
+ .modal-dialog > .modal-content {
+	display: table-cell;
+	border-radius: 12px;
+}
+
+@keyframes openModalKfrms {
+	0% {
+		transform: scale(0);
+		opacity: 0;
+	}
+
+	100% {
+		transform: scale(1);
+		opacity: 1;
+	}
+}
+
+@keyframes closeModalKfrms {
+	0% {
+		transform: scale(1);
+		opacity: 1;
+	}
+
+	100% {
+		transform: scale(0);
+		opacity: 0;
+	}
+}

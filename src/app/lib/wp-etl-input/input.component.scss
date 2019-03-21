@@ -1,0 +1,249 @@
+@import '~sass/mixins';
+
+:host {
+    position: relative;
+    display: block;
+    border-left: 1px solid $base-gray-secondary;
+    @include etl-font-regular(14px);
+    color: $base-gray;
+    background-color: $base-white;
+}
+
+:host(.focus) {
+    border: 1px solid $base-light-blue!important;
+    //background: cyan;
+
+}
+
+:host ::ng-deep input {
+    border: none;
+    outline: none;
+}
+
+
+:host-context(.input-search-ctnr-ex-pnl){
+    border-left: 1px solid $base-gray-secondary;
+    width: 301px;
+    height: 62px;
+    outline: none;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .icon-ctnr {
+        height:62px;
+        width: 50px;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+
+        i.fa.fa-search {
+            color: $base-light-blue;
+            font-size: 16px; 
+            line-height: 62px;
+            position: relative;
+
+        }
+    }
+
+    ::ng-deep {
+        .ng-select {
+           width: 266px;
+           .ng-select-container {
+               height: 60px;
+               width: 266px;
+               border: none;
+               .ng-placeholder {
+                   @include etl-font-regular(14px);
+                   color: $base-gray !important;
+               }
+               .ng-value-container {
+                   height: 60px;
+                   .ng-input {
+                       width: 83%;
+                       padding-right: 0;
+                       input {
+                           height: 50px;
+                           line-height: 45px;
+                       }
+                   }
+                   .ng-clear-wrapper {
+                       position: relative;
+                       top: 8px !important;
+                   }
+                   .ng-arrow-wrapper:after {
+                       // position: relative;
+                       // top:-2px;
+                   }
+                   .ng-placeholder {
+                       // position: relative;
+                       // top: 4px!important;
+                   }
+               }
+           }
+           .ng-dropdown-panel {
+               right: -2px;
+               width: 329px;
+               margin-top: 6px !important;
+               .ng-dropdown-panel-items .ng-option {
+                   height: 60px;
+                   line-height: 40px;
+               }
+           }
+       }
+       .ng-select .ng-select-container .ng-arrow-wrapper:after{
+           position: relative;
+           top: -2px;
+       }
+    }
+
+    @include customScrl-ngSelect(327px, 60px)
+}
+
+:host-context(.input-search-account-ctnr) {
+    border: 1px solid $base-gray-secondary;
+    width: 368px;
+    height: 48px;
+
+    display: flex;
+    justify-content: space-between;
+    //align-items: center;
+
+    .icon-ctnr {
+        height:48px;
+        width: 48px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        right: 0;
+        z-index: 9999;        
+        i.fa.fa-search {
+            color: $base-light-blue;
+            font-size: 16px; 
+            line-height: 48px;
+            //position: relative;
+            
+        }
+    }
+    ::ng-deep .ng-select {
+        .ng-arrow-wrapper {
+            display:none;
+        }
+        .ng-clear-wrapper {
+            position: relative;
+            right: 21px;
+        }
+        .ng-dropdown-panel {
+            width: 368px;
+            margin-top: 4px!important;
+        }
+    }
+
+    ::ng-deep input.search-input-sec-lvl {
+        height: 46px;
+        width: 295px;
+        position: relative;
+        left: 23px;
+        &::placeholder {
+            @include etl-font-regular(14px);
+            color: $base-dark-blue-primary;
+        }
+    }
+}
+// :host-context(.choose-dates) {
+//     ::ng-deep .ng-select{
+//         width: 366px!important;
+//     }
+// }
+:host-context(.input-search-json-like-accnt-ctnr) {
+    border: 1px solid $base-gray-secondary;
+    width: 344px;
+    height: 48px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .icon-ctnr {
+        height:48px;
+        width: 48px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        
+        i.fa.fa-search {
+            color: $base-light-blue;
+            font-size: 16px; 
+            line-height: 48px;
+            //position: relative;
+            
+        }
+    }
+    ::ng-deep .ng-select {
+        position: relative!important;
+        left: 0!important;
+        height: 46px;
+        width: 295px;
+        // position: relative;
+        left: 23px;
+        &::placeholder {
+            @include etl-font-regular(14px);
+            color: $base-dark-blue-primary;
+        }
+
+        .ng-dropdown-panel {
+            width: 342px;
+            margin-top: 4px!important;
+        }
+        .ng-arrow-wrapper {
+            display:none;
+        }
+        .ng-clear-wrapper {
+            position: relative;
+            //right: 21px;
+        }
+    }
+    // ::ng-deep .ng-select .ng-arrow-wrapper {
+    //     display:none;
+    // }
+    // ::ng-deep .ng-select .ng-clear-wrapper {
+    //     position: relative;
+    //     //right: 21px;
+    // }
+
+    // ::ng-deep .ng-select {
+    //     height: 46px;
+    //     width: 295px;
+    //     position: relative;
+    //     left: 23px;
+    //     &::placeholder {
+    //         @include etl-font-regular(14px);
+    //         color: $base-dark-blue-primary;
+    //     }
+    // }
+}
+
+
+
+::ng-deep ngb-typeahead-window.dropdown-menu {
+    // position: relative;
+    display: block;
+    top: 63px!important;
+    left: 40px!important;
+    width: 288px!important;
+
+    .dropdown-item {
+        height: 60px;
+        &.active {
+            text-decoration: none;
+            background-color: #F4F4F6;
+            color: $base-light-blue!important;
+        }
+    }
+}
+

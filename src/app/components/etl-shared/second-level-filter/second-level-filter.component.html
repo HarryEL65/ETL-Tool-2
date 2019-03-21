@@ -1,0 +1,48 @@
+<div class="filter">
+  <label for="affiliatesAddAcc">Choose Affiliate Program</label>
+  <div class="affiliates">
+
+    <ng-select #affiliates 
+              id="aflts"
+               wpEtlInputRef
+               (click)="focusInputFilter($event)"
+               [items]="affiliatesList" 
+               (change)="getAffilateSelection($event)" 
+               [searchable]="false" 
+               [(ngModel)]="selectedAffiliate"
+               bindLabel="Name" 
+               bindValue="Id">
+
+              <ng-template ng-header-tmp>
+                <input #inputFilter style="width: 100%" type="text" (input)="affiliates.filter($event.target.value)" />
+              </ng-template>
+
+    </ng-select>
+
+  </div>
+</div>
+
+<!-- accountsName: {{accountsName | json}} -->
+<div class="filter">
+  <label for="searchAddAcc">Search</label>
+  <div class="input-search-account-ctnr">
+    <wp-etl-input icon="search" iconPos="right">
+      
+        <ng-container *ngIf="accountsName">
+
+          <ng-select #accntsSelect 
+                     id="searchAccountSelect"
+                     wpEtlInputRef
+                     placeholder="Search Account"
+                     [items]="accountsName"
+                     bindLabel="name"
+                     [loading]="false"
+                     (change)='updateFilter($event)'
+                     (keyup)='updateFilter($event)'>
+
+          </ng-select>
+
+       </ng-container>
+    </wp-etl-input>
+  </div>
+</div>

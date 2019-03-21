@@ -1,0 +1,64 @@
+@import '~sass/components/tables';
+@import '~sass/mixins';
+:host {
+    display: block;
+    .title {
+        @include etl-font-bold(18px);
+        color: $header-text-color;
+    }
+}
+
+.btn-area {
+    display: flex;
+    height: 100px;
+    align-items: center;
+    justify-content: center;
+    button {
+        width: 176px;
+        height: 56px;
+        border-radius: 30px;
+        border-style: hidden;
+        font-weight: 400; // border: 1px;
+        @include etl-font-regular(16px);
+        &.disable {
+            opacity: 0.65;
+            cursor: not-allowed;
+            background-color: $base-gray-secondary;
+            pointer-events: none;
+        }
+    }
+}
+
+.internal-scroll {
+    overflow-y: visible;
+}
+
+// internal page scroll
+@include customScrl($ele:'.internalScroll');
+// table scroll
+@include customScrl();
+.content {
+    @include margin-content;
+}
+
+::ng-deep .json-editor-header {
+    border-bottom: 1px solid lightblue;
+    background: $base-light-blue;
+    padding-left: 30px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    color: white;
+    font-weight: 600;
+}
+
+::ng-deep json-editor {
+    border: none !important;
+    .jsoneditor-mode-tree {
+        border: 1px solid $base-light-blue;
+    }
+    .jsoneditor-menu {
+        background-color: $base-light-blue;
+        border-bottom: 1px solid $base-light-blue;
+    }
+}

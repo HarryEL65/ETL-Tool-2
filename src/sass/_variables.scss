@@ -1,0 +1,180 @@
+$fa-font-path:"~font-awesome/fonts";
+@import '~font-awesome/scss/font-awesome';
+// Font family
+$text-font-stack: 'Open Sans', 'Helvetica Neue Light', 'Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif' !default;
+
+// Color palette
+$base-white: #FFFFFF;
+$base-black: #000000;
+$base-dark-blue: #2F3545; 					// Framework cc-1
+$base-dark-blue-secondary: #333A4D; 		// Framework cc-2 
+$base-dark-blue-primary: #3E445C; 			// Main Text Framework cc-3
+$base-gray: #9EB1C2; 						// Table Header Text, Buttons Text
+$base-gray-secondary: #CED7E0; 				// Buttons Stroke color
+$base-light-gray: #EBEFF2; 					// Disable
+$base-light-blue: #37B6E5; 					// Primary color
+$base-light-green: #43BA8A; 				// accepted
+$base-light-purple: #7269E4; // #8D69E4 	// Pending Acceptence
+$base-orange: #FF8000; 						// Testing
+$base-light-red: #EE5858; 					// Failed
+
+$selectedRowColor: #FCFCFD;
+// $selectedRowColor: aliceblue;
+$dark-gray: #7E91A1;
+$nav-container-bckgrd: #34495e;
+
+// End of color palette
+
+// Additional color variables
+$base-beige: #F7F2EC;
+$base-dark-blue-black: #41404F;
+$cyan-hover-color: #36ABD6;
+$light-gray: #516D76;
+
+// End of additional color variables
+
+//====== status colors ======
+$acceptance: $base-light-purple;
+$testing:    $base-orange;
+$failed:     $base-light-red;
+$accepted:   $base-light-green;
+$loaded:     $base-light-green;
+$canceled:   $base-dark-blue-primary;
+$passed:     $base-light-green;
+$running:    $base-orange;
+
+.pending {
+    color: $acceptance;
+}
+.testing,
+.warning {
+    color: $testing;
+}
+.failed {
+    color: $failed;
+}
+.accepted,
+.validated,
+.loaded {
+     color: $accepted;
+}
+.canceled {
+    color: $canceled;
+}
+.bckgd-pending {
+    background: $acceptance;
+    color: white;
+}
+.bckgd-testing {
+    background: $testing;
+    color: white;
+}
+.bckgd-running,
+.bckgd-warning {
+    background: $running;
+    color: white;
+}
+.bckgd-failed {
+    background: $failed;
+    color: white;
+}
+.bckgd-accepted,
+.bckgd-loaded,
+.bckgd-validated{
+    background: $accepted;
+    color: white;
+}
+.bckgd-passed{
+    background: $passed;
+    color: white;
+}
+
+.bckgd-canceled {
+    background: $canceled;
+    color: white;
+}
+
+
+// TODO: all variables below that section need to be orginized
+
+
+// Global height and width of etl scaffold
+$side-panel-expanded: 304px;
+$side-panel-collapsed: 72px;
+$logo-height: 64px; //28%;
+$welcome-height: 160px;
+$curr-loc-title: 41px; //50%;;
+$data-type-area: 48px; // 22%;
+$menu-item-height: 71px;
+$submentu-item-height: 71px;
+
+$margin-top-bottom:69px;
+$margin-left-right:56px;
+
+
+
+// Globals colors
+$side-panel-bckgrd: $base-dark-blue;
+$menu-opt-bckgrd: $base-dark-blue-secondary;
+$sub-menu-opt-bckgrd: $base-dark-blue-primary;
+$sub-menu-opt-bckgrd-hover: #3B4157;
+$breadcrumb-cur-path-color: $base-dark-blue-secondary;
+$slct-submenu-bckgd: $base-dark-blue-primary;
+
+
+$left-panel-menu-hover: $cyan-hover-color;
+
+$header-text-color: $base-dark-blue-primary;
+$header-bckgd: #FAFBFC;
+$breadcrumb-bckgd: $base-white;
+$content-area-bckgd: $base-white;
+
+// Colors
+//
+// Grayscale and brand colors for use across Bootstrap.
+
+// Start with assigning color names to specific hex values.
+$white:  #fff !default;
+$black:  #000 !default;
+$red:    #d9534f !default;
+$orange: #f0ad4e !default;
+$yellow: #ffd500 !default;
+$green:  #5cb85c !default;
+$blue:   #0275d8 !default;
+$teal:   #5bc0de !default;
+$pink:   #ff5b77 !default;
+$purple: #613d7c !default;
+
+
+// Create grayscale  
+$gray-dark:                 #292b2c !default;
+$gray:                      #464a4c !default;
+$gray-light:                #636c72 !default;
+$gray-light-2:              #6F7880 !default;
+$gray-lighter:              #eceeef !default;
+$gray-lighter-2:            #FAFBFC;    
+$gray-lightest:             #f7f7f9 !default;
+
+// Create bluescale
+
+// Reassign color vars to semantic color scheme
+$brand-primary:             $blue !default;
+$brand-success:             $green !default;
+$brand-info:                $teal !default;
+$brand-warning:             $orange !default;
+$brand-danger:              $red !default;
+$brand-inverse:             $gray-dark !default;
+
+$primary-color: #f00;
+$secondary-color: #0f0;
+
+$primary-color-dark: darken($primary-color, 30%);
+$secondary-color-dark: darken($secondary-color, 30%);
+
+
+$breadcrumb-bg:                 $gray-lighter !default;
+$breadcrumb-divider-color:      $gray-light !default;
+$breadcrumb-active-color:       $gray-light !default;
+$breadcrumb-divider:            "//" !default;
+
+

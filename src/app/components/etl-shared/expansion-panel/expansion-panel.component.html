@@ -1,0 +1,39 @@
+<div class="title-search-area">
+  <div class="label-area" [ngClass]="{'XS':mdqSrv.XS, 'SM': mdqSrv.SM, 'XL': (mdqSrv.XL) || mdqSrv.LG || mdqSrv.MD }">
+    <label for="{{id}}" [ngClass]="{'up': displayTableChkBox.checked, 'down': !displayTableChkBox.checked }">
+      <div class="title"><span>{{title}}</span></div>
+    </label>
+    <input #displayTableChkBox id="{{id}}" type="checkbox" [checked]="displayTable" (change)="onToogleTable(displayTableChkBox.checked)"/>
+  </div>
+  <div class="input-search-ctnr-ex-pnl" *ngIf="reportId != this.globals.reportIds.DUCM && reportId != this.globals.reportIds.ALL">
+    <wp-etl-input icon="search">
+        <ng-select wpEtlInputRef
+            class="search-input-ex-pnl"
+            [items]="searchEntityName"
+            placeholder="{{searchPlaceHolder}}"
+            bindLabel="searchEntityName"
+           [loading]="false"
+           (change)='updateFilter($event, false)'
+           (keyup)='updateFilter($event, false)'>
+        </ng-select>
+     </wp-etl-input>
+  </div>
+</div>
+<!-- <div class="input-search-ctnr-ex-pnl" *ngIf="reportId == this.globals.reportIds.ALL">
+  <wp-etl-input icon="Search User">
+      <ng-select wpEtlInputRef
+          class="search-input-ex-pnl"
+          [items]="userNames"
+          placeholder="Search for User Name"
+          bindLabel="userNames"
+         [loading]="false"
+         (change)='updateFilter($event, false)'
+         (keyup)='updateFilter($event, false)'>
+      </ng-select>
+   </wp-etl-input>
+</div> -->
+<!-- </div> -->
+
+<div class="collapsable-area" [ngClass]="{'do-show': displayTableChkBox.checked, 'do-hide': !displayTableChkBox.checked}">
+      <ng-content></ng-content>
+</div>

@@ -1,0 +1,33 @@
+<!-- <pre> isMinimized: {{ isMinimized }}</pre> -->
+<div class="internalScroll" style="max-width: 100%;" [ngStyle]="{'height':isMinimized ? '93vh': '78vh' }">
+
+  <div class="content"  [ngClass]="{'XS': mdqSrv.XS}">
+
+    <wp-etl-choose-population 
+                  [isMultiSelect]="'true'"
+                  [action]="'rerun-account'"
+    						  (affiliateChng)="affiliateChange($event)"
+    						  (selectedAccounts)="activeAccountsSelected($event)"
+    						  [selected]="dataBody.accounts">
+    </wp-etl-choose-population>
+    
+    <wp-etl-choose-dates
+                  [action]="'rerun-account-merchant'"
+                  (dateFrom)="dataBody.setFromDate($event)" 
+                  (dateTo)="dataBody.setToDate($event)" 
+                  (btnClickEvent)="openRerunModal()"
+                  [isBtnEnabled]="isManualSlctd && (dataBody.accounts.length < 21 ? true : false) && hasPermission"
+                  [name]="btnText"
+                  [hasDatesPermission]="hasDatesPermission">
+	</wp-etl-choose-dates>
+	
+	<wp-etl-rerun-modal #modalRerun
+            [reporId]="globalService.reportIds.MERCHANT_DATA"
+            [data]="dataBody"
+            (resetEvent)="resetSelectedAccounts()"
+						(rerunAccountsEvent)="rerunAccounts()">
+	</wp-etl-rerun-modal>
+
+  </div>
+  
+</div>

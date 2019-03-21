@@ -1,0 +1,176 @@
+@import '~sass/components/tables';
+@import '~sass/mixins';
+
+
+:host {
+  display: block;
+}
+
+wp-etl-second-level-filter {
+  margin-top: 30px;
+  margin-bottom: 50px;
+}
+
+
+.config {
+    position: relative;
+    // top: 4px;
+    // cursor: pointer;
+}
+.config .show-config {
+    height: 20px;
+    width: 20px;
+    &:hover {
+        .cls-show-config{
+            fill:$base-light-blue
+        }
+    }
+}
+.svg-edit-config {
+    height: 16px;
+    width: 16px;
+
+}
+
+#populationTable .datatable-body {
+    // max-height: 426px;
+}
+.ngx-datatable.material .datatable-header-cell-template-wrap wp-etl-checkbox{
+    position: relative;
+    top: -12px;
+}
+
+.ngx-datatable.material.checkbox-selection .datatable-body-row.active{
+    background: $selectedRowColor;
+    border-left: 2px solid $base-light-blue;
+}
+// .ngx-datatable .datatable-row-detail {
+//     height: 500px;
+// }
+.error-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: $base-light-red;
+  }
+  .error {
+    font-size: 13px;
+    font-weight: 100;
+    color: $base-light-red;
+  }
+  a {
+    &.up:before {
+        border-left: 2px solid $base-dark-blue-primary;
+        border-bottom: 2px solid $base-dark-blue-primary;
+        width: 8px;
+        height: 8px;
+        display: inline-block;
+        text-align: center;
+        content: '';
+        transition: all .5s ease;
+        position: absolute;
+        top: 25px;
+        margin-top: 1px;
+        transform: rotate(-45deg);
+    }
+    &.down:before {
+        border-left: 2px solid $base-dark-blue-primary;
+        border-bottom: 2px solid $base-dark-blue-primary;
+        width: 8px;
+        height: 8px;
+        display: inline-block;
+        text-align: center;
+        content: '';
+        transition: all .5s ease;
+        position: absolute;
+        top: 25px;
+        margin-top: 1px;
+        transform: rotate(135deg);
+    }
+  }  
+
+.is-selected,
+.datatable-body-row:active ,
+.datatable-body-row.selected{
+    background: $selectedRowColor;
+    border-left: 2px solid $base-light-blue;
+}
+// @include customScrl($ele: '.population-tbl .datatable-body');
+//  @include customScrl($ele: '.ngx-datatable .datatable-body .datatable-row-detail');
+
+.date-col {
+    @include etl-font-regular($fontSize: 14px);
+}
+.config .status {
+    height: 20px;
+    width: 20px;
+}
+
+.ngx-datatable {
+    height:497px!important;
+}
+.ngx-datatable.isEmpty {
+    height:140px!important;
+}
+
+.row-limitation-msg {
+    color: $base-light-red;
+    .note {
+        font-weight: 700;
+    }
+}
+.ngx-datatable  .datatable-body-cell {
+    display: flex!important;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.ngx-datatable#populationTable .datatable-body .datatable-body-row .datatable-body-cell .datatable-body-cell-label {
+    line-height: 71px;
+    display: inline-table;
+    height: 71px;
+}
+
+.ngx-datatable .datatable-body-cell-label .chkBox .container {
+    position: absolute!important;
+    width: 500px;
+    // top: -13px!important;
+}
+.link-cntr{
+    position: absolute;
+    right: 0;
+    border-radius: 4px;
+    border: 1px solid $base-light-blue;
+    width:20px;
+    height: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    top:24px;
+    &:hover {
+        background: $base-light-blue;
+    }
+    .fa.fa-link {
+        position: absolute !important;
+        color: $base-light-blue!important;
+        font-size: 10px !important;
+        top: 1px !important;
+        -webkit-transform: rotate(90deg);
+        transform: rotate(90deg);
+        margin-top: 1px;
+        line-height: 14px;
+        // &:hover {
+        //     color: white!important;
+        // }
+    }
+    &:hover .fa.fa-link{
+        color: white!important;
+    }
+}
+
+.show {
+    display: block;
+}
+.hide {
+    display: none;
+}

@@ -1,0 +1,13 @@
+<ng-template #modalConfig let-c="close" let-d="dismiss">
+<!-- <pre> data: {{ data | json}} </pre> -->
+  <div class="modal-header custom-modal-header" [ngClass]="{'XS': mdqSrv.XS, 'SM': (mdqSrv.SM || mdqSrv.MD) , 'XL': (mdqSrv.LG || mdqSrv.XL)}">
+    <h4 class="modal-title">{{title}}</h4>
+    <button type="button" class="close close-btn" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+
+  <div class="modal-body custom-modal-body" [ngClass]="{'XS': mdqSrv.XS, 'SM': (mdqSrv.SM || mdqSrv.MD) , 'XL': (mdqSrv.LG || mdqSrv.XL)}">
+		<wp-etl-json-like-view class="modal-ctnr" [globalAccntData]="globalData" [parentComp]="'modal-config'"[jsonLike]="data" mode="'dummy'"></wp-etl-json-like-view>
+  </div>
+</ng-template>

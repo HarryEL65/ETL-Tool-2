@@ -1,0 +1,9 @@
+:host {
+  display: inline-block;
+}
+
+:host svg {
+  display: inline-block;
+  all: inherit;
+}
+/*# sourceMappingURL=svg-icon.component.css.map */

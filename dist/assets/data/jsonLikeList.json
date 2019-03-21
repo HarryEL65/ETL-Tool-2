@@ -1,0 +1,1388 @@
+[
+  {
+    "accID": 15,
+    "accName": "leovegas",
+    "accSapID": 51663,
+    "dealType": "RevShare",
+    "outputFiles": [],
+    "affiliateProgramName": "Affiliates United",
+    "platformID": 6,
+    "affiliateProgramID": 1,
+    "userName": "webltd1",
+    "isLock": false,
+    "reportType": "MerchantData",
+    "timeStamp": 1525051431,
+    "madeByID": "etl-tool-id",
+    "visitSite": "https://account.affiliates.williamhill.com/affiliates/Account/Login#",
+    "madeByName": "etl-tool",
+    "platformName": "NetRefer",
+    "config": {
+      "parent": "Netrefer2.json",
+      "searchButton": "//button[@id='btnLogin']",
+      "mapping": [
+        {
+          "Effective_Date": "Date"
+        },
+        {
+          "Tracker_Code": "MarketingSourceID"
+        },
+        {
+          "Tracker_Name": "MarketingSourceName"
+        },
+        {
+          "Clicks": "Clicks"
+        },
+        {
+          "Impressions": "Views"
+        },
+        {
+          "Rmp": "FirstTimeDepositingCustomers"
+        },
+        {
+          "Rmp": "FirstTimeDepositors"
+        },
+        {
+          "Registration": "Signups"
+        },
+        {
+          "Merchant_Revenues": "NetRevenue"
+        }
+      ],
+      "aggregateRowsByKey": [
+        {
+          "fieldToCmp": [
+            "Tracker_Code",
+            "Tracker_Name",
+            "Effective_Date"
+          ]
+        },
+        {
+          "fieldToSum": [
+            "Impressions",
+            "Clicks",
+            "Registration",
+            "Rmp",
+            "Merchant_Revenues"
+          ]
+        }
+      ],
+      "jsonColumns": "columns",
+      "usernamekey": "//input[@id='txtUsername']",
+      "loginType": "loginByXpath",
+      "getRequest": {
+        "getURL": "https://account.affiliates.williamhill.com/affiliates/Reports/marketingSourceDailyFiguresReport",
+        "getData": {
+          "PublishPointID": "All",
+          "ProductID": "All"
+        }
+      },
+      "dataFormat": "netreferJson",
+      "passwordkey": "//input[@id='txtPassword']",
+      "runNewFlow": "run",
+      "cleanCode": [
+        {
+          "a": "Tracker_Code",
+          "b": "cleancode"
+        }
+      ],
+      "rules": [
+        "subString",
+        "mapping",
+        "aggregateRowsByKey",
+        "cleanCode"
+      ],
+      "navigateReport": "https://account.affiliates.williamhill.com/affiliates/Reports/MarketingSourceDailyFigures",
+      "jsonData": "data",
+      "affPrgName": "netrefer.NetreferREVdmMerchantReport",
+      "subString": [
+        [
+          {
+            "columnName": "MarketingSourceID"
+          },
+          {
+            "characters": [
+              ">",
+              "cutTillEnd"
+            ]
+          }
+        ],
+        [
+          {
+            "columnName": "MarketingSourceID"
+          },
+          {
+            "characters": [
+              "startFromFirst",
+              "<"
+            ]
+          }
+        ]
+      ],
+      "loginUrl": "https://account.affiliates.williamhill.com/affiliates/Account/Login#",
+      "effectiveDateFormat": "dd-MM-yyyy",
+      "loginButton": "//input[@id='btnLogin']",
+      "sdfFormat": "dd-MM-yyyy"
+    },
+    "status": "accepted"
+  },
+  {
+    "accID": 1,
+    "accName": "delta air line",
+    "accSapID": 77707,
+    "dealType": "UNIVERS",
+    "outputFiles": [],
+    "affiliateProgramName": "Affiliates United",
+    "platformID": 6,
+    "affiliateProgramID": 1,
+    "userName": "webltd1",
+    "isLock": false,
+    "reportType": "MerchantData",
+    "timeStamp": 1525051431,
+    "madeByID": "etl-tool-id",
+    "visitSite": "https://account.affiliates.williamhill.com/affiliates/Account/Login#",
+    "madeByName": "etl-tool",
+    "platformName": "NetRefer",
+    "config": {
+      "parent": "Netrefer2.json",
+      "searchButton": "//button[@id='btnLogin']",
+      "mapping": [
+        {
+          "Effective_Date": "Date"
+        },
+        {
+          "Tracker_Code": "MarketingSourceID"
+        },
+        {
+          "Tracker_Name": "MarketingSourceName"
+        },
+        {
+          "Clicks": "Clicks"
+        },
+        {
+          "Impressions": "Views"
+        },
+        {
+          "Rmp": "FirstTimeDepositingCustomers"
+        },
+        {
+          "Rmp": "FirstTimeDepositors"
+        },
+        {
+          "Registration": "Signups"
+        },
+        {
+          "Merchant_Revenues": "NetRevenue"
+        }
+      ],
+      "aggregateRowsByKey": [
+        {
+          "fieldToCmp": [
+            "Tracker_Code",
+            "Tracker_Name",
+            "Effective_Date"
+          ]
+        },
+        {
+          "fieldToSum": [
+            "Impressions",
+            "Clicks",
+            "Registration",
+            "Rmp",
+            "Merchant_Revenues"
+          ]
+        }
+      ],
+      "jsonColumns": "columns",
+      "usernamekey": "//input[@id='txtUsername']",
+      "loginType": "loginByXpath",
+      "getRequest": {
+        "getURL": "https://account.affiliates.williamhill.com/affiliates/Reports/marketingSourceDailyFiguresReport",
+        "getData": {
+          "PublishPointID": "All",
+          "ProductID": "All"
+        }
+      },
+      "dataFormat": "netreferJson",
+      "passwordkey": "//input[@id='txtPassword']",
+      "runNewFlow": "run",
+      "cleanCode": [
+        {
+          "a": "Tracker_Code",
+          "b": "cleancode"
+        }
+      ],
+      "rules": [
+        "subString",
+        "mapping",
+        "aggregateRowsByKey",
+        "cleanCode"
+      ],
+      "navigateReport": "https://account.affiliates.williamhill.com/affiliates/Reports/MarketingSourceDailyFigures",
+      "jsonData": "data",
+      "affPrgName": "netrefer.NetreferREVdmMerchantReport",
+      "subString": [
+        [
+          {
+            "columnName": "MarketingSourceID"
+          },
+          {
+            "characters": [
+              ">",
+              "cutTillEnd"
+            ]
+          }
+        ],
+        [
+          {
+            "columnName": "MarketingSourceID"
+          },
+          {
+            "characters": [
+              "startFromFirst",
+              "<"
+            ]
+          }
+        ]
+      ],
+      "loginUrl": "https://account.affiliates.williamhill.com/affiliates/Account/Login#",
+      "effectiveDateFormat": "dd-MM-yyyy",
+      "loginButton": "//input[@id='btnLogin']",
+      "sdfFormat": "dd-MM-yyyy"
+    },
+    "status": "accepted"
+  },
+  {
+    "accID": 7,
+    "accName": "delta air line 2",
+    "accSapID": 99904,
+    "dealType": "RevShare",
+    "platformName": "Plat-reel",
+    "platformID": 1,
+    "affiliateProgramName": "o-networkaffiliates",
+    "affiliateProgramID": 1022,
+    "outputFiles": [],
+    "userName": "webltd1",
+    "isLock": false,
+    "reportType": "MerchantData",
+    "timeStamp": 1525051431,
+    "madeByID": "etl-tool-id",
+    "visitSite": "https://account.affiliates.williamhill.com/affiliates/Account/Login#",
+    "madeByName": "etl-tool",
+    "config": {
+      "parent": "Netrefer2.json",
+      "searchButton": "//button[@id='btnLogin']",
+      "mapping": [
+        {
+          "Effective_Date": "Date"
+        },
+        {
+          "Tracker_Code": "MarketingSourceID"
+        },
+        {
+          "Tracker_Name": "MarketingSourceName"
+        },
+        {
+          "Clicks": "Clicks"
+        },
+        {
+          "Impressions": "Views"
+        },
+        {
+          "Rmp": "FirstTimeDepositingCustomers"
+        },
+        {
+          "Rmp": "FirstTimeDepositors"
+        },
+        {
+          "Registration": "Signups"
+        },
+        {
+          "Merchant_Revenues": "NetRevenue"
+        }
+      ],
+      "aggregateRowsByKey": [
+        {
+          "fieldToCmp": [
+            "Tracker_Code",
+            "Tracker_Name",
+            "Effective_Date"
+          ]
+        },
+        {
+          "fieldToSum": [
+            "Impressions",
+            "Clicks",
+            "Registration",
+            "Rmp",
+            "Merchant_Revenues"
+          ]
+        }
+      ],
+      "jsonColumns": "columns",
+      "usernamekey": "//input[@id='txtUsername']",
+      "loginType": "loginByXpath",
+      "getRequest": {
+        "getURL": "https://account.affiliates.williamhill.com/affiliates/Reports/marketingSourceDailyFiguresReport",
+        "getData": {
+          "PublishPointID": "All",
+          "ProductID": "All"
+        }
+      },
+      "dataFormat": "netreferJson",
+      "passwordkey": "//input[@id='txtPassword']",
+      "runNewFlow": "run",
+      "cleanCode": [
+        {
+          "a": "Tracker_Code",
+          "b": "cleancode"
+        }
+      ],
+      "rules": [
+        "subString",
+        "mapping",
+        "aggregateRowsByKey",
+        "cleanCode"
+      ],
+      "navigateReport": "https://account.affiliates.williamhill.com/affiliates/Reports/MarketingSourceDailyFigures",
+      "jsonData": "data",
+      "affPrgName": "netrefer.NetreferREVdmMerchantReport",
+      "subString": [
+        [
+          {
+            "columnName": "MarketingSourceID"
+          },
+          {
+            "characters": [
+              ">",
+              "cutTillEnd"
+            ]
+          }
+        ],
+        [
+          {
+            "columnName": "MarketingSourceID"
+          },
+          {
+            "characters": [
+              "startFromFirst",
+              "<"
+            ]
+          }
+        ]
+      ],
+      "loginUrl": "https://account.affiliates.williamhill.com/affiliates/Account/Login#",
+      "effectiveDateFormat": "dd-MM-yyyy",
+      "loginButton": "//input[@id='btnLogin']",
+      "sdfFormat": "dd-MM-yyyy"
+    },
+    "status": "accepted"
+  },
+  {
+    "accID": 2009,
+    "accName": "del ab",
+    "accSapID": 56432,
+    "dealType": "Occident",
+    "platformName": "Plat-reel",
+    "platformID": 1,
+    "affiliateProgramName": "o-networkaffiliates",
+    "affiliateProgramID": 1022,
+    "outputFiles": [],
+    "userName": "webltd1",
+    "isLock": false,
+    "reportType": "MerchantData",
+    "timeStamp": 1525051431,
+    "madeByID": "etl-tool-id",
+    "visitSite": "https://account.affiliates.williamhill.com/affiliates/Account/Login#",
+    "madeByName": "etl-tool",
+    "config": {
+      "parent": "Netrefer2.json",
+      "searchButton": "//button[@id='btnLogin']",
+      "mapping": [
+        {
+          "Effective_Date": "Date"
+        },
+        {
+          "Tracker_Code": "MarketingSourceID"
+        },
+        {
+          "Tracker_Name": "MarketingSourceName"
+        },
+        {
+          "Clicks": "Clicks"
+        },
+        {
+          "Impressions": "Views"
+        },
+        {
+          "Rmp": "FirstTimeDepositingCustomers"
+        },
+        {
+          "Rmp": "FirstTimeDepositors"
+        },
+        {
+          "Registration": "Signups"
+        },
+        {
+          "Merchant_Revenues": "NetRevenue"
+        }
+      ],
+      "aggregateRowsByKey": [
+        {
+          "fieldToCmp": [
+            "Tracker_Code",
+            "Tracker_Name",
+            "Effective_Date"
+          ]
+        },
+        {
+          "fieldToSum": [
+            "Impressions",
+            "Clicks",
+            "Registration",
+            "Rmp",
+            "Merchant_Revenues"
+          ]
+        }
+      ],
+      "jsonColumns": "columns",
+      "usernamekey": "//input[@id='txtUsername']",
+      "loginType": "loginByXpath",
+      "getRequest": {
+        "getURL": "https://account.affiliates.williamhill.com/affiliates/Reports/marketingSourceDailyFiguresReport",
+        "getData": {
+          "PublishPointID": "All",
+          "ProductID": "All"
+        }
+      },
+      "dataFormat": "netreferJson",
+      "passwordkey": "//input[@id='txtPassword']",
+      "runNewFlow": "run",
+      "cleanCode": [
+        {
+          "a": "Tracker_Code",
+          "b": "cleancode"
+        }
+      ],
+      "rules": [
+        "subString",
+        "mapping",
+        "aggregateRowsByKey",
+        "cleanCode"
+      ],
+      "navigateReport": "https://account.affiliates.williamhill.com/affiliates/Reports/MarketingSourceDailyFigures",
+      "jsonData": "data",
+      "affPrgName": "netrefer.NetreferREVdmMerchantReport",
+      "subString": [
+        [
+          {
+            "columnName": "MarketingSourceID"
+          },
+          {
+            "characters": [
+              ">",
+              "cutTillEnd"
+            ]
+          }
+        ],
+        [
+          {
+            "columnName": "MarketingSourceID"
+          },
+          {
+            "characters": [
+              "startFromFirst",
+              "<"
+            ]
+          }
+        ]
+      ],
+      "loginUrl": "https://account.affiliates.williamhill.com/affiliates/Account/Login#",
+      "effectiveDateFormat": "dd-MM-yyyy",
+      "loginButton": "//input[@id='btnLogin']",
+      "sdfFormat": "dd-MM-yyyy"
+    },
+    "status": "accepted"
+  },
+  {
+    "accID": 189,
+    "accName": "Casino Royal",
+    "accSapID": 9668,
+    "dealType": "ReveDeMaVie",
+    "platformName": "Casino",
+    "platformID": 100,
+    "affiliateProgramName": "Roxy Affiliates",
+    "affiliateProgramID": 103,
+    "outputFiles": [],
+    "userName": "webltd1",
+    "isLock": false,
+    "reportType": "MerchantData",
+    "timeStamp": 1525051431,
+    "madeByID": "etl-tool-id",
+    "visitSite": "https://account.affiliates.williamhill.com/affiliates/Account/Login#",
+    "madeByName": "etl-tool",
+    "config": {
+      "parent": "Netrefer2.json",
+      "searchButton": "//button[@id='btnLogin']",
+      "mapping": [
+        {
+          "Effective_Date": "Date"
+        },
+        {
+          "Tracker_Code": "MarketingSourceID"
+        },
+        {
+          "Tracker_Name": "MarketingSourceName"
+        },
+        {
+          "Clicks": "Clicks"
+        },
+        {
+          "Impressions": "Views"
+        },
+        {
+          "Rmp": "FirstTimeDepositingCustomers"
+        },
+        {
+          "Rmp": "FirstTimeDepositors"
+        },
+        {
+          "Registration": "Signups"
+        },
+        {
+          "Merchant_Revenues": "NetRevenue"
+        }
+      ],
+      "aggregateRowsByKey": [
+        {
+          "fieldToCmp": [
+            "Tracker_Code",
+            "Tracker_Name",
+            "Effective_Date"
+          ]
+        },
+        {
+          "fieldToSum": [
+            "Impressions",
+            "Clicks",
+            "Registration",
+            "Rmp",
+            "Merchant_Revenues"
+          ]
+        }
+      ],
+      "jsonColumns": "columns",
+      "usernamekey": "//input[@id='txtUsername']",
+      "loginType": "loginByXpath",
+      "getRequest": {
+        "getURL": "https://account.affiliates.williamhill.com/affiliates/Reports/marketingSourceDailyFiguresReport",
+        "getData": {
+          "PublishPointID": "All",
+          "ProductID": "All"
+        }
+      },
+      "dataFormat": "netreferJson",
+      "passwordkey": "//input[@id='txtPassword']",
+      "runNewFlow": "run",
+      "cleanCode": [
+        {
+          "a": "Tracker_Code",
+          "b": "cleancode"
+        }
+      ],
+      "rules": [
+        "subString",
+        "mapping",
+        "aggregateRowsByKey",
+        "cleanCode"
+      ],
+      "navigateReport": "https://account.affiliates.williamhill.com/affiliates/Reports/MarketingSourceDailyFigures",
+      "jsonData": "data",
+      "affPrgName": "netrefer.NetreferREVdmMerchantReport",
+      "subString": [
+        [
+          {
+            "columnName": "MarketingSourceID"
+          },
+          {
+            "characters": [
+              ">",
+              "cutTillEnd"
+            ]
+          }
+        ],
+        [
+          {
+            "columnName": "MarketingSourceID"
+          },
+          {
+            "characters": [
+              "startFromFirst",
+              "<"
+            ]
+          }
+        ]
+      ],
+      "loginUrl": "https://account.affiliates.williamhill.com/affiliates/Account/Login#",
+      "effectiveDateFormat": "dd-MM-yyyy",
+      "loginButton": "//input[@id='btnLogin']",
+      "sdfFormat": "dd-MM-yyyy"
+    },
+    "status": "accepted"
+  },
+  {
+    "accID": 876,
+    "accName": "The Casino Royal 3",
+    "accSapID": 8005,
+    "dealType": "RevTRSX",
+    "platformName": "the royal",
+    "platformID": 6,
+    "affiliateProgramName": "AffiliateClub",
+    "affiliateProgramID": 22,
+    "outputFiles": [],
+    "userName": "webltd1",
+    "isLock": false,
+    "reportType": "MerchantData",
+    "timeStamp": 1525051431,
+    "madeByID": "etl-tool-id",
+    "visitSite": "https://account.affiliates.williamhill.com/affiliates/Account/Login#",
+    "madeByName": "etl-tool",
+    "config": {
+      "parent": "Netrefer2.json",
+      "searchButton": "//button[@id='btnLogin']",
+      "mapping": [
+        {
+          "Effective_Date": "06/09/65"
+        },
+        {
+          "Tracker_Code": "Tralala"
+        },
+        {
+          "Tracker_Name": "lipsum"
+        },
+        {
+          "Clicks": "Clicks"
+        },
+        {
+          "Impressions": "Views"
+        },
+        {
+          "Rmp": "FirstTimeDepositingCustomers"
+        },
+        {
+          "Rmp": "FirstTimeDepositors"
+        },
+        {
+          "Registration": "Signups"
+        },
+        {
+          "Merchant_Revenues": "NetRevenue"
+        }
+      ],
+      "aggregateRowsByKey": [
+        {
+          "fieldToCmp": [
+            "Tracker_Code",
+            "Tracker_Name",
+            "Effective_Date"
+          ]
+        },
+        {
+          "fieldToSum": [
+            "Impressions",
+            "Clicks",
+            "Registration",
+            "Rmp",
+            "Merchant_Revenues"
+          ]
+        }
+      ],
+      "jsonColumns": "columns",
+      "usernamekey": "//input[@id='txtUsername']",
+      "loginType": "loginByXpath",
+      "getRequest": {
+        "getURL": "https://account.affiliates.williamhill.com/affiliates/Reports/marketingSourceDailyFiguresReport",
+        "getData": {
+          "PublishPointID": "All",
+          "ProductID": "All"
+        }
+      },
+      "dataFormat": "netreferJson",
+      "passwordkey": "//input[@id='txtPassword']",
+      "runNewFlow": "run",
+      "cleanCode": [
+        {
+          "a": "Tracker_Code",
+          "b": "cleancode"
+        }
+      ],
+      "rules": [
+        "subString",
+        "mapping",
+        "aggregateRowsByKey",
+        "cleanCode"
+      ],
+      "navigateReport": "https://account.affiliates.williamhill.com/affiliates/Reports/MarketingSourceDailyFigures",
+      "jsonData": "data",
+      "affPrgName": "netrefer.NetreferREVdmMerchantReport",
+      "subString": [
+        [
+          {
+            "columnName": "MarketingSourceID"
+          },
+          {
+            "characters": [
+              ">",
+              "cutTillEnd"
+            ]
+          }
+        ],
+        [
+          {
+            "columnName": "MarketingSourceID"
+          },
+          {
+            "characters": [
+              "startFromFirst",
+              "<"
+            ]
+          }
+        ]
+      ],
+      "loginUrl": "https://account.affiliates.williamhill.com/affiliates/Account/Login#",
+      "effectiveDateFormat": "dd-MM-yyyy",
+      "loginButton": "//input[@id='btnLogin']",
+      "sdfFormat": "dd-MM-yyyy"
+    },
+    "status": "accepted"
+  },
+  {
+    "accID": 27,
+    "accName": "Act -xxx",
+    "accSapID": 11111,
+    "dealType": "RevShare",
+    "platformName": "Plat-reel",
+    "platformID": 1,
+    "affiliateProgramName": "Casumo",
+    "affiliateProgramID": 178,
+    "outputFiles": [],
+    "userName": "webltd1",
+    "isLock": false,
+    "reportType": "MerchantData",
+    "timeStamp": 1525051431,
+    "madeByID": "etl-tool-id",
+    "visitSite": "https://account.affiliates.williamhill.com/affiliates/Account/Login#",
+    "madeByName": "etl-tool",
+    "config": {
+      "parent": "Netrefer2.json",
+      "searchButton": "//button[@id='btnLogin']",
+      "mapping": [
+        {
+          "Effective_Date": "Date"
+        },
+        {
+          "Tracker_Code": "MarketingSourceID"
+        },
+        {
+          "Tracker_Name": "MarketingSourceName"
+        },
+        {
+          "Clicks": "Clicks"
+        },
+        {
+          "Impressions": "Views"
+        },
+        {
+          "Rmp": "FirstTimeDepositingCustomers"
+        },
+        {
+          "Rmp": "FirstTimeDepositors"
+        },
+        {
+          "Registration": "Signups"
+        },
+        {
+          "Merchant_Revenues": "NetRevenue"
+        }
+      ],
+      "aggregateRowsByKey": [
+        {
+          "fieldToCmp": [
+            "Tracker_Code",
+            "Tracker_Name",
+            "Effective_Date"
+          ]
+        },
+        {
+          "fieldToSum": [
+            "Impressions",
+            "Clicks",
+            "Registration",
+            "Rmp",
+            "Merchant_Revenues"
+          ]
+        }
+      ],
+      "jsonColumns": "columns",
+      "usernamekey": "//input[@id='txtUsername']",
+      "loginType": "loginByXpath",
+      "getRequest": {
+        "getURL": "https://account.affiliates.williamhill.com/affiliates/Reports/marketingSourceDailyFiguresReport",
+        "getData": {
+          "PublishPointID": "All",
+          "ProductID": "All"
+        }
+      },
+      "dataFormat": "netreferJson",
+      "passwordkey": "//input[@id='txtPassword']",
+      "runNewFlow": "run",
+      "cleanCode": [
+        {
+          "a": "Tracker_Code",
+          "b": "cleancode"
+        }
+      ],
+      "rules": [
+        "subString",
+        "mapping",
+        "aggregateRowsByKey",
+        "cleanCode"
+      ],
+      "navigateReport": "https://account.affiliates.williamhill.com/affiliates/Reports/MarketingSourceDailyFigures",
+      "jsonData": "data",
+      "affPrgName": "netrefer.NetreferREVdmMerchantReport",
+      "subString": [
+        [
+          {
+            "columnName": "MarketingSourceID"
+          },
+          {
+            "characters": [
+              ">",
+              "cutTillEnd"
+            ]
+          }
+        ],
+        [
+          {
+            "columnName": "MarketingSourceID"
+          },
+          {
+            "characters": [
+              "startFromFirst",
+              "<"
+            ]
+          }
+        ]
+      ],
+      "loginUrl": "https://account.affiliates.williamhill.com/affiliates/Account/Login#",
+      "effectiveDateFormat": "dd-MM-yyyy",
+      "loginButton": "//input[@id='btnLogin']",
+      "sdfFormat": "dd-MM-yyyy"
+    },
+    "status": "accepted"
+  },
+  {
+    "accID": 3,
+    "accName": "Prince",
+    "accSapID": 76509,
+    "dealType": "ReveDeMaVie",
+    "platformName": "Cicilian3",
+    "platformID": 5,
+    "affiliateProgramName": "Casumo",
+    "affiliateProgramID": 178,
+    "outputFiles": [],
+    "userName": "webltd1",
+    "isLock": false,
+    "reportType": "MerchantData",
+    "timeStamp": 1525051431,
+    "madeByID": "etl-tool-id",
+    "visitSite": "https://account.affiliates.williamhill.com/affiliates/Account/Login#",
+    "madeByName": "etl-tool",
+    "config": {
+      "parent": "Netrefer2.json",
+      "searchButton": "//button[@id='btnLogin']",
+      "mapping": [
+        {
+          "Effective_Date": "Date"
+        },
+        {
+          "Tracker_Code": "MarketingSourceID"
+        },
+        {
+          "Tracker_Name": "MarketingSourceName"
+        },
+        {
+          "Clicks": "Clicks"
+        },
+        {
+          "Impressions": "Views"
+        },
+        {
+          "Rmp": "FirstTimeDepositingCustomers"
+        },
+        {
+          "Rmp": "FirstTimeDepositors"
+        },
+        {
+          "Registration": "Signups"
+        },
+        {
+          "Merchant_Revenues": "NetRevenue"
+        }
+      ],
+      "aggregateRowsByKey": [
+        {
+          "fieldToCmp": [
+            "Tracker_Code",
+            "Tracker_Name",
+            "Effective_Date"
+          ]
+        },
+        {
+          "fieldToSum": [
+            "Impressions",
+            "Clicks",
+            "Registration",
+            "Rmp",
+            "Merchant_Revenues"
+          ]
+        }
+      ],
+      "jsonColumns": "columns",
+      "usernamekey": "//input[@id='txtUsername']",
+      "loginType": "loginByXpath",
+      "getRequest": {
+        "getURL": "https://account.affiliates.williamhill.com/affiliates/Reports/marketingSourceDailyFiguresReport",
+        "getData": {
+          "PublishPointID": "All",
+          "ProductID": "All"
+        }
+      },
+      "dataFormat": "netreferJson",
+      "passwordkey": "//input[@id='txtPassword']",
+      "runNewFlow": "run",
+      "cleanCode": [
+        {
+          "a": "Tracker_Code",
+          "b": "cleancode"
+        }
+      ],
+      "rules": [
+        "subString",
+        "mapping",
+        "aggregateRowsByKey",
+        "cleanCode"
+      ],
+      "navigateReport": "https://account.affiliates.williamhill.com/affiliates/Reports/MarketingSourceDailyFigures",
+      "jsonData": "data",
+      "affPrgName": "netrefer.NetreferREVdmMerchantReport",
+      "subString": [
+        [
+          {
+            "columnName": "MarketingSourceID"
+          },
+          {
+            "characters": [
+              ">",
+              "cutTillEnd"
+            ]
+          }
+        ],
+        [
+          {
+            "columnName": "MarketingSourceID"
+          },
+          {
+            "characters": [
+              "startFromFirst",
+              "<"
+            ]
+          }
+        ]
+      ],
+      "loginUrl": "https://account.affiliates.williamhill.com/affiliates/Account/Login#",
+      "effectiveDateFormat": "dd-MM-yyyy",
+      "loginButton": "//input[@id='btnLogin']",
+      "sdfFormat": "dd-MM-yyyy"
+    },
+    "status": "accepted"
+  },
+  {
+    "accID": 9,
+    "accName": "Napoleon",
+    "accSapID": 34211,
+    "dealType": "RevTRSX",
+    "platformName": "Europe",
+    "platformID": 3,
+    "affiliateProgramName": "Roxy Affiliates",
+    "affiliateProgramID": 103,
+    "outputFiles": [],
+    "userName": "webltd1",
+    "isLock": false,
+    "reportType": "MerchantData",
+    "timeStamp": 1525051431,
+    "madeByID": "etl-tool-id",
+    "visitSite": "https://account.affiliates.williamhill.com/affiliates/Account/Login#",
+    "madeByName": "etl-tool",
+    "config": {
+      "parent": "Netrefer2.json",
+      "searchButton": "//button[@id='btnLogin']",
+      "mapping": [
+        {
+          "Effective_Date": "Date"
+        },
+        {
+          "Tracker_Code": "MarketingSourceID"
+        },
+        {
+          "Tracker_Name": "MarketingSourceName"
+        },
+        {
+          "Clicks": "Clicks"
+        },
+        {
+          "Impressions": "Views"
+        },
+        {
+          "Rmp": "FirstTimeDepositingCustomers"
+        },
+        {
+          "Rmp": "FirstTimeDepositors"
+        },
+        {
+          "Registration": "Signups"
+        },
+        {
+          "Merchant_Revenues": "NetRevenue"
+        }
+      ],
+      "aggregateRowsByKey": [
+        {
+          "fieldToCmp": [
+            "Tracker_Code",
+            "Tracker_Name",
+            "Effective_Date"
+          ]
+        },
+        {
+          "fieldToSum": [
+            "Impressions",
+            "Clicks",
+            "Registration",
+            "Rmp",
+            "Merchant_Revenues"
+          ]
+        }
+      ],
+      "jsonColumns": "columns",
+      "usernamekey": "//input[@id='txtUsername']",
+      "loginType": "loginByXpath",
+      "getRequest": {
+        "getURL": "https://account.affiliates.williamhill.com/affiliates/Reports/marketingSourceDailyFiguresReport",
+        "getData": {
+          "PublishPointID": "All",
+          "ProductID": "All"
+        }
+      },
+      "dataFormat": "netreferJson",
+      "passwordkey": "//input[@id='txtPassword']",
+      "runNewFlow": "run",
+      "cleanCode": [
+        {
+          "a": "Tracker_Code",
+          "b": "cleancode"
+        }
+      ],
+      "rules": [
+        "subString",
+        "mapping",
+        "aggregateRowsByKey",
+        "cleanCode"
+      ],
+      "navigateReport": "https://account.affiliates.williamhill.com/affiliates/Reports/MarketingSourceDailyFigures",
+      "jsonData": "data",
+      "affPrgName": "netrefer.NetreferREVdmMerchantReport",
+      "subString": [
+        [
+          {
+            "columnName": "MarketingSourceID"
+          },
+          {
+            "characters": [
+              ">",
+              "cutTillEnd"
+            ]
+          }
+        ],
+        [
+          {
+            "columnName": "MarketingSourceID"
+          },
+          {
+            "characters": [
+              "startFromFirst",
+              "<"
+            ]
+          }
+        ]
+      ],
+      "loginUrl": "https://account.affiliates.williamhill.com/affiliates/Account/Login#",
+      "effectiveDateFormat": "dd-MM-yyyy",
+      "loginButton": "//input[@id='btnLogin']",
+      "sdfFormat": "dd-MM-yyyy"
+    },
+    "status": "accepted"
+  },
+  {
+    "accID": 51,
+    "accName": "Napoleon - 3",
+    "accSapID": 987433,
+    "dealType": "RevShare",
+    "platformName": "the royal",
+    "platformID": 6,
+    "affiliateProgramName": "AffiliateClub",
+    "affiliateProgramID": 22,
+    "outputFiles": [],
+    "userName": "webltd1",
+    "isLock": false,
+    "reportType": "MerchantData",
+    "timeStamp": 1525051431,
+    "madeByID": "etl-tool-id",
+    "visitSite": "https://account.affiliates.williamhill.com/affiliates/Account/Login#",
+    "madeByName": "etl-tool",
+    "config": {
+      "parent": "Netrefer2.json",
+      "searchButton": "//button[@id='btnLogin']",
+      "mapping": [
+        {
+          "Effective_Date": "Date"
+        },
+        {
+          "Tracker_Code": "MarketingSourceID"
+        },
+        {
+          "Tracker_Name": "MarketingSourceName"
+        },
+        {
+          "Clicks": "Clicks"
+        },
+        {
+          "Impressions": "Views"
+        },
+        {
+          "Rmp": "FirstTimeDepositingCustomers"
+        },
+        {
+          "Rmp": "FirstTimeDepositors"
+        },
+        {
+          "Registration": "Signups"
+        },
+        {
+          "Merchant_Revenues": "NetRevenue"
+        }
+      ],
+      "aggregateRowsByKey": [
+        {
+          "fieldToCmp": [
+            "Tracker_Code",
+            "Tracker_Name",
+            "Effective_Date"
+          ]
+        },
+        {
+          "fieldToSum": [
+            "Impressions",
+            "Clicks",
+            "Registration",
+            "Rmp",
+            "Merchant_Revenues"
+          ]
+        }
+      ],
+      "jsonColumns": "columns",
+      "usernamekey": "//input[@id='txtUsername']",
+      "loginType": "loginByXpath",
+      "getRequest": {
+        "getURL": "https://account.affiliates.williamhill.com/affiliates/Reports/marketingSourceDailyFiguresReport",
+        "getData": {
+          "PublishPointID": "All",
+          "ProductID": "All"
+        }
+      },
+      "dataFormat": "netreferJson",
+      "passwordkey": "//input[@id='txtPassword']",
+      "runNewFlow": "run",
+      "cleanCode": [
+        {
+          "a": "Tracker_Code",
+          "b": "cleancode"
+        }
+      ],
+      "rules": [
+        "subString",
+        "mapping",
+        "aggregateRowsByKey",
+        "cleanCode"
+      ],
+      "navigateReport": "https://account.affiliates.williamhill.com/affiliates/Reports/MarketingSourceDailyFigures",
+      "jsonData": "data",
+      "affPrgName": "netrefer.NetreferREVdmMerchantReport",
+      "subString": [
+        [
+          {
+            "columnName": "MarketingSourceID"
+          },
+          {
+            "characters": [
+              ">",
+              "cutTillEnd"
+            ]
+          }
+        ],
+        [
+          {
+            "columnName": "MarketingSourceID"
+          },
+          {
+            "characters": [
+              "startFromFirst",
+              "<"
+            ]
+          }
+        ]
+      ],
+      "loginUrl": "https://account.affiliates.williamhill.com/affiliates/Account/Login#",
+      "effectiveDateFormat": "dd-MM-yyyy",
+      "loginButton": "//input[@id='btnLogin']",
+      "sdfFormat": "dd-MM-yyyy"
+    },
+    "status": "accepted"
+  },
+  {
+    "accID": 66,
+    "accName": "Casino Royal",
+    "accSapID": 80008,
+    "dealType": "RevTRSX",
+    "platformName": "the royal",
+    "platformID": 6,
+    "affiliateProgramName": "AffiliateClub",
+    "affiliateProgramID": 22,
+    "outputFiles": [],
+    "userName": "webltd1",
+    "isLock": false,
+    "reportType": "MerchantData",
+    "timeStamp": 1525051431,
+    "madeByID": "etl-tool-id",
+    "visitSite": "https://account.affiliates.williamhill.com/affiliates/Account/Login#",
+    "madeByName": "etl-tool",
+    "config": {
+      "parent": "Netrefer2.json",
+      "searchButton": "//button[@id='btnLogin']",
+      "mapping": [
+        {
+          "Effective_Date": "Date"
+        },
+        {
+          "Tracker_Code": "MarketingSourceID"
+        },
+        {
+          "Tracker_Name": "MarketingSourceName"
+        },
+        {
+          "Clicks": "Clicks"
+        },
+        {
+          "Impressions": "Views"
+        },
+        {
+          "Rmp": "FirstTimeDepositingCustomers"
+        },
+        {
+          "Rmp": "FirstTimeDepositors"
+        },
+        {
+          "Registration": "Signups"
+        },
+        {
+          "Merchant_Revenues": "NetRevenue"
+        }
+      ],
+      "aggregateRowsByKey": [
+        {
+          "fieldToCmp": [
+            "Tracker_Code",
+            "Tracker_Name",
+            "Effective_Date"
+          ]
+        },
+        {
+          "fieldToSum": [
+            "Impressions",
+            "Clicks",
+            "Registration",
+            "Rmp",
+            "Merchant_Revenues"
+          ]
+        }
+      ],
+      "jsonColumns": "columns",
+      "usernamekey": "//input[@id='txtUsername']",
+      "loginType": "loginByXpath",
+      "getRequest": {
+        "getURL": "https://account.affiliates.williamhill.com/affiliates/Reports/marketingSourceDailyFiguresReport",
+        "getData": {
+          "PublishPointID": "All",
+          "ProductID": "All"
+        }
+      },
+      "dataFormat": "netreferJson",
+      "passwordkey": "//input[@id='txtPassword']",
+      "runNewFlow": "run",
+      "cleanCode": [
+        {
+          "a": "Tracker_Code",
+          "b": "cleancode"
+        }
+      ],
+      "rules": [
+        "subString",
+        "mapping",
+        "aggregateRowsByKey",
+        "cleanCode"
+      ],
+      "navigateReport": "https://account.affiliates.williamhill.com/affiliates/Reports/MarketingSourceDailyFigures",
+      "jsonData": "data",
+      "affPrgName": "netrefer.NetreferREVdmMerchantReport",
+      "subString": [
+        [
+          {
+            "columnName": "MarketingSourceID"
+          },
+          {
+            "characters": [
+              ">",
+              "cutTillEnd"
+            ]
+          }
+        ],
+        [
+          {
+            "columnName": "MarketingSourceID"
+          },
+          {
+            "characters": [
+              "startFromFirst",
+              "<"
+            ]
+          }
+        ]
+      ],
+      "loginUrl": "https://account.affiliates.williamhill.com/affiliates/Account/Login#",
+      "effectiveDateFormat": "dd-MM-yyyy",
+      "loginButton": "//input[@id='btnLogin']",
+      "sdfFormat": "dd-MM-yyyy"
+    },
+    "status": "accepted"
+  }
+]

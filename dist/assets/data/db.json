@@ -1,0 +1,61 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "first_name": "John",
+      "lastName": "Doe",
+      "email": "John@gmail.com",
+      "age": 45,
+      "companyId": 10
+    },
+    {
+      "id": "2",
+      "first_name": "Arthur",
+      "lastName": "Tony",
+      "email": "ArthurTony@gmail.com",
+      "age": 50,
+      "companyId": 20
+    },
+    {
+      "id": "3",
+      "first_name": "Igor",
+      "lastName": "Kaplensky",
+      "email": "IgorKap@gmail.com",
+      "age": 30,
+      "companyId": 30
+    },
+    {
+      "id": "4",
+      "first_name": "Arthur",
+      "lastName": "Kaplensky",
+      "email": "ArthurKap@gmail.com",
+      "age": 32,
+      "companyId": 30
+    },
+    {
+      "id": "5",
+      "first_name": "Elton",
+      "lastName": "John",
+      "email": "EltonJohn@gmail.com",
+      "age": 66,
+      "companyId": 10
+    }
+  ],
+  "compagnies": [
+    {
+      "id": 10,
+      "name": "Apple",
+      "description": "Apple Inc."
+    },
+    {
+      "id": 20,
+      "name": "Google",
+      "description": "Google Inc."
+    },
+    {
+      "id": 30,
+      "name": "Microsoft",
+      "description": "Microsoft Inc."
+    }
+  ]
+}

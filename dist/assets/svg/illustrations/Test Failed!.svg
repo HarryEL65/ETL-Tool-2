@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="180 0 80 120">
+  <defs>
+    <style>
+      .cls-1 {
+        clip-path: url(#clip-Test_Failed_);
+      }
+
+      .cls-2 {
+        fill: #ff5050;
+      }
+
+      .cls-3, .cls-4, .cls-6 {
+        fill: none;
+      }
+
+      .cls-3, .cls-4 {
+        stroke: #333a4d;
+        stroke-miterlimit: 10;
+        stroke-width: 4px;
+      }
+
+      .cls-3 {
+        stroke-linecap: round;
+      }
+
+      .cls-5 {
+        stroke: none;
+      }
+
+      .cls-7 {
+        fill: #fff;
+      }
+    </style>
+    <clipPath id="clip-Test_Failed_">
+      <rect x="180" width="80" height="120"/>
+    </clipPath>
+  </defs>
+  <g id="Test_Failed_" data-name="Test Failed!" class="cls-1">
+    <rect class="cls-7" x="180" width="80" height="120"/>
+    <ellipse id="Ellipse_8" data-name="Ellipse 8" class="cls-2" cx="6.182" cy="6.163" rx="6.182" ry="6.163" transform="translate(224.364 107.674)"/>
+    <ellipse id="Ellipse_9" data-name="Ellipse 9" class="cls-2" cx="15.182" cy="15.136" rx="15.182" ry="15.136" transform="translate(183.364 67.541)"/>
+    <ellipse id="Ellipse_10" data-name="Ellipse 10" class="cls-2" cx="4.909" cy="4.894" rx="4.909" ry="4.894" transform="translate(243.636 1)"/>
+    <ellipse id="Ellipse_11" data-name="Ellipse 11" class="cls-2" cx="7.545" cy="7.523" rx="7.545" ry="7.523" transform="translate(244.909 28.825)"/>
+    <ellipse id="Ellipse_12" data-name="Ellipse 12" class="cls-2" cx="8.727" cy="8.701" rx="8.727" ry="8.701" transform="translate(242.455 92.813)"/>
+    <path id="Path_1704" data-name="Path 1704" class="cls-2" d="M37.818,0A37.7,37.7,0,1,1,0,37.7,37.761,37.761,0,0,1,37.818,0Z" transform="translate(181 18.405)"/>
+    <path id="Path_2" data-name="Path 2" class="cls-3" d="M65.864,72.954h0c-14-22.205-34.636-22.568-48.818-.816l-.545.816" transform="translate(179.5 -5.247)"/>
+    <g id="Ellipse_14" data-name="Ellipse 14" class="cls-4" transform="translate(181 13.054)">
+      <circle class="cls-5" cx="36" cy="36" r="36"/>
+      <circle class="cls-6" cx="36" cy="36" r="34"/>
+    </g>
+  </g>
+</svg>

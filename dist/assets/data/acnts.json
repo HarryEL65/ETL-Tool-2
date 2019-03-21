@@ -1,0 +1,2254 @@
+[
+    {
+        "accID": 15,
+        "timeStamp": 1521623777,
+        "accName": "Louis 3",
+        "accSapID": 6,
+        "dealType": "cpl",
+        "isFeed": true,
+        "visitSite": "Louis3.com",
+        "userName": "Stephan",
+        "config": {
+            "parent": "Netrefer2.json",
+            "searchButton": "//button[@id='btnLogin']",
+            "mapping": [
+                {
+                    "Effective_Date": "Date"
+                },
+                {
+                    "Tracker_Code": "MarketingSourceID"
+                },
+                {
+                    "Tracker_Name": "MarketingSourceName"
+                },
+                {
+                    "Clicks": "Clicks"
+                },
+                {
+                    "Impressions": "Views"
+                },
+                {
+                    "Rmp": "FirstTimeDepositingCustomers"
+                },
+                {
+                    "Rmp": "FirstTimeDepositors"
+                },
+                {
+                    "Registration": "Signups"
+                },
+                {
+                    "Merchant_Revenues": "NetRevenue"
+                }
+            ],
+            "aggregateRowsByKey": [
+                {
+                    "fieldToCmp": [
+                        "Tracker_Code",
+                        "Tracker_Name",
+                        "Effective_Date"
+                    ]
+                },
+                {
+                    "fieldToSum": [
+                        "Impressions",
+                        "Clicks",
+                        "Registration",
+                        "Rmp",
+                        "Merchant_Revenues"
+                    ]
+                }
+            ],
+            "jsonColumns": "columns",
+            "usernamekey": "//input[@id='txtUsername']",
+            "loginType": "loginByXpath",
+            "getRequest": {
+                "getURL": "https://account.affiliates.williamhill.com/affiliates/Reports/marketingSourceDailyFiguresReport",
+                "getData": {
+                    "PublishPointID": "All",
+                    "ProductID": "All"
+                }
+            },
+            "dataFormat": "netreferJson",
+            "passwordkey": "//input[@id='txtPassword']",
+            "runNewFlow": "run",
+            "cleanCode": [
+                {
+                    "a": "Tracker_Code",
+                    "b": "cleancode"
+                }
+            ],
+            "rules": [
+                "subString",
+                "mapping",
+                "aggregateRowsByKey",
+                "cleanCode"
+            ],
+            "navigateReport": "https://account.affiliates.williamhill.com/affiliates/Reports/MarketingSourceDailyFigures",
+            "jsonData": "data",
+            "affPrgName": "netrefer.NetreferREVdmMerchantReport",
+            "subString": [
+                [
+                    {
+                        "columnName": "MarketingSourceID"
+                    },
+                    {
+                        "characters": [
+                            ">",
+                            "cutTillEnd"
+                        ]
+                    }
+                ],
+                [
+                    {
+                        "columnName": "MarketingSourceID"
+                    },
+                    {
+                        "characters": [
+                            "startFromFirst",
+                            "<"
+                        ]
+                    }
+                ]
+            ],
+            "loginUrl": "https://account.affiliates.williamhill.com/affiliates/Account/Login#",
+            "effectiveDateFormat": "dd-MM-yyyy",
+            "loginButton": "//input[@id='btnLogin']",
+            "sdfFormat": "dd-MM-yyyy"
+        },
+        "platformName": "Cicilian3 Je suis un tres long text , et ca peut continuer encore tres longtemps",
+        "platformID": 5,
+        "affiliateProgramName": "CCC AAFFIILLIAAAAAAATE - 0245",
+        "affiliateProgramID": 4,
+        "status": "pending",
+        "outputFiles": [
+            {
+                "fileName": "20591-31.12.17-01.08.2018%2011-01-58.txt",
+                "status": "passed",
+                "data": [
+                    {
+                        "symbol": "AAPL 2",
+                        "company": "Apple Inc .",
+                        "ccp": 1,
+                        "tax": "25%",
+                        "details": "lipsum    tra la ala ljfdj  fjdskjfs ksdj sdjdsj sj js jsdj f slj s  saj"
+                    }
+                ]
+            },
+            {
+                "fileName": "20591-31.12.17-01.08.2018%2011-01-68.txt",
+                "status": "passed",
+                "data": [
+                    {
+                        "symbol": "AAPL 3",
+                        "company": "Apple Inc.",
+                        "ccp": 1,
+                        "tax": "25%",
+                        "details": "Ceci est un test pour verifier que ma logic est correcte"
+                    }
+                ]
+            },
+            {
+                "fileName": "20591-31.12.17-01.08.2018%2011-01-78.txt",
+                "status": "passed",
+                "data": [
+                    {
+                        "symbol": "AAPL 4",
+                        "company": "Apple Inc.",
+                        "ccp": 1,
+                        "tax": "25%",
+                        "details": "He vous monsieur je ne suis pas sur de savoir ce que vous allez devenir"
+                    }
+                ]
+            },
+            {
+                "fileName": "20591-31.12.17-01.08.2018%2011-01-88.txt",
+                "status": "passed",
+                "data": [
+                    {
+                        "symbol": "AAPL 5",
+                        "company": "Apple Inc.",
+                        "ccp": 1,
+                        "tax": "25%",
+                        "details": "il etait une fois"
+                    }
+                ]
+            },
+            {
+                "fileName": "20591-31.12.17-01.08.2018%2011-01-98.txt",
+                "status": "passed",
+                "data": [
+                    {
+                        "symbol": "AAPL 6",
+                        "company": "Apple Inc.",
+                        "ccp": 1,
+                        "tax": "25%",
+                        "details": "tres grave ce qui vous arrive mon ami"
+                    }
+                ]
+            },
+            {
+                "fileName": "20591-31.12.17-01.08.2018%2011-01-108.txt",
+                "status": "passed",
+                "data": [
+                    {
+                        "symbol": "AAPL 7",
+                        "company": "Apple Inc.",
+                        "ccp": 1,
+                        "tax": "25%",
+                        "details": "Obladi Oblada life goes on...tra lalal al"
+                    }
+                ]
+            },
+            {
+                "fileName": "20591-31.12.17-01.08.2018%2011-01-118.txt",
+                "status": "passed",
+                "data": [
+                    {
+                        "symbol": "AAPL 8 ",
+                        "company": "Apple Inc.",
+                        "ccp": 1,
+                        "tax": "25%",
+                        "details": "HeY jude"
+                    }
+                ]
+            },
+            {
+                "fileName": "20591-31.12.17-01.08.2018%2011-01-128.txt",
+                "status": "passed",
+                "data": [
+                    {
+                        "symbol": "AAPL 9",
+                        "company": "Apple Inc.",
+                        "ccp": 1,
+                        "tax": "25%",
+                        "details": "Que pass senor rodriguez"
+                    }
+                ]
+            },
+            {
+                "fileName": "20591-31.12.17-01.08.2018%2011-01-138.txt",
+                "status": "passed",
+                "data": [
+                    {
+                        "symbol": "AAPL 10",
+                        "company": "Apple Inc.",
+                        "ccp": 1,
+                        "tax": "25%",
+                        "details": "elle etait si jolie"
+                    }
+                ]
+            },
+            {
+                "fileName": "20591-31.12.17-01.08.2018%2011-01-148.txt",
+                "status": "passed",
+                "data": [
+                    {
+                        "symbol": "AAPL 11",
+                        "company": "Apple Inc.",
+                        "ccp": 1,
+                        "tax": "25%",
+                        "details": "Hello is it me your looking for"
+                    }
+                ]
+            },
+            {
+                "fileName": "20591-31.12.17-01.08.2018%2011-01-158.txt",
+                "status": "passed",
+                "data": [
+                    {
+                        "symbol": "AAPL 12",
+                        "company": "Apple Inc.",
+                        "ccp": 1,
+                        "tax": "25%",
+                        "details": "just a test 2"
+                    }
+                ]
+            },
+            {
+                "fileName": "20591-31.12.17-01.08.2018%2011-01-168.txt",
+                "status": "passed",
+                "data": [
+                    {
+                        "symbol": "AAPL 13",
+                        "company": "Apple Inc.",
+                        "ccp": 1,
+                        "tax": "25%",
+                        "details": "Vive la France"
+                    }
+                ]
+            },
+            {
+                "fileName": "20591-31.12.17-01.08.2018%2011-01-178.txt",
+                "status": "passed",
+                "data": [
+                    {
+                        "symbol": "AAPL 14",
+                        "company": "Apple Inc.",
+                        "ccp": 1,
+                        "tax": "25%",
+                        "details": "ghghg"
+                    }
+                ]
+            }
+        ],
+        "testFile": {
+            "test": "test"
+        }
+    },
+    {
+        "accID": 1,
+        "timeStamp": 1521624831,
+        "accName": "delta air line",
+        "accSapID": 1,
+        "dealType": "cpa",
+        "isFeed": true,
+        "visitSite": "delatAirLine.com",
+        "userName": "Harry",
+        "config": {
+            "parent": "Netrefer2.json",
+            "searchButton": "//button[@id='btnLogin']",
+            "mapping": [
+                {
+                    "Effective_Date": "Date"
+                },
+                {
+                    "Tracker_Code": "MarketingSourceID"
+                },
+                {
+                    "Tracker_Name": "MarketingSourceName"
+                },
+                {
+                    "Clicks": "Clicks"
+                },
+                {
+                    "Impressions": "Views"
+                },
+                {
+                    "Rmp": "FirstTimeDepositingCustomers"
+                },
+                {
+                    "Rmp": "FirstTimeDepositors"
+                },
+                {
+                    "Registration": "Signups"
+                },
+                {
+                    "Merchant_Revenues": "NetRevenue"
+                }
+            ],
+            "aggregateRowsByKey": [
+                {
+                    "fieldToCmp": [
+                        "Tracker_Code",
+                        "Tracker_Name",
+                        "Effective_Date"
+                    ]
+                },
+                {
+                    "fieldToSum": [
+                        "Impressions",
+                        "Clicks",
+                        "Registration",
+                        "Rmp",
+                        "Merchant_Revenues"
+                    ]
+                }
+            ],
+            "jsonColumns": "columns",
+            "usernamekey": "//input[@id='txtUsername']",
+            "loginType": "loginByXpath",
+            "getRequest": {
+                "getURL": "https://account.affiliates.williamhill.com/affiliates/Reports/marketingSourceDailyFiguresReport",
+                "getData": {
+                    "PublishPointID": "All",
+                    "ProductID": "All"
+                }
+            },
+            "dataFormat": "netreferJson",
+            "passwordkey": "//input[@id='txtPassword']",
+            "runNewFlow": "run",
+            "cleanCode": [
+                {
+                    "a": "Tracker_Code",
+                    "b": "cleancode"
+                }
+            ],
+            "rules": [
+                "subString",
+                "mapping",
+                "aggregateRowsByKey",
+                "cleanCode"
+            ],
+            "navigateReport": "https://account.affiliates.williamhill.com/affiliates/Reports/MarketingSourceDailyFigures",
+            "jsonData": "data",
+            "affPrgName": "netrefer.NetreferREVdmMerchantReport",
+            "subString": [
+                [
+                    {
+                        "columnName": "MarketingSourceID"
+                    },
+                    {
+                        "characters": [
+                            ">",
+                            "cutTillEnd"
+                        ]
+                    }
+                ],
+                [
+                    {
+                        "columnName": "MarketingSourceID"
+                    },
+                    {
+                        "characters": [
+                            "startFromFirst",
+                            "<"
+                        ]
+                    }
+                ]
+            ],
+            "loginUrl": "https://account.affiliates.williamhill.com/affiliates/Account/Login#",
+            "effectiveDateFormat": "dd-MM-yyyy",
+            "loginButton": "//input[@id='btnLogin']",
+            "sdfFormat": "dd-MM-yyyy"
+        },
+        "platformName": "Plat-reel",
+        "platformID": 1,
+        "affiliateProgramName": "aff",
+        "affiliateProgramID": 1,
+        "status": "accepted",
+        "outputFiles": [
+            {
+                "fileName": "20591-31.12.17-01.08.2018%2011-01-58.txt",
+                "status": "passed",
+                "data": [
+                    {
+                        "symbol": "AAPL 2",
+                        "company": "Apple Inc .",
+                        "ccp": 1,
+                        "tax": "25%",
+                        "details": "lipsum    tra la ala ljfdj  fjdskjfs ksdj sdjdsj sj js jsdj f slj s  saj"
+                    }
+                ]
+            },
+            {
+                "fileName": "20591-31.12.17-01.08.2018%2011-01-68.txt",
+                "status": "passed",
+                "data": [
+                    {
+                        "symbol": "AAPL 3",
+                        "company": "Apple Inc.",
+                        "ccp": 1,
+                        "tax": "25%",
+                        "details": "Ceci est un test pour verifier que ma logic est correcte"
+                    }
+                ]
+            },
+            {
+                "fileName": "20591-31.12.17-01.08.2018%2011-01-78.txt",
+                "status": "passed",
+                "data": [
+                    {
+                        "symbol": "AAPL 4",
+                        "company": "Apple Inc.",
+                        "ccp": 1,
+                        "tax": "25%",
+                        "details": "He vous monsieur je ne suis pas sur de savoir ce que vous allez devenir"
+                    }
+                ]
+            },
+            {
+                "fileName": "20591-31.12.17-01.08.2018%2011-01-88.txt",
+                "status": "passed",
+                "data": [
+                    {
+                        "symbol": "AAPL 5",
+                        "company": "Apple Inc.",
+                        "ccp": 1,
+                        "tax": "25%",
+                        "details": "il etait une fois"
+                    }
+                ]
+            },
+            {
+                "fileName": "20591-31.12.17-01.08.2018%2011-01-98.txt",
+                "status": "passed",
+                "data": [
+                    {
+                        "symbol": "AAPL 6",
+                        "company": "Apple Inc.",
+                        "ccp": 1,
+                        "tax": "25%",
+                        "details": "tres grave ce qui vous arrive mon ami"
+                    }
+                ]
+            },
+            {
+                "fileName": "20591-31.12.17-01.08.2018%2011-01-108.txt",
+                "status": "passed",
+                "data": [
+                    {
+                        "symbol": "AAPL 7",
+                        "company": "Apple Inc.",
+                        "ccp": 1,
+                        "tax": "25%",
+                        "details": "Obladi Oblada life goes on...tra lalal al"
+                    }
+                ]
+            },
+            {
+                "fileName": "20591-31.12.17-01.08.2018%2011-01-118.txt",
+                "status": "passed",
+                "data": [
+                    {
+                        "symbol": "AAPL 8 ",
+                        "company": "Apple Inc.",
+                        "ccp": 1,
+                        "tax": "25%",
+                        "details": "HeY jude"
+                    }
+                ]
+            },
+            {
+                "fileName": "20591-31.12.17-01.08.2018%2011-01-128.txt",
+                "status": "passed",
+                "data": [
+                    {
+                        "symbol": "AAPL 9",
+                        "company": "Apple Inc.",
+                        "ccp": 1,
+                        "tax": "25%",
+                        "details": "Que pass senor rodriguez"
+                    }
+                ]
+            },
+            {
+                "fileName": "20591-31.12.17-01.08.2018%2011-01-138.txt",
+                "status": "passed",
+                "data": [
+                    {
+                        "symbol": "AAPL 10",
+                        "company": "Apple Inc.",
+                        "ccp": 1,
+                        "tax": "25%",
+                        "details": "elle etait si jolie"
+                    }
+                ]
+            },
+            {
+                "fileName": "20591-31.12.17-01.08.2018%2011-01-148.txt",
+                "status": "passed",
+                "data": [
+                    {
+                        "symbol": "AAPL 11",
+                        "company": "Apple Inc.",
+                        "ccp": 1,
+                        "tax": "25%",
+                        "details": "Hello is it me your looking for"
+                    }
+                ]
+            },
+            {
+                "fileName": "20591-31.12.17-01.08.2018%2011-01-158.txt",
+                "status": "passed",
+                "data": [
+                    {
+                        "symbol": "AAPL 12",
+                        "company": "Apple Inc.",
+                        "ccp": 1,
+                        "tax": "25%",
+                        "details": "just a test 2"
+                    }
+                ]
+            },
+            {
+                "fileName": "20591-31.12.17-01.08.2018%2011-01-168.txt",
+                "status": "passed",
+                "data": [
+                    {
+                        "symbol": "AAPL 13",
+                        "company": "Apple Inc.",
+                        "ccp": 1,
+                        "tax": "25%",
+                        "details": "Vive la France"
+                    }
+                ]
+            },
+            {
+                "fileName": "20591-31.12.17-01.08.2018%2011-01-178.txt",
+                "status": "passed",
+                "data": [
+                    {
+                        "symbol": "AAPL 14",
+                        "company": "Apple Inc.",
+                        "ccp": 1,
+                        "tax": "25%",
+                        "details": "ghghg"
+                    }
+                ]
+            },
+            {
+                "fileName": "20591-31.12.17-01.08.2018%2011-01-188.txt",
+                "status": "passed",
+                "data": [
+                    {
+                        "symbol": "AAPL 15",
+                        "company": "Apple Inc.",
+                        "ccp": 1,
+                        "tax": "25%",
+                        "details": "aaa"
+                    }
+                ]
+            },
+            {
+                "fileName": "20591-31.12.17-01.08.2018%2011-01-198.txt",
+                "status": "passed",
+                "data": [
+                    {
+                        "symbol": "AAPL 16",
+                        "company": "Apple Inc.",
+                        "ccp": 1,
+                        "tax": "25%",
+                        "details": "bbb"
+                    }
+                ]
+            },
+            {
+                "fileName": "20591-31.12.17-01.08.2018%2011-01-208.txt",
+                "status": "passed",
+                "data": [
+                    {
+                        "symbol": "AAPL 17",
+                        "company": "Apple Inc.",
+                        "ccp": 1,
+                        "tax": "25%",
+                        "details": "ccc"
+                    }
+                ]
+            },
+            {
+                "fileName": "20591-31.12.17-01.08.2018%2011-01-218.txt",
+                "status": "passed",
+                "data": [
+                    {
+                        "symbol": "AAPL 18",
+                        "company": "Apple Inc.",
+                        "ccp": 1,
+                        "tax": "25%",
+                        "details": "g gh ghg h"
+                    }
+                ]
+            },
+            {
+                "fileName": "20591-31.12.17-01.08.2018%2011-01-228.txt",
+                "status": "passed",
+                "data": [
+                    {
+                        "symbol": "AAPL",
+                        "company": "Apple Inc.",
+                        "ccp": 1,
+                        "tax": "25%",
+                        "details": "poopopop hjhjhj"
+                    }
+                ]
+            },
+            {
+                "fileName": "20591-31.12.17-01.08.2018%2011-01-238.txt",
+                "status": "passed",
+                "data": [
+                    {
+                        "symbol": "AAPL 19",
+                        "company": "Apple Inc.",
+                        "ccp": 1,
+                        "tax": "25%",
+                        "details": "outree ww"
+                    }
+                ]
+            },
+            {
+                "fileName": "20591-31.12.17-01.08.2018%2011-01-248.txt",
+                "status": "passed",
+                "data": [
+                    {
+                        "symbol": "AAPL 20",
+                        "company": "Apple Inc.",
+                        "ccp": 1,
+                        "tax": "25%",
+                        "details": "hockey"
+                    }
+                ]
+            }
+        ],
+        "testFile": {
+            "test": "test"
+        }
+    },
+    {
+        "accID": 7,
+        "timeStamp": 1521624831,
+        "accName": "delta air line 2",
+        "accSapID": 1,
+        "dealType": "cpa",
+        "isFeed": true,
+        "visitSite": "delatAirLine.com",
+        "userName": "Dave",
+        "config": {
+            "parent": "Netrefer2.json",
+            "searchButton": "//button[@id='btnLogin']",
+            "mapping": [
+                {
+                    "Effective_Date": "Date"
+                },
+                {
+                    "Tracker_Code": "MarketingSourceID"
+                },
+                {
+                    "Tracker_Name": "MarketingSourceName"
+                },
+                {
+                    "Clicks": "Clicks"
+                },
+                {
+                    "Impressions": "Views"
+                },
+                {
+                    "Rmp": "FirstTimeDepositingCustomers"
+                },
+                {
+                    "Rmp": "FirstTimeDepositors"
+                },
+                {
+                    "Registration": "Signups"
+                },
+                {
+                    "Merchant_Revenues": "NetRevenue"
+                }
+            ],
+            "aggregateRowsByKey": [
+                {
+                    "fieldToCmp": [
+                        "Tracker_Code",
+                        "Tracker_Name",
+                        "Effective_Date"
+                    ]
+                },
+                {
+                    "fieldToSum": [
+                        "Impressions",
+                        "Clicks",
+                        "Registration",
+                        "Rmp",
+                        "Merchant_Revenues"
+                    ]
+                }
+            ],
+            "jsonColumns": "columns",
+            "usernamekey": "//input[@id='txtUsername']",
+            "loginType": "loginByXpath",
+            "getRequest": {
+                "getURL": "https://account.affiliates.williamhill.com/affiliates/Reports/marketingSourceDailyFiguresReport",
+                "getData": {
+                    "PublishPointID": "All",
+                    "ProductID": "All"
+                }
+            },
+            "dataFormat": "netreferJson",
+            "passwordkey": "//input[@id='txtPassword']",
+            "runNewFlow": "run",
+            "cleanCode": [
+                {
+                    "a": "Tracker_Code",
+                    "b": "cleancode"
+                }
+            ],
+            "rules": [
+                "subString",
+                "mapping",
+                "aggregateRowsByKey",
+                "cleanCode"
+            ],
+            "navigateReport": "https://account.affiliates.williamhill.com/affiliates/Reports/MarketingSourceDailyFigures",
+            "jsonData": "data",
+            "affPrgName": "netrefer.NetreferREVdmMerchantReport",
+            "subString": [
+                [
+                    {
+                        "columnName": "MarketingSourceID"
+                    },
+                    {
+                        "characters": [
+                            ">",
+                            "cutTillEnd"
+                        ]
+                    }
+                ],
+                [
+                    {
+                        "columnName": "MarketingSourceID"
+                    },
+                    {
+                        "characters": [
+                            "startFromFirst",
+                            "<"
+                        ]
+                    }
+                ]
+            ],
+            "loginUrl": "https://account.affiliates.williamhill.com/affiliates/Account/Login#",
+            "effectiveDateFormat": "dd-MM-yyyy",
+            "loginButton": "//input[@id='btnLogin']",
+            "sdfFormat": "dd-MM-yyyy"
+        },
+        "platformName": "Plat-reel",
+        "platformID": 1,
+        "affiliateProgramName": "aff",
+        "affiliateProgramID": 1,
+        "status": "accepted",
+        "status-details": [
+            {
+                "fileName": "20591-31.12.17-01.08.2018%2011-01-58.txt",
+                "status": "passed",
+                "data": [
+                    {
+                        "symbol": "AAPL 2",
+                        "company": "Apple Inc .",
+                        "ccp": 1,
+                        "tax": "25%",
+                        "details": "lipsum    tra la ala ljfdj  fjdskjfs ksdj sdjdsj sj js jsdj f slj s  saj"
+                    }
+                ]
+            },
+            {
+                "fileName": "20591-31.12.17-01.08.2018%2011-01-68.txt",
+                "status": "passed",
+                "data": [
+                    {
+                        "symbol": "AAPL 3",
+                        "company": "Apple Inc.",
+                        "ccp": 1,
+                        "tax": "25%",
+                        "details": "Ceci est un test pour verifier que ma logic est correcte"
+                    }
+                ]
+            },
+            {
+                "fileName": "20591-31.12.17-01.08.2018%2011-01-78.txt",
+                "status": "passed",
+                "data": [
+                    {
+                        "symbol": "AAPL 4",
+                        "company": "Apple Inc.",
+                        "ccp": 1,
+                        "tax": "25%",
+                        "details": "He vous monsieur je ne suis pas sur de savoir ce que vous allez devenir"
+                    }
+                ]
+            },
+            {
+                "fileName": "20591-31.12.17-01.08.2018%2011-01-88.txt",
+                "status": "passed",
+                "data": [
+                    {
+                        "symbol": "AAPL 5",
+                        "company": "Apple Inc.",
+                        "ccp": 1,
+                        "tax": "25%",
+                        "details": "il etait une fois"
+                    }
+                ]
+            },
+            {
+                "fileName": "20591-31.12.17-01.08.2018%2011-01-98.txt",
+                "status": "passed",
+                "data": [
+                    {
+                        "symbol": "AAPL 6",
+                        "company": "Apple Inc.",
+                        "ccp": 1,
+                        "tax": "25%",
+                        "details": "tres grave ce qui vous arrive mon ami"
+                    }
+                ]
+            },
+            {
+                "fileName": "20591-31.12.17-01.08.2018%2011-01-108.txt",
+                "status": "passed",
+                "data": [
+                    {
+                        "symbol": "AAPL 7",
+                        "company": "Apple Inc.",
+                        "ccp": 1,
+                        "tax": "25%",
+                        "details": "Obladi Oblada life goes on...tra lalal al"
+                    }
+                ]
+            },
+            {
+                "fileName": "20591-31.12.17-01.08.2018%2011-01-118.txt",
+                "status": "passed",
+                "data": [
+                    {
+                        "symbol": "AAPL 8 ",
+                        "company": "Apple Inc.",
+                        "ccp": 1,
+                        "tax": "25%",
+                        "details": "HeY jude"
+                    }
+                ]
+            },
+            {
+                "fileName": "20591-31.12.17-01.08.2018%2011-01-128.txt",
+                "status": "passed",
+                "data": [
+                    {
+                        "symbol": "AAPL 9",
+                        "company": "Apple Inc.",
+                        "ccp": 1,
+                        "tax": "25%",
+                        "details": "Que pass senor rodriguez"
+                    }
+                ]
+            },
+            {
+                "fileName": "20591-31.12.17-01.08.2018%2011-01-138.txt",
+                "status": "passed",
+                "data": [
+                    {
+                        "symbol": "AAPL 10",
+                        "company": "Apple Inc.",
+                        "ccp": 1,
+                        "tax": "25%",
+                        "details": "elle etait si jolie"
+                    }
+                ]
+            },
+            {
+                "fileName": "20591-31.12.17-01.08.2018%2011-01-148.txt",
+                "status": "passed",
+                "data": [
+                    {
+                        "symbol": "AAPL 11",
+                        "company": "Apple Inc.",
+                        "ccp": 1,
+                        "tax": "25%",
+                        "details": "Hello is it me your looking for"
+                    }
+                ]
+            },
+            {
+                "fileName": "20591-31.12.17-01.08.2018%2011-01-158.txt",
+                "status": "passed",
+                "data": [
+                    {
+                        "symbol": "AAPL 12",
+                        "company": "Apple Inc.",
+                        "ccp": 1,
+                        "tax": "25%",
+                        "details": "just a test 2"
+                    }
+                ]
+            },
+            {
+                "fileName": "20591-31.12.17-01.08.2018%2011-01-168.txt",
+                "status": "passed",
+                "data": [
+                    {
+                        "symbol": "AAPL 13",
+                        "company": "Apple Inc.",
+                        "ccp": 1,
+                        "tax": "25%",
+                        "details": "Vive la France"
+                    }
+                ]
+            }
+        ],
+        "testFile": {
+            "test": "test"
+        }
+    },
+    {
+        "accID": 222,
+        "timeStamp": 1521624831,
+        "accName": "del Ab",
+        "accSapID": 1,
+        "dealType": "cpa",
+        "isFeed": true,
+        "visitSite": "delatAbe.com",
+        "userName": "Harry",
+        "config": {
+            "parent": "Netrefer2.json",
+            "searchButton": "//button[@id='btnLogin']",
+            "mapping": [
+                {
+                    "Effective_Date": "Date"
+                },
+                {
+                    "Tracker_Code": "MarketingSourceID"
+                },
+                {
+                    "Tracker_Name": "MarketingSourceName"
+                },
+                {
+                    "Clicks": "Clicks"
+                },
+                {
+                    "Impressions": "Views"
+                },
+                {
+                    "Rmp": "FirstTimeDepositingCustomers"
+                },
+                {
+                    "Rmp": "FirstTimeDepositors"
+                },
+                {
+                    "Registration": "Signups"
+                },
+                {
+                    "Merchant_Revenues": "NetRevenue"
+                }
+            ],
+            "aggregateRowsByKey": [
+                {
+                    "fieldToCmp": [
+                        "Tracker_Code",
+                        "Tracker_Name",
+                        "Effective_Date"
+                    ]
+                },
+                {
+                    "fieldToSum": [
+                        "Impressions",
+                        "Clicks",
+                        "Registration",
+                        "Rmp",
+                        "Merchant_Revenues"
+                    ]
+                }
+            ],
+            "jsonColumns": "columns",
+            "usernamekey": "//input[@id='txtUsername']",
+            "loginType": "loginByXpath",
+            "getRequest": {
+                "getURL": "https://account.affiliates.williamhill.com/affiliates/Reports/marketingSourceDailyFiguresReport",
+                "getData": {
+                    "PublishPointID": "All",
+                    "ProductID": "All"
+                }
+            },
+            "dataFormat": "netreferJson",
+            "passwordkey": "//input[@id='txtPassword']",
+            "runNewFlow": "run",
+            "cleanCode": [
+                {
+                    "a": "Tracker_Code",
+                    "b": "cleancode"
+                }
+            ],
+            "rules": [
+                "subString",
+                "mapping",
+                "aggregateRowsByKey",
+                "cleanCode"
+            ],
+            "navigateReport": "https://account.affiliates.williamhill.com/affiliates/Reports/MarketingSourceDailyFigures",
+            "jsonData": "data",
+            "affPrgName": "netrefer.NetreferREVdmMerchantReport",
+            "subString": [
+                [
+                    {
+                        "columnName": "MarketingSourceID"
+                    },
+                    {
+                        "characters": [
+                            ">",
+                            "cutTillEnd"
+                        ]
+                    }
+                ],
+                [
+                    {
+                        "columnName": "MarketingSourceID"
+                    },
+                    {
+                        "characters": [
+                            "startFromFirst",
+                            "<"
+                        ]
+                    }
+                ]
+            ],
+            "loginUrl": "https://account.affiliates.williamhill.com/affiliates/Account/Login#",
+            "effectiveDateFormat": "dd-MM-yyyy",
+            "loginButton": "//input[@id='btnLogin']",
+            "sdfFormat": "dd-MM-yyyy"
+        },
+        "platformName": "Plat-reel",
+        "platformID": 1,
+        "affiliateProgramName": "aff",
+        "affiliateProgramID": 1,
+        "status": "accepted",
+        "status-details": [
+            {
+                "fileName": "20591-31.12.17-01.08.2018%2011-01-218.txt",
+                "status": "passed",
+                "data": [
+                    {
+                        "symbol": "AAPL 18",
+                        "company": "Apple Inc.",
+                        "ccp": 1,
+                        "tax": "25%",
+                        "details": "g gh ghg h"
+                    }
+                ]
+            },
+            {
+                "fileName": "20591-31.12.17-01.08.2018%2011-01-228.txt",
+                "status": "passed",
+                "data": [
+                    {
+                        "symbol": "AAPL",
+                        "company": "Apple Inc.",
+                        "ccp": 1,
+                        "tax": "25%",
+                        "details": "poopopop hjhjhj"
+                    }
+                ]
+            },
+            {
+                "fileName": "20591-31.12.17-01.08.2018%2011-01-238.txt",
+                "status": "passed",
+                "data": [
+                    {
+                        "symbol": "AAPL 19",
+                        "company": "Apple Inc.",
+                        "ccp": 1,
+                        "tax": "25%",
+                        "details": "outree ww"
+                    }
+                ]
+            },
+            {
+                "fileName": "20591-31.12.17-01.08.2018%2011-01-248.txt",
+                "status": "passed",
+                "data": [
+                    {
+                        "symbol": "AAPL 20",
+                        "company": "Apple Inc.",
+                        "ccp": 1,
+                        "tax": "25%",
+                        "details": "hockey"
+                    }
+                ]
+            }
+        ],
+        "testFile": {
+            "test": "test"
+        }
+    },
+    {
+        "accID": 1,
+        "timeStamp": 1521624831,
+        "accName": "Casino Royal",
+        "accSapID": 1,
+        "dealType": "cpa",
+        "isFeed": true,
+        "visitSite": "casinoRoyal.com",
+        "userName": "Dave",
+        "config": {
+            "parent": "Netrefer2.json",
+            "searchButton": "//button[@id='btnLogin']",
+            "mapping": [
+                {
+                    "Effective_Date": "Date"
+                },
+                {
+                    "Tracker_Code": "MarketingSourceID"
+                },
+                {
+                    "Tracker_Name": "MarketingSourceName"
+                },
+                {
+                    "Clicks": "Clicks"
+                },
+                {
+                    "Impressions": "Views"
+                },
+                {
+                    "Rmp": "FirstTimeDepositingCustomers"
+                },
+                {
+                    "Rmp": "FirstTimeDepositors"
+                },
+                {
+                    "Registration": "Signups"
+                },
+                {
+                    "Merchant_Revenues": "NetRevenue"
+                }
+            ],
+            "aggregateRowsByKey": [
+                {
+                    "fieldToCmp": [
+                        "Tracker_Code",
+                        "Tracker_Name",
+                        "Effective_Date"
+                    ]
+                },
+                {
+                    "fieldToSum": [
+                        "Impressions",
+                        "Clicks",
+                        "Registration",
+                        "Rmp",
+                        "Merchant_Revenues"
+                    ]
+                }
+            ],
+            "jsonColumns": "columns",
+            "usernamekey": "//input[@id='txtUsername']",
+            "loginType": "loginByXpath",
+            "getRequest": {
+                "getURL": "https://account.affiliates.williamhill.com/affiliates/Reports/marketingSourceDailyFiguresReport",
+                "getData": {
+                    "PublishPointID": "All",
+                    "ProductID": "All"
+                }
+            },
+            "dataFormat": "netreferJson",
+            "passwordkey": "//input[@id='txtPassword']",
+            "runNewFlow": "run",
+            "cleanCode": [
+                {
+                    "a": "Tracker_Code",
+                    "b": "cleancode"
+                }
+            ],
+            "rules": [
+                "subString",
+                "mapping",
+                "aggregateRowsByKey",
+                "cleanCode"
+            ],
+            "navigateReport": "https://account.affiliates.williamhill.com/affiliates/Reports/MarketingSourceDailyFigures",
+            "jsonData": "data",
+            "affPrgName": "netrefer.NetreferREVdmMerchantReport",
+            "subString": [
+                [
+                    {
+                        "columnName": "MarketingSourceID"
+                    },
+                    {
+                        "characters": [
+                            ">",
+                            "cutTillEnd"
+                        ]
+                    }
+                ],
+                [
+                    {
+                        "columnName": "MarketingSourceID"
+                    },
+                    {
+                        "characters": [
+                            "startFromFirst",
+                            "<"
+                        ]
+                    }
+                ]
+            ],
+            "loginUrl": "https://account.affiliates.williamhill.com/affiliates/Account/Login#",
+            "effectiveDateFormat": "dd-MM-yyyy",
+            "loginButton": "//input[@id='btnLogin']",
+            "sdfFormat": "dd-MM-yyyy"
+        },
+        "platformName": "Casino Royal de la Tronchambiere",
+        "platformID": 100,
+        "affiliateProgramName": "aff-cas-XXXX-UUUU-H 0007 5",
+        "affiliateProgramID": 11,
+        "status": "testing",
+        "testFile": {
+            "test": "test"
+        }
+    },
+    {
+        "accID": 2,
+        "timeStamp": 1521625555,
+        "accName": "Act -xxx",
+        "accSapID": 2,
+        "dealType": "cpc",
+        "isFeed": true,
+        "visitSite": "Act-xxx.com",
+        "userName": "Harry",
+        "config": {
+            "config": "config"
+        },
+        "platformName": "Plat-reel",
+        "platformID": 1,
+        "affiliateProgramName": "aff-1",
+        "affiliateProgramID": 2,
+        "status": "accepted",
+        "status-details": [
+            {
+                "fileName": "20591-31.12.17-01.08.2018%2011-01-58.txt",
+                "status": "passed",
+                "data": [
+                    {
+                        "symbol": "AAPL 2",
+                        "company": "Apple Inc .",
+                        "ccp": 1,
+                        "tax": "25%",
+                        "details": "lipsum    tra la ala ljfdj  fjdskjfs ksdj sdjdsj sj js jsdj f slj s  saj"
+                    }
+                ]
+            },
+            {
+                "fileName": "20591-31.12.17-01.08.2018%2011-01-68.txt",
+                "status": "passed",
+                "data": [
+                    {
+                        "symbol": "AAPL 3",
+                        "company": "Apple Inc.",
+                        "ccp": 1,
+                        "tax": "25%",
+                        "details": "Ceci est un test pour verifier que ma logic est correcte"
+                    }
+                ]
+            },
+            {
+                "fileName": "20591-31.12.17-01.08.2018%2011-01-78.txt",
+                "status": "passed",
+                "data": [
+                    {
+                        "symbol": "AAPL 4",
+                        "company": "Apple Inc.",
+                        "ccp": 1,
+                        "tax": "25%",
+                        "details": "He vous monsieur je ne suis pas sur de savoir ce que vous allez devenir"
+                    }
+                ]
+            },
+            {
+                "fileName": "20591-31.12.17-01.08.2018%2011-01-88.txt",
+                "status": "passed",
+                "data": [
+                    {
+                        "symbol": "AAPL 5",
+                        "company": "Apple Inc.",
+                        "ccp": 1,
+                        "tax": "25%",
+                        "details": "il etait une fois"
+                    }
+                ]
+            },
+            {
+                "fileName": "20591-31.12.17-01.08.2018%2011-01-98.txt",
+                "status": "passed",
+                "data": [
+                    {
+                        "symbol": "AAPL 6",
+                        "company": "Apple Inc.",
+                        "ccp": 1,
+                        "tax": "25%",
+                        "details": "tres grave ce qui vous arrive mon ami"
+                    }
+                ]
+            },
+            {
+                "fileName": "20591-31.12.17-01.08.2018%2011-01-108.txt",
+                "status": "passed",
+                "data": [
+                    {
+                        "symbol": "AAPL 7",
+                        "company": "Apple Inc.",
+                        "ccp": 1,
+                        "tax": "25%",
+                        "details": "Obladi Oblada life goes on...tra lalal al"
+                    }
+                ]
+            },
+            {
+                "fileName": "20591-31.12.17-01.08.2018%2011-01-118.txt",
+                "status": "passed",
+                "data": [
+                    {
+                        "symbol": "AAPL 8 ",
+                        "company": "Apple Inc.",
+                        "ccp": 1,
+                        "tax": "25%",
+                        "details": "HeY jude"
+                    }
+                ]
+            },
+            {
+                "fileName": "20591-31.12.17-01.08.2018%2011-01-228.txt",
+                "status": "passed",
+                "data": [
+                    {
+                        "symbol": "AAPL",
+                        "company": "Apple Inc.",
+                        "ccp": 1,
+                        "tax": "25%",
+                        "details": "poopopop hjhjhj"
+                    }
+                ]
+            },
+            {
+                "fileName": "20591-31.12.17-01.08.2018%2011-01-238.txt",
+                "status": "passed",
+                "data": [
+                    {
+                        "symbol": "AAPL 19",
+                        "company": "Apple Inc.",
+                        "ccp": 1,
+                        "tax": "25%",
+                        "details": "outree ww"
+                    }
+                ]
+            },
+            {
+                "fileName": "20591-31.12.17-01.08.2018%2011-01-248.txt",
+                "status": "passed",
+                "data": [
+                    {
+                        "symbol": "AAPL 20",
+                        "company": "Apple Inc.",
+                        "ccp": 1,
+                        "tax": "25%",
+                        "details": "hockey"
+                    }
+                ]
+            }
+        ],
+        "testFile": {
+            "test": "test"
+        }
+    },
+    {
+        "accID": 3,
+        "timeStamp": 1521623541,
+        "accName": "Prince",
+        "accSapID": 4,
+        "dealType": "rev",
+        "isFeed": true,
+        "visitSite": "princeDeGuale.com",
+        "userName": "me",
+        "config": {
+            "parent": "Netrefer2.json",
+            "searchButton": "//button[@id='btnLogin']",
+            "mapping": [
+                {
+                    "Effective_Date": "Date"
+                },
+                {
+                    "Tracker_Code": "MarketingSourceID"
+                },
+                {
+                    "Tracker_Name": "MarketingSourceName"
+                },
+                {
+                    "Clicks": "Clicks"
+                },
+                {
+                    "Impressions": "Views"
+                },
+                {
+                    "Rmp": "FirstTimeDepositingCustomers"
+                },
+                {
+                    "Rmp": "FirstTimeDepositors"
+                },
+                {
+                    "Registration": "Signups"
+                },
+                {
+                    "Merchant_Revenues": "NetRevenue"
+                }
+            ],
+            "aggregateRowsByKey": [
+                {
+                    "fieldToCmp": [
+                        "Tracker_Code",
+                        "Tracker_Name",
+                        "Effective_Date"
+                    ]
+                },
+                {
+                    "fieldToSum": [
+                        "Impressions",
+                        "Clicks",
+                        "Registration",
+                        "Rmp",
+                        "Merchant_Revenues"
+                    ]
+                }
+            ],
+            "jsonColumns": "columns",
+            "usernamekey": "//input[@id='txtUsername']",
+            "loginType": "loginByXpath",
+            "getRequest": {
+                "getURL": "https://account.affiliates.williamhill.com/affiliates/Reports/marketingSourceDailyFiguresReport",
+                "getData": {
+                    "PublishPointID": "All",
+                    "ProductID": "All"
+                }
+            },
+            "dataFormat": "netreferJson",
+            "passwordkey": "//input[@id='txtPassword']",
+            "runNewFlow": "run",
+            "cleanCode": [
+                {
+                    "a": "Tracker_Code",
+                    "b": "cleancode"
+                }
+            ],
+            "rules": [
+                "subString",
+                "mapping",
+                "aggregateRowsByKey",
+                "cleanCode"
+            ],
+            "navigateReport": "https://account.affiliates.williamhill.com/affiliates/Reports/MarketingSourceDailyFigures",
+            "jsonData": "data",
+            "affPrgName": "netrefer.NetreferREVdmMerchantReport",
+            "subString": [
+                [
+                    {
+                        "columnName": "MarketingSourceID"
+                    },
+                    {
+                        "characters": [
+                            ">",
+                            "cutTillEnd"
+                        ]
+                    }
+                ],
+                [
+                    {
+                        "columnName": "MarketingSourceID"
+                    },
+                    {
+                        "characters": [
+                            "startFromFirst",
+                            "<"
+                        ]
+                    }
+                ]
+            ],
+            "loginUrl": "https://account.affiliates.williamhill.com/affiliates/Account/Login#",
+            "effectiveDateFormat": "dd-MM-yyyy",
+            "loginButton": "//input[@id='btnLogin']",
+            "sdfFormat": "dd-MM-yyyy"
+        },
+        "platformName": "Europe",
+        "platformID": 3,
+        "affiliateProgramName": "aff eur 3",
+        "affiliateProgramID": 3,
+        "status": "canceled",
+        "testFile": {
+            "test": "test"
+        }
+    },
+    {
+        "accID": 4,
+        "timeStamp": 1521623777,
+        "accName": "Napoleon",
+        "accSapID": 5,
+        "dealType": "cpc",
+        "isFeed": true,
+        "visitSite": "bonaparte.com",
+        "userName": "Arthur",
+        "config": {
+            "config": "config"
+        },
+        "platformName": "Cicilian",
+        "platformID": 4,
+        "affiliateProgramName": "DDD",
+        "affiliateProgramID": 3,
+        "status": "failed",
+        "testFile": {
+            "test": "test"
+        },
+        "outputFiles": [
+            {
+                "fileName": "20591-31.12.17-01.08.2018%2011-01-58.txt",
+                "status": "failed",
+                "data": [
+                    {
+                        "symbol": "AAPL 2",
+                        "company": "Apple Inc .",
+                        "ccp": 1,
+                        "tax": "25%",
+                        "details": "lipsum    tra la ala ljfdj  fjdskjfs ksdj sdjdsj sj js jsdj f slj s  saj"
+                    }
+                ]
+            },
+            {
+                "fileName": "20591-31.12.17-01.08.2018%2011-01-68.txt",
+                "status": "passed",
+                "data": [
+                    {
+                        "symbol": "AAPL 3",
+                        "company": "Apple Inc.",
+                        "ccp": 1,
+                        "tax": "25%",
+                        "details": "Ceci est un test pour verifier que ma logic est correcte"
+                    }
+                ]
+            },
+            {
+                "fileName": "20591-31.12.17-01.08.2018%2011-01-78.txt",
+                "status": "failed",
+                "data": [
+                    {
+                        "symbol": "AAPL 4",
+                        "company": "Apple Inc.",
+                        "ccp": 1,
+                        "tax": "25%",
+                        "details": "He vous monsieur je ne suis pas sur de savoir ce que vous allez devenir"
+                    }
+                ]
+            },
+            {
+                "fileName": "20591-31.12.17-01.08.2018%2011-01-88.txt",
+                "status": "passed",
+                "data": [
+                    {
+                        "symbol": "AAPL 5",
+                        "company": "Apple Inc.",
+                        "ccp": 1,
+                        "tax": "25%",
+                        "details": "il etait une fois"
+                    }
+                ]
+            },
+            {
+                "fileName": "20591-31.12.17-01.08.2018%2011-01-98.txt",
+                "status": "failed",
+                "data": [
+                    {
+                        "symbol": "AAPL 6",
+                        "company": "Apple Inc.",
+                        "ccp": 1,
+                        "tax": "25%",
+                        "details": "tres grave ce qui vous arrive mon ami"
+                    }
+                ]
+            },
+            {
+                "fileName": "20591-31.12.17-01.08.2018%2011-01-108.txt",
+                "status": "failed",
+                "data": [
+                    {
+                        "symbol": "AAPL 7",
+                        "company": "Apple Inc.",
+                        "ccp": 1,
+                        "tax": "25%",
+                        "details": "Obladi Oblada life goes on...tra lalal al"
+                    }
+                ]
+            },
+            {
+                "fileName": "20591-31.12.17-01.08.2018%2011-01-118.txt",
+                "status": "passed",
+                "data": [
+                    {
+                        "symbol": "AAPL 8 ",
+                        "company": "Apple Inc.",
+                        "ccp": 1,
+                        "tax": "25%",
+                        "details": "HeY jude"
+                    }
+                ]
+            },
+            {
+                "fileName": "20591-31.12.17-01.08.2018%2011-01-128.txt",
+                "status": "passed",
+                "data": [
+                    {
+                        "symbol": "AAPL 9",
+                        "company": "Apple Inc.",
+                        "ccp": 1,
+                        "tax": "25%",
+                        "details": "Que pass senor rodriguez"
+                    }
+                ]
+            },
+            {
+                "fileName": "20591-31.12.17-01.08.2018%2011-01-138.txt",
+                "status": "passed",
+                "data": [
+                    {
+                        "symbol": "AAPL 10",
+                        "company": "Apple Inc.",
+                        "ccp": 1,
+                        "tax": "25%",
+                        "details": "elle etait si jolie"
+                    }
+                ]
+            },
+            {
+                "fileName": "20591-31.12.17-01.08.2018%2011-01-148.txt",
+                "status": "passed",
+                "data": [
+                    {
+                        "symbol": "AAPL 11",
+                        "company": "Apple Inc.",
+                        "ccp": 1,
+                        "tax": "25%",
+                        "details": "Hello is it me your looking for"
+                    }
+                ]
+            },
+            {
+                "fileName": "20591-31.12.17-01.08.2018%2011-01-158.txt",
+                "status": "passed",
+                "data": [
+                    {
+                        "symbol": "AAPL 12",
+                        "company": "Apple Inc.",
+                        "ccp": 1,
+                        "tax": "25%",
+                        "details": "just a test 2"
+                    }
+                ]
+            },
+            {
+                "fileName": "20591-31.12.17-01.08.2018%2011-01-168.txt",
+                "status": "passed",
+                "data": [
+                    {
+                        "symbol": "AAPL 13",
+                        "company": "Apple Inc.",
+                        "ccp": 1,
+                        "tax": "25%",
+                        "details": "Vive la France"
+                    }
+                ]
+            },
+            {
+                "fileName": "20591-31.12.17-01.08.2018%2011-01-178.txt",
+                "status": "passed",
+                "data": [
+                    {
+                        "symbol": "AAPL 14",
+                        "company": "Apple Inc.",
+                        "ccp": 1,
+                        "tax": "25%",
+                        "details": "ghghg"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "accID": 5,
+        "timeStamp": 1521623777,
+        "accName": "Napoleon - 3",
+        "accSapID": 6,
+        "dealType": "cpl",
+        "isFeed": true,
+        "visitSite": "bonaparte3.com",
+        "userName": "Stephan",
+        "config": {
+            "parent": "Netrefer2.json",
+            "searchButton": "//button[@id='btnLogin']",
+            "mapping": [
+                {
+                    "Effective_Date": "Date"
+                },
+                {
+                    "Tracker_Code": "MarketingSourceID"
+                },
+                {
+                    "Tracker_Name": "MarketingSourceName"
+                },
+                {
+                    "Clicks": "Clicks"
+                },
+                {
+                    "Impressions": "Views"
+                },
+                {
+                    "Rmp": "FirstTimeDepositingCustomers"
+                },
+                {
+                    "Rmp": "FirstTimeDepositors"
+                },
+                {
+                    "Registration": "Signups"
+                },
+                {
+                    "Merchant_Revenues": "NetRevenue"
+                }
+            ],
+            "aggregateRowsByKey": [
+                {
+                    "fieldToCmp": [
+                        "Tracker_Code",
+                        "Tracker_Name",
+                        "Effective_Date"
+                    ]
+                },
+                {
+                    "fieldToSum": [
+                        "Impressions",
+                        "Clicks",
+                        "Registration",
+                        "Rmp",
+                        "Merchant_Revenues"
+                    ]
+                }
+            ],
+            "jsonColumns": "columns",
+            "usernamekey": "//input[@id='txtUsername']",
+            "loginType": "loginByXpath",
+            "getRequest": {
+                "getURL": "https://account.affiliates.williamhill.com/affiliates/Reports/marketingSourceDailyFiguresReport",
+                "getData": {
+                    "PublishPointID": "All",
+                    "ProductID": "All"
+                }
+            },
+            "dataFormat": "netreferJson",
+            "passwordkey": "//input[@id='txtPassword']",
+            "runNewFlow": "run",
+            "cleanCode": [
+                {
+                    "a": "Tracker_Code",
+                    "b": "cleancode"
+                }
+            ],
+            "rules": [
+                "subString",
+                "mapping",
+                "aggregateRowsByKey",
+                "cleanCode"
+            ],
+            "navigateReport": "https://account.affiliates.williamhill.com/affiliates/Reports/MarketingSourceDailyFigures",
+            "jsonData": "data",
+            "affPrgName": "netrefer.NetreferREVdmMerchantReport",
+            "subString": [
+                [
+                    {
+                        "columnName": "MarketingSourceID"
+                    },
+                    {
+                        "characters": [
+                            ">",
+                            "cutTillEnd"
+                        ]
+                    }
+                ],
+                [
+                    {
+                        "columnName": "MarketingSourceID"
+                    },
+                    {
+                        "characters": [
+                            "startFromFirst",
+                            "<"
+                        ]
+                    }
+                ]
+            ],
+            "loginUrl": "https://account.affiliates.williamhill.com/affiliates/Account/Login#",
+            "effectiveDateFormat": "dd-MM-yyyy",
+            "loginButton": "//input[@id='btnLogin']",
+            "sdfFormat": "dd-MM-yyyy"
+        },
+        "platformName": "Cicilian3",
+        "platformID": 5,
+        "affiliateProgramName": "CCC",
+        "affiliateProgramID": 4,
+        "status": "pending",
+        "status-details": [
+            {
+                "fileName": "20591-31.12.17-01.08.2018%2011-01-58.txt",
+                "status": "passed",
+                "data": [
+                    {
+                        "symbol": "AAPL 2",
+                        "company": "Apple Inc .",
+                        "ccp": 1,
+                        "tax": "25%",
+                        "details": "lipsum    tra la ala ljfdj  fjdskjfs ksdj sdjdsj sj js jsdj f slj s  saj"
+                    }
+                ]
+            },
+            {
+                "fileName": "20591-31.12.17-01.08.2018%2011-01-68.txt",
+                "status": "passed",
+                "data": [
+                    {
+                        "symbol": "AAPL 3",
+                        "company": "Apple Inc.",
+                        "ccp": 1,
+                        "tax": "25%",
+                        "details": "Ceci est un test pour verifier que ma logic est correcte"
+                    }
+                ]
+            },
+            {
+                "fileName": "20591-31.12.17-01.08.2018%2011-01-78.txt",
+                "status": "passed",
+                "data": [
+                    {
+                        "symbol": "AAPL 4",
+                        "company": "Apple Inc.",
+                        "ccp": 1,
+                        "tax": "25%",
+                        "details": "He vous monsieur je ne suis pas sur de savoir ce que vous allez devenir"
+                    }
+                ]
+            },
+            {
+                "fileName": "20591-31.12.17-01.08.2018%2011-01-88.txt",
+                "status": "passed",
+                "data": [
+                    {
+                        "symbol": "AAPL 5",
+                        "company": "Apple Inc.",
+                        "ccp": 1,
+                        "tax": "25%",
+                        "details": "il etait une fois"
+                    }
+                ]
+            },
+            {
+                "fileName": "20591-31.12.17-01.08.2018%2011-01-98.txt",
+                "status": "passed",
+                "data": [
+                    {
+                        "symbol": "AAPL 6",
+                        "company": "Apple Inc.",
+                        "ccp": 1,
+                        "tax": "25%",
+                        "details": "tres grave ce qui vous arrive mon ami"
+                    }
+                ]
+            },
+            {
+                "fileName": "20591-31.12.17-01.08.2018%2011-01-108.txt",
+                "status": "passed",
+                "data": [
+                    {
+                        "symbol": "AAPL 7",
+                        "company": "Apple Inc.",
+                        "ccp": 1,
+                        "tax": "25%",
+                        "details": "Obladi Oblada life goes on...tra lalal al"
+                    }
+                ]
+            },
+            {
+                "fileName": "20591-31.12.17-01.08.2018%2011-01-118.txt",
+                "status": "passed",
+                "data": [
+                    {
+                        "symbol": "AAPL 8 ",
+                        "company": "Apple Inc.",
+                        "ccp": 1,
+                        "tax": "25%",
+                        "details": "HeY jude"
+                    }
+                ]
+            },
+            {
+                "fileName": "20591-31.12.17-01.08.2018%2011-01-128.txt",
+                "status": "passed",
+                "data": [
+                    {
+                        "symbol": "AAPL 9",
+                        "company": "Apple Inc.",
+                        "ccp": 1,
+                        "tax": "25%",
+                        "details": "Que pass senor rodriguez"
+                    }
+                ]
+            },
+            {
+                "fileName": "20591-31.12.17-01.08.2018%2011-01-138.txt",
+                "status": "passed",
+                "data": [
+                    {
+                        "symbol": "AAPL 10",
+                        "company": "Apple Inc.",
+                        "ccp": 1,
+                        "tax": "25%",
+                        "details": "elle etait si jolie"
+                    }
+                ]
+            },
+            {
+                "fileName": "20591-31.12.17-01.08.2018%2011-01-148.txt",
+                "status": "passed",
+                "data": [
+                    {
+                        "symbol": "AAPL 11",
+                        "company": "Apple Inc.",
+                        "ccp": 1,
+                        "tax": "25%",
+                        "details": "Hello is it me your looking for"
+                    }
+                ]
+            },
+            {
+                "fileName": "20591-31.12.17-01.08.2018%2011-01-158.txt",
+                "status": "passed",
+                "data": [
+                    {
+                        "symbol": "AAPL 12",
+                        "company": "Apple Inc.",
+                        "ccp": 1,
+                        "tax": "25%",
+                        "details": "just a test 2"
+                    }
+                ]
+            },
+            {
+                "fileName": "20591-31.12.17-01.08.2018%2011-01-168.txt",
+                "status": "passed",
+                "data": [
+                    {
+                        "symbol": "AAPL 13",
+                        "company": "Apple Inc.",
+                        "ccp": 1,
+                        "tax": "25%",
+                        "details": "Vive la France"
+                    }
+                ]
+            },
+            {
+                "fileName": "20591-31.12.17-01.08.2018%2011-01-178.txt",
+                "status": "passed",
+                "data": [
+                    {
+                        "symbol": "AAPL 14",
+                        "company": "Apple Inc.",
+                        "ccp": 1,
+                        "tax": "25%",
+                        "details": "ghghg"
+                    }
+                ]
+            },
+            {
+                "fileName": "20591-31.12.17-01.08.2018%2011-01-188.txt",
+                "status": "passed",
+                "data": [
+                    {
+                        "symbol": "AAPL 15",
+                        "company": "Apple Inc.",
+                        "ccp": 1,
+                        "tax": "25%",
+                        "details": "aaa"
+                    }
+                ]
+            },
+            {
+                "fileName": "20591-31.12.17-01.08.2018%2011-01-198.txt",
+                "status": "passed",
+                "data": [
+                    {
+                        "symbol": "AAPL 16",
+                        "company": "Apple Inc.",
+                        "ccp": 1,
+                        "tax": "25%",
+                        "details": "bbb"
+                    }
+                ]
+            },
+            {
+                "fileName": "20591-31.12.17-01.08.2018%2011-01-208.txt",
+                "status": "passed",
+                "data": [
+                    {
+                        "symbol": "AAPL 17",
+                        "company": "Apple Inc.",
+                        "ccp": 1,
+                        "tax": "25%",
+                        "details": "ccc"
+                    }
+                ]
+            },
+            {
+                "fileName": "20591-31.12.17-01.08.2018%2011-01-218.txt",
+                "status": "passed",
+                "data": [
+                    {
+                        "symbol": "AAPL 18",
+                        "company": "Apple Inc.",
+                        "ccp": 1,
+                        "tax": "25%",
+                        "details": "g gh ghg h"
+                    }
+                ]
+            },
+            {
+                "fileName": "20591-31.12.17-01.08.2018%2011-01-228.txt",
+                "status": "passed",
+                "data": [
+                    {
+                        "symbol": "AAPL",
+                        "company": "Apple Inc.",
+                        "ccp": 1,
+                        "tax": "25%",
+                        "details": "poopopop hjhjhj"
+                    }
+                ]
+            },
+            {
+                "fileName": "20591-31.12.17-01.08.2018%2011-01-238.txt",
+                "status": "passed",
+                "data": [
+                    {
+                        "symbol": "AAPL 19",
+                        "company": "Apple Inc.",
+                        "ccp": 1,
+                        "tax": "25%",
+                        "details": "outree ww"
+                    }
+                ]
+            },
+            {
+                "fileName": "20591-31.12.17-01.08.2018%2011-01-248.txt",
+                "status": "passed",
+                "data": [
+                    {
+                        "symbol": "AAPL 20",
+                        "company": "Apple Inc.",
+                        "ccp": 1,
+                        "tax": "25%",
+                        "details": "hockey"
+                    }
+                ]
+            }
+        ],
+        "testFile": {
+            "test": "test"
+        }
+    },
+    {
+        "accID": 6,
+        "timeStamp": 1455523777,
+        "accName": "Casino Royal",
+        "accSapID": 88,
+        "dealType": "cpa",
+        "isFeed": false,
+        "visitSite": "casino_royal.com",
+        "userName": "Harry",
+        "config": {
+            "parent": "Netrefer2.json",
+            "searchButton": "//button[@id='btnLogin']",
+            "mapping": [
+                {
+                    "Effective_Date": "Date"
+                },
+                {
+                    "Tracker_Code": "MarketingSourceID"
+                },
+                {
+                    "Tracker_Name": "MarketingSourceName"
+                },
+                {
+                    "Clicks": "Clicks"
+                },
+                {
+                    "Impressions": "Views"
+                },
+                {
+                    "Rmp": "FirstTimeDepositingCustomers"
+                },
+                {
+                    "Rmp": "FirstTimeDepositors"
+                },
+                {
+                    "Registration": "Signups"
+                },
+                {
+                    "Merchant_Revenues": "NetRevenue"
+                }
+            ],
+            "aggregateRowsByKey": [
+                {
+                    "fieldToCmp": [
+                        "Tracker_Code",
+                        "Tracker_Name",
+                        "Effective_Date"
+                    ]
+                },
+                {
+                    "fieldToSum": [
+                        "Impressions",
+                        "Clicks",
+                        "Registration",
+                        "Rmp",
+                        "Merchant_Revenues"
+                    ]
+                }
+            ],
+            "jsonColumns": "columns",
+            "usernamekey": "//input[@id='txtUsername']",
+            "loginType": "loginByXpath",
+            "getRequest": {
+                "getURL": "https://account.affiliates.williamhill.com/affiliates/Reports/marketingSourceDailyFiguresReport",
+                "getData": {
+                    "PublishPointID": "All",
+                    "ProductID": "All"
+                }
+            },
+            "dataFormat": "netreferJson",
+            "passwordkey": "//input[@id='txtPassword']",
+            "runNewFlow": "run",
+            "cleanCode": [
+                {
+                    "a": "Tracker_Code",
+                    "b": "cleancode"
+                }
+            ],
+            "rules": [
+                "subString",
+                "mapping",
+                "aggregateRowsByKey",
+                "cleanCode"
+            ],
+            "navigateReport": "https://account.affiliates.williamhill.com/affiliates/Reports/MarketingSourceDailyFigures",
+            "jsonData": "data",
+            "affPrgName": "netrefer.NetreferREVdmMerchantReport",
+            "subString": [
+                [
+                    {
+                        "columnName": "MarketingSourceID"
+                    },
+                    {
+                        "characters": [
+                            ">",
+                            "cutTillEnd"
+                        ]
+                    }
+                ],
+                [
+                    {
+                        "columnName": "MarketingSourceID"
+                    },
+                    {
+                        "characters": [
+                            "startFromFirst",
+                            "<"
+                        ]
+                    }
+                ]
+            ],
+            "loginUrl": "https://account.affiliates.williamhill.com/affiliates/Account/Login#",
+            "effectiveDateFormat": "dd-MM-yyyy",
+            "loginButton": "//input[@id='btnLogin']",
+            "sdfFormat": "dd-MM-yyyy"
+        },
+        "platformName": "the royal",
+        "platformID": 6,
+        "affiliateProgramName": "KING",
+        "affiliateProgramID": 33,
+        "status": "failed",
+        "testFile": {
+            "test": "test"
+        }
+    }
+]

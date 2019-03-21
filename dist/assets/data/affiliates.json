@@ -1,0 +1,344 @@
+{
+  "Affiliate_Programs": [
+    {
+      "Id": 1,
+      "Name": "Affiliates United"
+    },
+    {
+      "Id": 8,
+      "Name": "Mybet"
+    },
+    {
+      "Id": 18,
+      "Name": "Affactive"
+    },
+    {
+      "Id": 22,
+      "Name": "AffiliateClub"
+    },
+    {
+      "Id": 32,
+      "Name": "Betfair"
+    },
+    {
+      "Id": 45,
+      "Name": "Comeon"
+    },
+    {
+      "Id": 49,
+      "Name": "Commission365"
+    },
+    {
+      "Id": 52,
+      "Name": "Ddoxxbet"
+    },
+    {
+      "Id": 73,
+      "Name": "Interwetten"
+    },
+    {
+      "Id": 75,
+      "Name": "Klaver"
+    },
+    {
+      "Id": 77,
+      "Name": "Leovegas"
+    },
+    {
+      "Id": 83,
+      "Name": "Mr Affiliate"
+    },
+    {
+      "Id": 103,
+      "Name": "Roxy Affiliates"
+    },
+    {
+      "Id": 123,
+      "Name": "Unibet"
+    },
+    {
+      "Id": 134,
+      "Name": "YouWin"
+    },
+    {
+      "Id": 171,
+      "Name": "Fvbaffiliate"
+    },
+    {
+      "Id": 177,
+      "Name": "Paddypartners"
+    },
+    {
+      "Id": 178,
+      "Name": "Casumo"
+    },
+    {
+      "Id": 1011,
+      "Name": "Nederbet"
+    },
+    {
+      "Id": 1021,
+      "Name": "SNAI"
+    },
+    {
+      "Id": 1022,
+      "Name": "o-networkaffiliates"
+    },
+    {
+      "Id": 1028,
+      "Name": "GoWild Affiliates"
+    },
+    {
+      "Id": 1034,
+      "Name": "EllmountGaming"
+    },
+    {
+      "Id": 1035,
+      "Name": "Playbet"
+    },
+    {
+      "Id": 1045,
+      "Name": "LSbet Affiliate"
+    },
+    {
+      "Id": 1046,
+      "Name": "RedReturns"
+    },
+    {
+      "Id": 1050,
+      "Name": "Novi affiliates"
+    },
+    {
+      "Id": 1063,
+      "Name": "Thrills affiliates"
+    },
+    {
+      "Id": 1066,
+      "Name": "anyoption"
+    },
+    {
+      "Id": 1072,
+      "Name": "garbo.com"
+    },
+    {
+      "Id": 2101,
+      "Name": "CasinoSaga"
+    },
+    {
+      "Id": 2105,
+      "Name": "To Play Affiliates"
+    },
+    {
+      "Id": 2115,
+      "Name": "32redaffiliiets"
+    },
+    {
+      "Id": 2120,
+      "Name": "Leo affiliates"
+    },
+    {
+      "Id": 2122,
+      "Name": "casinowilds blingcity.com"
+    },
+    {
+      "Id": 2128,
+      "Name": "affiliatesbet8"
+    },
+    {
+      "Id": 2133,
+      "Name": "Metro Play"
+    },
+    {
+      "Id": 2137,
+      "Name": "Earn Affiliates"
+    },
+    {
+      "Id": 2144,
+      "Name": "betdaqaffiliates"
+    },
+    {
+      "Id": 2145,
+      "Name": "betngo"
+    },
+    {
+      "Id": 2146,
+      "Name": "boylesports"
+    },
+    {
+      "Id": 2147,
+      "Name": "digibet"
+    },
+    {
+      "Id": 2152,
+      "Name": "SBObet"
+    },
+    {
+      "Id": 2182,
+      "Name": "WBX"
+    },
+    {
+      "Id": 2186,
+      "Name": "affiliatecruise"
+    },
+    {
+      "Id": 2193,
+      "Name": "annapartners Affiliate Analyze"
+    },
+    {
+      "Id": 2195,
+      "Name": "bringitaffiliate"
+    },
+    {
+      "Id": 2198,
+      "Name": "energycasinopartners"
+    },
+    {
+      "Id": 2200,
+      "Name": "grosvenoraffiliates.com"
+    },
+    {
+      "Id": 2204,
+      "Name": "vipaff"
+    },
+    {
+      "Id": 2224,
+      "Name": "MeccaAffiliates"
+    },
+    {
+      "Id": 2224,
+      "Name": "MeccaAffiliates"
+    },
+    {
+      "Id": 2232,
+      "Name": "leadaffiliates"
+    },
+    {
+      "Id": 2262,
+      "Name": "Betexperaff"
+    },
+    {
+      "Id": 2267,
+      "Name": "Mfortune Partners"
+    },
+    {
+      "Id": 2273,
+      "Name": "Dafabet Affiliate"
+    },
+    {
+      "Id": 2275,
+      "Name": "Nitrobet"
+    },
+    {
+      "Id": 2296,
+      "Name": "YakoAffiliates"
+    },
+    {
+      "Id": 2303,
+      "Name": "RP Affiliates"
+    },
+    {
+      "Id": 2311,
+      "Name": "honestpartners"
+    },
+    {
+      "Id": 2318,
+      "Name": "SeanieMac"
+    },
+    {
+      "Id": 2345,
+      "Name": "Partnerama"
+    },
+    {
+      "Id": 2599,
+      "Name": "Dunder Affiliates"
+    },
+    {
+      "Id": 2611,
+      "Name": "MrRingo Affiliates"
+    },
+    {
+      "Id": 2621,
+      "Name": "Bizimaffiliates"
+    },
+    {
+      "Id": 2696,
+      "Name": "Commission Junction - not active"
+    },
+    {
+      "Id": 2708,
+      "Name": "Quasar Affiliates"
+    },
+    {
+      "Id": 2736,
+      "Name": "OVO Affiliates"
+    },
+    {
+      "Id": 2741,
+      "Name": "Codeaff"
+    },
+    {
+      "Id": 2854,
+      "Name": "Mobil6000 affiliates"
+    },
+    {
+      "Id": 3233,
+      "Name": "Qvaff Affiliation"
+    },
+    {
+      "Id": 3325,
+      "Name": "Lapalingo Affiliates"
+    },
+    {
+      "Id": 3424,
+      "Name": "Viks Affiliates"
+    },
+    {
+      "Id": 3438,
+      "Name": "Larry Affiliates"
+    },
+    {
+      "Id": 3448,
+      "Name": "Lord Lucky Affiliates"
+    },
+    {
+      "Id": 3492,
+      "Name": "Supr Affiliates"
+    },
+    {
+      "Id": 3579,
+      "Name": "Joaffs"
+    },
+    {
+      "Id": 3636,
+      "Name": "Winmasters"
+    },
+    {
+      "Id": 3714,
+      "Name": "Casino Calzone Affiliates"
+    },
+    {
+      "Id": 3766,
+      "Name": "Spintastic Affiliates"
+    },
+    {
+      "Id": 3804,
+      "Name": "VivealSuerte"
+    },
+    {
+      "Id": 3867,
+      "Name": "11.lv Affiliates"
+    },
+    {
+      "Id": 3952,
+      "Name": "Blue Orange Partners"
+    },
+    {
+      "Id": 3958,
+      "Name": "Metal Casino Affiliates"
+    },
+    {
+      "Id": 4996,
+      "Name": "Spinjuju Affiliates"
+    }
+  ]
+}

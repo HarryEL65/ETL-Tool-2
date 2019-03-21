@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 64 64">
+  <defs>
+    <style>
+      .cls-1 {
+        clip-path: url(#clip-iPhone_6_7_8_1);
+      }
+
+      .cls-2 {
+        fill: #333a4d;
+        stroke: #394156;
+      }
+
+      .cls-3 {
+        fill: #d3d6e2;
+      }
+
+      .cls-10, .cls-4 {
+        fill: transparent;
+      }
+
+      .cls-4 {
+        opacity: 0.73;
+      }
+
+      .cls-5 {
+        fill: #3e445c;
+      }
+
+      .cls-6 {
+        fill: #2f3545;
+      }
+
+      .cls-7 {
+        fill: #37b6e5;
+      }
+
+      .cls-8 {
+        stroke: none;
+      }
+
+      .cls-9 {
+        fill: none;
+      }
+    </style>
+    <clipPath id="clip-iPhone_6_7_8_1">
+      <rect width="64" height="64"/>
+    </clipPath>
+  </defs>
+  <g id="iPhone_6_7_8_1" data-name="iPhone 6/7/8 – 1" class="cls-1">
+    <rect class="cls-10" width="64" height="64"/>
+    <g id="Group_731" data-name="Group 731">
+      <g id="Group_1" data-name="Group 1" transform="translate(-36 -112)">
+        <g id="Ellipse_6" data-name="Ellipse 6" class="cls-2" transform="translate(36 112)">
+          <circle class="cls-8" cx="32" cy="32" r="32"/>
+          <circle class="cls-9" cx="32" cy="32" r="31.5"/>
+        </g>
+        <g id="Group_730" data-name="Group 730" transform="translate(44 120)">
+          <path id="Path_1223" data-name="Path 1223" class="cls-3" d="M52.516,30.508A22.008,22.008,0,1,0,30.508,52.516,21.936,21.936,0,0,0,52.516,30.508" transform="translate(-6.508 -6.508)"/>
+          <path id="Path_1224" data-name="Path 1224" class="cls-4" d="M46.516,30.508C46.516,18.3,37.914,8.5,27.508,8.5S8.5,18.3,8.5,30.508s8.6,22.008,19.008,22.008,19.008-9.8,19.008-22.008" transform="translate(-6.508 -6.508)"/>
+          <g id="Group_729" data-name="Group 729" transform="translate(13.992 10.008)">
+            <path id="Path_1225" data-name="Path 1225" class="cls-5" d="M82.8,54.7a6,6,0,1,1,6-6,5.895,5.895,0,0,1-6,6" transform="translate(-72.792 -42.7)"/>
+            <path id="Path_1226" data-name="Path 1226" class="cls-5" d="M69.708,93.9A9.914,9.914,0,0,0,59.7,103.908v11.578a22.143,22.143,0,0,0,20.016,0v-11.6A9.894,9.894,0,0,0,69.708,93.9" transform="translate(-59.7 -81.9)"/>
+          </g>
+          <path id="Path_1227" data-name="Path 1227" class="cls-6" d="M76.292,50.184a7.992,7.992,0,1,1,7.992-7.992A8.017,8.017,0,0,1,76.292,50.184Zm0-12A4.008,4.008,0,1,0,80.3,42.192,4.021,4.021,0,0,0,76.292,38.184Z" transform="translate(-52.292 -26.184)"/>
+          <path id="Path_1228" data-name="Path 1228" class="cls-6" d="M24,48A24,24,0,1,1,48,24,24.077,24.077,0,0,1,24,48ZM24,4.008A19.992,19.992,0,1,0,43.992,24,20.056,20.056,0,0,0,24,4.008Z"/>
+          <path id="Path_1229" data-name="Path 1229" class="cls-6" d="M63.2,113.308a23.9,23.9,0,0,1-10.992-2.6,2.1,2.1,0,0,1-1.008-1.8V97.3a12,12,0,0,1,24,0v11.6a2.1,2.1,0,0,1-1.008,1.8A23.9,23.9,0,0,1,63.2,113.308Zm-7.992-5.6a20.211,20.211,0,0,0,16.008,0V97.3a7.992,7.992,0,0,0-15.984,0v10.406Zm18,1.2Z" transform="translate(-39.2 -65.308)"/>
+        </g>
+        <path id="Union_1" data-name="Union 1" class="cls-7" d="M-95,7V5h-2a1,1,0,0,1-1-1,1,1,0,0,1,1-1h2V1a1,1,0,0,1,1-1,1,1,0,0,1,1,1V3h2a1,1,0,0,1,1,1,1,1,0,0,1-1,1h-2V7a1,1,0,0,1-1,1A1,1,0,0,1-95,7Z" transform="translate(162 150)"/>
+      </g>
+    </g>
+  </g>
+</svg>
